@@ -1,0 +1,11 @@
+---
+bibliography: references.bib
+---
+
+# Data visualization
+
+## A grammar of graphics - `ggplot2`
+
+### Building blocks of a plot
+
+@wickham2010

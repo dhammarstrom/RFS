@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R for Scientific Visualization, Collaboration and Thinking",
+    "section": "",
+    "text": "Preface\nThe purpose of this collection of workshops is to provide basic skills and understanding of scientific visualization, collaboration, and thinking. These concepts are often not taught explicitly in postgraduate courses. Instead, they are assumed to be known and understood or somehow magically infused in students through their respective scientific environments. Instead of relying on magic, professional skills should be taught and developed continuously, explicitly, and systematically.\nThe first workshop deals with data visualization which is a fundamental skill for any scientist. Data visualization, like writing, serves multiple purposes in day-to-day scientific practice. Making graphs before data collection can help the researcher better formulate the scientific problem or explain core concepts for oneself, committees or funding agencies. Visualizations will also be important for exploratory data analysis, for discovering problematic data formatting or important patterns related to the scientific problem. Lastly, visualizations will aid in communicating scientific results to other researchers and the public.\nTwo workshops are devoted to collaboration in data-intensive science. The first workshop deals with the basics of version control and the second workshop deals with structuring collected data into data packages for analysis and sharing. Version control is a way to keep track of changes in a set of files. It also provides opportunities for effective collaboration in complex projects. Using the R package system for data management and sharing is a way to ensure that data is well documented and downstream analyses are reproducible.\nThe last workshop deals with how we can develop scientific thinking using scientific models and data simulations. We will use graphical models to draw out assumptions and explore simulations as a way to test the robustness of our models and plan experiments."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "version-control.html#introduction-to-git-and-github",
+    "href": "version-control.html#introduction-to-git-and-github",
+    "title": "2  Version control and collaborative scientific coding",
+    "section": "2.1 Introduction to git and GitHub",
+    "text": "2.1 Introduction to git and GitHub"
+  },
+  {
+    "objectID": "version-control.html#a-workflow-for-a-scientific-paper",
+    "href": "version-control.html#a-workflow-for-a-scientific-paper",
+    "title": "2  Version control and collaborative scientific coding",
+    "section": "2.2 A workflow for a scientific paper",
+    "text": "2.2 A workflow for a scientific paper\n\n2.2.1 The final result\n\n\n2.2.2 Initial setup\n\n\n2.2.3 Repositories and branches\n\n\n2.2.4 Milestones, issues, and pull requests\n\n\n2.2.5 A style guide for scientific coding\nWe adhere to the tidyverse style guide. The following is a summary of the most important points with some modifications.\n\n\n2.2.6 Publishing"
+  },
+  {
+    "objectID": "writing-packages.html#increased-reproducibility",
+    "href": "writing-packages.html#increased-reproducibility",
+    "title": "3  R packages for data management and sharing",
+    "section": "3.1 Increased reproducibility",
+    "text": "3.1 Increased reproducibility\nA basic principle in reproducible research is that the data and code used to generate results should be made available to others."
+  },
+  {
+    "objectID": "writing-packages.html#r-package-basics",
+    "href": "writing-packages.html#r-package-basics",
+    "title": "3  R packages for data management and sharing",
+    "section": "3.2 R package basics",
+    "text": "3.2 R package basics\n\n3.2.1 Incorporating data into R packages\n\n\n3.2.2 Documenting data"
+  },
+  {
+    "objectID": "writing-packages.html#sharing-packages",
+    "href": "writing-packages.html#sharing-packages",
+    "title": "3  R packages for data management and sharing",
+    "section": "3.3 Sharing packages",
+    "text": "3.3 Sharing packages"
+  },
+  {
+    "objectID": "data-viz.html#a-grammar-of-graphics---ggplot2",
+    "href": "data-viz.html#a-grammar-of-graphics---ggplot2",
+    "title": "1  Data visualization",
+    "section": "1.1 A grammar of graphics - ggplot2",
+    "text": "1.1 A grammar of graphics - ggplot2\n\n1.1.1 Building blocks of a plot\nWickham (2010)\n\n\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.” Journal of Computational and Graphical Statistics 19 (1): 3–28. https://doi.org/10.1198/jcgs.2009.07098."
+  }
+]

@@ -1,0 +1,23 @@
+# Version control and collaborative scientific coding
+
+## Introduction to git and GitHub
+
+## A workflow for a scientific paper
+
+### The final result
+
+### Initial setup
+
+### Repositories and branches
+
+### Milestones, issues, and pull requests
+
+### A style guide for scientific coding
+
+We adhere to the [tidyverse style guide](https://style.tidyverse.org/). The following is a summary of the most important points with some modifications.
+
+
+### Publishing
+
+
+

@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "R for Scientific Visualization, Collaboration and Thinking"
+  author: "Daniel Hammarström"
+  date: "29.9.2023"
+  chapters:
+    - index.qmd
+    - data-viz.qmd
+    - version-control.qmd
+    - writing-packages.qmd
+    - models-and-simulations.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
