@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "R for Scientific Visualization, Collaboration and Thinking"
@@ -14,6 +15,8 @@ book:
     - references.qmd
 
 bibliography: references.bib
+
+
 
 format:
   html:
