@@ -9,3 +9,43 @@ bibliography: references.bib
 ### Building blocks of a plot
 
 @wickham2010
+
+### My first plot
+
+## Before plotting
+
+### Reading data into R
+
+### The verbs of data wrangling
+
+### From wide to long and back again
+
+## Scientific graphic design
+
+The most apparent purpose of a graph in scientific context is to convey information. Information that is better suited for graphical displays than text or tables [@gelman2002].
+
+Tufte [@tufte2001]
+
+-   Show the data
+
+-   Maximize the data-ink ratio
+
+-   Erase non-data ink
+
+-   Erase redundant data ink
+
+-   Revise and edit
+
+### Chartjunk
+
+See `ggpattern` etc for creating chart junk with ggplot2
+
+### Minimizing
+
+See `ggthemes` for range-frame as suggested in tufte Ch 6. Manually minimize summary displays such as boxplots...
+
+### Labels and annotations
+
+Using `ggtext` to format labels etc.
+
+### Glamorous graphics
