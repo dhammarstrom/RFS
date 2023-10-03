@@ -49,3 +49,138 @@ See `ggthemes` for range-frame as suggested in tufte Ch 6. Manually minimize sum
 Using `ggtext` to format labels etc.
 
 ### Glamorous graphics
+
+
+
+In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics.  
+
+Why glamorous graphics?
+- Engage a wider audience
+- Aesthetics matters for understanding
+- "respecting the audience"
+
+The glamour of graphics uses color, typography and layout to increase the impact of the graphic.
+
+### Layout
+
+#### Alignment
+
+Top left align titles
+
+Text should be horizontal
+
+Axis labels should also be horizontal
+
+Alignment should provide clean lines and symmetry
+
+Some alignment can be left/center/right to provide overall structure to the graph.
+
+#### Border, Grid lines, legends
+
+Do not use borders or grid lines. If grid lines, make them lighter and more subtle.
+
+Avoid legends, labels of the data are better or titles with color.
+
+#### White space
+Use white space to separate elements of the graph and give the reader room to understand the graph.
+
+### Typography
+
+#### Fonts
+
+
+#### Hierarchy
+This gives the reader a hierarchy of information. 
+
+
+### Color
+
+What colors look good together? 
+
+
+```{r}
+
+# Load required libraries
+library(ggplot2)
+
+# Create a data frame of angles and radii
+angles <- seq(0, 360, by = 0.1)
+radii <- seq(0.1, 1, by = 0.1)  # Vary the starting point to avoid a point at the center
+df <- expand.grid(angle = angles, radius = radii)
+
+# Create ggplot of colored points in polar coordinates
+p <- ggplot(df, aes(x = angle, y = radius, color = angle, alpha = radius)) +
+  geom_point(size = 8) +
+  scale_color_gradientn(colors = rainbow(360)) +
+  scale_alpha_continuous(range = c(1, 0.1)) +
+  coord_polar(theta = "x") +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+  
+
+#### Alternative
+
+# Create a data frame of angles from 0 to 360
+angles <- seq(0, 360, by = 0.2)
+df <- data.frame(angle = angles)
+
+# Create ggplot of colored points in polar coordinates
+p <- ggplot(df, aes(x = angle, y = 1, color = angle)) +
+  geom_point(size = 10) +
+  scale_color_gradientn(colors = rainbow(360)) +
+  coord_polar(theta = "x") +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+
+```
+
+
+
+The color wheel can be used to find
+
+- Complementary colors that will give high contrast
+- Monochromatic will give harmonious  
+- Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences
+- Triadic colors to give more 
+
+<!-- SEE  https://www.canva.com/colors/color-wheel/ for more on this -->
+
+#### Describing colors, Hue, Saturation and Lightness
+
+#### Background colors
+
+Colors can help reduce "hardness" by avoiding a white background.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
