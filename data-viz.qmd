@@ -4,11 +4,140 @@ bibliography: references.bib
 
 # Data visualization
 
+The most apparent purpose of data visualizations in scientific contexts is to convey information. Information that is not suited for text or tables but for graphical displays [@gelman2002; @tufte2001]. Comparisons between categories, relationships among variables or trends over time may be such information and a visual representations can convey this information more easily than a table.
+
+We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and perform exploratory data analysis. These steps are likely to take up more of your time than polishing *Figure 1* of your upcoming paper.
+
+Data visualization is thus a skill, like writing, that has several purposes. You may write notes for yourself and you write to communicate with others. Notes comes in many forms just as types of messages you write to others. Similarly, data visualizations can have different purposes such as
+
+-   Checking that your data is what could be expected
+-   Diagnosing statistical models
+-   Exploring a relationship between a number of variables
+-   Showing that your measurements are reliable and valid
+-   Conveying the key message from your study
+
+Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of different charts such as box-plot, scatter plot or line graph. These can be very effective, however, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre you need a tool box for data visualizations that does not restrict you. Using a *grammar of graphics* you can be more creative in designing your visualizations.
+
 ## A grammar of graphics - `ggplot2`
+
+Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005] Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics [@wickham2010;@wilkinson2005].
+
+The grammar (in the version described by Wickham [@wickham2010]) has three main components that directly relates to the underlying data of a graph:
+
+-   Layers
+
+-   Scales, and
+
+-   Coordinates and facets
+
+Layers contain a set of aesthetic (**aes**) mapping of the data. This means that variables in a data set are mapped to aesthetics such as coordinates, sizes, shapes, colors etc. Mappings of data comes to life by adding geometric objects or representations (**geom**s). Data are subjected to statistical transformation depending on the geometric representation.
+
+Scales can be used to control aesthetics mappings by determining e.g. color or shape scales.
+
+The coordinate system is used to set the two dimensional axes of a simple graph. The coordinate system can also be used to create maps through a polar projection.
+
+Facets are used to create multiple graphs, or sub-plots on subsets of the data.
+
+On top of the data-driven parts of this grammar comes plot annotations. Annotations can be titles, legends, geometric objects etc used to aid interpretation.
 
 ### Building blocks of a plot
 
-@wickham2010
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-ggplotdataexample
+#| tbl-cap: "Example data for a ggplot"
+
+
+library(tidyverse); library(gt)
+
+data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+      
+           shape = c("a", "a", "b", "b")) %>%
+  gt()
+
+
+
+```
+
+Using a similar example as in [@wickham2010] a basic plot can be broken down into the data (see @tbl-ggplotdataexample), geometric objects (see @fig-ggplotexample A), scales and coordinates and annotations.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggplotexample
+#| fig-cap: "Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)"
+library(cowplot)
+
+a <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape)) + geom_point(size = 3) + 
+  theme_void() +
+  theme(legend.position = "none")
+ 
+b <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  theme(legend.position = "none", 
+        axis.text = element_blank(), 
+        axis.title = element_blank())
+
+c <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  geom_point(color = "white") + 
+  labs(title = "Title", 
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+  
+  theme(axis.ticks = element_blank(), 
+        axis.line = element_blank())
+
+
+d <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  geom_point(color = "black", size = 3) + 
+  labs(title = "Title", 
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+  
+  theme()
+
+
+plot_grid(
+    plot_grid(a, b, c, nrow = 1, align = "vh", 
+              labels = c("a", "b", "c"), 
+          rel_widths = c(0.8, 0.8, 1)), 
+    plot_grid(NULL, d, NULL, rel_widths = c(0.7, 1, 0.7),
+              nrow = 1,
+              labels = c("", "d", "")), 
+    nrow = 2)
+
+```
+
 
 ### My first plot
 
@@ -21,8 +150,6 @@ bibliography: references.bib
 ### From wide to long and back again
 
 ## Scientific graphic design
-
-The most apparent purpose of a graph in scientific context is to convey information. Information that is better suited for graphical displays than text or tables [@gelman2002].
 
 Tufte [@tufte2001]
 
@@ -50,14 +177,9 @@ Using `ggtext` to format labels etc.
 
 ### Glamorous graphics
 
+In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics.
 
-
-In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics.  
-
-Why glamorous graphics?
-- Engage a wider audience
-- Aesthetics matters for understanding
-- "respecting the audience"
+Why glamorous graphics? - Engage a wider audience - Aesthetics matters for understanding - "respecting the audience"
 
 The glamour of graphics uses color, typography and layout to increase the impact of the graphic.
 
@@ -82,21 +204,20 @@ Do not use borders or grid lines. If grid lines, make them lighter and more subt
 Avoid legends, labels of the data are better or titles with color.
 
 #### White space
+
 Use white space to separate elements of the graph and give the reader room to understand the graph.
 
 ### Typography
 
 #### Fonts
 
-
 #### Hierarchy
-This gives the reader a hierarchy of information. 
 
+This gives the reader a hierarchy of information.
 
 ### Color
 
-What colors look good together? 
-
+What colors look good together?
 
 ```{r}
 
@@ -140,14 +261,12 @@ p <- ggplot(df, aes(x = angle, y = 1, color = angle)) +
 
 ```
 
-
-
 The color wheel can be used to find
 
-- Complementary colors that will give high contrast
-- Monochromatic will give harmonious  
-- Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences
-- Triadic colors to give more 
+-   Complementary colors that will give high contrast
+-   Monochromatic will give harmonious\
+-   Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences
+-   Triadic colors to give more
 
 <!-- SEE  https://www.canva.com/colors/color-wheel/ for more on this -->
 
@@ -156,31 +275,3 @@ The color wheel can be used to find
 #### Background colors
 
 Colors can help reduce "hardness" by avoiding a white background.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

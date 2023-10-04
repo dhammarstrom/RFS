@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.330">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -76,7 +110,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -95,7 +130,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-viz.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -166,6 +201,23 @@ div.csl-indent {
   <li><a href="#a-grammar-of-graphics---ggplot2" id="toc-a-grammar-of-graphics---ggplot2" class="nav-link active" data-scroll-target="#a-grammar-of-graphics---ggplot2"><span class="header-section-number">1.1</span> A grammar of graphics - <code>ggplot2</code></a>
   <ul class="collapse">
   <li><a href="#building-blocks-of-a-plot" id="toc-building-blocks-of-a-plot" class="nav-link" data-scroll-target="#building-blocks-of-a-plot"><span class="header-section-number">1.1.1</span> Building blocks of a plot</a></li>
+  <li><a href="#my-first-plot" id="toc-my-first-plot" class="nav-link" data-scroll-target="#my-first-plot"><span class="header-section-number">1.1.2</span> My first plot</a></li>
+  </ul></li>
+  <li><a href="#before-plotting" id="toc-before-plotting" class="nav-link" data-scroll-target="#before-plotting"><span class="header-section-number">1.2</span> Before plotting</a>
+  <ul class="collapse">
+  <li><a href="#reading-data-into-r" id="toc-reading-data-into-r" class="nav-link" data-scroll-target="#reading-data-into-r"><span class="header-section-number">1.2.1</span> Reading data into R</a></li>
+  <li><a href="#the-verbs-of-data-wrangling" id="toc-the-verbs-of-data-wrangling" class="nav-link" data-scroll-target="#the-verbs-of-data-wrangling"><span class="header-section-number">1.2.2</span> The verbs of data wrangling</a></li>
+  <li><a href="#from-wide-to-long-and-back-again" id="toc-from-wide-to-long-and-back-again" class="nav-link" data-scroll-target="#from-wide-to-long-and-back-again"><span class="header-section-number">1.2.3</span> From wide to long and back again</a></li>
+  </ul></li>
+  <li><a href="#scientific-graphic-design" id="toc-scientific-graphic-design" class="nav-link" data-scroll-target="#scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</a>
+  <ul class="collapse">
+  <li><a href="#chartjunk" id="toc-chartjunk" class="nav-link" data-scroll-target="#chartjunk"><span class="header-section-number">1.3.1</span> Chartjunk</a></li>
+  <li><a href="#minimizing" id="toc-minimizing" class="nav-link" data-scroll-target="#minimizing"><span class="header-section-number">1.3.2</span> Minimizing</a></li>
+  <li><a href="#labels-and-annotations" id="toc-labels-and-annotations" class="nav-link" data-scroll-target="#labels-and-annotations"><span class="header-section-number">1.3.3</span> Labels and annotations</a></li>
+  <li><a href="#glamorous-graphics" id="toc-glamorous-graphics" class="nav-link" data-scroll-target="#glamorous-graphics"><span class="header-section-number">1.3.4</span> Glamorous graphics</a></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">1.3.5</span> Layout</a></li>
+  <li><a href="#typography" id="toc-typography" class="nav-link" data-scroll-target="#typography"><span class="header-section-number">1.3.6</span> Typography</a></li>
+  <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color"><span class="header-section-number">1.3.7</span> Color</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -190,18 +242,670 @@ div.csl-indent {
 
 </header>
 
+<p>The most apparent purpose of data visualizations in scientific contexts is to convey information. Information that is not suited for text or tables but for graphical displays <span class="citation" data-cites="gelman2002 tufte2001">(<a href="references.html#ref-gelman2002" role="doc-biblioref">Gelman, Pasarica, and Dodhia 2002</a>; <a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. Comparisons between categories, relationships among variables or trends over time may be such information and a visual representations can convey this information more easily than a table.</p>
+<p>We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and perform exploratory data analysis. These steps are likely to take up more of your time than polishing <em>Figure 1</em> of your upcoming paper.</p>
+<p>Data visualization is thus a skill, like writing, that has several purposes. You may write notes for yourself and you write to communicate with others. Notes comes in many forms just as types of messages you write to others. Similarly, data visualizations can have different purposes such as</p>
+<ul>
+<li>Checking that your data is what could be expected</li>
+<li>Diagnosing statistical models</li>
+<li>Exploring a relationship between a number of variables</li>
+<li>Showing that your measurements are reliable and valid</li>
+<li>Conveying the key message from your study</li>
+</ul>
+<p>Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of different charts such as box-plot, scatter plot or line graph. These can be very effective, however, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre you need a tool box for data visualizations that does not restrict you. Using a <em>grammar of graphics</em> you can be more creative in designing your visualizations.</p>
 <section id="a-grammar-of-graphics---ggplot2" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="a-grammar-of-graphics---ggplot2"><span class="header-section-number">1.1</span> A grammar of graphics - <code>ggplot2</code></h2>
+<p>Building on Wilkinsons <em>The Grammar of Graphics</em> <span class="citation" data-cites="wilkinson2005">(<a href="references.html#ref-wilkinson2005" role="doc-biblioref">Wilkinson and Wills 2005</a>)</span> Wickham <span class="citation" data-cites="wickham2010 wickham2016">(<a href="references.html#ref-wickham2010" role="doc-biblioref">Wickham 2010</a>, <a href="references.html#ref-wickham2016" role="doc-biblioref">2016</a>)</span> implemented a graphical grammar to R through the package <code>ggplot2</code>. The idea behind both Wickhams and Wilkinsons formalized syntax is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics <span class="citation" data-cites="wickham2010 wilkinson2005">(<a href="references.html#ref-wickham2010" role="doc-biblioref">Wickham 2010</a>; <a href="references.html#ref-wilkinson2005" role="doc-biblioref">Wilkinson and Wills 2005</a>)</span>.</p>
+<p>The grammar (in the version described by Wickham <span class="citation" data-cites="wickham2010">(<a href="references.html#ref-wickham2010" role="doc-biblioref">Wickham 2010</a>)</span>) has three main components that directly relates to the underlying data of a graph:</p>
+<ul>
+<li><p>Layers</p></li>
+<li><p>Scales, and</p></li>
+<li><p>Coordinates and facets</p></li>
+</ul>
+<p>Layers contain a set of aesthetic (<strong>aes</strong>) mapping of the data. This means that variables in a data set are mapped to aesthetics such as coordinates, sizes, shapes, colors etc. Mappings of data comes to life by adding geometric objects or representations (<strong>geom</strong>s). Data are subjected to statistical transformation depending on the geometric representation.</p>
+<p>Scales can be used to control aesthetics mappings by determining e.g.&nbsp;color or shape scales.</p>
+<p>The coordinate system is used to set the two dimensional axes of a simple graph. The coordinate system can also be used to create maps through a polar projection.</p>
+<p>Facets are used to create multiple graphs, or sub-plots on subsets of the data.</p>
+<p>On top of the data-driven parts of this grammar comes plot annotations. Annotations can be titles, legends, geometric objects etc used to aid interpretation.</p>
 <section id="building-blocks-of-a-plot" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="building-blocks-of-a-plot"><span class="header-section-number">1.1.1</span> Building blocks of a plot</h3>
-<p><span class="citation" data-cites="wickham2010">Wickham (<a href="references.html#ref-wickham2010" role="doc-biblioref">2010</a>)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ggplotdataexample" class="anchored">
+
+<div id="maukavngot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#maukavngot table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#maukavngot thead, #maukavngot tbody, #maukavngot tfoot, #maukavngot tr, #maukavngot td, #maukavngot th {
+  border-style: none;
+}
+
+#maukavngot p {
+  margin: 0;
+  padding: 0;
+}
+
+#maukavngot .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#maukavngot .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#maukavngot .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#maukavngot .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#maukavngot .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#maukavngot .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#maukavngot .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#maukavngot .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#maukavngot .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#maukavngot .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#maukavngot .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#maukavngot .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#maukavngot .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#maukavngot .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#maukavngot .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#maukavngot .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#maukavngot .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#maukavngot .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#maukavngot .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#maukavngot .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#maukavngot .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#maukavngot .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#maukavngot .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#maukavngot .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#maukavngot .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#maukavngot .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#maukavngot .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#maukavngot .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#maukavngot .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#maukavngot .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#maukavngot .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#maukavngot .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#maukavngot .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#maukavngot .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#maukavngot .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#maukavngot .gt_left {
+  text-align: left;
+}
+
+#maukavngot .gt_center {
+  text-align: center;
+}
+
+#maukavngot .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#maukavngot .gt_font_normal {
+  font-weight: normal;
+}
+
+#maukavngot .gt_font_bold {
+  font-weight: bold;
+}
+
+#maukavngot .gt_font_italic {
+  font-style: italic;
+}
+
+#maukavngot .gt_super {
+  font-size: 65%;
+}
+
+#maukavngot .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#maukavngot .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#maukavngot .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#maukavngot .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#maukavngot .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#maukavngot .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#maukavngot .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false"><caption>Table&nbsp;1.1:  <p>Example data for a ggplot</p> </caption>
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="x">x</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="y">y</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="shape">shape</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="x" class="gt_row gt_right">1.0</td>
+<td headers="y" class="gt_row gt_right">3.0</td>
+<td headers="shape" class="gt_row gt_left">a</td></tr>
+    <tr><td headers="x" class="gt_row gt_right">2.4</td>
+<td headers="y" class="gt_row gt_right">2.0</td>
+<td headers="shape" class="gt_row gt_left">a</td></tr>
+    <tr><td headers="x" class="gt_row gt_right">4.0</td>
+<td headers="y" class="gt_row gt_right">5.0</td>
+<td headers="shape" class="gt_row gt_left">b</td></tr>
+    <tr><td headers="x" class="gt_row gt_right">5.2</td>
+<td headers="y" class="gt_row gt_right">7.8</td>
+<td headers="shape" class="gt_row gt_left">b</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Using a similar example as in <span class="citation" data-cites="wickham2010">(<a href="references.html#ref-wickham2010" role="doc-biblioref">Wickham 2010</a>)</span> a basic plot can be broken down into the data (see <a href="#tbl-ggplotdataexample">Table&nbsp;<span>1.1</span></a>), geometric objects (see <a href="#fig-ggplotexample">Figure&nbsp;<span>1.1</span></a> A), scales and coordinates and annotations.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ggplotexample" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/fig-ggplotexample-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="my-first-plot" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="my-first-plot"><span class="header-section-number">1.1.2</span> My first plot</h3>
+</section>
+</section>
+<section id="before-plotting" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="before-plotting"><span class="header-section-number">1.2</span> Before plotting</h2>
+<section id="reading-data-into-r" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="reading-data-into-r"><span class="header-section-number">1.2.1</span> Reading data into R</h3>
+</section>
+<section id="the-verbs-of-data-wrangling" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="the-verbs-of-data-wrangling"><span class="header-section-number">1.2.2</span> The verbs of data wrangling</h3>
+</section>
+<section id="from-wide-to-long-and-back-again" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="from-wide-to-long-and-back-again"><span class="header-section-number">1.2.3</span> From wide to long and back again</h3>
+</section>
+</section>
+<section id="scientific-graphic-design" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</h2>
+<p>Tufte <span class="citation" data-cites="tufte2001">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span></p>
+<ul>
+<li><p>Show the data</p></li>
+<li><p>Maximize the data-ink ratio</p></li>
+<li><p>Erase non-data ink</p></li>
+<li><p>Erase redundant data ink</p></li>
+<li><p>Revise and edit</p></li>
+</ul>
+<section id="chartjunk" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="chartjunk"><span class="header-section-number">1.3.1</span> Chartjunk</h3>
+<p>See <code>ggpattern</code> etc for creating chart junk with ggplot2</p>
+</section>
+<section id="minimizing" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="minimizing"><span class="header-section-number">1.3.2</span> Minimizing</h3>
+<p>See <code>ggthemes</code> for range-frame as suggested in tufte Ch 6. Manually minimize summary displays such as boxplots…</p>
+</section>
+<section id="labels-and-annotations" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="labels-and-annotations"><span class="header-section-number">1.3.3</span> Labels and annotations</h3>
+<p>Using <code>ggtext</code> to format labels etc.</p>
+</section>
+<section id="glamorous-graphics" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="glamorous-graphics"><span class="header-section-number">1.3.4</span> Glamorous graphics</h3>
+<p>In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics.</p>
+<p>Why glamorous graphics? - Engage a wider audience - Aesthetics matters for understanding - “respecting the audience”</p>
+<p>The glamour of graphics uses color, typography and layout to increase the impact of the graphic.</p>
+</section>
+<section id="layout" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">1.3.5</span> Layout</h3>
+<section id="alignment" class="level4" data-number="1.3.5.1">
+<h4 data-number="1.3.5.1" class="anchored" data-anchor-id="alignment"><span class="header-section-number">1.3.5.1</span> Alignment</h4>
+<p>Top left align titles</p>
+<p>Text should be horizontal</p>
+<p>Axis labels should also be horizontal</p>
+<p>Alignment should provide clean lines and symmetry</p>
+<p>Some alignment can be left/center/right to provide overall structure to the graph.</p>
+</section>
+<section id="border-grid-lines-legends" class="level4" data-number="1.3.5.2">
+<h4 data-number="1.3.5.2" class="anchored" data-anchor-id="border-grid-lines-legends"><span class="header-section-number">1.3.5.2</span> Border, Grid lines, legends</h4>
+<p>Do not use borders or grid lines. If grid lines, make them lighter and more subtle.</p>
+<p>Avoid legends, labels of the data are better or titles with color.</p>
+</section>
+<section id="white-space" class="level4" data-number="1.3.5.3">
+<h4 data-number="1.3.5.3" class="anchored" data-anchor-id="white-space"><span class="header-section-number">1.3.5.3</span> White space</h4>
+<p>Use white space to separate elements of the graph and give the reader room to understand the graph.</p>
+</section>
+</section>
+<section id="typography" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="typography"><span class="header-section-number">1.3.6</span> Typography</h3>
+<section id="fonts" class="level4" data-number="1.3.6.1">
+<h4 data-number="1.3.6.1" class="anchored" data-anchor-id="fonts"><span class="header-section-number">1.3.6.1</span> Fonts</h4>
+</section>
+<section id="hierarchy" class="level4" data-number="1.3.6.2">
+<h4 data-number="1.3.6.2" class="anchored" data-anchor-id="hierarchy"><span class="header-section-number">1.3.6.2</span> Hierarchy</h4>
+<p>This gives the reader a hierarchy of information.</p>
+</section>
+</section>
+<section id="color" class="level3" data-number="1.3.7">
+<h3 data-number="1.3.7" class="anchored" data-anchor-id="color"><span class="header-section-number">1.3.7</span> Color</h3>
+<p>What colors look good together?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles and radii</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>radii <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  <span class="co"># Vary the starting point to avoid a point at the center</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">angle =</span> angles, <span class="at">radius =</span> radii)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> radius, <span class="at">color =</span> angle, <span class="at">alpha =</span> radius)) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Alternative</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles from 0 to 360</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">angle =</span> angles)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">color =</span> angle)) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The color wheel can be used to find</p>
+<ul>
+<li>Complementary colors that will give high contrast</li>
+<li>Monochromatic will give harmonious<br>
+</li>
+<li>Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences</li>
+<li>Triadic colors to give more</li>
+</ul>
+<!-- SEE  https://www.canva.com/colors/color-wheel/ for more on this -->
+<section id="describing-colors-hue-saturation-and-lightness" class="level4" data-number="1.3.7.1">
+<h4 data-number="1.3.7.1" class="anchored" data-anchor-id="describing-colors-hue-saturation-and-lightness"><span class="header-section-number">1.3.7.1</span> Describing colors, Hue, Saturation and Lightness</h4>
+</section>
+<section id="background-colors" class="level4" data-number="1.3.7.2">
+<h4 data-number="1.3.7.2" class="anchored" data-anchor-id="background-colors"><span class="header-section-number">1.3.7.2</span> Background colors</h4>
+<p>Colors can help reduce “hardness” by avoiding a white background.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-gelman2002" class="csl-entry" role="listitem">
+Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s Practice What We Preach.”</span> <em>The American Statistician</em> 56 (2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
+</div>
+<div id="ref-tufte2001" class="csl-entry" role="listitem">
+Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
+</div>
 <div id="ref-wickham2010" class="csl-entry" role="listitem">
 Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
 </div>
+<div id="ref-wickham2016" class="csl-entry" role="listitem">
+———. 2016. <em>Ggplot2 : Elegant Graphics for Data Analysis</em>. 2nd ed. Use r!,. Cham: Springer International Publishing : Imprint: Springer,. <a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
 </div>
+<div id="ref-wilkinson2005" class="csl-entry" role="listitem">
+Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer.
+</div>
+</div>
+</section>
 </section>
 </section>
 
