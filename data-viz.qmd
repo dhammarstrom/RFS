@@ -1,46 +1,78 @@
 ---
 bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
+reference-location: margin
+citation-location: margin
 ---
 
 # Data visualization
 
-The most apparent purpose of data visualizations in scientific contexts is to convey information. Information that is not suited for text or tables but for graphical displays [@gelman2002; @tufte2001]. Comparisons between categories, relationships among variables or trends over time may be such information and a visual representations can convey this information more easily than a table.
+The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables but for graphical displays like comparisons between categories, relationships among variables, or trends over time [@gelman2002; @tufte2001]. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing your manuscript. These steps will likely take up more time than polishing *Figure 1* of your upcoming paper.
 
-We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and perform exploratory data analysis. These steps are likely to take up more of your time than polishing *Figure 1* of your upcoming paper.
-
-Data visualization is thus a skill, like writing, that has several purposes. You may write notes for yourself and you write to communicate with others. Notes comes in many forms just as types of messages you write to others. Similarly, data visualizations can have different purposes such as
+Data visualization is thus a skill, like writing, with several purposes. You may write notes for yourself and write to communicate with others. Notes come in many forms, just as messages you write to others. Similarly, data visualizations can have different purposes, such as
 
 -   Checking that your data is what could be expected
+
 -   Diagnosing statistical models
--   Exploring a relationship between a number of variables
+
+-   Exploring a relationship between many variables
+
 -   Showing that your measurements are reliable and valid
+
 -   Conveying the key message from your study
 
-Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of different charts such as box-plot, scatter plot or line graph. These can be very effective, however, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre you need a tool box for data visualizations that does not restrict you. Using a *grammar of graphics* you can be more creative in designing your visualizations.
+Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that do not limit you. By using a *grammar of graphics* you can be more creative in designing your visualizations.
 
 ## A grammar of graphics - `ggplot2`
 
-Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005] Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics [@wickham2010;@wilkinson2005].
+Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005], Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax for creating data visualizations is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics [@wickham2010; @wilkinson2005].
 
-The grammar (in the version described by Wickham [@wickham2010]) has three main components that directly relates to the underlying data of a graph:
+The grammar (in the version described by Wickham [@wickham2010]) has seven components that together creates a ggplot2 visualization (@fig-ggplotlayers).
 
--   Layers
+The underlying **data** contains the variables that are **mapped to aesthetics** such as coordinates, colors or shapes. Each aesthetic can be controlled through **scales** by assigning values to coordinates, colors, shapes etc. **Geometric objects** creates the visual representations of the mapping. Sometimes small multiples of the same graph are created using **facets** which creates subdivision of the data to be plotted in different panels. **Statistical transformations** creates summaries of the data, however, in its simplest form, the transformation is the identity transformation. All graphical representations are plotted in a **coordinate** system. **Theme and annotations** adds non-data layers to the plot which can include geometric shapes or text (@fig-ggplotlayers).
 
--   Scales, and
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggplotlayers
+#| fig-cap: "Components of a ggplot2 visualization"
 
--   Coordinates and facets
+library(tidyverse)
 
-Layers contain a set of aesthetic (**aes**) mapping of the data. This means that variables in a data set are mapped to aesthetics such as coordinates, sizes, shapes, colors etc. Mappings of data comes to life by adding geometric objects or representations (**geom**s). Data are subjected to statistical transformation depending on the geometric representation.
+## Create a data frame for plotting a rectangle that is tilted to look like a plane in 3D
+parallelogram_data <- data.frame(
+  x = rep(c(1, 4, 6, 3), 7),
+  y = rep(c(1.5, 1.5, 3, 3), 7),
+  col = rep(c("a", "b", "c", "d", "e", "f", "g"), each = 4), 
+  add = rep(c(1, 2, 3, 4, 5, 6, 7), each = 4)) %>%
+  mutate(y = y + add)
 
-Scales can be used to control aesthetics mappings by determining e.g. color or shape scales.
+# Plot the parallelogram using ggplot2
+ggplot() +
+  geom_polygon(data = parallelogram_data, aes(x = x, y = y, fill = col), color = "black", alpha = 0.3) +
+  coord_fixed(ratio = 1) +  # This is to ensure that the x and y axis are on the same scale
+  geom_text(data = data.frame(y = seq(1:7) + 2, 
+                              lab = c("Data", "Aesthetics",
+                                      "Geometric objects", "Facets", 
+                                      "Statistical\ntransformations", 
+                                      "Coordinates", "Theme and\n annotations")), 
+            aes(x = 0.5, y = y, label = lab), 
+            hjust = 1) +
+  
+  scale_x_continuous(limits = c(-2, 6)) +
 
-The coordinate system is used to set the two dimensional axes of a simple graph. The coordinate system can also be used to create maps through a polar projection.
+  theme_void() + 
+  theme(legend.position = "none")
 
-Facets are used to create multiple graphs, or sub-plots on subsets of the data.
 
-On top of the data-driven parts of this grammar comes plot annotations. Annotations can be titles, legends, geometric objects etc used to aid interpretation.
+
+```
 
 ### Building blocks of a plot
+
+Using a similar example as in [@wickham2010] a basic plot can be broken down into the data (see @tbl-ggplotdataexample), geometric objects, scales and coordinates and annotations. These components, that can be individually manipulated, together creates the final plot (see @fig-ggplotexample a-d).
 
 ```{r}
 #| echo: false
@@ -61,8 +93,6 @@ data.frame(x = c(1, 2.4, 4, 5.2),
 
 
 ```
-
-Using a similar example as in [@wickham2010] a basic plot can be broken down into the data (see @tbl-ggplotdataexample), geometric objects (see @fig-ggplotexample A), scales and coordinates and annotations.
 
 ```{r}
 #| echo: false
@@ -138,14 +168,154 @@ plot_grid(
 
 ```
 
+The corresponding code to create this plot is fairly straight forward:
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(ggplot2)
+
+df <- data.frame(x = c(1, 2.4, 4, 5.2),  # <1> 
+           y = c(3, 2, 5, 7.8), 
+           shape = c("a", "a", "b", "b")) 
+
+
+  ggplot(data = df,                      # <2>
+         mapping = aes(x = x, y = y, shape = shape))  +    # <3>
+
+  geom_point(color = "black", size = 3) + # <4>
+  
+    labs(title = "Title",        # <5>
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+    theme_classic() # <6>
+
+
+```
+
+1.  A simple data frame is saved containing the variables we will plot
+2.  The data is explicitly called
+3.  Variables are mapped to coordinates (x and y) and shapes.
+4.  Geometric objects (points) are specified with color and size determined in the function
+5.  Annotations are added to the plot through the `labs` (labels) function.
+6.  A pre-built theme is used to change the default appearance of the plot.
 
 ### My first plot
 
 ## Before plotting
 
+As we saw above, a basic visualization can be created from a data set, or a data frame which is the most common representation of data in R. A *tidy* data set has one observation per row and one variable per column. A tidy data set makes data visualization easy. However, not all data sets are friendly. In fact, some might be unfriendly because they are unhappy[^unhappy].
+
+::: {.column-margin}
+
+[^unhappy]: The reference to happiness is a reference to @wickham2014 wherein Tolstoy's Anna Karenina is quoted; "Happy families are all alike; every unhappy family is unhappy in its own way." The Anna Karenina principle applies to data as non-tidy data can be non-tidy in many ways, tidy data however are tidy because they all share a common set of features.
+
+:::
+
+A lot of effort goes into making data sets suitable for visualization or statistical modelling. The good news is that R is especially suited for the process of importing and wrangling data. As with other common tasks in R there are numerous ways of achieving the same goals. This is a good thing because it allows for solutions to a wide range of problems. It is also a bad thing because it makes it difficult to getting started. A collection of R packages called the [Tidyverse](https://www.tidyverse.org/) makes the process of getting started with data wrangling easier. 
+
+Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding english language descriptions to the left. 
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Take the data ***then do***<br>
+filter the data based on *x* larger than 10 ***then do***<br>
+add a new calculated variable z = x + y ***then do***<br>
+show the output<br>
+
+:::
+
+::: {.column width="40%"}
+
+
+
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+data |>
+  filter(x > 10) |>
+  mutate(z = x + y) |>
+  print()
+
+
+
+
+```
+
+
+:::
+
+::::
+
+The pipe operator (`|>`) takes any input and place it as the first argument in the following function.
+
+- Pipeable functions
+- Base pipe vs. magritter
+
+
+
+
+
 ### Reading data into R
 
+Three packages makes reading tabular data into R easy. `readr` provides functions for reading and writing delimiter separated files, such as `.csv` or `.tsv`. `readxl` provides functions that imports data from excel files. An finally, `googlesheets4` makes it possible to read tabular data created in google sheets.
+
+
+Data can also be loaded from packages in R since storing data is a convenient way of sharing. By including data in a package you are nudged to do some quality checks and document it. We will talk more about data packages in a later workshop. 
+
+
+
 ### The verbs of data wrangling
+
+Once data is available in our workspace we will be able to wrangle it. The `dplyr`package provides a collection of verbs to facilitate wrangling. In the examples below I will use a data set containing results from dual x-ray absorptiometry available in the `exscidata` package. To install it:
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(remotes)
+install_github("dhammarstrom/exscidata")
+
+```
+
+#### Select and rename variables
+
+Variables in a data frame may be selected and renamed
+
+
+
+```{r}
+
+library(exscidata)
+
+dxadata <- exscidata::dxadata # <1>
+
+
+
+
+
+```
+
+1. Load the data set from the package and save it as an object in the workspace
+2. 
+
+
+
+
+
+
+
+
+
 
 ### From wide to long and back again
 
