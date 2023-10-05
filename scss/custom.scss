@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+$theme-darkblue: #01364C;
+$theme-blue: #99D9DD;
+$theme-white: #F7F8F9;
+$theme-yellow: #F4BA02;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Pixelify+Sans:wght@400;500;600&family=Young+Serif&display=swap');
+
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$presentation-heading-font: 'Young Serif', serif;
+$font
+
+$body-bg: $theme-darkblue;
+$body-color: $theme-white;
+$link-color: $theme-blue;
+$presentation-heading-color: lighten($theme-blue, 5%);
+/*-- scss:rules --*/
+
+.blue {
+  color: $theme-blue;
+  font-weight: bold;
+}
+
+.yellow {
+  color: $theme-yellow;
+  font-weight: bold;
+}
+
+.titlehi {
+  font-family: ;
+}
+
