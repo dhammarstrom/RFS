@@ -31,6 +31,8 @@ format:
 - Document functions as part of packages <!-- Broman et al -->
 - Document data
 - Use version control
+- Comment your code!
+- Compartmentalize analyses, small scripts, incremental steps.
 
 :::
 

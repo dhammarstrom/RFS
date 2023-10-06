@@ -4,7 +4,6 @@
 
 A basic principle in reproducible research is that the data and code used to generate results should be made available to others.
 
-
 ## R package basics
 
 ### Incorporating data into R packages
@@ -12,4 +11,3 @@ A basic principle in reproducible research is that the data and code used to gen
 ### Documenting data
 
 ## Sharing packages
-
