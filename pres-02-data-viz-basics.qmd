@@ -1,0 +1,8 @@
+---
+title: "[Data visualization in R - The basics]{.yellow}"
+subtitle: ""
+format:
+  revealjs:
+    theme: [default, scss/custom-light.scss]
+---
+## [A title]{.green}

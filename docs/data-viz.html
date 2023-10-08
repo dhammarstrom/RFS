@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.330">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -110,7 +110,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -129,7 +130,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-viz.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -200,7 +201,6 @@ div.csl-indent {
   <li><a href="#a-grammar-of-graphics---ggplot2" id="toc-a-grammar-of-graphics---ggplot2" class="nav-link active" data-scroll-target="#a-grammar-of-graphics---ggplot2"><span class="header-section-number">1.1</span> A grammar of graphics - <code>ggplot2</code></a>
   <ul class="collapse">
   <li><a href="#building-blocks-of-a-plot" id="toc-building-blocks-of-a-plot" class="nav-link" data-scroll-target="#building-blocks-of-a-plot"><span class="header-section-number">1.1.1</span> Building blocks of a plot</a></li>
-  <li><a href="#my-first-plot" id="toc-my-first-plot" class="nav-link" data-scroll-target="#my-first-plot"><span class="header-section-number">1.1.2</span> My first plot</a></li>
   </ul></li>
   <li><a href="#before-plotting" id="toc-before-plotting" class="nav-link" data-scroll-target="#before-plotting"><span class="header-section-number">1.2</span> Before plotting</a>
   <ul class="collapse">
@@ -208,6 +208,7 @@ div.csl-indent {
   <li><a href="#the-verbs-of-data-wrangling" id="toc-the-verbs-of-data-wrangling" class="nav-link" data-scroll-target="#the-verbs-of-data-wrangling"><span class="header-section-number">1.2.2</span> The verbs of data wrangling</a></li>
   <li><a href="#from-wide-to-long-and-back-again" id="toc-from-wide-to-long-and-back-again" class="nav-link" data-scroll-target="#from-wide-to-long-and-back-again"><span class="header-section-number">1.2.3</span> From wide to long and back again</a></li>
   <li><a href="#joining-data-sets" id="toc-joining-data-sets" class="nav-link" data-scroll-target="#joining-data-sets"><span class="header-section-number">1.2.4</span> Joining data sets</a></li>
+  <li><a href="#filters-and-sorting-rows" id="toc-filters-and-sorting-rows" class="nav-link" data-scroll-target="#filters-and-sorting-rows"><span class="header-section-number">1.2.5</span> Filters and sorting rows</a></li>
   </ul></li>
   <li><a href="#scientific-graphic-design" id="toc-scientific-graphic-design" class="nav-link" data-scroll-target="#scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</a>
   <ul class="collapse">
@@ -268,7 +269,7 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
 <div id="fig-ggplotlayers" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="data-viz_files/figure-html/fig-ggplotlayers-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Components of a ggplot2 visualization</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: Components of a ggplot2 visualization</figcaption>
 </figure>
 </div>
 </div>
@@ -282,23 +283,23 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <div class="cell-output-display">
 <div id="tbl-ggplotdataexample" class="anchored">
 
-<div id="fglmxnppye" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fglmxnppye table {
+<div id="jcstwwjkcx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jcstwwjkcx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fglmxnppye thead, #fglmxnppye tbody, #fglmxnppye tfoot, #fglmxnppye tr, #fglmxnppye td, #fglmxnppye th {
+#jcstwwjkcx thead, #jcstwwjkcx tbody, #jcstwwjkcx tfoot, #jcstwwjkcx tr, #jcstwwjkcx td, #jcstwwjkcx th {
   border-style: none;
 }
 
-#fglmxnppye p {
+#jcstwwjkcx p {
   margin: 0;
   padding: 0;
 }
 
-#fglmxnppye .gt_table {
+#jcstwwjkcx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -324,12 +325,12 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-left-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_caption {
+#jcstwwjkcx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fglmxnppye .gt_title {
+#jcstwwjkcx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -341,7 +342,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-width: 0;
 }
 
-#fglmxnppye .gt_subtitle {
+#jcstwwjkcx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -353,7 +354,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-top-width: 0;
 }
 
-#fglmxnppye .gt_heading {
+#jcstwwjkcx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -365,13 +366,13 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_bottom_border {
+#jcstwwjkcx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_col_headings {
+#jcstwwjkcx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -386,7 +387,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_col_heading {
+#jcstwwjkcx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -406,7 +407,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   overflow-x: hidden;
 }
 
-#fglmxnppye .gt_column_spanner_outer {
+#jcstwwjkcx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -418,15 +419,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 4px;
 }
 
-#fglmxnppye .gt_column_spanner_outer:first-child {
+#jcstwwjkcx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fglmxnppye .gt_column_spanner_outer:last-child {
+#jcstwwjkcx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fglmxnppye .gt_column_spanner {
+#jcstwwjkcx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -438,11 +439,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   width: 100%;
 }
 
-#fglmxnppye .gt_spanner_row {
+#jcstwwjkcx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fglmxnppye .gt_group_heading {
+#jcstwwjkcx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -468,7 +469,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   text-align: left;
 }
 
-#fglmxnppye .gt_empty_group_heading {
+#jcstwwjkcx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -483,15 +484,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   vertical-align: middle;
 }
 
-#fglmxnppye .gt_from_md > :first-child {
+#jcstwwjkcx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fglmxnppye .gt_from_md > :last-child {
+#jcstwwjkcx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fglmxnppye .gt_row {
+#jcstwwjkcx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -510,7 +511,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   overflow-x: hidden;
 }
 
-#fglmxnppye .gt_stub {
+#jcstwwjkcx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -523,7 +524,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#fglmxnppye .gt_stub_row_group {
+#jcstwwjkcx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -537,15 +538,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   vertical-align: top;
 }
 
-#fglmxnppye .gt_row_group_first td {
+#jcstwwjkcx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fglmxnppye .gt_row_group_first th {
+#jcstwwjkcx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fglmxnppye .gt_summary_row {
+#jcstwwjkcx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -555,16 +556,16 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#fglmxnppye .gt_first_summary_row {
+#jcstwwjkcx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_first_summary_row.thick {
+#jcstwwjkcx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fglmxnppye .gt_last_summary_row {
+#jcstwwjkcx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -574,7 +575,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_grand_summary_row {
+#jcstwwjkcx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -584,7 +585,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#fglmxnppye .gt_first_grand_summary_row {
+#jcstwwjkcx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -594,7 +595,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-top-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_last_grand_summary_row_top {
+#jcstwwjkcx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -604,11 +605,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_striped {
+#jcstwwjkcx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fglmxnppye .gt_table_body {
+#jcstwwjkcx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -617,7 +618,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_footnotes {
+#jcstwwjkcx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -631,7 +632,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_footnote {
+#jcstwwjkcx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -640,7 +641,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#fglmxnppye .gt_sourcenotes {
+#jcstwwjkcx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -654,7 +655,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#fglmxnppye .gt_sourcenote {
+#jcstwwjkcx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -662,63 +663,63 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#fglmxnppye .gt_left {
+#jcstwwjkcx .gt_left {
   text-align: left;
 }
 
-#fglmxnppye .gt_center {
+#jcstwwjkcx .gt_center {
   text-align: center;
 }
 
-#fglmxnppye .gt_right {
+#jcstwwjkcx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fglmxnppye .gt_font_normal {
+#jcstwwjkcx .gt_font_normal {
   font-weight: normal;
 }
 
-#fglmxnppye .gt_font_bold {
+#jcstwwjkcx .gt_font_bold {
   font-weight: bold;
 }
 
-#fglmxnppye .gt_font_italic {
+#jcstwwjkcx .gt_font_italic {
   font-style: italic;
 }
 
-#fglmxnppye .gt_super {
+#jcstwwjkcx .gt_super {
   font-size: 65%;
 }
 
-#fglmxnppye .gt_footnote_marks {
+#jcstwwjkcx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fglmxnppye .gt_asterisk {
+#jcstwwjkcx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fglmxnppye .gt_indent_1 {
+#jcstwwjkcx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fglmxnppye .gt_indent_2 {
+#jcstwwjkcx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fglmxnppye .gt_indent_3 {
+#jcstwwjkcx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fglmxnppye .gt_indent_4 {
+#jcstwwjkcx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fglmxnppye .gt_indent_5 {
+#jcstwwjkcx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -757,7 +758,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <div id="fig-ggplotexample" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="data-viz_files/figure-html/fig-ggplotexample-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.2: Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)</figcaption>
 </figure>
 </div>
 </div>
@@ -786,34 +787,31 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="3">A simple data frame is saved containing the variables we will plot</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-1" data-code-annotation="1">A simple data frame is saved containing the variables we will plot</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="8">The data is explicitly called</span>
+<span data-code-lines="8" data-code-cell="annotated-cell-1" data-code-annotation="2">The data is explicitly called</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="9">Variables are mapped to coordinates (x and y) and shapes.</span>
+<span data-code-lines="9" data-code-cell="annotated-cell-1" data-code-annotation="3">Variables are mapped to coordinates (x and y) and shapes.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="4" data-code-lines="11">Geometric objects (points) are specified with color and size determined in the function</span>
+<span data-code-lines="11" data-code-cell="annotated-cell-1" data-code-annotation="4">Geometric objects (points) are specified with color and size determined in the function</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="5" data-code-lines="13">Annotations are added to the plot through the <code>labs</code> (labels) function.</span>
+<span data-code-lines="13" data-code-cell="annotated-cell-1" data-code-annotation="5">Annotations are added to the plot through the <code>labs</code> (labels) function.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="6" data-code-lines="18">A pre-built theme is used to change the default appearance of the plot.</span>
+<span data-code-lines="18" data-code-cell="annotated-cell-1" data-code-annotation="6">A pre-built theme is used to change the default appearance of the plot.</span>
 </dd>
 </dl>
 </div>
 </div>
-</section>
-<section id="my-first-plot" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="my-first-plot"><span class="header-section-number">1.1.2</span> My first plot</h3>
 </section>
 </section>
 <section id="before-plotting" class="level2 page-columns page-full" data-number="1.2">
@@ -825,7 +823,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <div class="no-row-height column-margin column-container"><div class="">
 
 </div></div><p>A lot of effort goes into making data sets suitable for visualization or statistical modelling. The good news is that R is especially suited for the process of importing and wrangling data. As with other common tasks in R there are numerous ways of achieving the same goals. This is a good thing because it allows for solutions to a wide range of problems. It is also a bad thing because it makes it difficult to getting started. A collection of R packages called the <a href="https://www.tidyverse.org/">Tidyverse</a> makes the process of getting started with data wrangling easier.</p>
-<p>Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding english language descriptions to the left.</p>
+<p>Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding English language descriptions to the left.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>Take the data <strong><em>then do</em></strong><br> filter the data based on <em>x</em> larger than 10 <strong><em>then do</em></strong><br> add a new calculated variable z = x + y <strong><em>then do</em></strong><br> show the output<br></p>
@@ -838,11 +836,59 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 </div>
 </div>
 </div>
-<p>The pipe operator (<code>|&gt;</code>) takes any input and place it as the first argument in the following function.</p>
-<ul>
-<li>Pipeable functions</li>
-<li>Base pipe vs.&nbsp;magritter</li>
-</ul>
+<div class="page-columns page-full"><p>The pipe operator (<code>|&gt;</code>) takes any input and place it as the first argument in the following function<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. This is the mechanism that makes sequential operations possible. A pipe operator makes code more readable, consider the following two alternatives:</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;A function is a basic building block of your R code. Function are designed for specific tasks and can be part of packages or created by the user. A function may take arguments such as <code>fun(&lt;ARGUMENT1&gt; = &lt;default input&gt;, &lt;ARGUMNET2&gt; = &lt;default input&gt;)</code>. Arguments can be used without explicitly naming them by putting expected input in at the right position. Orders of argument may be changed is argument names are used.</p></li></div></div>
+<div class="margin-column">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mutate</span>(<span class="fu">filter</span>(<span class="fu">select</span>(data, var1<span class="sc">:</span>var3), var1 <span class="sc">==</span> <span class="st">"xxx"</span>), <span class="at">var4 =</span> var1 <span class="sc">+</span> var2))</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(var1<span class="sc">:</span>var3) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(var1 <span class="sc">==</span> <span class="st">"xxx"</span>) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var4 =</span> var1 <span class="sc">+</span> var2) </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-cell="annotated-cell-2" data-code-annotation="1">Alternative 1: A number of operations are performed on data, we have to read from in to out to see each step.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="4" data-code-cell="annotated-cell-2" data-code-annotation="2">Alternative 2: The same steps are performed as in alternative 1, in the same order.</span>
+</dd>
+</dl>
+</div>
+</div>
+<p>The pipe in alternative 2 are structured with the pipe operator making the code more readable and easier to edit. Notice that the same functions are used in both cases.</p>
+<p>In R there are two main pipe operators. We have the “base R” pipe, <code>|&gt;</code>. This pipe operator is included in the base installation of R and available without loading any packages on start up. A second pipe belongs to the <code>magritter</code> package. The <code>magritter</code> pipe (<code>%&gt;%</code>) has the same basic functionality as the base pipe; the left hand input is inserted as the first argument in any right hand function.</p>
+<p>Sometimes you might want to place your input somewhere else than as the first argument in a right hand function. A placeholder can be used to indicate where you would like to place your input. The base pipe differs from the <code>magritter</code> pipe in what symbol indicates a placeholder. In the example below, the function <code>some_fun()</code> expects data as the third argument. We need to use our placeholder to put the data in the correct position:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">some_fun</span>(<span class="at">arg1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">arg2 =</span> <span class="st">"some.setting"</span>, </span>
+<span id="annotated-cell-3-4"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">arg3 =</span> _)</span>
+<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-8" class="code-annotation-target"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-3-9"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">some_fun</span>(<span class="at">arg1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="annotated-cell-3-10"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">arg2 =</span> <span class="st">"some.setting"</span>, </span>
+<span id="annotated-cell-3-11"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">arg3 =</span> .)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-cell="annotated-cell-3" data-code-annotation="1">With the base R forward pipe operator.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="8" data-code-cell="annotated-cell-3" data-code-annotation="2">With the <code>magritter</code> forward pipe operator.</span>
+</dd>
+</dl>
+</div>
+</div>
 <section id="reading-data-into-r" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="reading-data-into-r"><span class="header-section-number">1.2.1</span> Reading data into R</h3>
 <p>Three packages makes reading tabular data into R easy. <code>readr</code> provides functions for reading and writing delimiter separated files, such as <code>.csv</code> or <code>.tsv</code>. <code>readxl</code> provides functions that imports data from excel files. An finally, <code>googlesheets4</code> makes it possible to read tabular data created in google sheets.</p>
@@ -856,6 +902,17 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">"dhammarstrom/exscidata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>dplyr</code>package provides a collection of verbs to facilitate wrangling. As mentioned above, “pipeable” functions takes a data frame as its first argument. This means that we can line up functions in sequential order using a pipe operator. In all verb functions, following the data argument follows a set of arguments that specifies what we wish to do with the data. The result of the operations performed by the function are returned as a data frame.</p>
+<p><code>dplyr</code> contains the following main data verbs:</p>
+<ul>
+<li><code>select</code></li>
+<li><code>rename</code></li>
+<li><code>relocate</code></li>
+<li><code>mutate</code></li>
+<li><code>filter</code></li>
+<li><code>arrange</code></li>
+<li><code>summarize</code></li>
+</ul>
+<p>In addition, several helper function will aid our wrangling endevors.</p>
 <p><code>dplyr</code> is loaded as part of the <code>tidyverse</code> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -865,8 +922,8 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <p>Variables in a data frame may be selected and renamed. Such operation may have multiple purposes such as giving you a better overview of the data of interest or limiting what data to display in a table. Renaming can make life easier if the data set contains long variable names.</p>
 <p>Below we will store a subset of the data in a new data set. But we will first have a look at what column names are available:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
-<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(exscidata<span class="sc">::</span>dxadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(exscidata<span class="sc">::</span>dxadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 80
 Columns: 59
@@ -934,28 +991,28 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 <p>The data set contains 80 rows and 59 columns. The variables in the data set are described as part of the <code>exscidata</code> package and can be seen by typing <code>?dxadata</code> in the console.</p>
 <p>We will work further with lean body mass data, these are variables starting with <code>lean.</code>. In addition we need variables describing observations like <code>participant</code>, <code>time</code>, <code>multiple</code>, <code>single</code>, <code>sex</code>, <code>include</code>, <code>height</code> and <code>weight</code>. To select these variables we can try a couple of different approaches. The <code>select</code> function can select variables by name. This means that we can simply list them:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
-<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-4" class="code-annotation-target"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, multiple, single) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-7-4" class="code-annotation-target"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, multiple, single) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-7-5" class="code-annotation-target"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="1">Load the <code>exscidata</code> package</span>
+<span data-code-lines="1" data-code-cell="annotated-cell-7" data-code-annotation="1">Load the <code>exscidata</code> package</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="2" data-code-lines="3">Retrieve the data from the exscidata package</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-7" data-code-annotation="2">Retrieve the data from the exscidata package</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="3" data-code-lines="4">select variables based on names</span>
+<span data-code-lines="4" data-code-cell="annotated-cell-7" data-code-annotation="3">select variables based on names</span>
 </dd>
-<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
+<dt data-target-cell="annotated-cell-7" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="4" data-code-lines="5">Print the resulting data frame.</span>
+<span data-code-lines="5" data-code-cell="annotated-cell-7" data-code-annotation="4">Print the resulting data frame.</span>
 </dd>
 </dl>
 </div>
@@ -978,14 +1035,14 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </div>
 <p>The above means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax <code>&lt;first column&gt;:&lt;last column&gt;</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-2" class="code-annotation-target"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-annotation="1" data-code-lines="2">Selecting by a first and last column in a sequence.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-8" data-code-annotation="1">Selecting by a first and last column in a sequence.</span>
 </dd>
 </dl>
 </div>
@@ -1008,23 +1065,23 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </div>
 <p>We also like to have the lean body mass data included in our new data set. Since all variables containing lean body mass data starts with <code>lean.</code> we can use a helper function to select them. Two alternatives are possible:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight, <span class="fu">starts_with</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span>
-<span id="annotated-cell-7-4"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-7-5"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-7-6"><a href="#annotated-cell-7-6" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-7" class="code-annotation-target"><a href="#annotated-cell-7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight, <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-7-8"><a href="#annotated-cell-7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-9-1"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight, <span class="fu">starts_with</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-9-3"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span>
+<span id="annotated-cell-9-4"><a href="#annotated-cell-9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-9-5"><a href="#annotated-cell-9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-9-6"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-7" class="code-annotation-target"><a href="#annotated-cell-9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight, <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-9-8"><a href="#annotated-cell-9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>() </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-7" data-code-annotation="1" data-code-lines="2">Using <code>starts_with</code> to select all columns that starts with <code>lean.</code></span>
+<span data-code-lines="2" data-code-cell="annotated-cell-9" data-code-annotation="1">Using <code>starts_with</code> to select all columns that starts with <code>lean.</code></span>
 </dd>
-<dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-7" data-code-annotation="2" data-code-lines="7">Using <code>contains</code>to select all variables that contains <code>lean.</code></span>
+<span data-code-lines="7" data-code-cell="annotated-cell-9" data-code-annotation="2">Using <code>contains</code>to select all variables that contains <code>lean.</code></span>
 </dd>
 </dl>
 </div>
@@ -1219,22 +1276,24 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </section>
 <section id="from-wide-to-long-and-back-again" class="level3 page-columns page-full" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="from-wide-to-long-and-back-again"><span class="header-section-number">1.2.3</span> From wide to long and back again</h3>
-<p>The <code>dxadata</code> data set is not a tidy data set. It contains two variables (<code>single</code> and <code>multiple</code>) that indicates which leg has been training with low and moderate volume respectively <span class="citation" data-cites="hammarström2020">(<a href="references.html#ref-hammarström2020" role="doc-biblioref"><strong>hammarström2020?</strong></a>)</span>. Additionally, lean mass variables could be separated based on body half (right or left). To compare training volume we need to reformat the data set. We will start by making a smaller data set that indicate training volume per leg.</p>
-<p>As we have already seen, <code>participant</code>, <code>single</code> and <code>multiple</code> are the variables needed to make a data set that indicates training volume per leg, per participant. We will start by selecting these columns followed by pivoting the data as the volume data is located in two variables. This essentially means that we will make the data set longer.</p>
+<p>The <code>dxadata</code> data set is not a tidy data set. It contains two variables (<code>single</code> and <code>multiple</code>) that indicates which leg has been training with low and moderate volume respectively <span class="citation" data-cites="hammarstrom2020">(<a href="references.html#ref-hammarstrom2020" role="doc-biblioref">Hammarström et al. 2020</a>)</span>. Additionally, lean mass variables could be separated based on body half (right or left). To compare training volume we need to reformat the data set. We will start by making a smaller data set that indicate training volume per leg.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-hammarstrom2020" class="csl-entry" role="listitem">
+Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R. Rønnestad, and Stian Ellefsen. 2020. <span>“Benefits of higher resistance-training volume are related to ribosome biogenesis.”</span> <em>The Journal of physiology</em> 598 (3): 543–65. <a href="https://doi.org/10.1113/JP278455">https://doi.org/10.1113/JP278455</a>.
+</div></div><p>As we have already seen, <code>participant</code>, <code>single</code> and <code>multiple</code> are the variables needed to make a data set that indicates training volume per leg, per participant. We will start by selecting these columns followed by pivoting the data as the volume data is located in two variables. This essentially means that we will make the data set longer.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-13"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-13-2" class="code-annotation-target"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, multiple, single) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-13-3" class="code-annotation-target"><a href="#annotated-cell-13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">values_to =</span> <span class="st">"leg"</span>, <span class="at">names_to =</span> <span class="st">"volume"</span>,  <span class="at">cols =</span> multiple<span class="sc">:</span>single) <span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-13-4"><a href="#annotated-cell-13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-15-2" class="code-annotation-target"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, multiple, single) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-15-3" class="code-annotation-target"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">values_to =</span> <span class="st">"leg"</span>, <span class="at">names_to =</span> <span class="st">"volume"</span>,  <span class="at">cols =</span> multiple<span class="sc">:</span>single) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-15-4"><a href="#annotated-cell-15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-13" data-code-annotation="1" data-code-lines="2">Selecting our variables of interest</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-15" data-code-annotation="1">Selecting our variables of interest</span>
 </dd>
-<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-13" data-code-annotation="2" data-code-lines="3">Creating a long data set based on volume data spread over two columns.</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-15" data-code-annotation="2">Creating a long data set based on volume data spread over two columns.</span>
 </dd>
 </dl>
 </div>
@@ -1257,16 +1316,16 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </div>
 <p>As we see we now have a long data set, but it is longer than expected. The original data contains only 41 participants. As each participant has two legs we would expect 82 observations. Above we did not remove post-intervention observations and we therefore have several duplicates. This can be taken care of by using the <code>distinct</code> function which returns unique observations across a combination of variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1" aria-hidden="true" tabindex="-1"></a>participant_volume <span class="ot">&lt;-</span> exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<span id="annotated-cell-14-2"><a href="#annotated-cell-14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, multiple, single) <span class="sc">|&gt;</span> <span class="co"># </span></span>
-<span id="annotated-cell-14-3"><a href="#annotated-cell-14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">values_to =</span> <span class="st">"leg"</span>, <span class="at">names_to =</span> <span class="st">"volume"</span>,  <span class="at">cols =</span> multiple<span class="sc">:</span>single) <span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-14-4" class="code-annotation-target"><a href="#annotated-cell-14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(participant, volume, leg) <span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-14-5"><a href="#annotated-cell-14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-16-1"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a>participant_volume <span class="ot">&lt;-</span> exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, multiple, single) <span class="sc">|&gt;</span> <span class="co"># </span></span>
+<span id="annotated-cell-16-3"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">values_to =</span> <span class="st">"leg"</span>, <span class="at">names_to =</span> <span class="st">"volume"</span>,  <span class="at">cols =</span> multiple<span class="sc">:</span>single) <span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-4" class="code-annotation-target"><a href="#annotated-cell-16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(participant, volume, leg) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-16-5"><a href="#annotated-cell-16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-14" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-14" data-code-annotation="1" data-code-lines="4">Removes all duplicate combinations of <code>participant</code>, <code>volume</code> and <code>leg</code>.</span>
+<span data-code-lines="4" data-code-cell="annotated-cell-16" data-code-annotation="1">Removes all duplicate combinations of <code>participant</code>, <code>volume</code> and <code>leg</code>.</span>
 </dd>
 </dl>
 </div>
@@ -1310,31 +1369,31 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 # ℹ 70 more rows</code></pre>
 </div>
 </div>
-<div class="page-columns page-full"><p>Notice how <code>&amp;</code> was used to create a conditional selection of variables. I addition to selecting time, include<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and participant we select variables that starts with <code>lean.</code> AND ends with <code>_leg</code>.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The variable <code>incl</code> is used to indicate which participants to include in a final analysis. Included participants completed a given set of training sessions.</p></li></div></div>
+<div class="page-columns page-full"><p>Notice how <code>&amp;</code> was used to create a conditional selection of variables. I addition to selecting time, include<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and participant we select variables that starts with <code>lean.</code> AND ends with <code>_leg</code>.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;The variable <code>incl</code> is used to indicate which participants to include in a final analysis. Included participants completed a given set of training sessions.</p></li></div></div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 
 </div></div><p>The resulting data set is wide. Two variables contains the same variable (lean mass), but one variable (leg) is lurking in two variables (<code>lean.left_leg</code> and <code>lean.right_leg</code>). Let’s make the data set long.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-1" class="code-annotation-target"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="ot">&lt;-</span> exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, include, <span class="fu">starts_with</span>(<span class="st">"lean."</span>) <span class="sc">&amp;</span> <span class="fu">ends_with</span>(<span class="st">"_leg"</span>)) <span class="sc">|&gt;</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"leg"</span>, <span class="at">values_to =</span> <span class="st">"lean_mass"</span>, <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-4" class="code-annotation-target"><a href="#annotated-cell-16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">leg =</span> <span class="fu">if_else</span>(leg <span class="sc">==</span> <span class="st">"lean.left_leg"</span>, <span class="st">"L"</span>, <span class="st">"R"</span>)) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-16-5"><a href="#annotated-cell-16-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="annotated-cell-16-6"><a href="#annotated-cell-16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-18-1" class="code-annotation-target"><a href="#annotated-cell-18-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="ot">&lt;-</span> exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-18-2"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, include, <span class="fu">starts_with</span>(<span class="st">"lean."</span>) <span class="sc">&amp;</span> <span class="fu">ends_with</span>(<span class="st">"_leg"</span>)) <span class="sc">|&gt;</span> </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-18-3" class="code-annotation-target"><a href="#annotated-cell-18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"leg"</span>, <span class="at">values_to =</span> <span class="st">"lean_mass"</span>, <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-18-4" class="code-annotation-target"><a href="#annotated-cell-18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">leg =</span> <span class="fu">if_else</span>(leg <span class="sc">==</span> <span class="st">"lean.left_leg"</span>, <span class="st">"L"</span>, <span class="st">"R"</span>)) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-18-5"><a href="#annotated-cell-18-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="annotated-cell-18-6"><a href="#annotated-cell-18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="3">Notice how select helpers can be used in pivot_longer.</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-18" data-code-annotation="1">Notice how select helpers can be used in pivot_longer.</span>
 </dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="4">We use <code>mutate</code> together with <code>if_else</code> to change the leg indicator to <code>R</code> and <code>L</code></span>
+<span data-code-lines="4" data-code-cell="annotated-cell-18" data-code-annotation="2">We use <code>mutate</code> together with <code>if_else</code> to change the leg indicator to <code>R</code> and <code>L</code></span>
 </dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="1">We save the data set as <code>leg_leanmass</code></span>
+<span data-code-lines="1" data-code-cell="annotated-cell-18" data-code-annotation="3">We save the data set as <code>leg_leanmass</code></span>
 </dd>
 </dl>
 </div>
@@ -1357,22 +1416,22 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </div>
 <p><code>pivot_longer</code> has a brother called <code>pivot_wider</code>, this functions performs the reverse operation making long data sets wide. Let’s say that we would like to calculate the paired difference of leag lean mass from pre to post, we could make a wider data set and calculate <code>post - pre</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-17"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-17-1"><a href="#annotated-cell-17-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
-<span id="annotated-cell-17-2"><a href="#annotated-cell-17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, include, <span class="fu">starts_with</span>(<span class="st">"lean."</span>) <span class="sc">&amp;</span> <span class="fu">ends_with</span>(<span class="st">"_leg"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="annotated-cell-17-3"><a href="#annotated-cell-17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"leg"</span>, <span class="at">values_to =</span> <span class="st">"lean_mass"</span>, <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-17-4"><a href="#annotated-cell-17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">leg =</span> <span class="fu">if_else</span>(leg <span class="sc">==</span> <span class="st">"lean.left_leg"</span>, <span class="st">"L"</span>, <span class="st">"R"</span>)) <span class="sc">|&gt;</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-17-5" class="code-annotation-target"><a href="#annotated-cell-17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time, <span class="at">values_from =</span> lean_mass) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-17-6" class="code-annotation-target"><a href="#annotated-cell-17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_lean_mass =</span> post <span class="sc">-</span> pre) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-17-7"><a href="#annotated-cell-17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-19"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-19-1"><a href="#annotated-cell-19-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
+<span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, include, <span class="fu">starts_with</span>(<span class="st">"lean."</span>) <span class="sc">&amp;</span> <span class="fu">ends_with</span>(<span class="st">"_leg"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="annotated-cell-19-3"><a href="#annotated-cell-19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"leg"</span>, <span class="at">values_to =</span> <span class="st">"lean_mass"</span>, <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-19-4"><a href="#annotated-cell-19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">leg =</span> <span class="fu">if_else</span>(leg <span class="sc">==</span> <span class="st">"lean.left_leg"</span>, <span class="st">"L"</span>, <span class="st">"R"</span>)) <span class="sc">|&gt;</span> </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-19-5" class="code-annotation-target"><a href="#annotated-cell-19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time, <span class="at">values_from =</span> lean_mass) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-19-6" class="code-annotation-target"><a href="#annotated-cell-19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_lean_mass =</span> post <span class="sc">-</span> pre) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-19-7"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-17" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-19" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-17" data-code-annotation="1" data-code-lines="5">Pivot wider creates new columns based on names in <code>time</code> and values in <code>lean_mass</code></span>
+<span data-code-lines="5" data-code-cell="annotated-cell-19" data-code-annotation="1">Pivot wider creates new columns based on names in <code>time</code> and values in <code>lean_mass</code></span>
 </dd>
-<dt data-target-cell="annotated-cell-17" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-19" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-17" data-code-annotation="2" data-code-lines="6">The new variables is calculated as the difference between pre and post-intervention values.</span>
+<span data-code-lines="6" data-code-cell="annotated-cell-19" data-code-annotation="2">The new variables is calculated as the difference between pre and post-intervention values.</span>
 </dd>
 </dl>
 </div>
@@ -1397,12 +1456,147 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 <section id="joining-data-sets" class="level3" data-number="1.2.4">
 <h3 data-number="1.2.4" class="anchored" data-anchor-id="joining-data-sets"><span class="header-section-number">1.2.4</span> Joining data sets</h3>
 <p>We have constructed two smaller data sets, one indicating which leg performed low and moderate volume and one data set containing the lean mass values for each leg, pre- and post-intervention. Next step is to join the two.</p>
-<p><code>dplyr</code> contains functions for joining data frames</p>
+<p><code>dplyr</code> contains functions for joining data frames. There are, as illustrated in <a href="#fig-join-illustration">Figure&nbsp;<span>1.3</span></a> important differences between the functions where outer joins (left, right and full) keeps all observations in <code>x</code>, <code>y</code> and both <code>x</code> and <code>y</code> respectively. <code>inner_join</code> however, drops unmatched observations from both input data frames. Unlike the others, <code>anti_join</code> function removes observations in <code>x</code> that is present in <code>y</code>.</p>
+<div class="cell">
+<details>
+<summary>Code producing the figure</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggVennDiagram) </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Joins can be illustrated with venn diagrams.</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We do not need information about sets etc only </span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a way to fill three distinct areas. </span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The ggVennDiagram contains a function creating </span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># shapes to be filled.</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>lst <span class="ot">&lt;-</span> <span class="fu">process_data</span>(<span class="fu">Venn</span>(<span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"1"</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"1"</span>))))</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co"># To avoid repeated code, create a function that plots</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># venn diagrams with options to indicate a title and </span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co"># specify fill colors</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>join_illustration <span class="ot">&lt;-</span> <span class="cf">function</span>(lst, </span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>                              <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, </span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"steelblue"</span>, </span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"white"</span>), </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>                              <span class="at">title =</span> <span class="st">"left_join(x,y)"</span>) {</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> id), <span class="at">data =</span> <span class="fu">venn_region</span>(lst), </span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Hard coded labels</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">300</span>, <span class="dv">700</span>), </span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">500</span>), </span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)), </span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">8</span>, </span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"gray20"</span>) <span class="sc">+</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> fills) <span class="sc">+</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> title) <span class="sc">+</span></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Each join gets its own fig. All figures are </span></span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ombined below with plot_grid from cowplot.</span></span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">join_illustration</span>(<span class="at">lst =</span> lst, </span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"left_join(x,y)"</span>, </span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"steelblue"</span>, <span class="st">"white"</span>))</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">join_illustration</span>(<span class="at">lst =</span> lst, </span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"right_join(x,y)"</span>, </span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"steelblue"</span>, <span class="st">"steelblue"</span>))</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>inner <span class="ot">&lt;-</span> <span class="fu">join_illustration</span>(<span class="at">lst =</span> lst, </span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"inner_join(x,y)"</span>, </span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"steelblue"</span>, <span class="st">"white"</span>))</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">join_illustration</span>(<span class="at">lst =</span> lst, </span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"full_join(x,y)"</span>, </span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"steelblue"</span>, <span class="st">"steelblue"</span>))</span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>anti <span class="ot">&lt;-</span> <span class="fu">join_illustration</span>(<span class="at">lst =</span> lst, </span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"anti_join(x,y)"</span>, </span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fills =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"white"</span>, <span class="st">"white"</span>))</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(left, right, inner, full, anti, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-join-illustration" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/fig-join-illustration-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.3: Functions for joining data sets.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Our two data sets are pretty insensitive to dropped observations since the two data sets should be complete. We will use a <code>left_join</code> to put the data set together. This will match participant and leg because these two variables exists in both data sets. If we want to join by other variables we may specify such a variable. We’ll save the joined data set as <code>leg_leanmass</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="ot">&lt;-</span> leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(participant_volume) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(participant, leg)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 160 × 6
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP28        pre   incl    L          7059 multiple
+ 2 FP28        pre   incl    R          7104 single  
+ 3 FP40        pre   incl    L          7190 single  
+ 4 FP40        pre   incl    R          7506 multiple
+ 5 FP21        pre   incl    L         10281 single  
+ 6 FP21        pre   incl    R         10200 multiple
+ 7 FP34        pre   incl    L          6014 single  
+ 8 FP34        pre   incl    R          6009 multiple
+ 9 FP23        pre   incl    L          8242 single  
+10 FP23        pre   incl    R          8685 multiple
+# ℹ 150 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="filters-and-sorting-rows" class="level3 page-columns page-full" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="filters-and-sorting-rows"><span class="header-section-number">1.2.5</span> Filters and sorting rows</h3>
+<p>We included the variable <code>include</code> in our data set, this will make it possible to get rid of observations from participants that should be part of the final analysis. We can use <code>filter</code> to perform this operation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">==</span> <span class="st">"incl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 136 × 6
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP28        pre   incl    L          7059 multiple
+ 2 FP28        pre   incl    R          7104 single  
+ 3 FP40        pre   incl    L          7190 single  
+ 4 FP40        pre   incl    R          7506 multiple
+ 5 FP21        pre   incl    L         10281 single  
+ 6 FP21        pre   incl    R         10200 multiple
+ 7 FP34        pre   incl    L          6014 single  
+ 8 FP34        pre   incl    R          6009 multiple
+ 9 FP23        pre   incl    L          8242 single  
+10 FP23        pre   incl    R          8685 multiple
+# ℹ 126 more rows</code></pre>
+</div>
+</div>
+<div class="page-columns page-full"><p>The double equal sign can be read as “equal to” in R, a common source of confusion is that the single equal sign (<code>=</code>) is used as a assignment operator.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;An assignment operator is used to assign data values to objects stored in the work space. The commonly used <code>&lt;-</code> is equivalent to <code>=</code>. Note however that <code>-&gt;</code> is different from <code>=</code>.</p></li></div></div>
+<div class="margin-column">
+
+</div>
+<p>The <code>filter</code> function keeps rows of a data frame</p>
 </section>
 </section>
 <section id="scientific-graphic-design" class="level2 page-columns page-full" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</h2>
-<p>Tufte <span class="citation" data-cites="tufte2001">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span></p>
+<p>Tufte <span class="citation" data-cites="tufte2001">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> provides us with several principles for creating effective data visualizations.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-tufte2001" class="csl-entry" role="listitem">
 Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
 </div></div><ul>
@@ -1464,43 +1658,43 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 
 <h3 data-number="1.3.7" class="anchored" data-anchor-id="color"><span class="header-section-number">1.3.7</span> Color</h3>
 <p>What colors look good together?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles and radii</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>radii <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  <span class="co"># Vary the starting point to avoid a point at the center</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">angle =</span> angles, <span class="at">radius =</span> radii)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> radius, <span class="at">color =</span> angle, <span class="at">alpha =</span> radius)) <span class="sc">+</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Alternative</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles from 0 to 360</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">angle =</span> angles)</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">color =</span> angle)) <span class="sc">+</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles and radii</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>radii <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  <span class="co"># Vary the starting point to avoid a point at the center</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">angle =</span> angles, <span class="at">radius =</span> radii)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> radius, <span class="at">color =</span> angle, <span class="at">alpha =</span> radius)) <span class="sc">+</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Alternative</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles from 0 to 360</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">angle =</span> angles)</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">color =</span> angle)) <span class="sc">+</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The color wheel can be used to find</p>
 <ul>

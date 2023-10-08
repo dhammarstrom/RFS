@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+$theme-darkblue: #01364C;
+$theme-blue: #99D9DD;
+$theme-white: #F7F8F9;
+$theme-yellow: #F4BA02;
+$theme-green: #65d439;
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@300&family=Pixelify+Sans:wght@400;500;600&family=Press+Start+2P&family=Young+Serif&display=swap');
+
+
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$presentation-heading-font: 'Young Serif', serif;
+
+
+
+$body-bg: $theme-darkblue;
+$body-color: $theme-white;
+$link-color: $theme-blue;
+$presentation-heading-color: lighten($theme-blue, 5%);
+/*-- scss:rules --*/
+
+.blue {
+  color: $theme-blue;
+  font-weight: bold;
+}
+
+.yellow {
+  color: $theme-yellow;
+  font-weight: bold;
+  font-family: 'Bangers', cursive;
+}
+
+.green {
+  color: $theme-green;
+  font-family: 'Press Start 2P', cursive;
+}
+

@@ -203,7 +203,9 @@ df <- data.frame(x = c(1, 2.4, 4, 5.2),  # <1>
 5.  Annotations are added to the plot through the `labs` (labels) function.
 6.  A pre-built theme is used to change the default appearance of the plot.
 
-### My first plot
+
+
+
 
 ## Before plotting
 
@@ -217,7 +219,7 @@ As we saw above, a basic visualization can be created from a data set, or a data
 
 A lot of effort goes into making data sets suitable for visualization or statistical modelling. The good news is that R is especially suited for the process of importing and wrangling data. As with other common tasks in R there are numerous ways of achieving the same goals. This is a good thing because it allows for solutions to a wide range of problems. It is also a bad thing because it makes it difficult to getting started. A collection of R packages called the [Tidyverse](https://www.tidyverse.org/) makes the process of getting started with data wrangling easier. 
 
-Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding english language descriptions to the left. 
+Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding English language descriptions to the left. 
 
 
 :::: {.columns}
@@ -234,9 +236,6 @@ show the output<br>
 ::: {.column width="40%"}
 
 
-
-
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -247,8 +246,6 @@ data |>
   print()
 
 
-
-
 ```
 
 
@@ -256,10 +253,63 @@ data |>
 
 ::::
 
-The pipe operator (`|>`) takes any input and place it as the first argument in the following function.
+The pipe operator (`|>`) takes any input and place it as the first argument in the following function[^funnote]. This is the mechanism that makes sequential operations possible. A pipe operator makes code more readable, consider the following two alternatives:
 
-- Pipeable functions
-- Base pipe vs. magritter
+::: {.margin-column}
+
+[^funnote]: A function is a basic building block of your R code. Function are designed for specific tasks and can be part of packages or created by the user. A function may take arguments such as `fun(<ARGUMENT1> = <default input>, <ARGUMNET2> = <default input>)`. Arguments can be used without explicitly naming them by putting expected input in at the right position. Orders of argument may be changed is argument names are used.  
+
+:::
+
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+print(mutate(filter(select(data, var1:var3), var1 == "xxx"), var4 = var1 + var2)) # <1>
+
+
+data |> # <2>
+  select(var1:var3) |>
+  filter(var1 == "xxx") |>
+  mutate(var4 = var1 + var2) 
+
+
+```
+
+1. Alternative 1: A number of operations are performed on data, we have to read from in to out to see each step.
+2. Alternative 2: The same steps are performed as in alternative 1, in the same order. 
+
+The pipe in alternative 2 are structured with the pipe operator making the code more readable and easier to edit. Notice that the same functions are used in both cases. 
+
+In R there are two main pipe operators. We have the "base R" pipe, `|>`. This pipe operator is included in the base installation of R and available without loading any packages on start up. A second pipe belongs to the `magritter` package. The `magritter` pipe (`%>%`) has the same basic functionality as the base pipe; the left hand input is inserted as the first argument in any right hand function. 
+
+Sometimes you might want to place your input somewhere else than as the first argument in a right hand function. A placeholder can be used to indicate where you would like to place your input. The base pipe differs from the `magritter` pipe in what symbol indicates a placeholder. In the example below, the function `some_fun()` expects data as the third argument. We need to use our placeholder to put the data in the correct position:
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+data |> # <1>
+  some_fun(arg1 = c(1, 2), 
+           arg2 = "some.setting", 
+           arg3 = _)
+
+
+library(tidyverse)
+data %>% # <2>
+  some_fun(arg1 = c(1, 2), 
+           arg2 = "some.setting", 
+           arg3 = .)
+
+
+
+```
+
+1. With the base R forward pipe operator.
+2. With the `magritter` forward pipe operator. 
 
 
 
@@ -289,6 +339,18 @@ install_github("dhammarstrom/exscidata")
 
 The `dplyr`package provides a collection of verbs to facilitate wrangling. As mentioned above, "pipeable" functions takes a data frame as its first argument. This means that we can line up functions in sequential order using a pipe operator. In all verb functions, following the data argument follows a set of arguments that specifies what we wish to do with the data. The result of the operations performed by the function are returned as a data frame. 
 
+`dplyr` contains the following main data verbs:
+
+- `select`
+- `rename`
+- `relocate`
+- `mutate`
+- `filter`
+- `arrange`
+- `summarize` 
+
+In addition, several helper function will aid our wrangling endevors.
+
 `dplyr` is loaded as part of the `tidyverse` package:
 
 ```{r}
@@ -299,7 +361,6 @@ The `dplyr`package provides a collection of verbs to facilitate wrangling. As me
 library(tidyverse)
 
 ```
-
 
 
 #### Select, rename and relocate variables
@@ -441,7 +502,7 @@ exscidata::dxadata |>
 
 ### From wide to long and back again
 
-The `dxadata` data set is not a tidy data set. It contains two variables (`single` and `multiple`) that indicates which leg has been training with low and moderate volume respectively [@hammarström2020]. Additionally, lean mass variables could be separated based on body half (right or left). To compare training volume we need to reformat the data set. We will start by making a smaller data set that indicate training volume per leg. 
+The `dxadata` data set is not a tidy data set. It contains two variables (`single` and `multiple`) that indicates which leg has been training with low and moderate volume respectively [@hammarstrom2020]. Additionally, lean mass variables could be separated based on body half (right or left). To compare training volume we need to reformat the data set. We will start by making a smaller data set that indicate training volume per leg. 
 
 As we have already seen, `participant`, `single` and `multiple` are the variables needed to make a data set that indicates training volume per leg, per participant. We will start by selecting these columns followed by pivoting the data as the volume data is located in two variables. This essentially means that we will make the data set longer.  
 
@@ -539,15 +600,119 @@ exscidata::dxadata |>
 ### Joining data sets
 We have constructed two smaller data sets, one indicating which leg performed low and moderate volume and one data set containing the lean mass values for each leg, pre- and post-intervention. Next step is to join the two.
 
-`dplyr` contains functions for joining data frames 
+`dplyr` contains functions for joining data frames. There are, as illustrated in @fig-join-illustration important differences between the functions where outer joins (left, right and full) keeps all observations in `x`, `y` and both `x` and `y` respectively. `inner_join` however, drops unmatched observations from both input data frames. Unlike the others, `anti_join` function removes observations in `x` that is present in `y`.
+
+```{r}
+#| code-fold: true
+#| code-summary: Code producing the figure
+#| message: false
+#| warning: false
+#| label: fig-join-illustration
+#| fig-cap: "Functions for joining data sets."
 
 
+library(ggVennDiagram) 
+library(ggplot2) 
+library(cowplot)
+
+# Joins can be illustrated with venn diagrams.
+# We do not need information about sets etc only 
+# a way to fill three distinct areas. 
+# The ggVennDiagram contains a function creating 
+# shapes to be filled.
+
+
+lst <- process_data(Venn(list(x = c("1"), y = c("1"))))
+
+# To avoid repeated code, create a function that plots
+# venn diagrams with options to indicate a title and 
+# specify fill colors
+join_illustration <- function(lst, 
+                              fills = c("steelblue", 
+                                        "steelblue", 
+                                        "white"), 
+                              title = "left_join(x,y)") {
+  
+  ggplot() + 
+    
+  geom_sf(aes(fill = id), data = venn_region(lst), 
+          color = "black") +
+  
+  theme_void() +
+  # Hard coded labels
+  geom_text(aes(x = c(300, 700), 
+                y = c(500, 500), 
+                label = c("x", "y")), 
+            size = 8, 
+            color = "gray20") +
+  
+  
+  scale_fill_manual(values = fills) +
+  
+  labs(title = title) +
+  
+  theme(legend.position = "none")
+  
+  
+}
+
+
+# Each join gets its own fig. All figures are 
+# ombined below with plot_grid from cowplot.
+
+left <- join_illustration(lst = lst, 
+                  title = "left_join(x,y)", 
+                  fills = c("steelblue", "steelblue", "white"))
+right <- join_illustration(lst = lst, 
+                  title = "right_join(x,y)", 
+                  fills = c("white", "steelblue", "steelblue"))
+inner <- join_illustration(lst = lst, 
+                  title = "inner_join(x,y)", 
+                  fills = c("white", "steelblue", "white"))
+full <- join_illustration(lst = lst, 
+                  title = "full_join(x,y)", 
+                  fills = c("steelblue", "steelblue", "steelblue"))
+anti <- join_illustration(lst = lst, 
+                  title = "anti_join(x,y)", 
+                  fills = c("steelblue", "white", "white"))
+
+
+plot_grid(left, right, inner, full, anti, ncol = 2)
+
+```
+
+Our two data sets are pretty insensitive to dropped observations since the two data sets should be complete. We will use a `left_join` to put the data set together. This will match participant and leg because these two variables exists in both data sets. If we want to join by other variables we may specify such a variable. We'll save the joined data set as `leg_leanmass`.
 
 ```{r}
 
-
+leg_leanmass <- leg_leanmass |>
+  inner_join(participant_volume) |>
+  print()
 
 ```
+
+### Filters and sorting rows
+
+We included the variable `include` in our data set, this will make it possible to get rid of observations from participants that should be part of the final analysis. We can use `filter` to perform this operation.
+
+```{r}
+leg_leanmass |>
+  filter(include == "incl") |>
+  print()
+```
+
+The double equal sign can be read as "equal to" in R, a common source of confusion is that the single equal sign (`=`) is used as a assignment operator.[^assignop]
+
+::: {.margin-column}
+
+[^assignop]: An assignment operator is used to assign data values to objects stored in the work space. The commonly used `<-` is equivalent to `=`. Note however that `->` is different from `=`.  
+
+:::
+
+The `filter` function keeps rows of a data frame 
+
+
+
 
 
 
@@ -555,7 +720,7 @@ We have constructed two smaller data sets, one indicating which leg performed lo
 
 ## Scientific graphic design
 
-Tufte [@tufte2001]
+Tufte [@tufte2001] provides us with several principles for creating effective data visualizations. 
 
 -   Show the data
 
@@ -566,6 +731,7 @@ Tufte [@tufte2001]
 -   Erase redundant data ink
 
 -   Revise and edit
+
 
 ### Chartjunk
 

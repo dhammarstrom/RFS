@@ -38,10 +38,12 @@ format:
 
 ::::
 
-## [Organization]{.yellow}
+## [Organize and re-organize]{.yellow}
 
-Do [NOT]{.yellow} do it later
+![](img/wire.png)
 
+
+## 
 
 
 
