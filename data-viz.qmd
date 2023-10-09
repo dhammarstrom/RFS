@@ -349,7 +349,7 @@ The `dplyr`package provides a collection of verbs to facilitate wrangling. As me
 - `arrange`
 - `summarize` 
 
-In addition, several helper function will aid our wrangling endevors.
+In addition, several helper function will aid our wrangling endeavors.
 
 `dplyr` is loaded as part of the `tidyverse` package:
 
@@ -376,6 +376,10 @@ glimpse(exscidata::dxadata) # <2>
 
 ```
 
+1. Loading the `exscidata` package
+2. Using `glimbse` we will get a overview of all available variables in the data set. The double `::` means that we are looking for the data set `dxadata` inside the package `exscidata`.
+
+
 The data set contains `r dim(exscidata::dxadata)[1]` rows and `r dim(exscidata::dxadata)[2]` columns. The variables in the data set are described as part of the `exscidata` package and can be seen by typing `?dxadata` in the console.
 
 We will work further with lean body mass data, these are variables starting with `lean.`. In addition we need variables describing observations like `participant`, `time`, `multiple`, `single`, `sex`, `include`, `height` and `weight`. To select these variables we can try a couple of different approaches. 
@@ -384,20 +388,17 @@ The `select` function can select variables by name. This means that we can simpl
 
 ```{r}
 
-library(exscidata) # <1>
-
-exscidata::dxadata |> # <2> 
-  select(participant, time, multiple, single) |> # <3>
-  print() # <4>
+exscidata::dxadata |> # <1> 
+  select(participant, time, multiple, single) |> # <2>
+  print() # <3>
   
 ```
 
-1. Load the `exscidata` package
-2. Retrieve the data from the exscidata package
-3. select variables based on names
-4. Print the resulting data frame.
+1. Retrieve the data from the `exscidata` package
+2. select variables based on names
+3. Print the resulting data frame.
 
-The above means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax `<first column>:<last column>`. 
+The above approach means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax `<first column>:<last column>`. 
 
 ```{r}
 
@@ -407,7 +408,7 @@ exscidata::dxadata |>
   
 ```
 
-1. Selecting by a first and last column in a sequence.
+1. Selecting by the first and last column in a sequence.
 
 We also like to have the lean body mass data included in our new data set. Since all variables containing lean body mass data starts with `lean.` we can use a helper function to select them. Two alternatives are possible:
 
@@ -472,7 +473,7 @@ exscidata::dxadata |>
 
 ```
 
-`relocate` puts the selected variable as the first column in the data set. If we want to specify the location we can use the arguiments `.before` or `.after`. 
+`relocate` puts the selected variable as the first column in the data set. If we want to specify the location we can use the arguments `.before` or `.after`. 
 
 ```{r}
 
@@ -485,7 +486,7 @@ exscidata::dxadata |>
 
 #### Creating new variables 
 
-`mutate` let's us create new variables in a data set. These can be a function of variables already in the data set or created from your input. 
+`mutate` let's us create new variables in a data set. These can be a function of variables already in the data set or created from our input. 
 
 Let's create a variable representing the percentage of lean mass to body mass.
 
@@ -527,7 +528,7 @@ As we see we now have a long data set, but it is longer than expected. The origi
 
 participant_volume <- exscidata::dxadata |>  
   select(participant, multiple, single) |> # 
-  pivot_longer(values_to = "leg", names_to = "volume",  cols = multiple:single) %>% # <2>
+  pivot_longer(values_to = "leg", names_to = "volume",  cols = multiple:single) %>%
   distinct(participant, volume, leg) %>% # <1>
   print()
   
@@ -578,7 +579,7 @@ leg_leanmass <- exscidata::dxadata |>   # <3>
 3. We save the data set as `leg_leanmass`
 
 
-`pivot_longer` has a brother called `pivot_wider`, this functions performs the reverse operation making long data sets wide. Let's say that we would like to calculate the paired difference of leag lean mass from pre to post, we could make a wider data set and calculate `post - pre`
+`pivot_longer` has a brother called `pivot_wider`, this functions performs the reverse operation making long data sets wide. Let's say that we would like to calculate the paired difference of leg lean mass from pre to post, we could make a wider data set and calculate `post - pre`
 
 
 
@@ -709,16 +710,589 @@ The double equal sign can be read as "equal to" in R, a common source of confusi
 
 :::
 
-The `filter` function keeps rows of a data frame 
+The `filter` function keeps rows of a data frame where a condition that we specify returns `TRUE`. To construct testable conditions that allows for results being either `FALSE` or `TRUE` we will use one, or a combination operators, such as
+
+| | |
+|--- | ---|
+| `==` |&rarr; "equal to"|
+| `!=` |&rarr; "not equal to"|
+| `>` |&rarr; "larger than"|
+| `<` |&rarr; "smaller than"|
+| `>=`, `<=` |&rarr; "larger/smaller or equal to"|
+| `!` |&rarr; "NOT"|
+| `&` |&rarr; "AND"|
+| `|` |&rarr; "OR" |
+
+
+The above are all part of a collection of logical operators.[^logicoperators]
+We may demonstrate the mechanism by which `filter` operates by creating our own vector of `TRUE`/`FALSE` values. In the code chunk below a vector (`INCLUDE`) is created based on our `include` variable. A `logical` vector is created from the statement `INCLUDE != "excl"`. We then use this vector in the filter statement. 
+
+::: {.margin-column}
+
+[^logicoperators]: See [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) for a technical overview of logical operators.
+
+:::
+
+
+```{r}
+
+INCLUDE <- leg_leanmass |>
+  pull(include)
+
+INCLUDE <- INCLUDE != "excl"
+
+
+INCLUDE
+
+leg_leanmass |>
+  filter(INCLUDE)
+
+
+
+```
+
+
+In R, a vector of `TRUE`/`FALSE` (or in short form `T`/`F`) are is a special case which R will prohibit us from overwriting.
+
+#### Grouped filters
+
+Using the dplyr syntax it is easy to e.g. filter or mutate based on a grouping of the data set. The function `group_by` creates a grouped data set. In the context of filtering in our data set we may want to filter out observations larger than the median from two time points.
+
+```{r}
+
+leg_leanmass |>
+  group_by(time) |>
+  filter(lean_mass > median(lean_mass)) |> 
+  print()
+
+
+```
+
+The above operation removed exactly half of the observations, as expected since we wanted observations larger than the median from both time points. We may combine this statement with filtering away `"excl"` from the `include` variable.
+
+```{r}
+
+leg_leanmass |>
+  group_by(time) |>
+  filter(include != "excl", lean_mass > median(lean_mass)) |> 
+  print()
+
+
+```
+
+Putting two conditions in a `filter` call is like explicitly using `&` (AND) to combine statements. All conditions must evaluate to be `TRUE` for the row to be included in final output.
+
+An alternative to grouping by the `group_by` function is to do a "per-operation grouping"[^perop] using the `.by` argument. This does not leave a grouping in the data frame after filtering.
+
+[^perop]: See `?dplyr_by`
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl", lean_mass > median(lean_mass), .by = time) |> 
+  print()
+
+
+```
+
+
+### Summaries
+
+We often want to reduce larger amount of data into some summaries, such as means, standard deviations, medians etc. These summaries may be calculated over any number of categorical variables representing e.g. groups of observations. Just like in the filtering statement above, we may work with a grouped data frame, or by using a per-operation grouping (`.by`).
+
+We will calculate the median, first and third quartile, and minimum and maximum from each volume condition and time point. Below are both of the two alternatives of grouping used. 
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  group_by(time, volume) |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass)) |>
+  print()
+  
+
+leanmass_sum <- leg_leanmass |>
+  filter(include != "excl") |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass), 
+            .by = c(time, volume)) |>
+  print()
+
+
+
+```
+
+Notice how the data frames either have a persistent grouping, or no grouping depending on how we invoked grouping. Notice also that all values are nicely displayed, this is not always the case with summarise. 
+
+Consider the following example
+
+```{r}
+
+vals <- c(4.5, 6.7, 4.6, 5.1, NA)
+
+mean(vals)
+
+```
+
+The mean of a vector of values containing a missing value returns `NA`. If we where to have missing values (`NA`) in our original data we would have recievied a `NA` in results. To drop an `NA` from such a summary we need to specify `na.rm = TRUE` as part of a summary function. 
+
+```{r}
+
+vals <- c(4.5, 6.7, 4.6, 5.1, NA)
+
+mean(vals, na.rm = TRUE)
+
+```
+
+R does not drop `NA` silently! This is a good thing as we want to get a notice when we are missing data. If we know we are missing data we need to explicitly type this in our calls. This "rule" is not always true as some functions silently drops `NA`, be aware!
+
+### Arranging data frames
+
+At last we might want to arrange a data frame for ease of use, or prior to making a table etc. Arranging does not change the data frame *per se*, only how it is displayed. 
+
+We'll used our summarized data frame from above and sort based on the `volume` variable. 
+
+```{r}
+
+leanmass_sum |>
+  arrange(volume) |>
+  print()
+
+```
+
+Any other column will also work for arranging
+
+```{r}
+
+leanmass_sum |>
+  arrange(Median) |>
+  print()
+
+```
+
+Using a helper function (`desc`) reverses the sorting 
+
+```{r}
+
+leanmass_sum |>
+  arrange(desc(Median)) |>
+  print()
+
+```
+
+Notice that `desc` also works for character data
+
+```{r}
+
+leanmass_sum |>
+  arrange(desc(volume)) |>
+  print()
+
+```
+
+
+## `ggplot` examples
+
+As hinted above, `ggplot2` presents us with almost endless opportunities for graphical representations of our data. We will use the data we have wrangled above to better understand the `ggplot2` syntax.
+
+In our summary of the lean mass data we have calculated a number of summary statistics that can be used to create a type of range-quartile-median plot not unlike the plots suggested by Tukey[^tukey]. We will use time as a categorical variable on the x-axis and our summary statistics displayed on the y-axis.
+
+[^tukey]: Tukey [-@tukey1977] is considered to be creator of the box-plot. However, Spear may have suggested a predecessor to the box-plot in Charting statistics [@spear1952]. 
+
+```{r}
+
+ggplot(data = leanmass_sum, aes(time, Median))
+
+```
+
+We have specified a data set, and variables for the x and y axis. This specification gives us an empty coordinate system. We need to add geometric objects to represent the data mapped to x and y coordinates. Let's start simple
+
+```{r}
+
+ggplot(data = leanmass_sum, aes(time, Median)) +
+    geom_point()
+
+```
+
+The points now represents our median values per time point. Instead of a point we may add rectangular shapes with a bit of reorganization of the data
+
+```{r}
+
+leanmass_sum |>
+  mutate(Time = if_else(time == "pre", 1, 2)) |>
+  ggplot( aes(Time, Median, fill = volume)) +
+    
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = Median, 
+                  ymax = q75), 
+            color = "black", 
+            position = position_dodge(width = 0.4)) + 
+  
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = q25, 
+                  ymax = Median), 
+            color = "black", 
+            position = position_dodge(width = 0.4))
+  
+
+
+```
+
+We have hacked our way to a plot showing the median as a line inside a box covering the interquartile range. Let's add bars representing the minimum and maximum values. Note that we are using layers and we want our range bars to not over plot the boxes. We must therefore add them prior to the boxes. We will also scale the x-axis and add labels.  
+
+```{r}
+
+leanmass_sum |>
+  mutate(Time = if_else(time == "pre", 1, 2)) |>
+  ggplot( aes(Time, Median, fill = volume)) +
+    
+  
+  geom_errorbar(aes(ymin = Min, ymax = Max), 
+                position = position_dodge(width = 0.4), 
+                width = 0) + 
+  
+  
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = Median, 
+                  ymax = q75), 
+            color = "black", 
+            position = position_dodge(width = 0.4)) + 
+  
+  
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = q25, 
+                  ymax = Median), 
+            color = "black", 
+            position = position_dodge(width = 0.4)) +
+  
+  scale_x_continuous(limits = c(0.75, 2.25), 
+                     breaks = c(1, 2), 
+                     labels = c("pre", "post"))
+  
+  
+
+
+```
+
+Do not bother creating the above plot! This is an example of the flexibility brought to us by using a set of simple geometric objects. There are shortcuts to the above plot that takes care of a couple of default operations. We need our pre-summarized data with additional preparatory steps:
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot()
+
+
+```
+
+The new plot is a box-plot showing the same statistical transformations that we made by hand using a categorical x-axis with the time-values sorted as a factor.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code producing the figure"
+#| fig-cap: "A direct comparison between (a) manual statistical summaries (transformations) and built in transformations in ggplot2 (b)."
+
+
+
+a <- leanmass_sum |>
+  mutate(Time = if_else(time == "pre", 1, 2)) |>
+  ggplot( aes(Time, Median, fill = volume)) +
+    
+  
+  geom_errorbar(aes(ymin = Min, ymax = Max), 
+                position = position_dodge(width = 0.4), 
+                width = 0) + 
+  
+  
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = Median, 
+                  ymax = q75), 
+            color = "black", 
+            position = position_dodge(width = 0.4)) + 
+  
+  
+  geom_rect(aes(xmin = Time - 0.18, 
+                  xmax = Time + 0.18, 
+                  ymin = q25, 
+                  ymax = Median), 
+            color = "black", 
+            position = position_dodge(width = 0.4)) +
+  
+  scale_x_continuous(limits = c(0.75, 2.25), 
+                     breaks = c(1, 2), 
+                     labels = c("pre", "post")) + 
+  theme(legend.position = "bottom")
+  
+  
+
+
+b <- leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() + 
+  theme(legend.position = "bottom")
+
+
+
+plot_grid(a, b, labels = c("a", "b"), ncol = 2)
+
+
+```
+
+
+We have seen that `ggplot2` have some built in features that makes statistical transformation, but also that a similar result can be obtained by using other "geoms" such as `geom_rect`. Again, this allows for flexible creation of data visualizations. 
+
+### Labels and themes
+So far we have used the available data to determine what is being represented in the figure. To make the figure more publication ready we would want to take control over labels, colors and shapes that so far are presented with variable names and default settings.
+
+The `labs` function adds customized labels to a ggplot. All aesthetic mappings are available for labeling. We will go further with the box-plot which uses x, y and fill as aesthetics mapped to data.
+
+```{r}
+
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean mass (g)", 
+       fill = "Volume condition")
+
+
+```
+
+Additionally, we might want to think about if we need all axis labels. The time variable is specified with `pre` and `post` and won't need a overall axis label. Instead we might want to clean up the axis text. Since this is a data-driven element in our figure we can change it's behaviour prior to plotting. We have already changed the order of the factor, let's add a labels to each level and remove the overall `Time` label.
+
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"), 
+                       labels = c("Pre\nintervention", 
+                                  "Post\nintervention"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean mass (g)", 
+       fill = "Volume condition") +
+  
+  theme(axis.title.x = element_blank())
+
+
+
+```
+
+Notice that we removed the "Time" label from the figure by removing it in the theme function (`theme(axis.title.x = element_blank())`; more about that later). The factor variable `time`was respecified using the factor function. This function takes a character of factor varaible and specifies levels (the order of factors) and optionally labels of each level.
+
+An alternative approach to changing the labels of the factor is to include labels in a call to `scale_x_discrete`.
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean mass (g)", 
+       fill = "Volume condition") +
+  
+  scale_x_discrete(labels = c("Pre\nintervention", 
+                                  "Post\nintervention")) +
+  
+  
+  theme(axis.title.x = element_blank())
+
+
+
+```
+
+
+
+
+#### Theming
+`ggplot2` has a very flexible system for changing parts of a figure that are not directly connected to the data (i.e. created from aesthetic mapping). Each element in the theme that can be controlled is listed in the help pages for `theme`, type `?theme` in your console to access it.
+
+The below illustrates some of the main components we might want to consider:
+
+
+```{r}
+
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean mass (g)", 
+       fill = "Volume condition", 
+       title = "The plot title", 
+       subtitle = "The plot subtitle", 
+       caption = "the plot caption") +
+  
+  scale_x_discrete(labels = c("Pre\nintervention", 
+                                  "Post\nintervention")) +
+  
+  
+  theme(axis.title.x = element_blank(), 
+        legend.position = "top",
+        axis.title = element_text(color = "yellow"),
+        axis.text = element_text(color = "green"), 
+        axis.ticks = element_line(color = "yellow", linewidth = 2), 
+        axis.line = element_line(color = "blue", linewidth = 2), 
+        panel.background = element_rect(fill = "gray50"), 
+        panel.grid.major = element_line(color = "pink", linewidth = 2), 
+        panel.grid.minor = element_line(color = "magenta", linewidth = 2), 
+        plot.background = element_rect(fill = "darkblue"), 
+        legend.background = element_rect(fill = "navyblue"), 
+        legend.key = element_rect(fill = "gray"), 
+        legend.text = element_text(color = "yellow"), 
+        legend.title = element_text(color = "magenta"), 
+        plot.caption = element_text(color = "yellow"),
+        plot.title = element_text(color = "lightgreen"),
+        plot.subtitle = element_text(color = "pink"))
 
 
 
 
 
+```
 
+
+Each element of the theme can be modified with a element function. The element theme `axis.title` is a text element and must subsequently be modified with `element_text()`. This function takes a number of arguments making it possible to modify text components. Below use our basic plot and to modify the y axis title.
+
+
+```{r}
+
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean\nmass (g)", 
+       fill = "Volume condition", 
+       title = "The plot title", 
+       subtitle = "The plot subtitle", 
+       caption = "the plot caption") +
+  
+  scale_x_discrete(labels = c("Pre\nintervention", 
+                                  "Post\nintervention")) +
+  
+  
+  theme(axis.title.x = element_blank(), 
+        legend.position = "top",
+        axis.title.y = element_text(color = "black", 
+                                  family = "mono",
+                                  face = "bold",
+                            
+                                  size = 20,
+                                  hjust = 0.5,
+                                  vjust = 0.5,
+                                  angle = 45,
+                                  lineheight = 2),
+        )
+
+
+
+
+
+```
+
+
+Notice how the element `axis.title.y` is similar to `axis.title.x` and if we want we could use `axis.title` to modify both. Notice also that we have changed multiple numbers that have defaults. The `size` is the size of the text, `hjust` and `vjust` controls horizontal and vertical placement, receptively.`angle` rotates the text and `lineheight` controls the distance between lines (we have used `\n` to indicate a new line in the title).
+
+Similarly to `element_text`, `element_rect` contains argument to control rectangular elements and `element_line` is used to control lines. `element_blank` is used to remove an element, we already used this above to remove the x axis title. In the same "family" of function we find `margin` which can specify margins of theme elements.
+
+In addition to controlling specific elements of a theme we have the option to use ready made themes. A couple of pre-specified themes are shipped with `ggplot2` (see @fig-theme-example)
+
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code producing the figure"
+#| fig-cap: "Examples of themes that are part of `ggplot2`" 
+#| label: fig-theme-example
+#| fig-height: 12
+
+
+p <- leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean\nmass (g)", 
+       fill = "Volume condition", 
+       
+       subtitle = "The plot subtitle", 
+       caption = "the plot caption") +
+  
+  scale_x_discrete(labels = c("Pre\nintervention", 
+                                  "Post\nintervention"))
+
+
+
+
+plot_grid(p + theme_bw() + labs(title = "theme_bw"), 
+          p + theme_classic()+ labs(title = "theme_classic"), 
+          p + theme_minimal()+ labs(title = "theme_minimal"), 
+          p + theme_dark()+ labs(title = "theme_dark"), 
+          p + theme_light()+ labs(title = "theme_light"), 
+          p + theme_linedraw()+ labs(title = "theme_linedraw"), 
+          p + theme_bw()+ labs(title = "theme_bw"), 
+          p + theme_grey()+ labs(title = "theme_grey"), 
+          p + theme_void()+ labs(title = "theme_void"), 
+          ncol = 2)
+
+
+
+```
 
 
 ## Scientific graphic design
+
+
+
+
 
 Tufte [@tufte2001] provides us with several principles for creating effective data visualizations. 
 
@@ -744,6 +1318,59 @@ See `ggthemes` for range-frame as suggested in tufte Ch 6. Manually minimize sum
 ### Labels and annotations
 
 Using `ggtext` to format labels etc.
+
+Changing fonts
+
+```{r}
+
+library(showtext)
+
+
+
+font_add_google(name = "Permanent Marker", family = "permanentmarker")
+showtext_auto()
+
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  mutate(time = factor(time, 
+                       levels = c("pre", "post"))) |>
+
+ggplot(aes(time, lean_mass, fill = volume)) + 
+         geom_boxplot() +
+  
+  labs(x = "Time", 
+       y = "Leg lean\nmass (g)", 
+       fill = "Volume condition", 
+       title = "The plot title", 
+       subtitle = "The plot subtitle", 
+       caption = "the plot caption") +
+  
+  scale_x_discrete(labels = c("Pre\nintervention", 
+                                  "Post\nintervention")) +
+  
+  
+  theme(axis.title.x = element_blank(), 
+        legend.position = "top",
+        plot.title = element_text(color = "black", 
+                                  family = "permanentmarker",
+                         
+                            
+                                  size = 40,
+                             
+                                  lineheight = 2),
+        )
+
+
+
+
+
+```
+
+
+
+
+
 
 ### Glamorous graphics
 

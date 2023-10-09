@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.330">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -110,8 +110,7 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -130,7 +129,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-viz.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -209,16 +208,22 @@ div.csl-indent {
   <li><a href="#from-wide-to-long-and-back-again" id="toc-from-wide-to-long-and-back-again" class="nav-link" data-scroll-target="#from-wide-to-long-and-back-again"><span class="header-section-number">1.2.3</span> From wide to long and back again</a></li>
   <li><a href="#joining-data-sets" id="toc-joining-data-sets" class="nav-link" data-scroll-target="#joining-data-sets"><span class="header-section-number">1.2.4</span> Joining data sets</a></li>
   <li><a href="#filters-and-sorting-rows" id="toc-filters-and-sorting-rows" class="nav-link" data-scroll-target="#filters-and-sorting-rows"><span class="header-section-number">1.2.5</span> Filters and sorting rows</a></li>
+  <li><a href="#summaries" id="toc-summaries" class="nav-link" data-scroll-target="#summaries"><span class="header-section-number">1.2.6</span> Summaries</a></li>
+  <li><a href="#arranging-data-frames" id="toc-arranging-data-frames" class="nav-link" data-scroll-target="#arranging-data-frames"><span class="header-section-number">1.2.7</span> Arranging data frames</a></li>
   </ul></li>
-  <li><a href="#scientific-graphic-design" id="toc-scientific-graphic-design" class="nav-link" data-scroll-target="#scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</a>
+  <li><a href="#ggplot-examples" id="toc-ggplot-examples" class="nav-link" data-scroll-target="#ggplot-examples"><span class="header-section-number">1.3</span> <code>ggplot</code> examples</a>
   <ul class="collapse">
-  <li><a href="#chartjunk" id="toc-chartjunk" class="nav-link" data-scroll-target="#chartjunk"><span class="header-section-number">1.3.1</span> Chartjunk</a></li>
-  <li><a href="#minimizing" id="toc-minimizing" class="nav-link" data-scroll-target="#minimizing"><span class="header-section-number">1.3.2</span> Minimizing</a></li>
-  <li><a href="#labels-and-annotations" id="toc-labels-and-annotations" class="nav-link" data-scroll-target="#labels-and-annotations"><span class="header-section-number">1.3.3</span> Labels and annotations</a></li>
-  <li><a href="#glamorous-graphics" id="toc-glamorous-graphics" class="nav-link" data-scroll-target="#glamorous-graphics"><span class="header-section-number">1.3.4</span> Glamorous graphics</a></li>
-  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">1.3.5</span> Layout</a></li>
-  <li><a href="#typography" id="toc-typography" class="nav-link" data-scroll-target="#typography"><span class="header-section-number">1.3.6</span> Typography</a></li>
-  <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color"><span class="header-section-number">1.3.7</span> Color</a></li>
+  <li><a href="#labels-and-themes" id="toc-labels-and-themes" class="nav-link" data-scroll-target="#labels-and-themes"><span class="header-section-number">1.3.1</span> Labels and themes</a></li>
+  </ul></li>
+  <li><a href="#scientific-graphic-design" id="toc-scientific-graphic-design" class="nav-link" data-scroll-target="#scientific-graphic-design"><span class="header-section-number">1.4</span> Scientific graphic design</a>
+  <ul class="collapse">
+  <li><a href="#chartjunk" id="toc-chartjunk" class="nav-link" data-scroll-target="#chartjunk"><span class="header-section-number">1.4.1</span> Chartjunk</a></li>
+  <li><a href="#minimizing" id="toc-minimizing" class="nav-link" data-scroll-target="#minimizing"><span class="header-section-number">1.4.2</span> Minimizing</a></li>
+  <li><a href="#labels-and-annotations" id="toc-labels-and-annotations" class="nav-link" data-scroll-target="#labels-and-annotations"><span class="header-section-number">1.4.3</span> Labels and annotations</a></li>
+  <li><a href="#glamorous-graphics" id="toc-glamorous-graphics" class="nav-link" data-scroll-target="#glamorous-graphics"><span class="header-section-number">1.4.4</span> Glamorous graphics</a></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">1.4.5</span> Layout</a></li>
+  <li><a href="#typography" id="toc-typography" class="nav-link" data-scroll-target="#typography"><span class="header-section-number">1.4.6</span> Typography</a></li>
+  <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color"><span class="header-section-number">1.4.7</span> Color</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -269,7 +274,7 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
 <div id="fig-ggplotlayers" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="data-viz_files/figure-html/fig-ggplotlayers-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.1: Components of a ggplot2 visualization</figcaption>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Components of a ggplot2 visualization</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -283,23 +288,23 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <div class="cell-output-display">
 <div id="tbl-ggplotdataexample" class="anchored">
 
-<div id="jcstwwjkcx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jcstwwjkcx table {
+<div id="nqgvuglasr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nqgvuglasr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jcstwwjkcx thead, #jcstwwjkcx tbody, #jcstwwjkcx tfoot, #jcstwwjkcx tr, #jcstwwjkcx td, #jcstwwjkcx th {
+#nqgvuglasr thead, #nqgvuglasr tbody, #nqgvuglasr tfoot, #nqgvuglasr tr, #nqgvuglasr td, #nqgvuglasr th {
   border-style: none;
 }
 
-#jcstwwjkcx p {
+#nqgvuglasr p {
   margin: 0;
   padding: 0;
 }
 
-#jcstwwjkcx .gt_table {
+#nqgvuglasr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -325,12 +330,12 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-left-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_caption {
+#nqgvuglasr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jcstwwjkcx .gt_title {
+#nqgvuglasr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -342,7 +347,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-width: 0;
 }
 
-#jcstwwjkcx .gt_subtitle {
+#nqgvuglasr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -354,7 +359,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-top-width: 0;
 }
 
-#jcstwwjkcx .gt_heading {
+#nqgvuglasr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -366,13 +371,13 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_bottom_border {
+#nqgvuglasr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_col_headings {
+#nqgvuglasr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -387,7 +392,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_col_heading {
+#nqgvuglasr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -407,7 +412,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   overflow-x: hidden;
 }
 
-#jcstwwjkcx .gt_column_spanner_outer {
+#nqgvuglasr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -419,15 +424,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 4px;
 }
 
-#jcstwwjkcx .gt_column_spanner_outer:first-child {
+#nqgvuglasr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jcstwwjkcx .gt_column_spanner_outer:last-child {
+#nqgvuglasr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jcstwwjkcx .gt_column_spanner {
+#nqgvuglasr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -439,11 +444,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   width: 100%;
 }
 
-#jcstwwjkcx .gt_spanner_row {
+#nqgvuglasr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jcstwwjkcx .gt_group_heading {
+#nqgvuglasr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +474,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   text-align: left;
 }
 
-#jcstwwjkcx .gt_empty_group_heading {
+#nqgvuglasr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -484,15 +489,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   vertical-align: middle;
 }
 
-#jcstwwjkcx .gt_from_md > :first-child {
+#nqgvuglasr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jcstwwjkcx .gt_from_md > :last-child {
+#nqgvuglasr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jcstwwjkcx .gt_row {
+#nqgvuglasr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +516,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   overflow-x: hidden;
 }
 
-#jcstwwjkcx .gt_stub {
+#nqgvuglasr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -524,7 +529,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#jcstwwjkcx .gt_stub_row_group {
+#nqgvuglasr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -538,15 +543,15 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   vertical-align: top;
 }
 
-#jcstwwjkcx .gt_row_group_first td {
+#nqgvuglasr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jcstwwjkcx .gt_row_group_first th {
+#nqgvuglasr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jcstwwjkcx .gt_summary_row {
+#nqgvuglasr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -556,16 +561,16 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#jcstwwjkcx .gt_first_summary_row {
+#nqgvuglasr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_first_summary_row.thick {
+#nqgvuglasr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jcstwwjkcx .gt_last_summary_row {
+#nqgvuglasr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -575,7 +580,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_grand_summary_row {
+#nqgvuglasr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -585,7 +590,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#jcstwwjkcx .gt_first_grand_summary_row {
+#nqgvuglasr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -595,7 +600,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-top-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_last_grand_summary_row_top {
+#nqgvuglasr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -605,11 +610,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_striped {
+#nqgvuglasr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jcstwwjkcx .gt_table_body {
+#nqgvuglasr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -618,7 +623,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-bottom-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_footnotes {
+#nqgvuglasr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -632,7 +637,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_footnote {
+#nqgvuglasr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -641,7 +646,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#jcstwwjkcx .gt_sourcenotes {
+#nqgvuglasr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -655,7 +660,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   border-right-color: #D3D3D3;
 }
 
-#jcstwwjkcx .gt_sourcenote {
+#nqgvuglasr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -663,63 +668,63 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
   padding-right: 5px;
 }
 
-#jcstwwjkcx .gt_left {
+#nqgvuglasr .gt_left {
   text-align: left;
 }
 
-#jcstwwjkcx .gt_center {
+#nqgvuglasr .gt_center {
   text-align: center;
 }
 
-#jcstwwjkcx .gt_right {
+#nqgvuglasr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jcstwwjkcx .gt_font_normal {
+#nqgvuglasr .gt_font_normal {
   font-weight: normal;
 }
 
-#jcstwwjkcx .gt_font_bold {
+#nqgvuglasr .gt_font_bold {
   font-weight: bold;
 }
 
-#jcstwwjkcx .gt_font_italic {
+#nqgvuglasr .gt_font_italic {
   font-style: italic;
 }
 
-#jcstwwjkcx .gt_super {
+#nqgvuglasr .gt_super {
   font-size: 65%;
 }
 
-#jcstwwjkcx .gt_footnote_marks {
+#nqgvuglasr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jcstwwjkcx .gt_asterisk {
+#nqgvuglasr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jcstwwjkcx .gt_indent_1 {
+#nqgvuglasr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jcstwwjkcx .gt_indent_2 {
+#nqgvuglasr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jcstwwjkcx .gt_indent_3 {
+#nqgvuglasr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jcstwwjkcx .gt_indent_4 {
+#nqgvuglasr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jcstwwjkcx .gt_indent_5 {
+#nqgvuglasr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -758,7 +763,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <div id="fig-ggplotexample" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="data-viz_files/figure-html/fig-ggplotexample-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.2: Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)</figcaption>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -787,27 +792,27 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-1" data-code-annotation="1">A simple data frame is saved containing the variables we will plot</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-1" data-code-lines="3">A simple data frame is saved containing the variables we will plot</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="8" data-code-cell="annotated-cell-1" data-code-annotation="2">The data is explicitly called</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-1" data-code-lines="8">The data is explicitly called</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="9" data-code-cell="annotated-cell-1" data-code-annotation="3">Variables are mapped to coordinates (x and y) and shapes.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-1" data-code-lines="9">Variables are mapped to coordinates (x and y) and shapes.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="11" data-code-cell="annotated-cell-1" data-code-annotation="4">Geometric objects (points) are specified with color and size determined in the function</span>
+<span data-code-annotation="4" data-code-cell="annotated-cell-1" data-code-lines="11">Geometric objects (points) are specified with color and size determined in the function</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-lines="13" data-code-cell="annotated-cell-1" data-code-annotation="5">Annotations are added to the plot through the <code>labs</code> (labels) function.</span>
+<span data-code-annotation="5" data-code-cell="annotated-cell-1" data-code-lines="13">Annotations are added to the plot through the <code>labs</code> (labels) function.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-lines="18" data-code-cell="annotated-cell-1" data-code-annotation="6">A pre-built theme is used to change the default appearance of the plot.</span>
+<span data-code-annotation="6" data-code-cell="annotated-cell-1" data-code-lines="18">A pre-built theme is used to change the default appearance of the plot.</span>
 </dd>
 </dl>
 </div>
@@ -852,11 +857,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-2" data-code-annotation="1">Alternative 1: A number of operations are performed on data, we have to read from in to out to see each step.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-2" data-code-lines="1">Alternative 1: A number of operations are performed on data, we have to read from in to out to see each step.</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-2" data-code-annotation="2">Alternative 2: The same steps are performed as in alternative 1, in the same order.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-2" data-code-lines="4">Alternative 2: The same steps are performed as in alternative 1, in the same order.</span>
 </dd>
 </dl>
 </div>
@@ -880,11 +885,11 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-3" data-code-annotation="1">With the base R forward pipe operator.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-3" data-code-lines="1">With the base R forward pipe operator.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="8" data-code-cell="annotated-cell-3" data-code-annotation="2">With the <code>magritter</code> forward pipe operator.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-3" data-code-lines="8">With the <code>magritter</code> forward pipe operator.</span>
 </dd>
 </dl>
 </div>
@@ -912,7 +917,7 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <li><code>arrange</code></li>
 <li><code>summarize</code></li>
 </ul>
-<p>In addition, several helper function will aid our wrangling endevors.</p>
+<p>In addition, several helper function will aid our wrangling endeavors.</p>
 <p><code>dplyr</code> is loaded as part of the <code>tidyverse</code> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -922,8 +927,20 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Jou
 <p>Variables in a data frame may be selected and renamed. Such operation may have multiple purposes such as giving you a better overview of the data of interest or limiting what data to display in a table. Renaming can make life easier if the data set contains long variable names.</p>
 <p>Below we will store a subset of the data in a new data set. But we will first have a look at what column names are available:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
-<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(exscidata<span class="sc">::</span>dxadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-1" class="code-annotation-target"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-6-2" class="code-annotation-target"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(exscidata<span class="sc">::</span>dxadata)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-annotation="1" data-code-cell="annotated-cell-6" data-code-lines="1">Loading the <code>exscidata</code> package</span>
+</dd>
+<dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-annotation="2" data-code-cell="annotated-cell-6" data-code-lines="2">Using <code>glimbse</code> we will get a overview of all available variables in the data set. The double <code>::</code> means that we are looking for the data set <code>dxadata</code> inside the package <code>exscidata</code>.</span>
+</dd>
+</dl>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 80
 Columns: 59
@@ -991,28 +1008,22 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 <p>The data set contains 80 rows and 59 columns. The variables in the data set are described as part of the <code>exscidata</code> package and can be seen by typing <code>?dxadata</code> in the console.</p>
 <p>We will work further with lean body mass data, these are variables starting with <code>lean.</code>. In addition we need variables describing observations like <code>participant</code>, <code>time</code>, <code>multiple</code>, <code>single</code>, <code>sex</code>, <code>include</code>, <code>height</code> and <code>weight</code>. To select these variables we can try a couple of different approaches. The <code>select</code> function can select variables by name. This means that we can simply list them:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(exscidata)</span>
-<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-7-4" class="code-annotation-target"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, multiple, single) <span class="sc">|&gt;</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-7-5" class="code-annotation-target"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, multiple, single) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-7" data-code-annotation="1">Load the <code>exscidata</code> package</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-7" data-code-lines="1">Retrieve the data from the <code>exscidata</code> package</span>
 </dd>
 <dt data-target-cell="annotated-cell-7" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-7" data-code-annotation="2">Retrieve the data from the exscidata package</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-7" data-code-lines="2">select variables based on names</span>
 </dd>
 <dt data-target-cell="annotated-cell-7" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-7" data-code-annotation="3">select variables based on names</span>
-</dd>
-<dt data-target-cell="annotated-cell-7" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-lines="5" data-code-cell="annotated-cell-7" data-code-annotation="4">Print the resulting data frame.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-7" data-code-lines="3">Print the resulting data frame.</span>
 </dd>
 </dl>
 </div>
@@ -1033,7 +1044,7 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 # ℹ 70 more rows</code></pre>
 </div>
 </div>
-<p>The above means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax <code>&lt;first column&gt;:&lt;last column&gt;</code>.</p>
+<p>The above approach means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax <code>&lt;first column&gt;:&lt;last column&gt;</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight) <span class="sc">|&gt;</span></span>
@@ -1042,7 +1053,7 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-8" data-code-annotation="1">Selecting by a first and last column in a sequence.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-8" data-code-lines="2">Selecting by the first and last column in a sequence.</span>
 </dd>
 </dl>
 </div>
@@ -1077,11 +1088,11 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-9" data-code-annotation="1">Using <code>starts_with</code> to select all columns that starts with <code>lean.</code></span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-9" data-code-lines="2">Using <code>starts_with</code> to select all columns that starts with <code>lean.</code></span>
 </dd>
 <dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="7" data-code-cell="annotated-cell-9" data-code-annotation="2">Using <code>contains</code>to select all variables that contains <code>lean.</code></span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-9" data-code-lines="7">Using <code>contains</code>to select all variables that contains <code>lean.</code></span>
 </dd>
 </dl>
 </div>
@@ -1211,7 +1222,7 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 #   lean.gynoid &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p><code>relocate</code> puts the selected variable as the first column in the data set. If we want to specify the location we can use the arguiments <code>.before</code> or <code>.after</code>.</p>
+<p><code>relocate</code> puts the selected variable as the first column in the data set. If we want to specify the location we can use the arguments <code>.before</code> or <code>.after</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant<span class="sc">:</span>weight, <span class="fu">starts_with</span>(<span class="st">"lean."</span>)) <span class="sc">|&gt;</span> </span>
@@ -1242,7 +1253,7 @@ $ BMC.whole        &lt;dbl&gt; 3261, 2609, 3903, 2331, 2978, 3046, 2360, 3356, 3
 </section>
 <section id="creating-new-variables" class="level4" data-number="1.2.2.2">
 <h4 data-number="1.2.2.2" class="anchored" data-anchor-id="creating-new-variables"><span class="header-section-number">1.2.2.2</span> Creating new variables</h4>
-<p><code>mutate</code> let’s us create new variables in a data set. These can be a function of variables already in the data set or created from your input.</p>
+<p><code>mutate</code> let’s us create new variables in a data set. These can be a function of variables already in the data set or created from our input.</p>
 <p>Let’s create a variable representing the percentage of lean mass to body mass.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
@@ -1289,11 +1300,11 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-15" data-code-annotation="1">Selecting our variables of interest</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-15" data-code-lines="2">Selecting our variables of interest</span>
 </dd>
 <dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-15" data-code-annotation="2">Creating a long data set based on volume data spread over two columns.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-15" data-code-lines="3">Creating a long data set based on volume data spread over two columns.</span>
 </dd>
 </dl>
 </div>
@@ -1325,7 +1336,7 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-16" data-code-annotation="1">Removes all duplicate combinations of <code>participant</code>, <code>volume</code> and <code>leg</code>.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-16" data-code-lines="4">Removes all duplicate combinations of <code>participant</code>, <code>volume</code> and <code>leg</code>.</span>
 </dd>
 </dl>
 </div>
@@ -1385,15 +1396,15 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-18" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-18" data-code-annotation="1">Notice how select helpers can be used in pivot_longer.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-18" data-code-lines="3">Notice how select helpers can be used in pivot_longer.</span>
 </dd>
 <dt data-target-cell="annotated-cell-18" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-18" data-code-annotation="2">We use <code>mutate</code> together with <code>if_else</code> to change the leg indicator to <code>R</code> and <code>L</code></span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-18" data-code-lines="4">We use <code>mutate</code> together with <code>if_else</code> to change the leg indicator to <code>R</code> and <code>L</code></span>
 </dd>
 <dt data-target-cell="annotated-cell-18" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-18" data-code-annotation="3">We save the data set as <code>leg_leanmass</code></span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-18" data-code-lines="1">We save the data set as <code>leg_leanmass</code></span>
 </dd>
 </dl>
 </div>
@@ -1414,7 +1425,7 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 # ℹ 150 more rows</code></pre>
 </div>
 </div>
-<p><code>pivot_longer</code> has a brother called <code>pivot_wider</code>, this functions performs the reverse operation making long data sets wide. Let’s say that we would like to calculate the paired difference of leag lean mass from pre to post, we could make a wider data set and calculate <code>post - pre</code></p>
+<p><code>pivot_longer</code> has a brother called <code>pivot_wider</code>, this functions performs the reverse operation making long data sets wide. Let’s say that we would like to calculate the paired difference of leg lean mass from pre to post, we could make a wider data set and calculate <code>post - pre</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-19"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-19-1"><a href="#annotated-cell-19-1" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>dxadata <span class="sc">|&gt;</span>  </span>
 <span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(participant, time, include, <span class="fu">starts_with</span>(<span class="st">"lean."</span>) <span class="sc">&amp;</span> <span class="fu">ends_with</span>(<span class="st">"_leg"</span>)) <span class="sc">|&gt;</span> </span>
@@ -1427,11 +1438,11 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-19" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="5" data-code-cell="annotated-cell-19" data-code-annotation="1">Pivot wider creates new columns based on names in <code>time</code> and values in <code>lean_mass</code></span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-19" data-code-lines="5">Pivot wider creates new columns based on names in <code>time</code> and values in <code>lean_mass</code></span>
 </dd>
 <dt data-target-cell="annotated-cell-19" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="6" data-code-cell="annotated-cell-19" data-code-annotation="2">The new variables is calculated as the difference between pre and post-intervention values.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-19" data-code-lines="6">The new variables is calculated as the difference between pre and post-intervention values.</span>
 </dd>
 </dl>
 </div>
@@ -1532,7 +1543,7 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <div id="fig-join-illustration" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="data-viz_files/figure-html/fig-join-illustration-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.3: Functions for joining data sets.</figcaption>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.3: Functions for joining data sets.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1591,11 +1602,647 @@ Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen, Ivana Hol
 <div class="margin-column">
 
 </div>
-<p>The <code>filter</code> function keeps rows of a data frame</p>
+<p>The <code>filter</code> function keeps rows of a data frame where a condition that we specify returns <code>TRUE</code>. To construct testable conditions that allows for results being either <code>FALSE</code> or <code>TRUE</code> we will use one, or a combination operators, such as</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>→ “equal to”</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>→ “not equal to”</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>→ “larger than”</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>→ “smaller than”</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code>, <code>&lt;=</code></td>
+<td>→ “larger/smaller or equal to”</td>
+</tr>
+<tr class="even">
+<td><code>!</code></td>
+<td>→ “NOT”</td>
+</tr>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>→ “AND”</td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>→ “OR”</td>
+</tr>
+</tbody>
+</table>
+<div class="page-columns page-full"><p>The above are all part of a collection of logical operators.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> We may demonstrate the mechanism by which <code>filter</code> operates by creating our own vector of <code>TRUE</code>/<code>FALSE</code> values. In the code chunk below a vector (<code>INCLUDE</code>) is created based on our <code>include</code> variable. A <code>logical</code> vector is created from the statement <code>INCLUDE != "excl"</code>. We then use this vector in the filter statement.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;See <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">here</a> for a technical overview of logical operators.</p></li></div></div>
+<div class="margin-column">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>INCLUDE <span class="ot">&lt;-</span> leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(include)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>INCLUDE <span class="ot">&lt;-</span> INCLUDE <span class="sc">!=</span> <span class="st">"excl"</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>INCLUDE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [37]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [49] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+ [73]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [85]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [97]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[133]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[145]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+[157] FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(INCLUDE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 136 × 6
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP28        pre   incl    L          7059 multiple
+ 2 FP28        pre   incl    R          7104 single  
+ 3 FP40        pre   incl    L          7190 single  
+ 4 FP40        pre   incl    R          7506 multiple
+ 5 FP21        pre   incl    L         10281 single  
+ 6 FP21        pre   incl    R         10200 multiple
+ 7 FP34        pre   incl    L          6014 single  
+ 8 FP34        pre   incl    R          6009 multiple
+ 9 FP23        pre   incl    L          8242 single  
+10 FP23        pre   incl    R          8685 multiple
+# ℹ 126 more rows</code></pre>
+</div>
+</div>
+<p>In R, a vector of <code>TRUE</code>/<code>FALSE</code> (or in short form <code>T</code>/<code>F</code>) are is a special case which R will prohibit us from overwriting.</p>
+<section id="grouped-filters" class="level4 page-columns page-full" data-number="1.2.5.1">
+<h4 data-number="1.2.5.1" class="anchored" data-anchor-id="grouped-filters"><span class="header-section-number">1.2.5.1</span> Grouped filters</h4>
+<p>Using the dplyr syntax it is easy to e.g.&nbsp;filter or mutate based on a grouping of the data set. The function <code>group_by</code> creates a grouped data set. In the context of filtering in our data set we may want to filter out observations larger than the median from two time points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lean_mass <span class="sc">&gt;</span> <span class="fu">median</span>(lean_mass)) <span class="sc">|&gt;</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 6
+# Groups:   time [2]
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP21        pre   incl    L         10281 single  
+ 2 FP21        pre   incl    R         10200 multiple
+ 3 FP23        pre   incl    R          8685 multiple
+ 4 FP38        pre   incl    L          8889 single  
+ 5 FP38        pre   incl    R          8923 multiple
+ 6 FP25        pre   incl    L          9664 single  
+ 7 FP25        pre   incl    R          9198 multiple
+ 8 FP19        pre   incl    L          9704 multiple
+ 9 FP19        pre   incl    R          9806 single  
+10 FP13        pre   incl    L         10086 multiple
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+<p>The above operation removed exactly half of the observations, as expected since we wanted observations larger than the median from both time points. We may combine this statement with filtering away <code>"excl"</code> from the <code>include</code> variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>, lean_mass <span class="sc">&gt;</span> <span class="fu">median</span>(lean_mass)) <span class="sc">|&gt;</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 68 × 6
+# Groups:   time [2]
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP21        pre   incl    L         10281 single  
+ 2 FP21        pre   incl    R         10200 multiple
+ 3 FP23        pre   incl    R          8685 multiple
+ 4 FP38        pre   incl    L          8889 single  
+ 5 FP38        pre   incl    R          8923 multiple
+ 6 FP25        pre   incl    L          9664 single  
+ 7 FP25        pre   incl    R          9198 multiple
+ 8 FP19        pre   incl    L          9704 multiple
+ 9 FP19        pre   incl    R          9806 single  
+10 FP13        pre   incl    L         10086 multiple
+# ℹ 58 more rows</code></pre>
+</div>
+</div>
+<p>Putting two conditions in a <code>filter</code> call is like explicitly using <code>&amp;</code> (AND) to combine statements. All conditions must evaluate to be <code>TRUE</code> for the row to be included in final output.</p>
+<div class="page-columns page-full"><p>An alternative to grouping by the <code>group_by</code> function is to do a “per-operation grouping”<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> using the <code>.by</code> argument. This does not leave a grouping in the data frame after filtering.</p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;See <code>?dplyr_by</code></p></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>, lean_mass <span class="sc">&gt;</span> <span class="fu">median</span>(lean_mass), <span class="at">.by =</span> time) <span class="sc">|&gt;</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 68 × 6
+   participant time  include leg   lean_mass volume  
+   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   
+ 1 FP21        pre   incl    L         10281 single  
+ 2 FP21        pre   incl    R         10200 multiple
+ 3 FP23        pre   incl    R          8685 multiple
+ 4 FP38        pre   incl    L          8889 single  
+ 5 FP38        pre   incl    R          8923 multiple
+ 6 FP25        pre   incl    L          9664 single  
+ 7 FP25        pre   incl    R          9198 multiple
+ 8 FP19        pre   incl    L          9704 multiple
+ 9 FP19        pre   incl    R          9806 single  
+10 FP13        pre   incl    L         10086 multiple
+# ℹ 58 more rows</code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="scientific-graphic-design" class="level2 page-columns page-full" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="scientific-graphic-design"><span class="header-section-number">1.3</span> Scientific graphic design</h2>
+<section id="summaries" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="summaries"><span class="header-section-number">1.2.6</span> Summaries</h3>
+<p>We often want to reduce larger amount of data into some summaries, such as means, standard deviations, medians etc. These summaries may be calculated over any number of categorical variables representing e.g.&nbsp;groups of observations. Just like in the filtering statement above, we may work with a grouped data frame, or by using a per-operation grouping (<code>.by</code>).</p>
+<p>We will calculate the median, first and third quartile, and minimum and maximum from each volume condition and time point. Below are both of the two alternatives of grouping used.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time, volume) <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Min =</span> <span class="fu">min</span>(lean_mass), </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">q25 =</span> <span class="fu">quantile</span>(lean_mass, <span class="fl">0.25</span>), </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median =</span> <span class="fu">median</span>(lean_mass), </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">q75 =</span> <span class="fu">quantile</span>(lean_mass, <span class="fl">0.75</span>), </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">Max =</span> <span class="fu">max</span>(lean_mass)) <span class="sc">|&gt;</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'time'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+# Groups:   time [2]
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 post  multiple  5343 7309.  8654. 10820. 13948
+2 post  single    5561 7201.  8772. 10453. 13526
+3 pre   multiple  5500 7010.  8590. 10104  13166
+4 pre   single    5289 7126.  8654  10125. 13166</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="ot">&lt;-</span> leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Min =</span> <span class="fu">min</span>(lean_mass), </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">q25 =</span> <span class="fu">quantile</span>(lean_mass, <span class="fl">0.25</span>), </span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median =</span> <span class="fu">median</span>(lean_mass), </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">q75 =</span> <span class="fu">quantile</span>(lean_mass, <span class="fl">0.75</span>), </span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Max =</span> <span class="fu">max</span>(lean_mass), </span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(time, volume)) <span class="sc">|&gt;</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 pre   multiple  5500 7010.  8590. 10104  13166
+2 pre   single    5289 7126.  8654  10125. 13166
+3 post  multiple  5343 7309.  8654. 10820. 13948
+4 post  single    5561 7201.  8772. 10453. 13526</code></pre>
+</div>
+</div>
+<p>Notice how the data frames either have a persistent grouping, or no grouping depending on how we invoked grouping. Notice also that all values are nicely displayed, this is not always the case with summarise.</p>
+<p>Consider the following example</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>vals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">6.7</span>, <span class="fl">4.6</span>, <span class="fl">5.1</span>, <span class="cn">NA</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>The mean of a vector of values containing a missing value returns <code>NA</code>. If we where to have missing values (<code>NA</code>) in our original data we would have recievied a <code>NA</code> in results. To drop an <code>NA</code> from such a summary we need to specify <code>na.rm = TRUE</code> as part of a summary function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>vals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">6.7</span>, <span class="fl">4.6</span>, <span class="fl">5.1</span>, <span class="cn">NA</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(vals, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.225</code></pre>
+</div>
+</div>
+<p>R does not drop <code>NA</code> silently! This is a good thing as we want to get a notice when we are missing data. If we know we are missing data we need to explicitly type this in our calls. This “rule” is not always true as some functions silently drops <code>NA</code>, be aware!</p>
+</section>
+<section id="arranging-data-frames" class="level3" data-number="1.2.7">
+<h3 data-number="1.2.7" class="anchored" data-anchor-id="arranging-data-frames"><span class="header-section-number">1.2.7</span> Arranging data frames</h3>
+<p>At last we might want to arrange a data frame for ease of use, or prior to making a table etc. Arranging does not change the data frame <em>per se</em>, only how it is displayed.</p>
+<p>We’ll used our summarized data frame from above and sort based on the <code>volume</code> variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(volume) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 pre   multiple  5500 7010.  8590. 10104  13166
+2 post  multiple  5343 7309.  8654. 10820. 13948
+3 pre   single    5289 7126.  8654  10125. 13166
+4 post  single    5561 7201.  8772. 10453. 13526</code></pre>
+</div>
+</div>
+<p>Any other column will also work for arranging</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Median) <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 pre   multiple  5500 7010.  8590. 10104  13166
+2 post  multiple  5343 7309.  8654. 10820. 13948
+3 pre   single    5289 7126.  8654  10125. 13166
+4 post  single    5561 7201.  8772. 10453. 13526</code></pre>
+</div>
+</div>
+<p>Using a helper function (<code>desc</code>) reverses the sorting</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Median)) <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 post  single    5561 7201.  8772. 10453. 13526
+2 pre   single    5289 7126.  8654  10125. 13166
+3 post  multiple  5343 7309.  8654. 10820. 13948
+4 pre   multiple  5500 7010.  8590. 10104  13166</code></pre>
+</div>
+</div>
+<p>Notice that <code>desc</code> also works for character data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume)) <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  time  volume     Min   q25 Median    q75   Max
+  &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 pre   single    5289 7126.  8654  10125. 13166
+2 post  single    5561 7201.  8772. 10453. 13526
+3 pre   multiple  5500 7010.  8590. 10104  13166
+4 post  multiple  5343 7309.  8654. 10820. 13948</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="ggplot-examples" class="level2 page-columns page-full" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="ggplot-examples"><span class="header-section-number">1.3</span> <code>ggplot</code> examples</h2>
+<p>As hinted above, <code>ggplot2</code> presents us with almost endless opportunities for graphical representations of our data. We will use the data we have wrangled above to better understand the <code>ggplot2</code> syntax.</p>
+<div class="page-columns page-full"><p>In our summary of the lean mass data we have calculated a number of summary statistics that can be used to create a type of range-quartile-median plot not unlike the plots suggested by Tukey<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. We will use time as a categorical variable on the x-axis and our summary statistics displayed on the y-axis.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Tukey <span class="citation" data-cites="tukey1977">(<a href="references.html#ref-tukey1977" role="doc-biblioref">1977</a>)</span> is considered to be creator of the box-plot. However, Spear may have suggested a predecessor to the box-plot in Charting statistics <span class="citation" data-cites="spear1952">(<a href="references.html#ref-spear1952" role="doc-biblioref">Spear 1952</a>)</span>.</p><div id="ref-tukey1977" class="csl-entry" role="listitem">
+Tukey, John Wilder. 1977. <em>Exploratory Data Analysis</em>. Addison-Wesley Series in Behavioral Science. Reading, Mass: Addison-Wesley Pub. Co.
+</div><div id="ref-spear1952" class="csl-entry" role="listitem">
+Spear, M. E. 1952. <em>Charting Statistics</em>. McGraw-Hill. <a href="https://books.google.no/books?id=1vBOAAAAMAAJ">https://books.google.no/books?id=1vBOAAAAMAAJ</a>.
+</div></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> leanmass_sum, <span class="fu">aes</span>(time, Median))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We have specified a data set, and variables for the x and y axis. This specification gives us an empty coordinate system. We need to add geometric objects to represent the data mapped to x and y coordinates. Let’s start simple</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> leanmass_sum, <span class="fu">aes</span>(time, Median)) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The points now represents our median values per time point. Instead of a point we may add rectangular shapes with a bit of reorganization of the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">if_else</span>(time <span class="sc">==</span> <span class="st">"pre"</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(Time, Median, <span class="at">fill =</span> volume)) <span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> Median, </span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> q75), </span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>)) <span class="sc">+</span> </span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> q25, </span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> Median), </span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We have hacked our way to a plot showing the median as a line inside a box covering the interquartile range. Let’s add bars representing the minimum and maximum values. Note that we are using layers and we want our range bars to not over plot the boxes. We must therefore add them prior to the boxes. We will also scale the x-axis and add labels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">if_else</span>(time <span class="sc">==</span> <span class="st">"pre"</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(Time, Median, <span class="at">fill =</span> volume)) <span class="sc">+</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Min, <span class="at">ymax =</span> Max), </span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>), </span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> Median, </span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> q75), </span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>)) <span class="sc">+</span> </span>
+<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> q25, </span>
+<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> Median), </span>
+<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>)) <span class="sc">+</span></span>
+<span id="cb60-25"><a href="#cb60-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-26"><a href="#cb60-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">2.25</span>), </span>
+<span id="cb60-27"><a href="#cb60-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb60-28"><a href="#cb60-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Do not bother creating the above plot! This is an example of the flexibility brought to us by using a set of simple geometric objects. There are shortcuts to the above plot that takes care of a couple of default operations. We need our pre-summarized data with additional preparatory steps:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The new plot is a box-plot showing the same statistical transformations that we made by hand using a categorical x-axis with the time-values sorted as a factor.</p>
+<div class="cell">
+<details>
+<summary>Code producing the figure</summary>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> leanmass_sum <span class="sc">|&gt;</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">if_else</span>(time <span class="sc">==</span> <span class="st">"pre"</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(Time, Median, <span class="at">fill =</span> volume)) <span class="sc">+</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Min, <span class="at">ymax =</span> Max), </span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>), </span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> Median, </span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> q75), </span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>)) <span class="sc">+</span> </span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> Time <span class="sc">-</span> <span class="fl">0.18</span>, </span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xmax =</span> Time <span class="sc">+</span> <span class="fl">0.18</span>, </span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymin =</span> q25, </span>
+<span id="cb62-22"><a href="#cb62-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ymax =</span> Median), </span>
+<span id="cb62-23"><a href="#cb62-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb62-24"><a href="#cb62-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.4</span>)) <span class="sc">+</span></span>
+<span id="cb62-25"><a href="#cb62-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-26"><a href="#cb62-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">2.25</span>), </span>
+<span id="cb62-27"><a href="#cb62-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb62-28"><a href="#cb62-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>)) <span class="sc">+</span> </span>
+<span id="cb62-29"><a href="#cb62-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb62-30"><a href="#cb62-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-31"><a href="#cb62-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb62-32"><a href="#cb62-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-33"><a href="#cb62-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-34"><a href="#cb62-34" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb62-35"><a href="#cb62-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb62-36"><a href="#cb62-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb62-37"><a href="#cb62-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-38"><a href="#cb62-38" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb62-39"><a href="#cb62-39" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb62-40"><a href="#cb62-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb62-41"><a href="#cb62-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-42"><a href="#cb62-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-43"><a href="#cb62-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-44"><a href="#cb62-44" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(a, b, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">A direct comparison between (a) manual statistical summaries (transformations) and built in transformations in ggplot2 (b).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We have seen that <code>ggplot2</code> have some built in features that makes statistical transformation, but also that a similar result can be obtained by using other “geoms” such as <code>geom_rect</code>. Again, this allows for flexible creation of data visualizations.</p>
+<section id="labels-and-themes" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="labels-and-themes"><span class="header-section-number">1.3.1</span> Labels and themes</h3>
+<p>So far we have used the available data to determine what is being represented in the figure. To make the figure more publication ready we would want to take control over labels, colors and shapes that so far are presented with variable names and default settings.</p>
+<p>The <code>labs</code> function adds customized labels to a ggplot. All aesthetic mappings are available for labeling. We will go further with the box-plot which uses x, y and fill as aesthetics mapped to data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean mass (g)"</span>, </span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Additionally, we might want to think about if we need all axis labels. The time variable is specified with <code>pre</code> and <code>post</code> and won’t need a overall axis label. Instead we might want to clean up the axis text. Since this is a data-driven element in our figure we can change it’s behaviour prior to plotting. We have already changed the order of the factor, let’s add a labels to each level and remove the overall <code>Time</code> label.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>), </span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean mass (g)"</span>, </span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>) <span class="sc">+</span></span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice that we removed the “Time” label from the figure by removing it in the theme function (<code>theme(axis.title.x = element_blank())</code>; more about that later). The factor variable <code>time</code>was respecified using the factor function. This function takes a character of factor varaible and specifies levels (the order of factors) and optionally labels of each level.</p>
+<p>An alternative approach to changing the labels of the factor is to include labels in a call to <code>scale_x_discrete</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean mass (g)"</span>, </span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>) <span class="sc">+</span></span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>)) <span class="sc">+</span></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="theming" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="theming"><span class="header-section-number">1.3.1.1</span> Theming</h4>
+<p><code>ggplot2</code> has a very flexible system for changing parts of a figure that are not directly connected to the data (i.e.&nbsp;created from aesthetic mapping). Each element in the theme that can be controlled is listed in the help pages for <code>theme</code>, type <code>?theme</code> in your console to access it.</p>
+<p>The below illustrates some of the main components we might want to consider:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean mass (g)"</span>, </span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>, </span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"The plot title"</span>, </span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The plot subtitle"</span>, </span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"the plot caption"</span>) <span class="sc">+</span></span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>)) <span class="sc">+</span></span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"yellow"</span>),</span>
+<span id="cb66-23"><a href="#cb66-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"green"</span>), </span>
+<span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"yellow"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>), </span>
+<span id="cb66-25"><a href="#cb66-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>), </span>
+<span id="cb66-26"><a href="#cb66-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray50"</span>), </span>
+<span id="cb66-27"><a href="#cb66-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"pink"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>), </span>
+<span id="cb66-28"><a href="#cb66-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"magenta"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>), </span>
+<span id="cb66-29"><a href="#cb66-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>), </span>
+<span id="cb66-30"><a href="#cb66-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"navyblue"</span>), </span>
+<span id="cb66-31"><a href="#cb66-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray"</span>), </span>
+<span id="cb66-32"><a href="#cb66-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"yellow"</span>), </span>
+<span id="cb66-33"><a href="#cb66-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"magenta"</span>), </span>
+<span id="cb66-34"><a href="#cb66-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"yellow"</span>),</span>
+<span id="cb66-35"><a href="#cb66-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"lightgreen"</span>),</span>
+<span id="cb66-36"><a href="#cb66-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"pink"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Each element of the theme can be modified with a element function. The element theme <code>axis.title</code> is a text element and must subsequently be modified with <code>element_text()</code>. This function takes a number of arguments making it possible to modify text components. Below use our basic plot and to modify the y axis title.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean</span><span class="sc">\n</span><span class="st">mass (g)"</span>, </span>
+<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>, </span>
+<span id="cb67-12"><a href="#cb67-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"The plot title"</span>, </span>
+<span id="cb67-13"><a href="#cb67-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The plot subtitle"</span>, </span>
+<span id="cb67-14"><a href="#cb67-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"the plot caption"</span>) <span class="sc">+</span></span>
+<span id="cb67-15"><a href="#cb67-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb67-16"><a href="#cb67-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb67-17"><a href="#cb67-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>)) <span class="sc">+</span></span>
+<span id="cb67-18"><a href="#cb67-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb67-19"><a href="#cb67-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb67-20"><a href="#cb67-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb67-21"><a href="#cb67-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb67-22"><a href="#cb67-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb67-23"><a href="#cb67-23" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">family =</span> <span class="st">"mono"</span>,</span>
+<span id="cb67-24"><a href="#cb67-24" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb67-25"><a href="#cb67-25" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb67-26"><a href="#cb67-26" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb67-27"><a href="#cb67-27" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb67-28"><a href="#cb67-28" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">vjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb67-29"><a href="#cb67-29" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb67-30"><a href="#cb67-30" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">lineheight =</span> <span class="dv">2</span>),</span>
+<span id="cb67-31"><a href="#cb67-31" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice how the element <code>axis.title.y</code> is similar to <code>axis.title.x</code> and if we want we could use <code>axis.title</code> to modify both. Notice also that we have changed multiple numbers that have defaults. The <code>size</code> is the size of the text, <code>hjust</code> and <code>vjust</code> controls horizontal and vertical placement, receptively.<code>angle</code> rotates the text and <code>lineheight</code> controls the distance between lines (we have used <code>\n</code> to indicate a new line in the title).</p>
+<p>Similarly to <code>element_text</code>, <code>element_rect</code> contains argument to control rectangular elements and <code>element_line</code> is used to control lines. <code>element_blank</code> is used to remove an element, we already used this above to remove the x axis title. In the same “family” of function we find <code>margin</code> which can specify margins of theme elements.</p>
+<p>In addition to controlling specific elements of a theme we have the option to use ready made themes. A couple of pre-specified themes are shipped with <code>ggplot2</code> (see <a href="#fig-theme-example">Figure&nbsp;<span>1.4</span></a>)</p>
+<div class="cell">
+<details>
+<summary>Code producing the figure</summary>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean</span><span class="sc">\n</span><span class="st">mass (g)"</span>, </span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>, </span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The plot subtitle"</span>, </span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"the plot caption"</span>) <span class="sc">+</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>))</span>
+<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-21"><a href="#cb68-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-22"><a href="#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_bw"</span>), </span>
+<span id="cb68-23"><a href="#cb68-23" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_classic</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_classic"</span>), </span>
+<span id="cb68-24"><a href="#cb68-24" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_minimal"</span>), </span>
+<span id="cb68-25"><a href="#cb68-25" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_dark</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_dark"</span>), </span>
+<span id="cb68-26"><a href="#cb68-26" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_light</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_light"</span>), </span>
+<span id="cb68-27"><a href="#cb68-27" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_linedraw</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_linedraw"</span>), </span>
+<span id="cb68-28"><a href="#cb68-28" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_bw</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_bw"</span>), </span>
+<span id="cb68-29"><a href="#cb68-29" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_grey</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_grey"</span>), </span>
+<span id="cb68-30"><a href="#cb68-30" aria-hidden="true" tabindex="-1"></a>          p <span class="sc">+</span> <span class="fu">theme_void</span>()<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"theme_void"</span>), </span>
+<span id="cb68-31"><a href="#cb68-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-theme-example" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="data-viz_files/figure-html/fig-theme-example-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.4: Examples of themes that are part of <code>ggplot2</code></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="scientific-graphic-design" class="level2 page-columns page-full" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="scientific-graphic-design"><span class="header-section-number">1.4</span> Scientific graphic design</h2>
 <p>Tufte <span class="citation" data-cites="tufte2001">(<a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span> provides us with several principles for creating effective data visualizations.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-tufte2001" class="csl-entry" role="listitem">
 Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
@@ -1606,95 +2253,148 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 
 <li><p>Erase redundant data ink</p></li>
 <li><p>Revise and edit</p></li>
 </ul>
-<section id="chartjunk" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="chartjunk"><span class="header-section-number">1.3.1</span> Chartjunk</h3>
+<section id="chartjunk" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="chartjunk"><span class="header-section-number">1.4.1</span> Chartjunk</h3>
 <p>See <code>ggpattern</code> etc for creating chart junk with ggplot2</p>
 </section>
-<section id="minimizing" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="minimizing"><span class="header-section-number">1.3.2</span> Minimizing</h3>
+<section id="minimizing" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="minimizing"><span class="header-section-number">1.4.2</span> Minimizing</h3>
 <p>See <code>ggthemes</code> for range-frame as suggested in tufte Ch 6. Manually minimize summary displays such as boxplots…</p>
 </section>
-<section id="labels-and-annotations" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="labels-and-annotations"><span class="header-section-number">1.3.3</span> Labels and annotations</h3>
+<section id="labels-and-annotations" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="labels-and-annotations"><span class="header-section-number">1.4.3</span> Labels and annotations</h3>
 <p>Using <code>ggtext</code> to format labels etc.</p>
+<p>Changing fonts</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: sysfonts</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: showtextdb</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>?font_add_google</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>starting httpd help server ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> done</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Permanent Marker"</span>, <span class="at">family =</span> <span class="st">"permanentmarker"</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>leg_leanmass <span class="sc">|&gt;</span></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(include <span class="sc">!=</span> <span class="st">"excl"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, </span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(time, lean_mass, <span class="at">fill =</span> volume)) <span class="sc">+</span> </span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>, </span>
+<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Leg lean</span><span class="sc">\n</span><span class="st">mass (g)"</span>, </span>
+<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Volume condition"</span>, </span>
+<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"The plot title"</span>, </span>
+<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"The plot subtitle"</span>, </span>
+<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"the plot caption"</span>) <span class="sc">+</span></span>
+<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-20"><a href="#cb75-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre</span><span class="sc">\n</span><span class="st">intervention"</span>, </span>
+<span id="cb75-21"><a href="#cb75-21" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Post</span><span class="sc">\n</span><span class="st">intervention"</span>)) <span class="sc">+</span></span>
+<span id="cb75-22"><a href="#cb75-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-23"><a href="#cb75-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-24"><a href="#cb75-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb75-25"><a href="#cb75-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb75-26"><a href="#cb75-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb75-27"><a href="#cb75-27" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">family =</span> <span class="st">"permanentmarker"</span>,</span>
+<span id="cb75-28"><a href="#cb75-28" aria-hidden="true" tabindex="-1"></a>                         </span>
+<span id="cb75-29"><a href="#cb75-29" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb75-30"><a href="#cb75-30" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">40</span>,</span>
+<span id="cb75-31"><a href="#cb75-31" aria-hidden="true" tabindex="-1"></a>                             </span>
+<span id="cb75-32"><a href="#cb75-32" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">lineheight =</span> <span class="dv">2</span>),</span>
+<span id="cb75-33"><a href="#cb75-33" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data-viz_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
-<section id="glamorous-graphics" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="glamorous-graphics"><span class="header-section-number">1.3.4</span> Glamorous graphics</h3>
+<section id="glamorous-graphics" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="glamorous-graphics"><span class="header-section-number">1.4.4</span> Glamorous graphics</h3>
 <p>In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics.</p>
 <p>Why glamorous graphics? - Engage a wider audience - Aesthetics matters for understanding - “respecting the audience”</p>
 <p>The glamour of graphics uses color, typography and layout to increase the impact of the graphic.</p>
 </section>
-<section id="layout" class="level3" data-number="1.3.5">
-<h3 data-number="1.3.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">1.3.5</span> Layout</h3>
-<section id="alignment" class="level4" data-number="1.3.5.1">
-<h4 data-number="1.3.5.1" class="anchored" data-anchor-id="alignment"><span class="header-section-number">1.3.5.1</span> Alignment</h4>
+<section id="layout" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">1.4.5</span> Layout</h3>
+<section id="alignment" class="level4" data-number="1.4.5.1">
+<h4 data-number="1.4.5.1" class="anchored" data-anchor-id="alignment"><span class="header-section-number">1.4.5.1</span> Alignment</h4>
 <p>Top left align titles</p>
 <p>Text should be horizontal</p>
 <p>Axis labels should also be horizontal</p>
 <p>Alignment should provide clean lines and symmetry</p>
 <p>Some alignment can be left/center/right to provide overall structure to the graph.</p>
 </section>
-<section id="border-grid-lines-legends" class="level4" data-number="1.3.5.2">
-<h4 data-number="1.3.5.2" class="anchored" data-anchor-id="border-grid-lines-legends"><span class="header-section-number">1.3.5.2</span> Border, Grid lines, legends</h4>
+<section id="border-grid-lines-legends" class="level4" data-number="1.4.5.2">
+<h4 data-number="1.4.5.2" class="anchored" data-anchor-id="border-grid-lines-legends"><span class="header-section-number">1.4.5.2</span> Border, Grid lines, legends</h4>
 <p>Do not use borders or grid lines. If grid lines, make them lighter and more subtle.</p>
 <p>Avoid legends, labels of the data are better or titles with color.</p>
 </section>
-<section id="white-space" class="level4" data-number="1.3.5.3">
-<h4 data-number="1.3.5.3" class="anchored" data-anchor-id="white-space"><span class="header-section-number">1.3.5.3</span> White space</h4>
+<section id="white-space" class="level4" data-number="1.4.5.3">
+<h4 data-number="1.4.5.3" class="anchored" data-anchor-id="white-space"><span class="header-section-number">1.4.5.3</span> White space</h4>
 <p>Use white space to separate elements of the graph and give the reader room to understand the graph.</p>
 </section>
 </section>
-<section id="typography" class="level3" data-number="1.3.6">
-<h3 data-number="1.3.6" class="anchored" data-anchor-id="typography"><span class="header-section-number">1.3.6</span> Typography</h3>
-<section id="fonts" class="level4" data-number="1.3.6.1">
-<h4 data-number="1.3.6.1" class="anchored" data-anchor-id="fonts"><span class="header-section-number">1.3.6.1</span> Fonts</h4>
+<section id="typography" class="level3" data-number="1.4.6">
+<h3 data-number="1.4.6" class="anchored" data-anchor-id="typography"><span class="header-section-number">1.4.6</span> Typography</h3>
+<section id="fonts" class="level4" data-number="1.4.6.1">
+<h4 data-number="1.4.6.1" class="anchored" data-anchor-id="fonts"><span class="header-section-number">1.4.6.1</span> Fonts</h4>
 </section>
-<section id="hierarchy" class="level4" data-number="1.3.6.2">
-<h4 data-number="1.3.6.2" class="anchored" data-anchor-id="hierarchy"><span class="header-section-number">1.3.6.2</span> Hierarchy</h4>
+<section id="hierarchy" class="level4" data-number="1.4.6.2">
+<h4 data-number="1.4.6.2" class="anchored" data-anchor-id="hierarchy"><span class="header-section-number">1.4.6.2</span> Hierarchy</h4>
 <p>This gives the reader a hierarchy of information.</p>
 </section>
 </section>
-<section id="color" class="level3" data-number="1.3.7">
-<h3 data-number="1.3.7" class="anchored" data-anchor-id="color"><span class="header-section-number">1.3.7</span> Color</h3>
+<section id="color" class="level3" data-number="1.4.7">
+<h3 data-number="1.4.7" class="anchored" data-anchor-id="color"><span class="header-section-number">1.4.7</span> Color</h3>
 <p>What colors look good together?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles and radii</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>radii <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  <span class="co"># Vary the starting point to avoid a point at the center</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">angle =</span> angles, <span class="at">radius =</span> radii)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> radius, <span class="at">color =</span> angle, <span class="at">alpha =</span> radius)) <span class="sc">+</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Alternative</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles from 0 to 360</span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">angle =</span> angles)</span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">color =</span> angle)) <span class="sc">+</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles and radii</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>radii <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  <span class="co"># Vary the starting point to avoid a point at the center</span></span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">angle =</span> angles, <span class="at">radius =</span> radii)</span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> radius, <span class="at">color =</span> angle, <span class="at">alpha =</span> radius)) <span class="sc">+</span></span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-17"><a href="#cb76-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-18"><a href="#cb76-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-19"><a href="#cb76-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb76-20"><a href="#cb76-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb76-21"><a href="#cb76-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-22"><a href="#cb76-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Alternative</span></span>
+<span id="cb76-23"><a href="#cb76-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-24"><a href="#cb76-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame of angles from 0 to 360</span></span>
+<span id="cb76-25"><a href="#cb76-25" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
+<span id="cb76-26"><a href="#cb76-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">angle =</span> angles)</span>
+<span id="cb76-27"><a href="#cb76-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-28"><a href="#cb76-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ggplot of colored points in polar coordinates</span></span>
+<span id="cb76-29"><a href="#cb76-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> angle, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">color =</span> angle)) <span class="sc">+</span></span>
+<span id="cb76-30"><a href="#cb76-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb76-31"><a href="#cb76-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">rainbow</span>(<span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb76-32"><a href="#cb76-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb76-33"><a href="#cb76-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb76-34"><a href="#cb76-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-35"><a href="#cb76-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-36"><a href="#cb76-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb76-37"><a href="#cb76-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The color wheel can be used to find</p>
 <ul>
@@ -1705,11 +2405,11 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 
 <li>Triadic colors to give more</li>
 </ul>
 <!-- SEE  https://www.canva.com/colors/color-wheel/ for more on this -->
-<section id="describing-colors-hue-saturation-and-lightness" class="level4" data-number="1.3.7.1">
-<h4 data-number="1.3.7.1" class="anchored" data-anchor-id="describing-colors-hue-saturation-and-lightness"><span class="header-section-number">1.3.7.1</span> Describing colors, Hue, Saturation and Lightness</h4>
+<section id="describing-colors-hue-saturation-and-lightness" class="level4" data-number="1.4.7.1">
+<h4 data-number="1.4.7.1" class="anchored" data-anchor-id="describing-colors-hue-saturation-and-lightness"><span class="header-section-number">1.4.7.1</span> Describing colors, Hue, Saturation and Lightness</h4>
 </section>
-<section id="background-colors" class="level4" data-number="1.3.7.2">
-<h4 data-number="1.3.7.2" class="anchored" data-anchor-id="background-colors"><span class="header-section-number">1.3.7.2</span> Background colors</h4>
+<section id="background-colors" class="level4" data-number="1.4.7.2">
+<h4 data-number="1.4.7.2" class="anchored" data-anchor-id="background-colors"><span class="header-section-number">1.4.7.2</span> Background colors</h4>
 <p>Colors can help reduce “hardness” by avoiding a white background.</p>
 
 
