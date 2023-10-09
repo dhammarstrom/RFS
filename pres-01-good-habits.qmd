@@ -1,12 +1,12 @@
 ---
-title: "Good habits in data-intensive science"
-subtitle: ""
+title: "R for scientific visualization, collaboration and thinking"
+subtitle: "(Maybe) [a PhD course]{.yellow} (next year)"
 format:
   revealjs:
     theme: [default, scss/custom.scss]
 ---
 
-## A list in the making {.smaller}
+## [Good habits:]{.yellow} Are not part of your course portfolio! {.smaller}
 
 :::: {.columns}
 
@@ -38,12 +38,26 @@ format:
 
 ::::
 
+## Topics 2023
+
+- Data wrangling and visualization
+- Project collaboration and version control
+- Scientific models and their statistical representations, [before data!]{.yellow}
+
+
+
+
 ## [Organize and re-organize]{.yellow}
 
 ![](img/wire.png)
 
 
-## 
+## How to follow these seminars
+
+- Write notes in quarto or R Markdown files, [try to write in class]{.yellow}
+- Keep your notes in an RStudio project, [revise them on your own]{.yellow}
+- Keep the project version controlled on GitHub, [add notes for reference after the seminars]{.yellow}
+- Read notes on [dhammarstrom.github.io/RFS](https://dhammarstrom.github.io/RFS), [suggest improvements]{.yellow}
 
 
 
