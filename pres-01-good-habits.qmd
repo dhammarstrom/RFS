@@ -6,7 +6,7 @@ format:
     theme: [default, scss/custom.scss]
 ---
 
-## [Good habits:]{.yellow} Are not part of your course portfolio! {.smaller}
+## [Good habits:]{.yellow} Are not part of your course portfolio!{.smaller .scrollable}
 
 :::: {.columns}
 
@@ -42,6 +42,7 @@ format:
 
 - Data wrangling and visualization
 - Project collaboration and version control
+- Writing R packages, including data packages
 - Scientific models and their statistical representations, [before data!]{.yellow}
 
 
