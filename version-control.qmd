@@ -1,8 +1,27 @@
 # Version control and collaborative scientific coding
+Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality in the sense that results to a larger degree will be available for critical dissemination by independent researchers, founding agencies and the public. As scientists we have a moral obligation to be transparent, and having transparency as a goal will likely make us better scientist.
+
+In this workshop to we will introduce version control in the context of collaborative scientific writing. Version control software allows researchers to automate the process of keeping a record of changes to a project. It could also show whom made contributions. Changing your mindset to focus on the process (researching/communicating) rather than one end product (a thesis/paper) may change how you think about the scientific process.
+
+Collaboration around complex projects is messy. 
+
+
+
+
+Potential sources:
+
+https://doi.org/10.1371/journal.pcbi.1004668
+10.1080/00031305.2017.1375986
+https://doi.org/10.1186/1751-0473-8-7
 
 ## Introduction to git and GitHub
 
 ## A workflow for a scientific paper
+### The repository 
+
+
+
+
 
 ### The final result
 
