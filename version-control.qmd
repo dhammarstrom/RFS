@@ -1,9 +1,7 @@
 # Version control and collaborative scientific coding
-Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality in the sense that results to a larger degree will be available for critical dissemination by independent researchers, founding agencies and the public. As scientists we have a moral obligation to be transparent, and having transparency as a goal will likely make us better scientist.
+Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality in the sense that results, to a more considerable degree, will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists. Version control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As a scientist, changing our mindset to focus on researching and communicating with transparency and reproducibility rather than one end product, such a scientific paper may change our thinking about the scientific process. Here, we will introduce version control as a tool in collaborative scientific writing. 
 
-In this workshop to we will introduce version control in the context of collaborative scientific writing. Version control software allows researchers to automate the process of keeping a record of changes to a project. It could also show whom made contributions. Changing your mindset to focus on the process (researching/communicating) rather than one end product (a thesis/paper) may change how you think about the scientific process.
-
-Collaboration around complex projects is messy. 
+Collaboration in complex projects is messy. Multiple files exist in multiple versions; changes are made in parallel with little to no control over what is lost or gained. It is likely a frequent experience that most scientific collaborations could use a more formal structure for working with data analysis or writing. Such formal structures are, however, difficult to establish without a common point of departure. This workshop aims to create a common understanding of version control, collaboration, transparency, and reproducibility.  
 
 
 
@@ -15,6 +13,40 @@ https://doi.org/10.1371/journal.pcbi.1004668
 https://doi.org/10.1186/1751-0473-8-7
 
 ## Introduction to git and GitHub
+Git is a version control system that you install on your local machine. It helps you create records of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository in a hidden directory called `.git`.
+
+Git can be set up to communicate with an online repository. There are several alternatives for online hosting of repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.
+
+To enable version control and collaboration you must therefore have git installed and an active github account.
+
+### Accounts and git to GitHub integration
+Git can be installed from [https://git-scm.com](https://git-scm.com). Git requires no additional account information or software. To allow for RStudio to use git you need to tell RStudio where you copy of git is located. This is done under *Tools > Global options > Git/SVN*. 
+
+Your local version history maintained by git can be controlled from your terminal window. However, to connect to the online services of github you will need to set git up with your github account.
+
+Github has recently made changes to its authentication protocol, [and seems to be in the process of making additional changes](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github). [GitHub CLI](https://cli.github.com/)  provides a command line interface to GitHub that makes it easy to authenticate. Install [GitHub CLI here](https://cli.github.com/) and run `gh auth login` in your terminal to set things up.
+
+### Git and its commands
+As already mentioned, git stores a record of changes to files in a given repository. A repository is a directory in which you have initialized git. We can do this in any directory using the command line by typing 
+
+```{r}
+#| eval: false
+git init
+```
+
+in our terminal. If you initialize git projects using RStudio it will run this command for you. You may check that you have initialized the version control system by typing 
+
+```{r}
+#| eval: false
+git status
+```
+
+You make decisions on what files to add to your version history and when to do so. A file is added to the staging area with the command  
+
+```{r}
+#| eval: false
+git add <filename>
+```
 
 ## A workflow for a scientific paper
 ### The repository 
