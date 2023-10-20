@@ -41,12 +41,29 @@ in our terminal. If you initialize git projects using RStudio it will run this c
 git status
 ```
 
-You make decisions on what files to add to your version history and when to do so. A file is added to the staging area with the command  
+You make decisions on what files to add to your version history and when to do so. A file, let us say `file-a.txt` is added to the staging area with the command  
 
 ```{r}
 #| eval: false
-git add <filename>
+git add file-a.txt
 ```
+
+The staging area is where files are kept until you commit a snapshot of them into the version history. We could also stage all files that have changes made to them by typing
+
+```{r}
+#| eval: false
+git add -A
+```
+
+The next step is to commit changes. A commit is a snapshot of the repository or files at a given moment. We perform a commit when after staging files type
+
+```{r}
+#| eval: false
+git commit -m "my commit message"
+```
+
+The `-m "my commit message"` adds a commit message to the commit. This is a
+
 
 ## A workflow for a scientific paper
 ### The repository 

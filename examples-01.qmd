@@ -1,0 +1,211 @@
+---
+title: "Untitled"
+author: "Daniel"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+
+library(tidyverse)
+
+library(exscidata)
+
+
+remotes::install_github("dhammarstrom/exscidata")
+
+
+```
+
+
+
+```{r}
+
+dxadata <- data.frame(lean.mass = rnorm(100, 6000, 100))
+
+## Base R forward pipe operator
+exscidata::dxadata |> select(participant)
+  
+  
+select(exscidata::dxadata, participant)  
+
+
+## magritter forward pipe operator
+exscidata::dxadata %>% select(participant)
+  
+
+## When they differ
+
+exscidata::dxadata |>
+  lm(weight ~ height, data = _)
+
+
+exscidata::dxadata %>%
+  lm(weight ~ height, data = .) 
+
+
+
+
+
+
+```
+
+
+
+
+```{r}
+
+
+### Select
+glimpse(exscidata::dxadata)
+
+exscidata::dxadata |>
+  select(participant:weight, starts_with("lean.") & contains("_leg"))
+
+exscidata::dxadata |>
+  select(where(is.numeric))
+
+  
+
+
+
+exscidata::dxadata |>
+  select(weight, fp = participant )
+
+## Rename
+exscidata::dxadata |>
+  select(participant:weight) |>
+  rename(kg = weight) |>
+  relocate(kg, .before = participant)
+  
+
+
+
+
+
+```
+
+
+
+```{r}
+
+### Mutate
+
+lean_mass  <- exscidata::dxadata %>%
+  select(participant,weight, lean.whole) |>
+
+  
+  mutate(rel_lean = 100 * ((lean.whole/1000)/weight), 
+         anewvariable = rnorm(80, 0, 1)) |>
+  relocate(c(rel_lean, anewvariable), .before = participant) |>
+  
+  print()
+
+
+
+
+
+
+```
+
+
+
+## Pivot data
+
+```{r}
+
+# Create a small data set containing volume/leg information
+leg_volume <- exscidata::dxadata |>
+  select(participant, single, multiple) |>
+  
+  pivot_longer(names_to = "volume", 
+               values_to = "leg", 
+               cols = single:multiple) |>
+
+  
+  distinct(participant, leg, volume) %>%
+  
+  
+  print()
+  
+
+
+lean_mass <- exscidata::dxadata |>
+  select(participant, include, time, 
+         starts_with("lean.") & contains("_leg")) |>
+  
+
+  
+  pivot_longer(names_to = "leg", 
+               values_to = "leanmass", 
+               cols = starts_with("lean")) |>
+  
+
+ mutate(leg = if_else(leg == "lean.left_leg", "L", "R")) |>
+ print()
+
+
+
+lean_mass <- full_join(leg_volume, lean_mass)
+
+
+
+```
+
+
+
+
+```{r}
+
+lean_mass |>
+  filter(include == "incl") |>
+  print()
+  
+  
+
+
+
+
+lean_mass |>
+  group_by(time)
+
+
+
+```
+
+
+```{r}
+
+
+
+lean_mass |>
+  filter(include == "incl") |>
+  group_by(volume, time) |>
+  summarise(Median = median(leanmass)) |>
+  group_by() |>
+  print()
+
+
+
+
+
+lean_mass |>
+  filter(include == "incl") |>
+
+  summarise(Median = median(leanmass), 
+            Mean = mean(leanmass), 
+            SD = sd(leanmass),
+            q25 = quantile(leanmass, 0.25), 
+            q75 = quantile(leanmass, 0.75), 
+            Min = min(leanmass),
+            Max = max(leanmass),
+            
+            .by = c(time, volume)) |>
+  
+  print()
+
+
+
+```
+
+

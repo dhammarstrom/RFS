@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -144,15 +178,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link active" data-scroll-target="#introduction-to-git-and-github"><span class="header-section-number">2.1</span> Introduction to git and GitHub</a></li>
+  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link active" data-scroll-target="#introduction-to-git-and-github"><span class="header-section-number">2.1</span> Introduction to git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#accounts-and-git-to-github-integration" id="toc-accounts-and-git-to-github-integration" class="nav-link" data-scroll-target="#accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git to GitHub integration</a></li>
+  <li><a href="#git-and-its-commands" id="toc-git-and-its-commands" class="nav-link" data-scroll-target="#git-and-its-commands"><span class="header-section-number">2.1.2</span> Git and its commands</a></li>
+  </ul></li>
   <li><a href="#a-workflow-for-a-scientific-paper" id="toc-a-workflow-for-a-scientific-paper" class="nav-link" data-scroll-target="#a-workflow-for-a-scientific-paper"><span class="header-section-number">2.2</span> A workflow for a scientific paper</a>
   <ul class="collapse">
-  <li><a href="#the-final-result" id="toc-the-final-result" class="nav-link" data-scroll-target="#the-final-result"><span class="header-section-number">2.2.1</span> The final result</a></li>
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">2.2.2</span> Initial setup</a></li>
-  <li><a href="#repositories-and-branches" id="toc-repositories-and-branches" class="nav-link" data-scroll-target="#repositories-and-branches"><span class="header-section-number">2.2.3</span> Repositories and branches</a></li>
-  <li><a href="#milestones-issues-and-pull-requests" id="toc-milestones-issues-and-pull-requests" class="nav-link" data-scroll-target="#milestones-issues-and-pull-requests"><span class="header-section-number">2.2.4</span> Milestones, issues, and pull requests</a></li>
-  <li><a href="#a-style-guide-for-scientific-coding" id="toc-a-style-guide-for-scientific-coding" class="nav-link" data-scroll-target="#a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.5</span> A style guide for scientific coding</a></li>
-  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing"><span class="header-section-number">2.2.6</span> Publishing</a></li>
+  <li><a href="#the-repository" id="toc-the-repository" class="nav-link" data-scroll-target="#the-repository"><span class="header-section-number">2.2.1</span> The repository</a></li>
+  <li><a href="#the-final-result" id="toc-the-final-result" class="nav-link" data-scroll-target="#the-final-result"><span class="header-section-number">2.2.2</span> The final result</a></li>
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">2.2.3</span> Initial setup</a></li>
+  <li><a href="#repositories-and-branches" id="toc-repositories-and-branches" class="nav-link" data-scroll-target="#repositories-and-branches"><span class="header-section-number">2.2.4</span> Repositories and branches</a></li>
+  <li><a href="#milestones-issues-and-pull-requests" id="toc-milestones-issues-and-pull-requests" class="nav-link" data-scroll-target="#milestones-issues-and-pull-requests"><span class="header-section-number">2.2.5</span> Milestones, issues, and pull requests</a></li>
+  <li><a href="#a-style-guide-for-scientific-coding" id="toc-a-style-guide-for-scientific-coding" class="nav-link" data-scroll-target="#a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.6</span> A style guide for scientific coding</a></li>
+  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing"><span class="header-section-number">2.2.7</span> Publishing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -177,29 +216,69 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality in the sense that results, to a more considerable degree, will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists. Version control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As a scientist, changing our mindset to focus on researching and communicating with transparency and reproducibility rather than one end product, such a scientific paper may change our thinking about the scientific process. Here, we will introduce version control as a tool in collaborative scientific writing.</p>
+<p>Collaboration in complex projects is messy. Multiple files exist in multiple versions; changes are made in parallel with little to no control over what is lost or gained. It is likely a frequent experience that most scientific collaborations could use a more formal structure for working with data analysis or writing. Such formal structures are, however, difficult to establish without a common point of departure. This workshop aims to create a common understanding of version control, collaboration, transparency, and reproducibility.</p>
+<p>Potential sources:</p>
+<p>https://doi.org/10.1371/journal.pcbi.1004668 10.1080/00031305.2017.1375986 https://doi.org/10.1186/1751-0473-8-7</p>
 <section id="introduction-to-git-and-github" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction-to-git-and-github"><span class="header-section-number">2.1</span> Introduction to git and GitHub</h2>
+<p>Git is a version control system that you install on your local machine. It helps you create records of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository in a hidden directory called <code>.git</code>.</p>
+<p>Git can be set up to communicate with an online repository. There are several alternatives for online hosting of repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.</p>
+<p>To enable version control and collaboration you must therefore have git installed and an active github account.</p>
+<section id="accounts-and-git-to-github-integration" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git to GitHub integration</h3>
+<p>Git can be installed from <a href="https://git-scm.com">https://git-scm.com</a>. Git requires no additional account information or software. To allow for RStudio to use git you need to tell RStudio where you copy of git is located. This is done under <em>Tools &gt; Global options &gt; Git/SVN</em>.</p>
+<p>Your local version history maintained by git can be controlled from your terminal window. However, to connect to the online services of github you will need to set git up with your github account.</p>
+<p>Github has recently made changes to its authentication protocol, <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github">and seems to be in the process of making additional changes</a>. <a href="https://cli.github.com/">GitHub CLI</a> provides a command line interface to GitHub that makes it easy to authenticate. Install <a href="https://cli.github.com/">GitHub CLI here</a> and run <code>gh auth login</code> in your terminal to set things up.</p>
+</section>
+<section id="git-and-its-commands" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="git-and-its-commands"><span class="header-section-number">2.1.2</span> Git and its commands</h3>
+<p>As already mentioned, git stores a record of changes to files in a given repository. A repository is a directory in which you have initialized git. We can do this in any directory using the command line by typing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>in our terminal. If you initialize git projects using RStudio it will run this command for you. You may check that you have initialized the version control system by typing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You make decisions on what files to add to your version history and when to do so. A file, let us say <code>file-a.txt</code> is added to the staging area with the command</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git add file<span class="sc">-</span>a.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The staging area is where files are kept until you commit a snapshot of them into the version history. We could also stage all files that have changes made to them by typing</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">-</span>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The next step is to commit changes. A commit is a snapshot of the repository or files at a given moment. We perform a commit when after staging files type</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"my commit message"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>-m "my commit message"</code> adds a commit message to the commit. This is a</p>
+</section>
 </section>
 <section id="a-workflow-for-a-scientific-paper" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="a-workflow-for-a-scientific-paper"><span class="header-section-number">2.2</span> A workflow for a scientific paper</h2>
-<section id="the-final-result" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">2.2.1</span> The final result</h3>
+<section id="the-repository" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="the-repository"><span class="header-section-number">2.2.1</span> The repository</h3>
 </section>
-<section id="initial-setup" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">2.2.2</span> Initial setup</h3>
+<section id="the-final-result" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">2.2.2</span> The final result</h3>
 </section>
-<section id="repositories-and-branches" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="repositories-and-branches"><span class="header-section-number">2.2.3</span> Repositories and branches</h3>
+<section id="initial-setup" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">2.2.3</span> Initial setup</h3>
 </section>
-<section id="milestones-issues-and-pull-requests" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="milestones-issues-and-pull-requests"><span class="header-section-number">2.2.4</span> Milestones, issues, and pull requests</h3>
+<section id="repositories-and-branches" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="repositories-and-branches"><span class="header-section-number">2.2.4</span> Repositories and branches</h3>
 </section>
-<section id="a-style-guide-for-scientific-coding" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.5</span> A style guide for scientific coding</h3>
+<section id="milestones-issues-and-pull-requests" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="milestones-issues-and-pull-requests"><span class="header-section-number">2.2.5</span> Milestones, issues, and pull requests</h3>
+</section>
+<section id="a-style-guide-for-scientific-coding" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.6</span> A style guide for scientific coding</h3>
 <p>We adhere to the <a href="https://style.tidyverse.org/">tidyverse style guide</a>. The following is a summary of the most important points with some modifications.</p>
 </section>
-<section id="publishing" class="level3" data-number="2.2.6">
-<h3 data-number="2.2.6" class="anchored" data-anchor-id="publishing"><span class="header-section-number">2.2.6</span> Publishing</h3>
+<section id="publishing" class="level3" data-number="2.2.7">
+<h3 data-number="2.2.7" class="anchored" data-anchor-id="publishing"><span class="header-section-number">2.2.7</span> Publishing</h3>
 
 
 </section>
