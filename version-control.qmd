@@ -13,14 +13,14 @@ https://doi.org/10.1371/journal.pcbi.1004668
 https://doi.org/10.1186/1751-0473-8-7
 
 ## Introduction to git and GitHub
-Git is a version control system that you install on your local machine. It helps you create records of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository in a hidden directory called `.git`.
+Git is a version control system that you install on your local machine. It helps you create a record of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository content in a hidden directory called `.git`.
 
-Git can be set up to communicate with an online repository. There are several alternatives for online hosting of repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.
+Git can be set up to communicate with an online repository. There are several alternatives for online hosting of version controlled repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.
 
-To enable version control and collaboration you must therefore have git installed and an active github account.
+To enable version control and collaboration you must therefore have git installed and an active GitHub account.
 
 ### Accounts and git to GitHub integration
-Git can be installed from [https://git-scm.com](https://git-scm.com). Git requires no additional account information or software. To allow for RStudio to use git you need to tell RStudio where you copy of git is located. This is done under *Tools > Global options > Git/SVN*. 
+Git can be installed from [https://git-scm.com](https://git-scm.com). Git requires no additional account information or software. To allow for RStudio to act as a git client, you need to tell RStudio where your installation of git is located. This is done under *Tools > Global options > Git/SVN*. 
 
 Your local version history maintained by git can be controlled from your terminal window. However, to connect to the online services of github you will need to set git up with your github account.
 
@@ -29,40 +29,281 @@ Github has recently made changes to its authentication protocol, [and seems to b
 ### Git and its commands
 As already mentioned, git stores a record of changes to files in a given repository. A repository is a directory in which you have initialized git. We can do this in any directory using the command line by typing 
 
-```{r}
-#| eval: false
+```console
 git init
 ```
 
-in our terminal. If you initialize git projects using RStudio it will run this command for you. You may check that you have initialized the version control system by typing 
+in our terminal. If you initialize a git (version control) project using RStudio it will run this command for you. You may check that you have initialized the version control system by typing 
 
-```{r}
-#| eval: false
+```console
 git status
 ```
 
 You make decisions on what files to add to your version history and when to do so. A file, let us say `file-a.txt` is added to the staging area with the command  
 
-```{r}
-#| eval: false
+```console
 git add file-a.txt
 ```
 
 The staging area is where files are kept until you commit a snapshot of them into the version history. We could also stage all files that have changes made to them by typing
 
-```{r}
-#| eval: false
+```console
 git add -A
 ```
 
 The next step is to commit changes. A commit is a snapshot of the repository or files at a given moment. We perform a commit when after staging files type
 
-```{r}
-#| eval: false
+```console
 git commit -m "my commit message"
 ```
 
 The `-m "my commit message"` adds a commit message to the commit. This is a
+
+
+```{r}
+#| eval: true
+#| message: false
+#| warning: false
+#| code-fold: true
+#| label: fig-local-git-edits
+#| fig-cap: "A cycle of local git edits. A files is added to the staging area by `git add <file>` and comitted to the *local repository* by `git commit`. The file is edited and is marked as modified after which it is staged (`git add <file>`). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using `git rm` with or without the `--cached` option."
+
+library(ggplot2); library(ggtext)
+
+ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) + 
+  
+  scale_y_continuous(limits = c(0.3, 1)) +
+  
+  # Workspace
+  geom_rect(aes(xmin = 0.01, 
+            xmax = 0.6, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  geom_rect(aes(xmin = 0.02, 
+            xmax = 0.3, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  geom_rect(aes(xmin = 0.31, 
+            xmax = 0.58, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+ 
+    annotate("richtext", 
+           x = c(0.02, 0.32),  
+           hjust = 0,
+           y = 0.89, 
+           label = c("*Untracked*", "*Tracked*"),
+           fill = NA, label.color = NA) + 
+   
+  
+  annotate("richtext", 
+           x = 0.02, 
+           y = 0.97, 
+           label = "**Workspace**",
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA, # remove background and outline
+          label.padding = grid::unit(rep(0, 4), "pt")) + # remove padding) +
+  
+  # Stage area
+  geom_rect(aes(xmin = 0.61, 
+            xmax = 1, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "purple", 
+            alpha = 0.2) +
+  
+
+  
+    annotate("richtext", 
+           x = 0.62, 
+           y = 0.97, 
+           label = "**Staging area**",
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA, # remove background and outline
+          label.padding = grid::unit(rep(0, 4), "pt")) + # remove padding) +
+  
+  
+  
+  ## Labels and arrows
+  
+    
+  annotate("segment", y = c(0.85, 0.85), 
+                   yend = c(0.85, 0.82),  
+                   x = c(0.1, 0.9), 
+                   xend = c(0.9, 0.9), 
+                   arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+    
+  geom_label(aes(x = 0.62, y = 0.85 , label = "<file>"), 
+             hjust = 0) +
+  
+  
+  geom_label(aes(x = 0.02, y = 0.85 , label = "Add file `git add <file>`"), 
+             hjust = 0) +
+  
+  
+   annotate("segment", 
+            y = c(0.8,0.75), 
+            yend = c(0.75, 0.75), 
+            x = c(0.9,0.9), 
+            xend = c(0.9, 0.48), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+
+  
+       annotate("segment", 
+            y = c(0.75, 0.7), 
+            yend = c(0.7, 0.7), 
+            x = c(0.35, 0.35), 
+            xend = c(0.35, 0.4), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+  
+  geom_label(aes(x = 0.65, y = 0.8 , label = "Commit file `git commit -m 'msg'`"), 
+             hjust = 0) +
+  
+
+    geom_label(aes(x = 0.31, y = 0.75 , label = "Edit unmodified     "), 
+             hjust = 0) +
+  
+
+  
+  
+     annotate("segment", 
+            y = c(0.7, 0.7), 
+            yend = c(0.7, 0.67), 
+            x = c(0.5, 0.9), 
+            xend = c(0.9, 0.9), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+      geom_label(aes(x = 0.8, y = 0.7 , label = "<file>"), 
+             hjust = 0) +
+
+  
+  
+  
+      geom_label(aes(x = 0.40, y = 0.7 , label = "Stage modified `git add <file>`"), 
+             hjust = 0) +
+  
+  
+
+  
+      annotate("segment", 
+            y = c(0.65,0.65), 
+            yend = c(0.65, 0.62), 
+            x = c(0.8, 0.35), 
+            xend = c(0.35, 0.35), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+    geom_label(aes(x = 0.65, y = 0.65 , label = "Commit file `git commit -m 'msg'`"), 
+             hjust = 0) +
+  
+  
+
+  
+  ## Possible routs from unmodified
+  
+  ## Modify and commit 
+  ## Remove (untrack)
+         annotate("segment", 
+            y = c(0.6, 0.6), 
+            yend = c(0.6, 0.54), 
+            x = c(0.4, 0.4), 
+            xend = c(0.70, 0.4),
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5, 2.5), "mm"), type = "closed")) +
+  ## File in staging area
+         geom_label(aes(x = 0.75, y = 0.6 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+  
+  ## Untrack file
+       annotate("segment", 
+            y = c(0.5), 
+            yend = c(0.5), 
+            x = c(0.4), 
+            xend = c(0.1), 
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+  
+      geom_label(aes(x = 0.31, y = 0.60 , label = "Unmodified    "), 
+             hjust = 0) +
+  
+
+
+
+  
+    ## Remove file (delete)
+       annotate("segment", 
+            y = c(0.5), 
+            yend = c(0.33), 
+            x = c(0.4), 
+            xend = c(0.4), 
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+    
+      annotate("label", 
+             x = 0.31, y = 0.5 , 
+             label = "Untrack file\n`git rm --cached <file>`",
+
+             hjust = 0) +
+  
+  ## File in trash
+        geom_label(aes(x = 0.4, y = 0.30 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+  ## File untracked
+     geom_label(aes(x = 0.06, y = 0.5 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+    geom_label(aes(x = 0.31, y = 0.40 , label = "Delete file from disc\n`git rm <file>`", 
+             hjust = 0)) +
+  
+  
+  
+  theme_void()
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
 
 
 ## A workflow for a scientific paper
