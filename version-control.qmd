@@ -4,22 +4,24 @@ Reproducibility and transparency are aspects of scientific research practices th
 Collaboration in complex projects is messy. Multiple files exist in multiple versions; changes are made in parallel with little to no control over what is lost or gained. It is likely a frequent experience that most scientific collaborations could use a more formal structure for working with data analysis or writing. Such formal structures are, however, difficult to establish without a common point of departure. This workshop aims to create a common understanding of version control, collaboration, transparency, and reproducibility.  
 
 
-
+<!-- 
 
 Potential sources:
 
 https://doi.org/10.1371/journal.pcbi.1004668
 10.1080/00031305.2017.1375986
-https://doi.org/10.1186/1751-0473-8-7
+https://doi.org/10.1186/1751-0473-8-7 -->
 
 ## Introduction to git and GitHub
 Git is a version control system that you install on your local machine. It helps you create a record of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository content in a hidden directory called `.git`.
+
+Git works great for working with plain text files, such as `.txt`, `.md`, `.qmd`, `.csv`. With such files git can provide you with an overview of changes or diffs that has occurred between two versions of the file. Other file types such as `.docx` or `.xlsx` are also tracked by git but changes are not human readable in the git system.
 
 Git can be set up to communicate with an online repository. There are several alternatives for online hosting of version controlled repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.
 
 To enable version control and collaboration you must therefore have git installed and an active GitHub account.
 
-### Accounts and git to GitHub integration
+### Accounts and git-to-GitHub integration
 Git can be installed from [https://git-scm.com](https://git-scm.com). Git requires no additional account information or software. To allow for RStudio to act as a git client, you need to tell RStudio where your installation of git is located. This is done under *Tools > Global options > Git/SVN*. 
 
 Your local version history maintained by git can be controlled from your terminal window. However, to connect to the online services of github you will need to set git up with your github account.
@@ -307,7 +309,33 @@ ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) +
 ```
 
 ### Local and online git usage
-Your local git folder can be hocked up to a online repository. 
+Your local git folder can be hocked up to a online repository. The online repository, or remote, is the repository in which you collaborate with others. The online repository can be set up as a starting point for your project or created from the command line in an already initialized git repository using GitHub CLI.
+
+#### Starting with GitHub
+After logging on to GitHub, select *New*, or go to [github.com/new](https://github.com/new). This will bring you to a schema that will create your repository. You need to give it a name, describe it, decide if you want to initialize with a readme file (you want to do that) and choose a license. Once all this is done you will be able to copy the HTTPS address that you find under *Code* in your repository in GitHub. The HTTPS address is then entered in the *New Project Dialog* in RStudio after selecting *Version Control* under the different project types. 
+
+You have now initialized a remote repository and then cloned it to your computer as a local copy. You may now make changes to the project and add/commit these to you local version history.
+
+#### Starting with a RStudio project
+When starting up a new RStudio project without version control you have the opportunity to initialize git in the dialog box. If you decide not to do this, the next step should be to write `git init` in your terminal to initialize in your current project folder.
+
+We can now create a remote repository using GitHub CLI with the command `gh repo create`. If this command is used without any subcommand you will be guided through the process on the command line. If you have your project running and wants to use it to create a repository on GitHub you should select *"Push an existing local directory to GitHub"*. You will be asked:
+
+- The path to your local repository (defaults to `.`, the current directory)
+- The name of the repository (defaults to your local folder name)
+- A description of the repository (A short description of what the repository do/contain)
+- If a remote should be added (Yes)
+- What the remote should be called (Default to origin)
+
+If successful, you will get a message telling you that the remote has been added.
+
+You may log on to GitHub to see that everything worked out.
+
+
+
+
+
+
 
 
 

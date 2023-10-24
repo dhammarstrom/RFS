@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.330">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,8 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -111,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./version-control.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -181,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link active" data-scroll-target="#introduction-to-git-and-github"><span class="header-section-number">2.1</span> Introduction to git and GitHub</a>
   <ul class="collapse">
-  <li><a href="#accounts-and-git-to-github-integration" id="toc-accounts-and-git-to-github-integration" class="nav-link" data-scroll-target="#accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git to GitHub integration</a></li>
+  <li><a href="#accounts-and-git-to-github-integration" id="toc-accounts-and-git-to-github-integration" class="nav-link" data-scroll-target="#accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git-to-GitHub integration</a></li>
   <li><a href="#local-git-edits" id="toc-local-git-edits" class="nav-link" data-scroll-target="#local-git-edits"><span class="header-section-number">2.1.2</span> Local git edits</a></li>
   <li><a href="#local-and-online-git-usage" id="toc-local-and-online-git-usage" class="nav-link" data-scroll-target="#local-and-online-git-usage"><span class="header-section-number">2.1.3</span> Local and online git usage</a></li>
   </ul></li>
@@ -220,15 +219,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality in the sense that results, to a more considerable degree, will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists. Version control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As a scientist, changing our mindset to focus on researching and communicating with transparency and reproducibility rather than one end product, such a scientific paper may change our thinking about the scientific process. Here, we will introduce version control as a tool in collaborative scientific writing.</p>
 <p>Collaboration in complex projects is messy. Multiple files exist in multiple versions; changes are made in parallel with little to no control over what is lost or gained. It is likely a frequent experience that most scientific collaborations could use a more formal structure for working with data analysis or writing. Such formal structures are, however, difficult to establish without a common point of departure. This workshop aims to create a common understanding of version control, collaboration, transparency, and reproducibility.</p>
-<p>Potential sources:</p>
-<p>https://doi.org/10.1371/journal.pcbi.1004668 10.1080/00031305.2017.1375986 https://doi.org/10.1186/1751-0473-8-7</p>
+<!-- 
+
+Potential sources:
+
+https://doi.org/10.1371/journal.pcbi.1004668
+10.1080/00031305.2017.1375986
+https://doi.org/10.1186/1751-0473-8-7 -->
 <section id="introduction-to-git-and-github" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction-to-git-and-github"><span class="header-section-number">2.1</span> Introduction to git and GitHub</h2>
 <p>Git is a version control system that you install on your local machine. It helps you create a record of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository content in a hidden directory called <code>.git</code>.</p>
+<p>Git works great for working with plain text files, such as <code>.txt</code>, <code>.md</code>, <code>.qmd</code>, <code>.csv</code>. With such files git can provide you with an overview of changes or diffs that has occurred between two versions of the file. Other file types such as <code>.docx</code> or <code>.xlsx</code> are also tracked by git but changes are not human readable in the git system.</p>
 <p>Git can be set up to communicate with an online repository. There are several alternatives for online hosting of version controlled repositories but GitHub seems to be a popular alternative in the (data) science community. GitHub offers online hosting and tools for collaboration.</p>
 <p>To enable version control and collaboration you must therefore have git installed and an active GitHub account.</p>
 <section id="accounts-and-git-to-github-integration" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git to GitHub integration</h3>
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git-to-GitHub integration</h3>
 <p>Git can be installed from <a href="https://git-scm.com">https://git-scm.com</a>. Git requires no additional account information or software. To allow for RStudio to act as a git client, you need to tell RStudio where your installation of git is located. This is done under <em>Tools &gt; Global options &gt; Git/SVN</em>.</p>
 <p>Your local version history maintained by git can be controlled from your terminal window. However, to connect to the online services of github you will need to set git up with your github account.</p>
 <p>Github has recently made changes to its authentication protocol, <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github">and seems to be in the process of making additional changes</a>. <a href="https://cli.github.com/">GitHub CLI</a> provides a command line interface to GitHub that makes it easy to authenticate. Install <a href="https://cli.github.com/">GitHub CLI here</a> and run <code>gh auth login</code> in your terminal to set things up.</p>
@@ -469,7 +474,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-local-git-edits" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="version-control_files/figure-html/fig-local-git-edits-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: A cycle of local git edits. A files is added to the staging area by <code>git add &lt;file&gt;</code> and comitted to the <em>local repository</em> by <code>git commit</code>. The file is edited and is marked as modified after which it is staged (<code>git add &lt;file&gt;</code>). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using <code>git rm</code> with or without the <code>--cached</code> option.</figcaption>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: A cycle of local git edits. A files is added to the staging area by <code>git add &lt;file&gt;</code> and comitted to the <em>local repository</em> by <code>git commit</code>. The file is edited and is marked as modified after which it is staged (<code>git add &lt;file&gt;</code>). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using <code>git rm</code> with or without the <code>--cached</code> option.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -477,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="local-and-online-git-usage" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="local-and-online-git-usage"><span class="header-section-number">2.1.3</span> Local and online git usage</h3>
-<p>Your local git folder can be hocked up to a online repository.</p>
+<p>Your local git folder can be hocked up to a online repository. The online repository, or remote, is the repository in which you collaborate with others. The online repository</p>
 </section>
 </section>
 <section id="a-workflow-for-a-scientific-paper" class="level2" data-number="2.2">
