@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.330">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,7 +91,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -110,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./version-control.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -474,7 +475,7 @@ https://doi.org/10.1186/1751-0473-8-7 -->
 <div id="fig-local-git-edits" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="version-control_files/figure-html/fig-local-git-edits-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: A cycle of local git edits. A files is added to the staging area by <code>git add &lt;file&gt;</code> and comitted to the <em>local repository</em> by <code>git commit</code>. The file is edited and is marked as modified after which it is staged (<code>git add &lt;file&gt;</code>). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using <code>git rm</code> with or without the <code>--cached</code> option.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: A cycle of local git edits. A files is added to the staging area by <code>git add &lt;file&gt;</code> and comitted to the <em>local repository</em> by <code>git commit</code>. The file is edited and is marked as modified after which it is staged (<code>git add &lt;file&gt;</code>). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using <code>git rm</code> with or without the <code>--cached</code> option.</figcaption>
 </figure>
 </div>
 </div>
@@ -482,7 +483,119 @@ https://doi.org/10.1186/1751-0473-8-7 -->
 </section>
 <section id="local-and-online-git-usage" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="local-and-online-git-usage"><span class="header-section-number">2.1.3</span> Local and online git usage</h3>
-<p>Your local git folder can be hocked up to a online repository. The online repository, or remote, is the repository in which you collaborate with others. The online repository</p>
+<p>Your local git folder can be hocked up to a online repository. The online repository, or remote, is the repository in which you collaborate with others. The online repository can be set up as a starting point for your project or created from the command line in an already initialized git repository using GitHub CLI.</p>
+<section id="starting-with-github" class="level4" data-number="2.1.3.1">
+<h4 data-number="2.1.3.1" class="anchored" data-anchor-id="starting-with-github"><span class="header-section-number">2.1.3.1</span> Starting with GitHub</h4>
+<p>After logging on to GitHub, select <em>New</em>, or go to <a href="https://github.com/new">github.com/new</a>. This will bring you to a schema that will create your repository. You need to give it a name, describe it, decide if you want to initialize with a readme file (you want to do that) and choose a license. Once all this is done you will be able to copy the HTTPS address that you find under <em>Code</em> in your repository in GitHub. The HTTPS address is then entered in the <em>New Project Dialog</em> in RStudio after selecting <em>Version Control</em> under the different project types.</p>
+<p>You have now initialized a remote repository and then cloned it to your computer as a local copy. You may now make changes to the project and add/commit these to you local version history.</p>
+</section>
+<section id="starting-with-a-rstudio-project" class="level4" data-number="2.1.3.2">
+<h4 data-number="2.1.3.2" class="anchored" data-anchor-id="starting-with-a-rstudio-project"><span class="header-section-number">2.1.3.2</span> Starting with a RStudio project</h4>
+<p>When starting up a new RStudio project without version control you have the opportunity to initialize git in the dialog box. If you decide not to do this, the next step should be to write <code>git init</code> in your terminal to initialize in your current project folder.</p>
+<p>We can now create a remote repository using GitHub CLI with the command <code>gh repo create</code>. If this command is used without any subcommand you will be guided through the process on the command line. If you have your project running and wants to use it to create a repository on GitHub you should select <em>“Push an existing local directory to GitHub”</em>. You will be asked:</p>
+<ul>
+<li>The path to your local repository (defaults to <code>.</code>, the current directory)</li>
+<li>The name of the repository (defaults to your local folder name)</li>
+<li>If the repository should be private or public.</li>
+<li>A description of the repository (A short description of what the repository do/contain)</li>
+<li>If a remote should be added (Yes)</li>
+<li>What the remote should be called (Default to origin)</li>
+</ul>
+<p>If successful, you will get a message telling you that the remote has been added. Your GitHub profile will now have a repository acting as the remote for your local repository.</p>
+</section>
+<section id="local-to-remote-workflows" class="level4" data-number="2.1.3.3">
+<h4 data-number="2.1.3.3" class="anchored" data-anchor-id="local-to-remote-workflows"><span class="header-section-number">2.1.3.3</span> Local to remote workflows</h4>
+<p>The online remote repository may have several purposes in the context of writing a scientific paper. It will act as the repository that you and any collaborators work together on. It can be used for showcasing code and computations and thereby supporting your paper. It can also act as a backup and reference for yourself.</p>
+<p>The basic workflow for updating and downloading from the remote repository can include <code>git push</code> to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. <code>git pull</code> downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can <code>git fetch</code> changes which updates the local repository, but not your working directory. Using <code>git merge</code> you can merge downloaded versions with your working directory. <code>git fetch</code> and <code>git merge</code> can be a way to continue working on files but updating your repository with the latest changes.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)), <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Local working directory / Repository</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">0.01</span>, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">xmax =</span> <span class="fl">0.6</span>, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymin =</span> <span class="fl">0.35</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymax =</span> <span class="dv">1</span>), </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">0.02</span>, </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">xmax =</span> <span class="fl">0.3</span>, </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymin =</span> <span class="fl">0.35</span>, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymax =</span> <span class="fl">0.92</span>), </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">0.31</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">xmax =</span> <span class="fl">0.58</span>, </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymin =</span> <span class="fl">0.35</span>, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymax =</span> <span class="fl">0.92</span>), </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remote repository</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> <span class="fl">0.7</span>, </span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">xmax =</span> <span class="fl">0.95</span>, </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymin =</span> <span class="fl">0.35</span>, </span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">ymax =</span> <span class="dv">1</span>), </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"richtext"</span>, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.32</span>),  </span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fl">0.89</span>, </span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"*Working directory*"</span>, <span class="st">"*Local repository*"</span>),</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">label.color =</span> <span class="cn">NA</span>) <span class="sc">+</span> </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"richtext"</span>, </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.7</span>), </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.97</span>, <span class="fl">0.97</span>), </span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"**Workspace**"</span>,<span class="st">"**Remote**"</span>),</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">8</span>, </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">label.color =</span> <span class="cn">NA</span>) <span class="sc">+</span> <span class="co"># remove padding) </span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Git add, commit</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># git push</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  <span class="co"># git pull</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># git fetch / merge</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>       <span class="fu">annotate</span>(<span class="st">"segment"</span>, </span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.7</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), </span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>            <span class="at">yend =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.7</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), </span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">0.8</span>, <span class="fl">0.4</span>), </span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>            <span class="at">xend =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.8</span>, <span class="fl">0.12</span>, <span class="fl">0.5</span>, <span class="fl">0.12</span>), </span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>            <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">2.5</span>), <span class="st">"mm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>)) <span class="sc">+</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>      <span class="fu">annotate</span>(<span class="st">"label"</span>, </span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">0.8</span>, <span class="fl">0.35</span>), </span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.8</span> ,<span class="fl">0.7</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), </span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"git add &lt;file&gt;</span><span class="sc">\n</span><span class="st"> git commit -m 'msg'"</span>,</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"git push"</span>, </span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"git pull"</span>, </span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"git fetch"</span>, </span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"git merge"</span>),</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>             <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-local-to-remote" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="version-control_files/figure-html/fig-local-to-remote-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Local git commits can be pushed to a remote repository, this updates the remote with your local changes. If changes are made to the remote these can be pulled to the local reposotory and working directory. Git pull overwrites your local files in the working directory at the same time as updating the local version history. Git fetch downloads changes to your local repository without merging files. Git merge attempts to merge files in the working directory with the most recent changes from the remote repository.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="a-workflow-for-a-scientific-paper" class="level2" data-number="2.2">

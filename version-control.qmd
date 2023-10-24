@@ -323,13 +323,109 @@ We can now create a remote repository using GitHub CLI with the command `gh repo
 
 - The path to your local repository (defaults to `.`, the current directory)
 - The name of the repository (defaults to your local folder name)
+- If the repository should be private or public.
 - A description of the repository (A short description of what the repository do/contain)
 - If a remote should be added (Yes)
 - What the remote should be called (Default to origin)
 
-If successful, you will get a message telling you that the remote has been added.
+If successful, you will get a message telling you that the remote has been added. Your GitHub profile will now have a repository acting as the remote for your local repository.
 
-You may log on to GitHub to see that everything worked out.
+#### Local to remote workflows
+The online remote repository may have several purposes in the context of writing a scientific paper. It will act as the repository that you and any collaborators work together on. It can be used for showcasing code and computations and thereby supporting your paper. It can also act as a backup and reference for yourself.
+
+The basic workflow for updating and downloading from the remote repository can include `git push` to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. `git pull` downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can `git fetch` changes which updates the local repository, but not your working directory. Using `git merge` you can merge downloaded versions with your working directory. `git fetch` and `git merge` can be a way to continue working on files but updating your repository with the latest changes. 
+
+
+
+
+```{r}
+#| eval: true
+#| message: false
+#| warning: false
+#| code-fold: true
+#| label: fig-local-to-remote
+#| fig-cap: "Local git commits can be pushed to a remote repository, this updates the remote with your local changes. If changes are made to the remote these can be pulled to the local reposotory and working directory. Git pull overwrites your local files in the working directory at the same time as updating the local version history. Git fetch downloads changes to your local repository without merging files. Git merge attempts to merge files in the working directory with the most recent changes from the remote repository."
+
+ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) + 
+  
+  scale_y_continuous(limits = c(0.3, 1)) +
+  
+  # Local working directory / Repository
+  geom_rect(aes(xmin = 0.01, 
+            xmax = 0.6, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+    geom_rect(aes(xmin = 0.02, 
+            xmax = 0.3, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+   
+  geom_rect(aes(xmin = 0.31, 
+            xmax = 0.58, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  # Remote repository
+  geom_rect(aes(xmin = 0.7, 
+            xmax = 0.95, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+ 
+ 
+    annotate("richtext", 
+           x = c(0.02, 0.32),  
+           hjust = 0,
+           y = 0.89, 
+           label = c("*Working directory*", "*Local repository*"),
+           fill = NA, label.color = NA) + 
+   
+  
+  annotate("richtext", 
+           x = c(0.02, 0.7), 
+           y = c(0.97, 0.97), 
+           label = c("**Workspace**","**Remote**"),
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA) + # remove padding) 
+
+  
+      # Git add, commit
+  # git push
+  # git pull
+  # git fetch / merge
+       annotate("segment", 
+            y = c(0.8, 0.7, 0.6, 0.5, 0.5), 
+            yend = c(0.8, 0.7, 0.6, 0.5, 0.5), 
+            x = c(0.1, 0.4, 0.8, 0.8, 0.4), 
+            xend = c(0.5, 0.8, 0.12, 0.5, 0.12), 
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+    
+      annotate("label", 
+             x = c(0.1, 0.4, 0.8, 0.8, 0.35), 
+             y = c(0.8 ,0.7, 0.6, 0.5, 0.5), 
+             label = c("git add <file>\n git commit -m 'msg'",
+                       "git push", 
+                       "git pull", 
+                       "git fetch", 
+                       "git merge"),
+
+             hjust = 0) +
+  
+  theme_void()
+
+
+
+
+```
 
 
 
