@@ -184,17 +184,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#accounts-and-git-to-github-integration" id="toc-accounts-and-git-to-github-integration" class="nav-link" data-scroll-target="#accounts-and-git-to-github-integration"><span class="header-section-number">2.1.1</span> Accounts and git-to-GitHub integration</a></li>
   <li><a href="#local-git-edits" id="toc-local-git-edits" class="nav-link" data-scroll-target="#local-git-edits"><span class="header-section-number">2.1.2</span> Local git edits</a></li>
   <li><a href="#local-and-online-git-usage" id="toc-local-and-online-git-usage" class="nav-link" data-scroll-target="#local-and-online-git-usage"><span class="header-section-number">2.1.3</span> Local and online git usage</a></li>
+  <li><a href="#branches-and-pull-requests" id="toc-branches-and-pull-requests" class="nav-link" data-scroll-target="#branches-and-pull-requests"><span class="header-section-number">2.1.4</span> Branches and pull requests</a></li>
+  <li><a href="#forks-and-pull-requests" id="toc-forks-and-pull-requests" class="nav-link" data-scroll-target="#forks-and-pull-requests"><span class="header-section-number">2.1.5</span> Forks and pull requests</a></li>
+  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues"><span class="header-section-number">2.1.6</span> Issues</a></li>
+  <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages"><span class="header-section-number">2.1.7</span> GitHub pages</a></li>
   </ul></li>
   <li><a href="#a-workflow-for-a-scientific-paper" id="toc-a-workflow-for-a-scientific-paper" class="nav-link" data-scroll-target="#a-workflow-for-a-scientific-paper"><span class="header-section-number">2.2</span> A workflow for a scientific paper</a>
   <ul class="collapse">
   <li><a href="#the-repository" id="toc-the-repository" class="nav-link" data-scroll-target="#the-repository"><span class="header-section-number">2.2.1</span> The repository</a></li>
-  <li><a href="#the-final-result" id="toc-the-final-result" class="nav-link" data-scroll-target="#the-final-result"><span class="header-section-number">2.2.2</span> The final result</a></li>
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">2.2.3</span> Initial setup</a></li>
-  <li><a href="#repositories-and-branches" id="toc-repositories-and-branches" class="nav-link" data-scroll-target="#repositories-and-branches"><span class="header-section-number">2.2.4</span> Repositories and branches</a></li>
-  <li><a href="#milestones-issues-and-pull-requests" id="toc-milestones-issues-and-pull-requests" class="nav-link" data-scroll-target="#milestones-issues-and-pull-requests"><span class="header-section-number">2.2.5</span> Milestones, issues, and pull requests</a></li>
-  <li><a href="#a-style-guide-for-scientific-coding" id="toc-a-style-guide-for-scientific-coding" class="nav-link" data-scroll-target="#a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.6</span> A style guide for scientific coding</a></li>
-  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing"><span class="header-section-number">2.2.7</span> Publishing</a></li>
+  <li><a href="#structuring-code-in-different-scripts" id="toc-structuring-code-in-different-scripts" class="nav-link" data-scroll-target="#structuring-code-in-different-scripts"><span class="header-section-number">2.2.2</span> Structuring code in different scripts</a></li>
   </ul></li>
+  <li><a href="#authoring-quarto-documents" id="toc-authoring-quarto-documents" class="nav-link" data-scroll-target="#authoring-quarto-documents"><span class="header-section-number">2.3</span> Authoring quarto documents</a>
+  <ul class="collapse">
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">2.3.1</span> Code chunks</a></li>
+  </ul></li>
+  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing"><span class="header-section-number">2.4</span> Publishing</a></li>
   </ul>
 </nav>
     </div>
@@ -506,7 +510,7 @@ https://doi.org/10.1186/1751-0473-8-7 -->
 <section id="local-to-remote-workflows" class="level4" data-number="2.1.3.3">
 <h4 data-number="2.1.3.3" class="anchored" data-anchor-id="local-to-remote-workflows"><span class="header-section-number">2.1.3.3</span> Local to remote workflows</h4>
 <p>The online remote repository may have several purposes in the context of writing a scientific paper. It will act as the repository that you and any collaborators work together on. It can be used for showcasing code and computations and thereby supporting your paper. It can also act as a backup and reference for yourself.</p>
-<p>The basic workflow for updating and downloading from the remote repository can include <code>git push</code> to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. <code>git pull</code> downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can <code>git fetch</code> changes which updates the local repository, but not your working directory. Using <code>git merge</code> you can merge downloaded versions with your working directory. <code>git fetch</code> and <code>git merge</code> can be a way to continue working on files but updating your repository with the latest changes.</p>
+<p>The basic workflow (<a href="#fig-local-to-remote">Figure&nbsp;<span>2.2</span></a>) for updating and downloading from the remote repository can include <code>git push</code> to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. <code>git pull</code> downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can <code>git fetch</code> changes which updates the local repository, but not your working directory. Using <code>git merge</code> you can merge downloaded versions with your working directory. <code>git fetch</code> and <code>git merge</code> can be a way to continue working on files but updating your repository with the latest changes.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -597,33 +601,73 @@ https://doi.org/10.1186/1751-0473-8-7 -->
 </div>
 </section>
 </section>
+<section id="branches-and-pull-requests" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="branches-and-pull-requests"><span class="header-section-number">2.1.4</span> Branches and pull requests</h3>
+<p>Sometimes changes to a repository can be expected to get big. Multiple files needs updating affecting multiple aspects of the repository. Instead of doing these as incremental steps in the main repository we could create a new branch. A branch starts at a specific state of the repository and adds new history without affecting the main branch. When changes have been made to the branch they can be incorporated into the main branch using merge or as a pull request.</p>
+</section>
+<section id="forks-and-pull-requests" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="forks-and-pull-requests"><span class="header-section-number">2.1.5</span> Forks and pull requests</h3>
+<p>Forks are copies of an online repository from one user to another user where the receiving user gets the privileges to make changes in the repository.</p>
+</section>
+<section id="issues" class="level3" data-number="2.1.6">
+<h3 data-number="2.1.6" class="anchored" data-anchor-id="issues"><span class="header-section-number">2.1.6</span> Issues</h3>
+<p>Issues are an feature of GitHub which allows for creating notes on potential improvements, bugs etc. They can be accessed and edited using GitHub CLI using <code>gh issue</code> or in the GitHub web interface.</p>
+</section>
+<section id="github-pages" class="level3" data-number="2.1.7">
+<h3 data-number="2.1.7" class="anchored" data-anchor-id="github-pages"><span class="header-section-number">2.1.7</span> GitHub pages</h3>
+<p>GitHub pages is a service that allow for web hosting from your github repository.</p>
+</section>
 </section>
 <section id="a-workflow-for-a-scientific-paper" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="a-workflow-for-a-scientific-paper"><span class="header-section-number">2.2</span> A workflow for a scientific paper</h2>
+<p>A scientific paper (or a thesis) is reproducible if the data, code and documentation is available.</p>
 <section id="the-repository" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="the-repository"><span class="header-section-number">2.2.1</span> The repository</h3>
+<p>Organizing the repository is important for collaboration and communication</p>
+<section id="readme" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="readme"><span class="header-section-number">2.2.1.1</span> README</h4>
 </section>
-<section id="the-final-result" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">2.2.2</span> The final result</h3>
+<section id="folder-structure" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="folder-structure"><span class="header-section-number">2.2.1.2</span> Folder structure</h4>
+<section id="data" class="level5" data-number="2.2.1.2.1">
+<h5 data-number="2.2.1.2.1" class="anchored" data-anchor-id="data"><span class="header-section-number">2.2.1.2.1</span> <code>data</code></h5>
 </section>
-<section id="initial-setup" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">2.2.3</span> Initial setup</h3>
 </section>
-<section id="repositories-and-branches" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="repositories-and-branches"><span class="header-section-number">2.2.4</span> Repositories and branches</h3>
+<section id="r" class="level4" data-number="2.2.1.3">
+<h4 data-number="2.2.1.3" class="anchored" data-anchor-id="r"><span class="header-section-number">2.2.1.3</span> <code>R</code></h4>
 </section>
-<section id="milestones-issues-and-pull-requests" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="milestones-issues-and-pull-requests"><span class="header-section-number">2.2.5</span> Milestones, issues, and pull requests</h3>
+<section id="derived-data" class="level4" data-number="2.2.1.4">
+<h4 data-number="2.2.1.4" class="anchored" data-anchor-id="derived-data"><span class="header-section-number">2.2.1.4</span> <code>derived-data</code></h4>
 </section>
-<section id="a-style-guide-for-scientific-coding" class="level3" data-number="2.2.6">
-<h3 data-number="2.2.6" class="anchored" data-anchor-id="a-style-guide-for-scientific-coding"><span class="header-section-number">2.2.6</span> A style guide for scientific coding</h3>
+<section id="figures" class="level4" data-number="2.2.1.5">
+<h4 data-number="2.2.1.5" class="anchored" data-anchor-id="figures"><span class="header-section-number">2.2.1.5</span> <code>figures</code></h4>
+</section>
+<section id="docs" class="level4" data-number="2.2.1.6">
+<h4 data-number="2.2.1.6" class="anchored" data-anchor-id="docs"><span class="header-section-number">2.2.1.6</span> <code>docs</code></h4>
+</section>
+<section id="resources" class="level4" data-number="2.2.1.7">
+<h4 data-number="2.2.1.7" class="anchored" data-anchor-id="resources"><span class="header-section-number">2.2.1.7</span> <code>resources</code></h4>
+</section>
+</section>
+<section id="structuring-code-in-different-scripts" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="structuring-code-in-different-scripts"><span class="header-section-number">2.2.2</span> Structuring code in different scripts</h3>
+</section>
+</section>
+<section id="authoring-quarto-documents" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="authoring-quarto-documents"><span class="header-section-number">2.3</span> Authoring quarto documents</h2>
+<p>Quarto</p>
+<section id="code-chunks" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="code-chunks"><span class="header-section-number">2.3.1</span> Code chunks</h3>
+<section id="a-style-guide-for-scientific-coding" class="level4" data-number="2.3.1.1">
+<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="a-style-guide-for-scientific-coding"><span class="header-section-number">2.3.1.1</span> A style guide for scientific coding</h4>
 <p>We adhere to the <a href="https://style.tidyverse.org/">tidyverse style guide</a>. The following is a summary of the most important points with some modifications.</p>
 </section>
-<section id="publishing" class="level3" data-number="2.2.7">
-<h3 data-number="2.2.7" class="anchored" data-anchor-id="publishing"><span class="header-section-number">2.2.7</span> Publishing</h3>
-
-
 </section>
+</section>
+<section id="publishing" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="publishing"><span class="header-section-number">2.4</span> Publishing</h2>
+
+
 </section>
 
 </main> <!-- /main -->

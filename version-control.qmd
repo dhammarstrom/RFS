@@ -333,8 +333,7 @@ If successful, you will get a message telling you that the remote has been added
 #### Local to remote workflows
 The online remote repository may have several purposes in the context of writing a scientific paper. It will act as the repository that you and any collaborators work together on. It can be used for showcasing code and computations and thereby supporting your paper. It can also act as a backup and reference for yourself.
 
-The basic workflow for updating and downloading from the remote repository can include `git push` to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. `git pull` downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can `git fetch` changes which updates the local repository, but not your working directory. Using `git merge` you can merge downloaded versions with your working directory. `git fetch` and `git merge` can be a way to continue working on files but updating your repository with the latest changes. 
-
+The basic workflow (@fig-local-to-remote) for updating and downloading from the remote repository can include `git push` to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed you will be able to download these in two ways. `git pull` downloads all changes and directly overwrite your local files, updating them to their latest versions. This also include removal of files and addition of new files. If you want to have more control you can `git fetch` changes which updates the local repository, but not your working directory. Using `git merge` you can merge downloaded versions with your working directory. `git fetch` and `git merge` can be a way to continue working on files but updating your repository with the latest changes. 
 
 
 
@@ -430,40 +429,63 @@ ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) +
 
 
 
+### Branches and pull requests
+Sometimes changes to a repository can be expected to get big. Multiple files needs updating affecting multiple aspects of the repository. Instead of doing these as incremental steps in the main repository we could create a new branch. A branch starts at a specific state of the repository and adds new history without affecting the main branch. When changes have been made to the branch they can be incorporated into the main branch using merge or as a pull request.
 
+### Forks and pull requests
+Forks are copies of an online repository from one user to another user where the receiving user gets the privileges to make changes in the repository. 
 
+### Issues
+Issues are an feature of GitHub which allows for creating notes on potential improvements, bugs etc. They can be accessed and edited using GitHub CLI using `gh issue` or in the GitHub web interface.
 
-
-
-
-
-
-
-
-
-
+### GitHub pages
+GitHub pages is a service that allow for web hosting from your github repository. 
 
 ## A workflow for a scientific paper
+A scientific paper (or a thesis) is reproducible if the data, code and documentation is available.
+
+
 ### The repository 
+Organizing the repository is important for collaboration and communication
+
+#### README
+
+#### Folder structure
+
+##### `data`
+
+#### `R`
+
+#### `derived-data`
+
+#### `figures`
+
+#### `docs`
+
+#### `resources`
+
+### Structuring code in different scripts
 
 
 
 
 
-### The final result
 
-### Initial setup
+## Authoring quarto documents
+Quarto 
 
-### Repositories and branches
 
-### Milestones, issues, and pull requests
+### Code chunks
 
-### A style guide for scientific coding
+
+
+
+#### A style guide for scientific coding
 
 We adhere to the [tidyverse style guide](https://style.tidyverse.org/). The following is a summary of the most important points with some modifications.
 
 
-### Publishing
+## Publishing
 
 
 
