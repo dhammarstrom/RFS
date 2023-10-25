@@ -61,7 +61,7 @@ git commit -m "my commit message"
 
 The `-m "my commit message"` adds a commit short commit message to the commit. This should be a description of the changes made to the repository. A longer commit message can be added by only initializing a commit using `git commit`. This command will bring up a dialog in your terminal making it possible to write a short message in the first line. After leaving one blank line a longer commit message can be added.
 
-When a file has been commited to the version history it is marked as *unmodified* until you make changes to the file. Modified files can again be staged (e.g. `git add <file>`) and commited.
+When a file has been commited to the version history it is marked as *unmodified* until you make changes to the file. Modified files can again be staged (e.g. `git add <file>`) and committed.
 
 Files that were are tracked by mistake can be un-tracked without being removed using 
 
