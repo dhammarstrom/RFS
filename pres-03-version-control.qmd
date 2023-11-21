@@ -1,0 +1,477 @@
+---
+title: "Version control with git"
+format:
+  revealjs:
+    auto-stretch: false
+    theme: [default, scss/custom.scss]
+---
+
+
+## Why version control?
+
+::: {.v-center-container}
+
+- Reproducibility and transparency [&rarr;]{.yellow} Better science 
+- Collaboration and robustness [&rarr;]{.yellow} Better science
+- Formal structures and workflows [&rarr;]{.yellow} Better science
+
+:::
+
+## Introduction to git
+
+![](https://git-scm.com/images/logos/downloads/Git-Icon-White.png){width="10%"}
+
+::: {.incremental}
+- git is a version control software that is installed locally
+- It tracks changes to files in a specific repository (folder)
+- A version history are stored in a hidden folder `.git`
+- git is really good at trackning plain text files, but can also track other files...
+
+:::
+
+## Introduction to GitHub
+
+![](img/github-mark-white.png){width="10%"}
+
+::: {.incremental}
+- GitHub is a collaborative platform that allows you to host version controlled repositories online
+- GitHub makes it possible to share code, collaborate on developing code, host websites, and more
+
+:::
+
+## A list of tools for version control
+
+![](https://git-scm.com/images/logos/downloads/Git-Icon-White.png){width="10%"} ![](img/github-mark-white.png){width="10%"}
+
+and
+
+::: {.incremental}
+- GitHub CLI  [&rarr;]{.yellow} Command line interface to GitHub
+- GitHub desktop [&rarr;]{.yellow} Graphical user interface to GitHub/git
+
+:::
+
+## 
+
+```{r}
+#| eval: true
+#| message: false
+#| warning: false
+#| code-fold: true
+#| label: fig-local-git-edits
+#| fig-cap: "A cycle of local git edits. A files is added to the staging area by `git add <file>` and comitted to the *local repository* by `git commit`. The file is edited and is marked as modified after which it is staged (`git add <file>`). Again, staged modifications are commited and the file is once again marked as unmodified until edited. Files may be untracked from the repository or deleted from disc using `git rm` with or without the `--cached` option."
+
+library(ggplot2); library(ggtext)
+
+ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) + 
+  
+  scale_y_continuous(limits = c(0.3, 1)) +
+  
+  # Workspace
+  geom_rect(aes(xmin = 0.01, 
+            xmax = 0.6, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  geom_rect(aes(xmin = 0.02, 
+            xmax = 0.3, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  geom_rect(aes(xmin = 0.31, 
+            xmax = 0.58, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+ 
+    annotate("richtext", 
+           x = c(0.02, 0.32),  
+           hjust = 0,
+           y = 0.89, 
+           label = c("*Untracked*", "*Tracked*"),
+           fill = NA, label.color = NA) + 
+   
+  
+  annotate("richtext", 
+           x = 0.02, 
+           y = 0.97, 
+           label = "**Workspace**",
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA, # remove background and outline
+          label.padding = grid::unit(rep(0, 4), "pt")) + # remove padding) +
+  
+  # Stage area
+  geom_rect(aes(xmin = 0.61, 
+            xmax = 1, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "purple", 
+            alpha = 0.2) +
+  
+
+  
+    annotate("richtext", 
+           x = 0.62, 
+           y = 0.97, 
+           label = "**Staging area**",
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA, # remove background and outline
+          label.padding = grid::unit(rep(0, 4), "pt")) + # remove padding) +
+  
+  
+  
+  ## Labels and arrows
+  
+    
+  annotate("segment", y = c(0.85, 0.85), 
+                   yend = c(0.85, 0.82),  
+                   x = c(0.1, 0.9), 
+                   xend = c(0.9, 0.9), 
+                   arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+    
+  geom_label(aes(x = 0.62, y = 0.85 , label = "<file>"), 
+             hjust = 0) +
+  
+  
+  geom_label(aes(x = 0.02, y = 0.85 , label = "Add file `git add <file>`"), 
+             hjust = 0) +
+  
+  
+   annotate("segment", 
+            y = c(0.8,0.75), 
+            yend = c(0.75, 0.75), 
+            x = c(0.9,0.9), 
+            xend = c(0.9, 0.48), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+
+  
+       annotate("segment", 
+            y = c(0.75, 0.7), 
+            yend = c(0.7, 0.7), 
+            x = c(0.35, 0.35), 
+            xend = c(0.35, 0.4), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+  
+  geom_label(aes(x = 0.65, y = 0.8 , label = "Commit file `git commit -m 'msg'`"), 
+             hjust = 0) +
+  
+
+    geom_label(aes(x = 0.31, y = 0.75 , label = "Edit unmodified     "), 
+             hjust = 0) +
+  
+
+  
+  
+     annotate("segment", 
+            y = c(0.7, 0.7), 
+            yend = c(0.7, 0.67), 
+            x = c(0.5, 0.9), 
+            xend = c(0.9, 0.9), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+  
+      geom_label(aes(x = 0.8, y = 0.7 , label = "<file>"), 
+             hjust = 0) +
+
+  
+  
+  
+      geom_label(aes(x = 0.40, y = 0.7 , label = "Stage modified `git add <file>`"), 
+             hjust = 0) +
+  
+  
+
+  
+      annotate("segment", 
+            y = c(0.65,0.65), 
+            yend = c(0.65, 0.62), 
+            x = c(0.8, 0.35), 
+            xend = c(0.35, 0.35), 
+            arrow = arrow(length = unit(c(0, 2.5), "mm"), type = "closed")) +
+  
+    geom_label(aes(x = 0.65, y = 0.65 , label = "Commit file `git commit -m 'msg'`"), 
+             hjust = 0) +
+  
+  
+
+  
+  ## Possible routs from unmodified
+  
+  ## Modify and commit 
+  ## Remove (untrack)
+         annotate("segment", 
+            y = c(0.6, 0.6), 
+            yend = c(0.6, 0.54), 
+            x = c(0.4, 0.4), 
+            xend = c(0.70, 0.4),
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5, 2.5), "mm"), type = "closed")) +
+  ## File in staging area
+         geom_label(aes(x = 0.75, y = 0.6 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+  
+  ## Untrack file
+       annotate("segment", 
+            y = c(0.5), 
+            yend = c(0.5), 
+            x = c(0.4), 
+            xend = c(0.1), 
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+  
+      geom_label(aes(x = 0.31, y = 0.60 , label = "Unmodified    "), 
+             hjust = 0) +
+  
+
+
+
+  
+    ## Remove file (delete)
+       annotate("segment", 
+            y = c(0.5), 
+            yend = c(0.33), 
+            x = c(0.4), 
+            xend = c(0.4), 
+            lty = 2,
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+    
+      annotate("label", 
+             x = 0.31, y = 0.5 , 
+             label = "Untrack file\n`git rm --cached <file>`",
+
+             hjust = 0) +
+  
+  ## File in trash
+        geom_label(aes(x = 0.4, y = 0.30 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+  ## File untracked
+     geom_label(aes(x = 0.06, y = 0.5 , label = "<file>"), 
+             hjust = 0.5) +
+  
+  
+    geom_label(aes(x = 0.31, y = 0.40 , label = "Delete file from disc\n`git rm <file>`", 
+             hjust = 0)) +
+  
+  
+  
+  theme_void()
+  
+  
+  
+  
+```
+
+
+
+## 
+
+```{r}
+#| eval: true
+#| message: false
+#| warning: false
+#| code-fold: true
+#| label: fig-local-to-remote
+#| fig-cap: "Local git commits can be pushed to a remote repository, this updates the remote with your local changes. If changes are made to the remote these can be pulled to the local reposotory and working directory. Git pull overwrites your local files in the working directory at the same time as updating the local version history. Git fetch downloads changes to your local repository without merging files. Git merge attempts to merge files in the working directory with the most recent changes from the remote repository."
+
+ggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) + 
+  
+  scale_y_continuous(limits = c(0.3, 1)) +
+  
+  # Local working directory / Repository
+  geom_rect(aes(xmin = 0.01, 
+            xmax = 0.6, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+    geom_rect(aes(xmin = 0.02, 
+            xmax = 0.3, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+   
+  geom_rect(aes(xmin = 0.31, 
+            xmax = 0.58, 
+            ymin = 0.35, 
+            ymax = 0.92), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+  
+  # Remote repository
+  geom_rect(aes(xmin = 0.7, 
+            xmax = 0.95, 
+            ymin = 0.35, 
+            ymax = 1), 
+            fill = "steelblue", 
+            alpha = 0.2) +
+ 
+ 
+    annotate("richtext", 
+           x = c(0.02, 0.32),  
+           hjust = 0,
+           y = 0.89, 
+           label = c("*Working directory*", "*Local repository*"),
+           fill = NA, label.color = NA) + 
+   
+  
+  annotate("richtext", 
+           x = c(0.02, 0.7), 
+           y = c(0.97, 0.97), 
+           label = c("**Workspace**","**Remote**"),
+           hjust = 0,
+           size = 8, 
+           fill = NA, label.color = NA) + # remove padding) 
+
+  
+      # Git add, commit
+  # git push
+  # git pull
+  # git fetch / merge
+       annotate("segment", 
+            y = c(0.8, 0.7, 0.6, 0.5, 0.5), 
+            yend = c(0.8, 0.7, 0.6, 0.5, 0.5), 
+            x = c(0.1, 0.4, 0.8, 0.8, 0.4), 
+            xend = c(0.5, 0.8, 0.12, 0.5, 0.12), 
+            arrow = arrow(length = unit(c(2.5), "mm"), type = "closed")) +
+    
+      annotate("label", 
+             x = c(0.1, 0.4, 0.8, 0.8, 0.35), 
+             y = c(0.8 ,0.7, 0.6, 0.5, 0.5), 
+             label = c("git add <file>\n git commit -m 'msg'",
+                       "git push", 
+                       "git pull", 
+                       "git fetch", 
+                       "git merge"),
+
+             hjust = 0) +
+  
+  theme_void()
+
+
+
+
+```
+
+
+## Exercises (1): Create a local repository and make changes
+
+- Create a new RStudio project, named e.g. [rfs-tutorial]{.yellow} 
+- [From the command line &rarr;]{.yellow} initialize git: `git init`
+- Create a new file: [README.md]{.yellow}
+- [From the command line &rarr;]{.yellow}
+    * Stage the file: `git add README.md`
+    * Commit changes to the history: `git commit -m "msg"`
+
+## Exercises (2): Experimenting with commit 
+
+- Edit your file: [README.md]{.yellow}
+- Use `git commit` without sub-commands
+- This opens up a [VIM editor]{.yellow}
+    * To enter `INSERT` mode type `S`
+    * Enter a commit message on the first line, followed by empty line, followed by longer message
+    * Exit `INSERT` mode by ESC, type `:wq` to save and exit.
+- [VIM cheat sheet](https://vim.rtorr.com/)
+
+## Adding a remote by creating a new repository with GitHub CLI
+
+::: {.incremental}
+
+- GitHub CLI is a command line user interface to GitHub
+- Using GH CLI we can authenticate, manage and browse online repositories, manage issues, manage pull requests... and more!
+- If you have not authenticated with GitHub:
+    * `gh auth login`
+
+
+:::
+
+## Exercise (3): Creating a new repository with GitHub CLI
+
+- [From the command line &rarr;]{.yellow} create an online repository from your local repository `gh repo create`
+- Follow the instructions
+
+
+## Exercise (4): Push changes to the online repository
+
+- Edit your file: [README.md]{.yellow}
+- Stage changes and commit them
+- Push changes to the remote: `git push`
+- Inspect changes on GitHub.com
+
+
+## Managing collaborators
+
+- In your project repository on GitHub.com:
+    * Settings [&rarr;]{.yellow} Collaborators [&rarr;]{.yellow} Add people
+- Adding collaborators will give them permission to make changes to your repository without using pull requests. 
+
+
+## Exercise (5): When things goes wrong, managing a merge conflict
+
+- Edit README.md [online]{.yellow}, commit 
+- Edit the same line in README.md [in RStudio]{.yellow}, stage and commit
+- Pull the latest version from the remote `git pull` 
+
+## Branches
+
+- A branch starts at a specific state of the repository and adds new history without affecting the main branch. 
+- When changes have been made to the branch they can be incorporated into the main branch using merge or as a pull request.
+
+## Exercise (6): Create a new branch and make edits
+
+- `git checkout -b <branch>`
+- push changes to the remote, inspect changes online
+- Create a pull request using GitHub.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

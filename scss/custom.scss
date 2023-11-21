@@ -26,5 +26,26 @@ $presentation-heading-color: lighten($theme-blue, 5%);
   font-weight: bold;
 }
 
+.v-center-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 90%;
+        }
+
+
+
+/*-- scss:rules --*/
+
+.reveal {
+  .slides {
+    .slide {
+      img+p.caption {
+        font-size: 0.5em;
+      }
+    }
+  }
+}
+
 
 

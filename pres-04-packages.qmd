@@ -1,0 +1,64 @@
+---
+title: "R packages and data management"
+bibliography: references.bib
+format:
+  revealjs:
+    auto-stretch: false
+    theme: [default, scss/custom.scss]
+---
+
+## What is an R package?
+
+::: {.incremental}
+
+- A structured collection of functions, data and documentation that are
+- easy to share, download and use
+
+:::
+
+
+## Why packages [@wickham2023]?
+
+::: {.incremental}
+
+- Anything that can be automated, should be automated
+- Do as little as possible by hand
+- Do as much as possible with functions
+
+:::
+
+## A data package
+
+::: {.incremetal}
+
+- R packages can include data
+- Included data could be a cleaned up version of raw data, but not aggregated
+- Data packages could include vignettes documenting data cleaning, or
+- raw data is included in the source files of the package
+
+:::
+
+## Why data packages
+
+::: {.incremental}
+- Reproducible data cleaning
+- Easy to share and collaborate on 
+- Easy to work with (avoid repeating data cleaning)
+- Another type of research output
+
+:::
+
+## Data cleaning 
+
+{{< video https://www.youtube.com/embed/0tOnzTmMi4A?si=h75sBLZY9eMg7HQv >}}
+
+
+## Examples
+
+- [exscidata](https://github.com/dhammarstrom/exscidata)
+- [trainomeMetaData](https://github.com/trainome/trainomeMetaData)
+
+
+## References
+
+
