@@ -1,2 +1,9 @@
 # Scientific models and data simulations
 
+Navarro argues that the theory comes before the statistical model (10.1177/1745691620974769). Theoretical formalism helps in defining study design and data analysis.
+
+A theory can be simplified to allow for formalism...
+
+A theory has consequences that can be tested using data and statistical models. The statistical model is a consequence of the theoretical model and ...
+
+Cox: The relation between theory and application in statistics
