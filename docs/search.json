@@ -46,21 +46,21 @@
     "href": "writing-packages.html#increased-reproducibility",
     "title": "3  R packages for data management and sharing",
     "section": "3.1 Increased reproducibility",
-    "text": "3.1 Increased reproducibility\nA basic principle in reproducible research is that the data and code used to generate results should be made available to others."
+    "text": "3.1 Increased reproducibility\nA basic principle in reproducible research is that the data and code used to generate results should be made available. Ideally, each component of a reproducible report (paper, thesis or similar) should be documented and organized to allow for independent execution of code that supports conclusions (Peng 2011). Publishers and journals have started to highlight reproducible scientific work, sometimes under the term open research1. Similarly, funding agencies are also taking steps to support or even demand open research practices, including reproducible research. Even though principles are well described and researchers have many incentives to publish reproducible open research, the fail to do so. Reproducible research is still not common practice. There are several reasons why this is the case, reasons such as lack of skills and knowledge on how to do it, insecurity or embarrassment in sharing behind-the-scenes work or fear of inappropriate use (Gomes et al. 2022).1 Wiley marks publications with “open research badges” to indicate shared data, pre-registration and open material. The journal Biostatistics was an early adopter of marking papers with code, data and reproducible marks (Peng 2011).\nPeng, R. D. 2011. “Reproducible Research in Computational Science.” Science 334 (6060): 1226–27. https://doi.org/10.1126/science.1213847.\n\nGomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, Emma J. Hudgins, Vivienne Foroughirad, Luna L. Sánchez-Reyes, Rachel Turba, et al. 2022. “Why Don’t We Share Data and Code? Perceived Barriers and Benefits to Public Archiving Practices.” Proceedings of the Royal Society B: Biological Sciences 289 (1987): 20221113. https://doi.org/10.1098/rspb.2022.1113.\n\n\n\n\nSharing code and data in efficient way may be difficult if you do not rely on software and workflows designed for this purpose."
   },
   {
     "objectID": "writing-packages.html#r-package-basics",
     "href": "writing-packages.html#r-package-basics",
     "title": "3  R packages for data management and sharing",
-    "section": "3.2 R package basics",
-    "text": "3.2 R package basics\n\n3.2.1 Incorporating data into R packages\n\n\n3.2.2 Documenting data"
+    "section": "3.1 R package basics",
+    "text": "3.1 R package basics\nAn R package is a structured\n\n3.1.1 Incorporating data into R packages\n\n\n3.1.2 Documenting data"
   },
   {
     "objectID": "writing-packages.html#sharing-packages",
     "href": "writing-packages.html#sharing-packages",
     "title": "3  R packages for data management and sharing",
-    "section": "3.3 Sharing packages",
-    "text": "3.3 Sharing packages"
+    "section": "3.2 Sharing packages",
+    "text": "3.2 Sharing packages"
   },
   {
     "objectID": "references.html",
@@ -103,5 +103,12 @@
     "title": "2  Version control and collaborative scientific coding",
     "section": "2.4 Publishing",
     "text": "2.4 Publishing"
+  },
+  {
+    "objectID": "writing-packages.html#footnotes",
+    "href": "writing-packages.html#footnotes",
+    "title": "3  R packages for data management and sharing",
+    "section": "",
+    "text": "Wiley marks publications with “open research badges” to indicate shared data, pre-registration and open material. The journal Biostatistics was an early adopter of marking papers with code, data and reproducible marks (Peng 2011).↩︎"
   }
 ]

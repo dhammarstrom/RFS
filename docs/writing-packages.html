@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,18 +164,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#increased-reproducibility" id="toc-increased-reproducibility" class="nav-link active" data-scroll-target="#increased-reproducibility"><span class="header-section-number">3.1</span> Increased reproducibility</a></li>
-  <li><a href="#r-package-basics" id="toc-r-package-basics" class="nav-link" data-scroll-target="#r-package-basics"><span class="header-section-number">3.2</span> R package basics</a>
+  <li><a href="#r-package-basics" id="toc-r-package-basics" class="nav-link active" data-scroll-target="#r-package-basics"><span class="header-section-number">3.1</span> R package basics</a>
   <ul class="collapse">
-  <li><a href="#incorporating-data-into-r-packages" id="toc-incorporating-data-into-r-packages" class="nav-link" data-scroll-target="#incorporating-data-into-r-packages"><span class="header-section-number">3.2.1</span> Incorporating data into R packages</a></li>
-  <li><a href="#documenting-data" id="toc-documenting-data" class="nav-link" data-scroll-target="#documenting-data"><span class="header-section-number">3.2.2</span> Documenting data</a></li>
+  <li><a href="#incorporating-data-into-r-packages" id="toc-incorporating-data-into-r-packages" class="nav-link" data-scroll-target="#incorporating-data-into-r-packages"><span class="header-section-number">3.1.1</span> Incorporating data into R packages</a></li>
+  <li><a href="#documenting-data" id="toc-documenting-data" class="nav-link" data-scroll-target="#documenting-data"><span class="header-section-number">3.1.2</span> Documenting data</a></li>
   </ul></li>
-  <li><a href="#sharing-packages" id="toc-sharing-packages" class="nav-link" data-scroll-target="#sharing-packages"><span class="header-section-number">3.3</span> Sharing packages</a></li>
+  <li><a href="#sharing-packages" id="toc-sharing-packages" class="nav-link" data-scroll-target="#sharing-packages"><span class="header-section-number">3.2</span> Sharing packages</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -175,24 +193,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="increased-reproducibility" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="increased-reproducibility"><span class="header-section-number">3.1</span> Increased reproducibility</h2>
-<p>A basic principle in reproducible research is that the data and code used to generate results should be made available to others.</p>
+<div class="page-columns page-full"><p>A basic principle in reproducible research is that the data and code used to generate results should be made available. Ideally, each component of a reproducible report (paper, thesis or similar) should be documented and organized to allow for independent execution of code that supports conclusions <span class="citation" data-cites="peng2011">(<a href="references.html#ref-peng2011" role="doc-biblioref">Peng 2011</a>)</span>. Publishers and journals have started to highlight reproducible scientific work, sometimes under the term open research<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Similarly, funding agencies are also taking steps to support or even demand open research practices, including reproducible research. Even though principles are well described and researchers have many incentives to publish reproducible open research, the fail to do so. Reproducible research is still not common practice. There are several reasons why this is the case, reasons such as lack of skills and knowledge on how to do it, insecurity or embarrassment in sharing behind-the-scenes work or fear of inappropriate use <span class="citation" data-cites="gomes2022">(<a href="references.html#ref-gomes2022" role="doc-biblioref">Gomes et al. 2022</a>)</span>. Such subjective concerns can be effectively addressed with a small to medium investment in time to learn skills and available solutions <span class="citation" data-cites="gomes2022">(<a href="references.html#ref-gomes2022" role="doc-biblioref">Gomes et al. 2022</a>)</span>, but also, more importantly by using reproducible practices throughout your workflow.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<a href="https://authorservices.wiley.com/open-research/open-recognition-and-reward/open-research-badges.html">Wiley</a> marks publications with “open research badges” to indicate shared data, pre-registration and open material. The journal <a href="https://academic.oup.com/biostatistics/pages/About">Biostatistics</a> was an early adopter of marking papers with code, data and reproducible marks <span class="citation" data-cites="peng2011">(<a href="references.html#ref-peng2011" role="doc-biblioref">Peng 2011</a>)</span>.</p><div id="ref-peng2011" class="csl-entry" role="listitem">
+Peng, R. D. 2011. <span>“Reproducible Research in Computational Science.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
+</div></li><div id="ref-gomes2022" class="csl-entry" role="listitem">
+Gomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, Emma J. Hudgins, Vivienne Foroughirad, Luna L. Sánchez-Reyes, Rachel Turba, et al. 2022. <span>“Why Don’t We Share Data and Code? Perceived Barriers and Benefits to Public Archiving Practices.”</span> <em>Proceedings of the Royal Society B: Biological Sciences</em> 289 (1987): 20221113. <a href="https://doi.org/10.1098/rspb.2022.1113">https://doi.org/10.1098/rspb.2022.1113</a>.
+</div></div></div>
+<div class="no-row-height column-margin column-container"></div><div class="margin-column">
+
+</div>
+<p>Sharing code and data in an efficient way may be difficult if you do not rely on software and workflows designed for this purpose. The R ecosystem has many advantages and an obvious one in this context is the possibility to formally combine data, code and documentation in a portable unit called a package. An R package can be shared trough CRAN or code repository systems such as GitHub. Alternatively, a package may be compressed and shared as a single file in a data repository such as <a href="https://dataverse.no/">DataverseNO</a>. From a data-sharing perspective, an R package may include initial steps in data cleaning from raw unprocessed data to data used in statistical analyses. Such initial steps are part of the package source and may be documented as part of the package. Complex projects often involves several un-matched data sets as some variables are measured across multiple time-points others at a single time-point but across several domains or items. In such case, a single combined tabular data set is not possible to curate without loosing information or add complexity. In an R package you could combine several types of data sets that are possible to combine using analytic code for specific purposes. Additionally, “helper functions” can be included in the package to aid users to reproduce analyses or prepare data for novel analyses.</p>
+<section id="r-package-basics" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-package-basics"><span class="header-section-number">3.1</span> R package basics</h2>
+<p>An R package is a structured</p>
+<section id="incorporating-data-into-r-packages" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="incorporating-data-into-r-packages"><span class="header-section-number">3.1.1</span> Incorporating data into R packages</h3>
 </section>
-<section id="r-package-basics" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="r-package-basics"><span class="header-section-number">3.2</span> R package basics</h2>
-<section id="incorporating-data-into-r-packages" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="incorporating-data-into-r-packages"><span class="header-section-number">3.2.1</span> Incorporating data into R packages</h3>
-</section>
-<section id="documenting-data" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="documenting-data"><span class="header-section-number">3.2.2</span> Documenting data</h3>
+<section id="documenting-data" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="documenting-data"><span class="header-section-number">3.1.2</span> Documenting data</h3>
 </section>
 </section>
-<section id="sharing-packages" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="sharing-packages"><span class="header-section-number">3.3</span> Sharing packages</h2>
+<section id="sharing-packages" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sharing-packages"><span class="header-section-number">3.2</span> Sharing packages</h2>
 
 
+
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

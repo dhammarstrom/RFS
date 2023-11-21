@@ -1,0 +1,5 @@
+# Notes
+
+[@peng2011] Peng argues for reproducibility as the next best thing to replication. Reproducibility requires code, data and documentation.
+
+[@gomes2022] Gomes et al highlights possible barriers for sharing code and data. Subjective fears and barriers associated with reproducible practices are often not well calibrated with reality.

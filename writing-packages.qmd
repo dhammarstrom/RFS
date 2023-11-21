@@ -1,10 +1,34 @@
+---
+bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
+reference-location: margin
+citation-location: margin
+---
+
 # R packages for data management and sharing
 
-## Increased reproducibility
+A basic principle in reproducible research is that the data and code used to generate results should be made available. Ideally, each component of a reproducible report (paper, thesis or similar) should be documented and organized to allow for independent execution of code that supports conclusions [@peng2011]. Publishers and journals have started to highlight reproducible scientific work, sometimes under the term open research[^open-badges]. Similarly, funding agencies are also taking steps to support or even demand open research practices, including reproducible research. Even though principles are well described and researchers have many incentives to publish reproducible open research, the fail to do so. Reproducible research is still not common practice. There are several reasons why this is the case, reasons such as lack of skills and knowledge on how to do it, insecurity or embarrassment in sharing behind-the-scenes work or fear of inappropriate use [@gomes2022]. Such subjective concerns can be effectively addressed with a small to medium investment in time to learn skills and available solutions [@gomes2022], but also, more importantly by using reproducible practices throughout your workflow.   
 
-A basic principle in reproducible research is that the data and code used to generate results should be made available to others.
+::: {.margin-column}
+
+[^open-badges]: [Wiley](https://authorservices.wiley.com/open-research/open-recognition-and-reward/open-research-badges.html) marks publications with "open research badges" to indicate shared data, pre-registration and open material. The journal [Biostatistics](https://academic.oup.com/biostatistics/pages/About) was an early adopter of marking papers with code, data and reproducible marks [@peng2011].
+
+:::
+
+Sharing code and data in an efficient way may be difficult if you do not rely on software and workflows designed for this purpose. The R ecosystem has many advantages and an obvious one in this context is the possibility to formally combine data, code and documentation in a portable unit called a package. An R package can be shared trough CRAN or code repository systems such as GitHub. Alternatively, a package may be compressed and shared as a single file in a data repository such as [DataverseNO](https://dataverse.no/). From a data-sharing perspective, an R package may include initial steps in data cleaning from raw unprocessed data to data used in statistical analyses. Such initial steps are part of the package source and may be documented as part of the package. Complex projects often involves several un-matched data sets as some variables are measured across multiple time-points others at a single time-point but across several domains or items. In such case, a single combined tabular data set is not possible to curate without loosing information or add complexity. In an R package you could combine several types of data sets that are possible to combine using analytic code for specific purposes. Additionally, "helper functions" can be included in the package to aid users to reproduce analyses or prepare data for novel analyses.
 
 ## R package basics
+
+An R package is a structured 
+
+
+
+
+[^resources]: There are several resources 
+
+
+
 
 ### Incorporating data into R packages
 
