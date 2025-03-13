@@ -1,5 +1,11 @@
 # Preface {.unnumbered}
 
+::: {.callout-note}
+These course notes are under development. They will serve as the basis of the course [*Scientific Communication, Collaboration and Design in Quantitative Research Using R*](https://www.inn.no/english/study-options/our-studies/scientific-communication-collaboration-and-design-/) given as an elective in the PhD program Health and Welfare at the [University of Inland Norway](https://www.inn.no). 
+:::
+
+
+
 The purpose of this collection of workshops is to provide basic skills and understanding of scientific visualization, collaboration, and thinking. These concepts are often not taught explicitly in postgraduate courses. Instead, they are assumed to be known and understood or somehow magically infused in students through their respective scientific environments. Instead of relying on magic, professional skills should be taught and developed continuously, explicitly, and systematically.
 
 The first workshop deals with data visualization which is a fundamental skill for any scientist. Data visualization, like writing, serves multiple purposes in day-to-day scientific practice. Making graphs before data collection can help the researcher better formulate the scientific problem or explain core concepts for oneself, committees or funding agencies. Visualizations will also be important for exploratory data analysis, for discovering problematic data formatting or important patterns related to the scientific problem. Lastly, visualizations will aid in communicating scientific results to other researchers and the public.

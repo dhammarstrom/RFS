@@ -1,0 +1,698 @@
+# Before plotting
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+library(exscidata)
+```
+
+As we saw above, a basic visualization can be created from a data set, or a data frame which is the most common representation of data in R. A *tidy* data set has one observation per row and one variable per column. A tidy data set makes data visualization easy. However, not all data sets are friendly. In fact, some might be unfriendly because they are unhappy[^unhappy].
+
+::: {.column-margin}
+
+[^unhappy]: The reference to happiness is a reference to @wickham2014 wherein Tolstoy's Anna Karenina is quoted; "Happy families are all alike; every unhappy family is unhappy in its own way." The Anna Karenina principle applies to data as non-tidy data can be non-tidy in many ways, tidy data however are tidy because they all share a common set of features.
+
+:::
+
+A lot of effort goes into making data sets suitable for visualization or statistical modelling. The good news is that R is especially suited for the process of importing and wrangling data. As with other common tasks in R there are numerous ways of achieving the same goals. This is a good thing because it allows for solutions to a wide range of problems. It is also a bad thing because it makes it difficult to getting started. A collection of R packages called the [Tidyverse](https://www.tidyverse.org/) makes the process of getting started with data wrangling easier. 
+
+Tidyverse can be thought of as a dialect of the R language. The dialect is designed to make it easy to write sequential operations in a way that translates thoughts and ideas to code. Sequential operations are enabled by a pipe operator. Using a pipe operator we can call functions in sequential order to do specific operations on the data. We can write such a pipe as demonstrated below with the corresponding English language descriptions to the left. 
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+Take the data ***then do***<br>
+filter the data based on *x* larger than 10 ***then do***<br>
+add a new calculated variable z = x + y ***then do***<br>
+show the output<br>
+
+:::
+
+::: {.column width="40%"}
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+data |>
+  filter(x > 10) |>
+  mutate(z = x + y) |>
+  print()
+
+
+```
+
+
+:::
+
+::::
+
+The pipe operator (`|>`) takes any input and place it as the first argument in the following function[^funnote]. This is the mechanism that makes sequential operations possible. A pipe operator makes code more readable, consider the following two alternatives:
+
+::: {.margin-column}
+
+[^funnote]: A function is a basic building block of your R code. Function are designed for specific tasks and can be part of packages or created by the user. A function may take arguments such as `fun(<ARGUMENT1> = <default input>, <ARGUMNET2> = <default input>)`. Arguments can be used without explicitly naming them by putting expected input in at the right position. Orders of argument may be changed is argument names are used.  
+
+:::
+
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+print(mutate(filter(select(data, var1:var3), var1 == "xxx"), var4 = var1 + var2)) # <1>
+
+
+data |> # <2>
+  select(var1:var3) |>
+  filter(var1 == "xxx") |>
+  mutate(var4 = var1 + var2) 
+
+
+```
+
+1. Alternative 1: A number of operations are performed on data, we have to read from in to out to see each step.
+2. Alternative 2: The same steps are performed as in alternative 1, in the same order. 
+
+The pipe in alternative 2 are structured with the pipe operator making the code more readable and easier to edit. Notice that the same functions are used in both cases. 
+
+In R there are two main pipe operators. We have the "base R" pipe, `|>`. This pipe operator is included in the base installation of R and available without loading any packages on start up. A second pipe belongs to the `magritter` package. The `magritter` pipe (`%>%`) has the same basic functionality as the base pipe; the left hand input is inserted as the first argument in any right hand function. 
+
+Sometimes you might want to place your input somewhere else than as the first argument in a right hand function. A placeholder can be used to indicate where you would like to place your input. The base pipe differs from the `magritter` pipe in what symbol indicates a placeholder. In the example below, the function `some_fun()` expects data as the third argument. We need to use our placeholder to put the data in the correct position:
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+data |> # <1>
+  some_fun(arg1 = c(1, 2), 
+           arg2 = "some.setting", 
+           arg3 = _)
+
+
+library(tidyverse)
+data %>% # <2>
+  some_fun(arg1 = c(1, 2), 
+           arg2 = "some.setting", 
+           arg3 = .)
+
+
+
+```
+
+1. With the base R forward pipe operator.
+2. With the `magritter` forward pipe operator. 
+
+
+
+
+
+### Reading data into R
+
+Three packages makes reading tabular data into R easy. `readr` provides functions for reading and writing delimiter separated files, such as `.csv` or `.tsv`. `readxl` provides functions that imports data from excel files. An finally, `googlesheets4` makes it possible to read tabular data created in google sheets.
+
+
+Data can also be loaded from packages in R since storing data is a convenient way of sharing. By including data in a package you are nudged to do some quality checks and document it. We will talk more about data packages in a later workshop. 
+
+
+
+### The verbs of data wrangling
+
+Once data is available in our workspace we will be able to wrangle it. In the examples below I will use a data set containing results from dual x-ray absorptiometry measurements available in the `exscidata` package. To install the `exscidata` package:
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(remotes)
+install_github("dhammarstrom/exscidata")
+
+```
+
+The `dplyr`package provides a collection of verbs to facilitate wrangling. As mentioned above, "pipeable" functions takes a data frame as its first argument. This means that we can line up functions in sequential order using a pipe operator. In all verb functions, following the data argument follows a set of arguments that specifies what we wish to do with the data. The result of the operations performed by the function are returned as a data frame. 
+
+`dplyr` contains the following main data verbs:
+
+- `select`
+- `rename`
+- `relocate`
+- `mutate`
+- `filter`
+- `arrange`
+- `summarize` 
+
+In addition, several helper function will aid our wrangling endeavors.
+
+`dplyr` is loaded as part of the `tidyverse` package:
+
+```{r}
+#| echo: true
+#| eval: false
+#| message: false
+
+library(tidyverse)
+
+```
+
+
+#### Select, rename and relocate variables
+
+Variables in a data frame may be selected and renamed. Such operation may have multiple purposes such as giving you a better overview of the data of interest or limiting what data to display in a table. Renaming can make life easier if the data set contains long variable names. 
+
+Below we will store a subset of the data in a new data set. But we will first have a look at what column names are available:
+
+```{r}
+
+library(exscidata) # <1>
+glimpse(exscidata::dxadata) # <2>
+
+```
+
+1. Loading the `exscidata` package
+2. Using `glimbse` we will get a overview of all available variables in the data set. The double `::` means that we are looking for the data set `dxadata` inside the package `exscidata`.
+
+
+The data set contains `r dim(exscidata::dxadata)[1]` rows and `r dim(exscidata::dxadata)[2]` columns. The variables in the data set are described as part of the `exscidata` package and can be seen by typing `?dxadata` in the console.
+
+We will work further with lean body mass data, these are variables starting with `lean.`. In addition we need variables describing observations like `participant`, `time`, `multiple`, `single`, `sex`, `include`, `height` and `weight`. To select these variables we can try a couple of different approaches. 
+The `select` function can select variables by name. This means that we can simply list them: 
+
+
+```{r}
+
+exscidata::dxadata |> # <1> 
+  select(participant, time, multiple, single) |> # <2>
+  print() # <3>
+  
+```
+
+1. Retrieve the data from the `exscidata` package
+2. select variables based on names
+3. Print the resulting data frame.
+
+The above approach means a lot of work writing all columns names in the select call. An alternative approach is to select variables based on the first and last variable in a sequence. This is possible by using the syntax `<first column>:<last column>`. 
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant:weight) |> # <1>
+  print() 
+  
+```
+
+1. Selecting by the first and last column in a sequence.
+
+We also like to have the lean body mass data included in our new data set. Since all variables containing lean body mass data starts with `lean.` we can use a helper function to select them. Two alternatives are possible:
+
+
+```{r}
+
+
+exscidata::dxadata |>  
+  select(participant:weight, starts_with("lean.")) |> # <1>
+  print() 
+
+
+exscidata::dxadata |>  
+  select(participant:weight, contains("lean.")) |> # <2>
+  print() 
+
+
+```
+
+1. Using `starts_with` to select all columns that starts with `lean.`
+2. Using `contains`to select all variables that contains `lean.`
+
+There are other select helper functions such as `ends_with` and `matches` that work in a similar fashion as the above. `all_of` and `any_of` helps you select variables based on a vector of variables, `where` selects based on where a function of your choosing returns true. See `?select` for a complete list.
+
+In a `select` call we can also rename variables using the syntax `<new name> = <old name>`. Let's say we want to select and rename `participant`:
+
+```{r}
+
+
+exscidata::dxadata |>  
+  select(parti = participant, time:weight, starts_with("lean.")) |> 
+  print() 
+
+
+
+```
+
+Notice how different ways of selecting variables can be combined in `select`.
+
+The `rename` function makes it easy to rename variables without the need to select.
+
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant:weight, starts_with("lean.")) |> 
+  rename(parti = participant) |>
+  print() 
+
+
+```
+
+
+If we want to change the order of variables in a data set we can specify the order in a select call, or use `relocate`
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant:weight, starts_with("lean.")) |> 
+  relocate(lean.whole) |>
+  print() 
+
+```
+
+`relocate` puts the selected variable as the first column in the data set. If we want to specify the location we can use the arguments `.before` or `.after`. 
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant:weight, starts_with("lean.")) |> 
+  relocate(lean.whole, .after = sex) |>
+  print() 
+
+```
+
+#### Creating new variables 
+
+`mutate` let's us create new variables in a data set. These can be a function of variables already in the data set or created from our input. 
+
+Let's create a variable representing the percentage of lean mass to body mass.
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant:weight, starts_with("lean.")) |> 
+  mutate(rel_lean_whole = 100 * ((lean.whole/1000) / weight)) |>
+  relocate(rel_lean_whole) |>
+  print() 
+
+```
+
+
+### From wide to long and back again
+
+The `dxadata` data set is not a tidy data set. It contains two variables (`single` and `multiple`) that indicates which leg has been training with low and moderate volume respectively [@hammarstrom2020]. Additionally, lean mass variables could be separated based on body half (right or left). To compare training volume we need to reformat the data set. We will start by making a smaller data set that indicate training volume per leg. 
+
+As we have already seen, `participant`, `single` and `multiple` are the variables needed to make a data set that indicates training volume per leg, per participant. We will start by selecting these columns followed by pivoting the data as the volume data is located in two variables. This essentially means that we will make the data set longer.  
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant, multiple, single) |> # <1>
+  pivot_longer(values_to = "leg", names_to = "volume",  cols = multiple:single) %>% # <2>
+  print()
+  
+
+
+```
+
+1. Selecting our variables of interest
+2. Creating a long data set based on volume data spread over two columns.
+
+As we see we now have a long data set, but it is longer than expected. The original data contains only `r length(pull(distinct(exscidata::dxadata, participant), participant))` participants. As each participant has two legs we would expect 82 observations. Above we did not remove post-intervention observations and we therefore have several duplicates. This can be taken care of by using the `distinct` function which returns unique observations across a combination of variables.
+
+
+```{r}
+
+participant_volume <- exscidata::dxadata |>  
+  select(participant, multiple, single) |> # 
+  pivot_longer(values_to = "leg", names_to = "volume",  cols = multiple:single) %>%
+  distinct(participant, volume, leg) %>% # <1>
+  print()
+  
+```
+
+1. Removes all duplicate combinations of `participant`, `volume` and `leg`.
+
+We can save our smaller data set as `participant_volume`
+
+Next we want to create a data set of right and left leg lean mass data. We will start by selecting variables.
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant, time, starts_with("lean.") & ends_with("_leg")) |> #
+  print()
+
+
+
+```
+
+Notice how `&` was used to create a conditional selection of variables. I addition to selecting time, include[^incl] and participant we select variables that starts with `lean.` AND ends with `_leg`. 
+
+::: {.column-margin}
+
+[^incl]: The variable `incl` is used to indicate which participants to include in a final analysis. Included participants completed a given set of training sessions.
+
+:::
+
+The resulting data set is wide. Two variables contains the same variable (lean mass), but one variable (leg) is lurking in two variables (`lean.left_leg` and `lean.right_leg`). Let's make the data set long.
+
+
+```{r}
+
+leg_leanmass <- exscidata::dxadata |>   # <3>
+  select(participant, time, include, starts_with("lean.") & ends_with("_leg")) |> 
+  pivot_longer(names_to = "leg", values_to = "lean_mass", cols = contains("lean.")) |> # <1>
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R")) |> # <2>
+  
+  print()
+
+
+
+```
+
+1. Notice how select helpers can be used in pivot_longer.
+2. We use `mutate` together with `if_else` to change the leg indicator to `R` and `L`
+3. We save the data set as `leg_leanmass`
+
+
+`pivot_longer` has a brother called `pivot_wider`, this functions performs the reverse operation making long data sets wide. Let's say that we would like to calculate the paired difference of leg lean mass from pre to post, we could make a wider data set and calculate `post - pre`
+
+
+
+```{r}
+
+exscidata::dxadata |>  
+  select(participant, time, include, starts_with("lean.") & ends_with("_leg")) |> 
+  pivot_longer(names_to = "leg", values_to = "lean_mass", cols = contains("lean.")) |>
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R")) |> 
+  pivot_wider(names_from = time, values_from = lean_mass) |> # <1> 
+  mutate(delta_lean_mass = post - pre) |> # <2>
+  print()
+
+```
+
+1. Pivot wider creates new columns based on names in `time` and values in `lean_mass`
+2. The new variables is calculated as the difference between pre and post-intervention values.
+
+### Joining data sets
+We have constructed two smaller data sets, one indicating which leg performed low and moderate volume and one data set containing the lean mass values for each leg, pre- and post-intervention. Next step is to join the two.
+
+`dplyr` contains functions for joining data frames. There are, as illustrated in @fig-join-illustration important differences between the functions where outer joins (left, right and full) keeps all observations in `x`, `y` and both `x` and `y` respectively. `inner_join` however, drops unmatched observations from both input data frames. Unlike the others, `anti_join` function removes observations in `x` that is present in `y`.
+
+```{r}
+#| code-fold: true
+#| code-summary: Code producing the figure
+#| message: false
+#| warning: false
+#| label: fig-join-illustration
+#| fig-cap: "Functions for joining data sets."
+
+
+library(ggVennDiagram) 
+library(ggplot2) 
+library(cowplot)
+
+# Joins can be illustrated with venn diagrams.
+# We do not need information about sets etc only 
+# a way to fill three distinct areas. 
+# The ggVennDiagram contains a function creating 
+# shapes to be filled.
+
+
+lst <- process_data(Venn(list(x = c("1"), y = c("1"))))
+
+# To avoid repeated code, create a function that plots
+# venn diagrams with options to indicate a title and 
+# specify fill colors
+join_illustration <- function(lst, 
+                              fills = c("steelblue", 
+                                        "steelblue", 
+                                        "white"), 
+                              title = "left_join(x,y)") {
+  
+  ggplot() + 
+    
+  geom_sf(aes(fill = id), data = venn_region(lst), 
+          color = "black") +
+  
+  theme_void() +
+  # Hard coded labels
+  geom_text(aes(x = c(300, 700), 
+                y = c(500, 500), 
+                label = c("x", "y")), 
+            size = 8, 
+            color = "gray20") +
+  
+  
+  scale_fill_manual(values = fills) +
+  
+  labs(title = title) +
+  
+  theme(legend.position = "none")
+  
+  
+}
+
+
+# Each join gets its own fig. All figures are 
+# ombined below with plot_grid from cowplot.
+
+left <- join_illustration(lst = lst, 
+                  title = "left_join(x,y)", 
+                  fills = c("steelblue", "steelblue", "white"))
+right <- join_illustration(lst = lst, 
+                  title = "right_join(x,y)", 
+                  fills = c("white", "steelblue", "steelblue"))
+inner <- join_illustration(lst = lst, 
+                  title = "inner_join(x,y)", 
+                  fills = c("white", "steelblue", "white"))
+full <- join_illustration(lst = lst, 
+                  title = "full_join(x,y)", 
+                  fills = c("steelblue", "steelblue", "steelblue"))
+anti <- join_illustration(lst = lst, 
+                  title = "anti_join(x,y)", 
+                  fills = c("steelblue", "white", "white"))
+
+
+plot_grid(left, right, inner, full, anti, ncol = 2)
+
+```
+
+Our two data sets are pretty insensitive to dropped observations since the two data sets should be complete. We will use a `left_join` to put the data set together. This will match participant and leg because these two variables exists in both data sets. If we want to join by other variables we may specify such a variable. We'll save the joined data set as `leg_leanmass`.
+
+```{r}
+
+leg_leanmass <- leg_leanmass |>
+  inner_join(participant_volume) |>
+  print()
+
+```
+
+### Filters and sorting rows
+
+We included the variable `include` in our data set, this will make it possible to get rid of observations from participants that should be part of the final analysis. We can use `filter` to perform this operation.
+
+```{r}
+leg_leanmass |>
+  filter(include == "incl") |>
+  print()
+```
+
+The double equal sign can be read as "equal to" in R, a common source of confusion is that the single equal sign (`=`) is used as a assignment operator.[^assignop]
+
+::: {.margin-column}
+
+[^assignop]: An assignment operator is used to assign data values to objects stored in the work space. The commonly used `<-` is equivalent to `=`. Note however that `->` is different from `=`.  
+
+:::
+
+The `filter` function keeps rows of a data frame where a condition that we specify returns `TRUE`. To construct testable conditions that allows for results being either `FALSE` or `TRUE` we will use one, or a combination operators, such as
+
+| | |
+|--- | ---|
+| `==` |&rarr; "equal to"|
+| `!=` |&rarr; "not equal to"|
+| `>` |&rarr; "larger than"|
+| `<` |&rarr; "smaller than"|
+| `>=`, `<=` |&rarr; "larger/smaller or equal to"|
+| `!` |&rarr; "NOT"|
+| `&` |&rarr; "AND"|
+| `|` |&rarr; "OR" |
+
+
+The above are all part of a collection of logical operators.[^logicoperators]
+We may demonstrate the mechanism by which `filter` operates by creating our own vector of `TRUE`/`FALSE` values. In the code chunk below a vector (`INCLUDE`) is created based on our `include` variable. A `logical` vector is created from the statement `INCLUDE != "excl"`. We then use this vector in the filter statement. 
+
+::: {.margin-column}
+
+[^logicoperators]: See [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) for a technical overview of logical operators.
+
+:::
+
+
+```{r}
+
+INCLUDE <- leg_leanmass |>
+  pull(include)
+
+INCLUDE <- INCLUDE != "excl"
+
+
+INCLUDE
+
+leg_leanmass |>
+  filter(INCLUDE)
+
+
+
+```
+
+
+In R, a vector of `TRUE`/`FALSE` (or in short form `T`/`F`) are is a special case which R will prohibit us from overwriting.
+
+#### Grouped filters
+
+Using the dplyr syntax it is easy to e.g. filter or mutate based on a grouping of the data set. The function `group_by` creates a grouped data set. In the context of filtering in our data set we may want to filter out observations larger than the median from two time points.
+
+```{r}
+
+leg_leanmass |>
+  group_by(time) |>
+  filter(lean_mass > median(lean_mass)) |> 
+  print()
+
+
+```
+
+The above operation removed exactly half of the observations, as expected since we wanted observations larger than the median from both time points. We may combine this statement with filtering away `"excl"` from the `include` variable.
+
+```{r}
+
+leg_leanmass |>
+  group_by(time) |>
+  filter(include != "excl", lean_mass > median(lean_mass)) |> 
+  print()
+
+
+```
+
+Putting two conditions in a `filter` call is like explicitly using `&` (AND) to combine statements. All conditions must evaluate to be `TRUE` for the row to be included in final output.
+
+An alternative to grouping by the `group_by` function is to do a "per-operation grouping"[^perop] using the `.by` argument. This does not leave a grouping in the data frame after filtering.
+
+[^perop]: See `?dplyr_by`
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl", lean_mass > median(lean_mass), .by = time) |> 
+  print()
+
+
+```
+
+
+### Summaries
+
+We often want to reduce larger amount of data into some summaries, such as means, standard deviations, medians etc. These summaries may be calculated over any number of categorical variables representing e.g. groups of observations. Just like in the filtering statement above, we may work with a grouped data frame, or by using a per-operation grouping (`.by`).
+
+We will calculate the median, first and third quartile, and minimum and maximum from each volume condition and time point. Below are both of the two alternatives of grouping used. 
+
+```{r}
+
+leg_leanmass |>
+  filter(include != "excl") |>
+  group_by(time, volume) |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass)) |>
+  print()
+  
+
+leanmass_sum <- leg_leanmass |>
+  filter(include != "excl") |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass), 
+            .by = c(time, volume)) |>
+  print()
+
+
+
+```
+
+Notice how the data frames either have a persistent grouping, or no grouping depending on how we invoked grouping. Notice also that all values are nicely displayed, this is not always the case with summarise. 
+
+Consider the following example
+
+```{r}
+
+vals <- c(4.5, 6.7, 4.6, 5.1, NA)
+
+mean(vals)
+
+```
+
+The mean of a vector of values containing a missing value returns `NA`. If we where to have missing values (`NA`) in our original data we would have recievied a `NA` in results. To drop an `NA` from such a summary we need to specify `na.rm = TRUE` as part of a summary function. 
+
+```{r}
+
+vals <- c(4.5, 6.7, 4.6, 5.1, NA)
+
+mean(vals, na.rm = TRUE)
+
+```
+
+R does not drop `NA` silently! This is a good thing as we want to get a notice when we are missing data. If we know we are missing data we need to explicitly type this in our calls. This "rule" is not always true as some functions silently drops `NA`, be aware!
+
+### Arranging data frames
+
+At last we might want to arrange a data frame for ease of use, or prior to making a table etc. Arranging does not change the data frame *per se*, only how it is displayed. 
+
+We'll used our summarized data frame from above and sort based on the `volume` variable. 
+
+```{r}
+
+leanmass_sum |>
+  arrange(volume) |>
+  print()
+
+```
+
+Any other column will also work for arranging
+
+```{r}
+
+leanmass_sum |>
+  arrange(Median) |>
+  print()
+
+```
+
+Using a helper function (`desc`) reverses the sorting 
+
+```{r}
+
+leanmass_sum |>
+  arrange(desc(Median)) |>
+  print()
+
+```
+
+Notice that `desc` also works for character data
+
+```{r}
+
+leanmass_sum |>
+  arrange(desc(volume)) |>
+  print()
+
+```
+

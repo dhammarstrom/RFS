@@ -1,0 +1,188 @@
+# A grammar of graphics
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+library(exscidata)
+```
+
+Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005], Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax for creating data visualizations is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics [@wickham2010; @wilkinson2005].
+
+The grammar (in the version described by Wickham [@wickham2010]) has seven components that together creates a ggplot2 visualization (@fig-ggplotlayers).
+
+The underlying **data** contains the variables that are **mapped to aesthetics** such as coordinates, colors or shapes. Each aesthetic can be controlled through **scales** by assigning values to coordinates, colors, shapes etc. **Geometric objects** creates the visual representations of the mapping. Sometimes small multiples of the same graph are created using **facets** which creates subdivision of the data to be plotted in different panels. **Statistical transformations** creates summaries of the data, however, in its simplest form, the transformation is the identity transformation. All graphical representations are plotted in a **coordinate** system. **Theme and annotations** adds non-data layers to the plot which can include geometric shapes or text (@fig-ggplotlayers).
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggplotlayers
+#| fig-cap: "Components of a ggplot2 visualization"
+
+library(tidyverse)
+
+## Create a data frame for plotting a rectangle that is tilted to look like a plane in 3D
+parallelogram_data <- data.frame(
+  x = rep(c(1, 4, 6, 3), 7),
+  y = rep(c(1.5, 1.5, 3, 3), 7),
+  col = rep(c("a", "b", "c", "d", "e", "f", "g"), each = 4), 
+  add = rep(c(1, 2, 3, 4, 5, 6, 7), each = 4)) %>%
+  mutate(y = y + add)
+
+# Plot the parallelogram using ggplot2
+ggplot() +
+  geom_polygon(data = parallelogram_data, aes(x = x, y = y, fill = col), color = "black", alpha = 0.3) +
+  coord_fixed(ratio = 1) +  # This is to ensure that the x and y axis are on the same scale
+  geom_text(data = data.frame(y = seq(1:7) + 2, 
+                              lab = c("Data", "Aesthetics",
+                                      "Geometric objects", "Facets", 
+                                      "Statistical\ntransformations", 
+                                      "Coordinates", "Theme and\n annotations")), 
+            aes(x = 0.5, y = y, label = lab), 
+            hjust = 1) +
+  
+  scale_x_continuous(limits = c(-2, 6)) +
+
+  theme_void() + 
+  theme(legend.position = "none")
+
+
+
+```
+
+### Building blocks of a plot
+
+Using a similar example as in [@wickham2010] a basic plot can be broken down into the data (see @tbl-ggplotdataexample), geometric objects, scales and coordinates and annotations. These components, that can be individually manipulated, together creates the final plot (see @fig-ggplotexample a-d).
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-ggplotdataexample
+#| tbl-cap: "Example data for a ggplot"
+
+
+library(tidyverse); library(gt)
+
+data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+      
+           shape = c("a", "a", "b", "b")) %>%
+  gt()
+
+
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-ggplotexample
+#| fig-cap: "Three components, geometric objects (a), coordinates and scales (b) and plot annotations (c) are constitues of the complete plot (d)"
+library(cowplot)
+
+a <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape)) + geom_point(size = 3) + 
+  theme_void() +
+  theme(legend.position = "none")
+ 
+b <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  theme(legend.position = "none", 
+        axis.text = element_blank(), 
+        axis.title = element_blank())
+
+c <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  geom_point(color = "white") + 
+  labs(title = "Title", 
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+  
+  theme(axis.ticks = element_blank(), 
+        axis.line = element_blank())
+
+
+d <- data.frame(x = c(1, 2.4, 4, 5.2), 
+           y = c(3, 2, 5, 7.8), 
+           color = c("s", "m", "s", "m"), 
+           shape = c("a", "a", "b", "b"), 
+           size = c(2, 3, 4, 5)) %>%
+  ggplot(aes(x, y, shape = shape))  + 
+  theme_classic() +
+  geom_point(color = "black", size = 3) + 
+  labs(title = "Title", 
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+  
+  theme()
+
+
+plot_grid(
+    plot_grid(a, b, c, nrow = 1, align = "vh", 
+              labels = c("a", "b", "c"), 
+          rel_widths = c(0.8, 0.8, 1)), 
+    plot_grid(NULL, d, NULL, rel_widths = c(0.7, 1, 0.7),
+              nrow = 1,
+              labels = c("", "d", "")), 
+    nrow = 2)
+
+```
+
+The corresponding code to create this plot is fairly straight forward:
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(ggplot2)
+
+df <- data.frame(x = c(1, 2.4, 4, 5.2),  # <1> 
+           y = c(3, 2, 5, 7.8), 
+           shape = c("a", "a", "b", "b")) 
+
+
+  ggplot(data = df,                      # <2>
+         mapping = aes(x = x, y = y, shape = shape))  +    # <3>
+
+  geom_point(color = "black", size = 3) + # <4>
+  
+    labs(title = "Title",        # <5>
+       subtitle = "Subtitle", 
+       x = "x-axis", 
+       y = "y-axis", 
+       shape = "legend") +
+    theme_classic() # <6>
+
+
+```
+
+1.  A simple data frame is saved containing the variables we will plot
+2.  The data is explicitly called
+3.  Variables are mapped to coordinates (x and y) and shapes.
+4.  Geometric objects (points) are specified with color and size determined in the function
+5.  Annotations are added to the plot through the `labs` (labels) function.
+6.  A pre-built theme is used to change the default appearance of the plot.
+
+
