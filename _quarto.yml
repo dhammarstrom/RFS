@@ -8,12 +8,12 @@ book:
   date: "2025-03-13"
   chapters:
     - index.qmd
-    - part: data-viz.qmd
-      chapters:
-      - viz-01-basic-ggplot.qmd
-      - viz-02-before-graph.qmd
-      - viz-03-advanced-ggplot.qmd
-      - viz-04-graphic-design.qmd
+    - data-viz.qmd
+     # chapters:
+     # - viz-01-basic-ggplot.qmd
+     # - viz-02-before-graph.qmd
+    #  - viz-03-advanced-ggplot.qmd
+     # - viz-04-graphic-design.qmd
     - version-control.qmd
     - writing-packages.qmd
     - models-and-simulations.qmd
@@ -27,7 +27,7 @@ format:
   pdf:
     documentclass: scrreprt
 
-
+brand: brand/_brand.yml
 
 
 

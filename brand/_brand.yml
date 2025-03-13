@@ -1,0 +1,24 @@
+color:
+  palette:
+    lightgreen: "#E9F5E7"
+    white: "#FFFFFF"
+    dark-grey: "#222222"
+    blue: "#ddeaf1"
+  background: white
+  foreground: dark-grey
+  primary: black
+
+logo: 
+  medium: brand/logo.png
+
+typography:
+  fonts:
+    - family: Open Sans
+      source: google
+    - family: Roboto Slab
+      source: google
+    - family: Fira Code
+      source: google
+  base: Open Sans
+  headings: Roboto Slab
+  monospace: Fira Code
