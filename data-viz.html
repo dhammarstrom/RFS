@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Data visualization – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>Data visualization – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./version-control.html" rel="next">
+<link href="./viz-01-basic-ggplot.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -101,7 +101,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-viz.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-viz.html">Data visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -135,28 +135,63 @@ div.csl-indent {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./data-viz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-viz.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
+  <a href="./viz-01-basic-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./viz-02-before-graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Before plotting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./viz-03-advanced-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More advanced features of ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./viz-04-graphic-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Scientific graphic design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./viz-05-glamour.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./version-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./writing-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R packages for data management and sharing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R packages for data management and sharing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./models-and-simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Scientific models and data simulations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Scientific models and data simulations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -170,21 +205,15 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#glamorous-graphics" id="toc-glamorous-graphics" class="nav-link active" data-scroll-target="#glamorous-graphics"><span class="header-section-number">1.0.1</span> Glamorous graphics</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data visualization</span></h1>
+<h1 class="title">Data visualization</h1>
 </div>
 
 
@@ -201,7 +230,7 @@ div.csl-indent {
 </header>
 
 
-<p>The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables but for graphical displays like comparisons between categories, relationships among variables, or trends over time <span class="citation" data-cites="gelman2002 tufte2001">(<a href="references.html#ref-gelman2002" role="doc-biblioref">Gelman, Pasarica, and Dodhia 2002</a>; <a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing your manuscript. These steps will likely take up more time than polishing <em>Figure 1</em> of your upcoming paper.</p>
+<p>The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables. Such information may be comparisons between categories, relationships among variables, or trends over time <span class="citation" data-cites="gelman2002 tufte2001">(<a href="references.html#ref-gelman2002" role="doc-biblioref">Gelman, Pasarica, and Dodhia 2002</a>; <a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing a final report. These steps will likely take up more time than polishing <em>Figure 1</em> of your upcoming paper.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-gelman2002" class="csl-entry" role="listitem">
 Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s Practice What We Preach.”</span> <em>The American Statistician</em> 56 (2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
 </div><div id="ref-tufte2001" class="csl-entry" role="listitem">
@@ -210,126 +239,14 @@ Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 
 <ul>
 <li><p>Checking that your data is what could be expected</p></li>
 <li><p>Diagnosing statistical models</p></li>
-<li><p>Exploring a relationship between many variables</p></li>
-<li><p>Showing that your measurements are reliable and valid</p></li>
+<li><p>Exploring relationships between many variables</p></li>
+<li><p>Exploring if your measurements are reliable and valid</p></li>
 <li><p>Conveying the key message from your study</p></li>
 </ul>
-<p>Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that do not limit you. By using a <em>grammar of graphics</em> you can be more creative in designing your visualizations.</p>
-<section id="glamorous-graphics" class="level3" data-number="1.0.1">
-<h3 data-number="1.0.1" class="anchored" data-anchor-id="glamorous-graphics"><span class="header-section-number">1.0.1</span> Glamorous graphics</h3>
-<p>In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics. In contrast to Tufte’s principles (discussed above), glamorous graphics suggest adding ink to increase the attractiveness of graphics. (This might be a topic for a later workshop).</p>
-<!-- 
-Why glamorous graphics? - Engage a wider audience - Aesthetics matters for understanding - "respecting the audience"
-
-The glamour of graphics uses color, typography and layout to increase the impact of the graphic.
-
-### Layout
-
-#### Alignment
-
-Top left align titles
-
-Text should be horizontal
-
-Axis labels should also be horizontal
-
-Alignment should provide clean lines and symmetry
-
-Some alignment can be left/center/right to provide overall structure to the graph.
-
-#### Border, Grid lines, legends
-
-Do not use borders or grid lines. If grid lines, make them lighter and more subtle.
-
-Avoid legends, labels of the data are better or titles with color.
-
-#### White space
-
-Use white space to separate elements of the graph and give the reader room to understand the graph.
-
-### Typography
-
-#### Fonts
-
-#### Hierarchy
-
-This gives the reader a hierarchy of information.
-
-### Color
-
-What colors look good together?
+<p>Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that does not invoke limitations. By using a <em>grammar of graphics</em> you can be more creative in designing your visualizations.</p>
 
 
 
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-# Load required libraries
-library(ggplot2)
-
-# Create a data frame of angles and radii
-angles <- seq(0, 360, by = 0.1)
-radii <- seq(0.1, 1, by = 0.1)  # Vary the starting point to avoid a point at the center
-df <- expand.grid(angle = angles, radius = radii)
-
-# Create ggplot of colored points in polar coordinates
-p <- ggplot(df, aes(x = angle, y = radius, color = angle, alpha = radius)) +
-  geom_point(size = 8) +
-  scale_color_gradientn(colors = rainbow(360)) +
-  scale_alpha_continuous(range = c(1, 0.1)) +
-  coord_polar(theta = "x") +
-  theme_void() +
-  theme(axis.text = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        legend.position = "none")
-  
-
-#### Alternative
-
-# Create a data frame of angles from 0 to 360
-angles <- seq(0, 360, by = 0.2)
-df <- data.frame(angle = angles)
-
-# Create ggplot of colored points in polar coordinates
-p <- ggplot(df, aes(x = angle, y = 1, color = angle)) +
-  geom_point(size = 10) +
-  scale_color_gradientn(colors = rainbow(360)) +
-  coord_polar(theta = "x") +
-  theme_void() +
-  theme(axis.text = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        legend.position = "none")
-```
-:::
-
-
-
-
-
-
-The color wheel can be used to find
-
--   Complementary colors that will give high contrast
--   Monochromatic will give harmonious\
--   Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences
--   Triadic colors to give more
-
- https://www.canva.com/colors/color-wheel/ for more on this 
-
-#### Describing colors, Hue, Saturation and Lightness
-
-#### Background colors
-
-Colors can help reduce "hardness" by avoiding a white background.-->
-
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -756,8 +673,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./version-control.html" class="pagination-link" aria-label="Version control and collaborative scientific coding">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./viz-01-basic-ggplot.html" class="pagination-link" aria-label="A grammar of graphics">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>5&nbsp; Glamorous graphics – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +64,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-version-control.html" rel="prev">
+<link href="./02-version-control.html" rel="next">
+<link href="./viz-04-graphic-design.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +115,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-05-glamour.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,7 +184,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./viz-05-glamour.html" class="sidebar-item-text sidebar-link">
+  <a href="./viz-05-glamour.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></span></a>
   </div>
 </li>
@@ -182,7 +198,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -191,15 +207,24 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#colors" id="toc-colors" class="nav-link active" data-scroll-target="#colors"><span class="header-section-number">5.1</span> Colors</a>
+  <ul class="collapse">
+  <li><a href="#how-to-pick-colors" id="toc-how-to-pick-colors" class="nav-link" data-scroll-target="#how-to-pick-colors"><span class="header-section-number">5.1.1</span> How to pick colors?</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-05-glamour.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></h1>
 </div>
 
 
@@ -216,58 +241,176 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-gelman2002" class="csl-entry" role="listitem">
-Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s
-Practice What We Preach.”</span> <em>The American Statistician</em> 56
-(2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
+<p>In a <a href="https://posit.co/resources/videos/the-glamour-of-graphics/">talk at RStudio conference in 2020</a>, Will Chase presented principles related to glamorous graphics. In contrast to Tufte’s principles (discussed above), glamorous graphics suggest adding ink to increase the attractiveness of graphics. The ideas presented by Chase might at first seem distant from dry scientific graphics, where no other message should be conveyed than what the data shows. However, good-looking graphics might communicate your message more effectively than bad-looking graphics, even though the style itself carries some additional message. Consider the plots below. What message other than the story related to the data do they convey?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-esthetic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-esthetic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="viz-05-glamour_files/figure-html/fig-esthetic-1.png" class="img-fluid figure-img" width="384">
 </div>
-<div id="ref-hammarstrom2020" class="csl-entry" role="listitem">
-Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,
-Ivana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.
-Rønnestad, and Stian Ellefsen. 2020. <span>“Benefits of higher
-resistance-training volume are related to ribosome biogenesis.”</span>
-<em>The Journal of physiology</em> 598 (3): 543–65. <a href="https://doi.org/10.1113/JP278455">https://doi.org/10.1113/JP278455</a>.
-</div>
-<div id="ref-ho2019" class="csl-entry" role="listitem">
-Ho, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam
-Claridge-Chang. 2019. <span>“Moving Beyond P Values: Data Analysis with
-Estimation Graphics.”</span> <em>Nature Methods</em> 16 (7): 565–66. <a href="https://doi.org/10.1038/s41592-019-0470-3">https://doi.org/10.1038/s41592-019-0470-3</a>.
-</div>
-<div id="ref-spear1952" class="csl-entry" role="listitem">
-Spear, M. E. 1952. <em>Charting Statistics</em>. McGraw-Hill. <a href="https://books.google.no/books?id=1vBOAAAAMAAJ">https://books.google.no/books?id=1vBOAAAAMAAJ</a>.
-</div>
-<div id="ref-tufte2001" class="csl-entry" role="listitem">
-Tufte, Edward R. 2001. <em>The Visual Display of Quantitative
-Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
-</div>
-<div id="ref-tukey1977" class="csl-entry" role="listitem">
-Tukey, John Wilder. 1977. <em>Exploratory Data Analysis</em>.
-Addison-Wesley Series in Behavioral Science. Reading, Mass:
-Addison-Wesley Pub. Co.
-</div>
-<div id="ref-wickham2010" class="csl-entry" role="listitem">
-Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span>
-<em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28.
-<a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
-</div>
-<div id="ref-wickham2014" class="csl-entry" role="listitem">
-———. 2014. <span>“Tidy Data.”</span> <em>Journal of Statistical
-Software; Vol 1, Issue 10 (2014)</em>, September. <a href="https://www.jstatsoft.org/v059/i10 http://dx.doi.org/10.18637/jss.v059.i10">https://www.jstatsoft.org/v059/i10
-http://dx.doi.org/10.18637/jss.v059.i10</a>.
-</div>
-<div id="ref-wickham2016" class="csl-entry" role="listitem">
-———. 2016. <em>Ggplot2 : Elegant Graphics for Data Analysis</em>. 2nd
-ed. Use r! Cham: Springer International Publishing : Imprint: Springer.
-<a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
-</div>
-<div id="ref-wilkinson2005" class="csl-entry" role="listitem">
-Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of
-Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esthetic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Different style choices also communicates messages.
+</figcaption>
+</figure>
 </div>
 </div>
+</div>
+<section id="colors" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="colors"><span class="header-section-number">5.1</span> Colors</h2>
+<section id="how-to-pick-colors" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="how-to-pick-colors"><span class="header-section-number">5.1.1</span> How to pick colors?</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">choose_color</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>peppa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#6C61A6"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#6FB3B6"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#87B9F6"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#007CC3"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#77C76E"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#327B47"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#A68979"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#8D7C68"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#FFB0DF"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#FE8ACE"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>           <span class="st">"#FE9A34"</span>) </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>exscidata<span class="sc">::</span>millward <span class="sc">|&gt;</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(RNA, protein_synthesis)) <span class="sc">+</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">fill =</span> peppa[<span class="dv">9</span>], <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> peppa[<span class="dv">9</span>]), </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> peppa[<span class="dv">9</span>]),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> peppa[<span class="dv">9</span>], <span class="at">size =</span> <span class="dv">15</span>), </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> peppa[<span class="dv">4</span>]), </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> peppa[<span class="dv">3</span>]), </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="viz-05-glamour_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- 
+Why glamorous graphics? - Engage a wider audience - Aesthetics matters for understanding - "respecting the audience"
+
+The glamour of graphics uses color, typography and layout to increase the impact of the graphic.
+
+### Layout
+
+#### Alignment
+
+Top left align titles
+
+Text should be horizontal
+
+Axis labels should also be horizontal
+
+Alignment should provide clean lines and symmetry
+
+Some alignment can be left/center/right to provide overall structure to the graph.
+
+#### Border, Grid lines, legends
+
+Do not use borders or grid lines. If grid lines, make them lighter and more subtle.
+
+Avoid legends, labels of the data are better or titles with color.
+
+#### White space
+
+Use white space to separate elements of the graph and give the reader room to understand the graph.
+
+### Typography
+
+#### Fonts
+
+#### Hierarchy
+
+This gives the reader a hierarchy of information.
+
+### Color
+
+What colors look good together?
 
 
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+# Load required libraries
+library(ggplot2)
+
+# Create a data frame of angles and radii
+angles <- seq(0, 360, by = 0.1)
+radii <- seq(0.1, 1, by = 0.1)  # Vary the starting point to avoid a point at the center
+df <- expand.grid(angle = angles, radius = radii)
+
+# Create ggplot of colored points in polar coordinates
+p <- ggplot(df, aes(x = angle, y = radius, color = angle, alpha = radius)) +
+  geom_point(size = 8) +
+  scale_color_gradientn(colors = rainbow(360)) +
+  scale_alpha_continuous(range = c(1, 0.1)) +
+  coord_polar(theta = "x") +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+  
+
+#### Alternative
+
+# Create a data frame of angles from 0 to 360
+angles <- seq(0, 360, by = 0.2)
+df <- data.frame(angle = angles)
+
+# Create ggplot of colored points in polar coordinates
+p <- ggplot(df, aes(x = angle, y = 1, color = angle)) +
+  geom_point(size = 10) +
+  scale_color_gradientn(colors = rainbow(360)) +
+  coord_polar(theta = "x") +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+```
+:::
+
+
+
+
+
+
+The color wheel can be used to find
+
+-   Complementary colors that will give high contrast
+-   Monochromatic will give harmonious\
+-   Analogous are choosen from the same side on the color wheele colors to avoid contrast but still enable showing differences
+-   Triadic colors to give more
+
+ https://www.canva.com/colors/color-wheel/ for more on this 
+
+#### Describing colors, Hue, Saturation and Lightness
+
+#### Background colors
+
+Colors can help reduce "hardness" by avoiding a white background.-->
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -689,11 +832,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-version-control.html" class="pagination-link" aria-label="Version control and collaborative scientific coding">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></span>
+      <a href="./viz-04-graphic-design.html" class="pagination-link" aria-label="Scientific graphic design">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Scientific graphic design</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./02-version-control.html" class="pagination-link" aria-label="Version control and collaborative scientific coding">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Version control and collaborative scientific coding</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
