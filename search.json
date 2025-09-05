@@ -123,18 +123,7 @@
     "href": "viz-05-glamour.html",
     "title": "5  Glamorous graphics",
     "section": "",
-    "text": "5.1 Colors\nIn a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics. In contrast to Tufte’s principles (discussed above), glamorous graphics suggest adding ink to increase the attractiveness of graphics. The ideas presented by Chase might at first seem distant from dry scientific graphics, where no other message should be conveyed than what the data shows. However, good-looking graphics might communicate your message more effectively than bad-looking graphics, even though the style itself carries some additional message. Consider the plots below. What message other than the story related to the data do they convey?",
-    "crumbs": [
-      "Data visualization",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Glamorous graphics</span>"
-    ]
-  },
-  {
-    "objectID": "viz-05-glamour.html#colors",
-    "href": "viz-05-glamour.html#colors",
-    "title": "5  Glamorous graphics",
-    "section": "",
-    "text": "5.1.1 How to pick colors?\n\nlibrary(colorspace)\n\n\nchoose_color()\n\n\npeppa &lt;- c(\"#6C61A6\",\n           \"#6FB3B6\", \n           \"#87B9F6\",\n           \"#007CC3\",\n           \"#77C76E\",\n           \"#327B47\",\n           \"#A68979\",\n           \"#8D7C68\",\n           \"#FFB0DF\",\n           \"#FE8ACE\",\n           \"#FE9A34\") \n\n\nexscidata::millward |&gt; \n  ggplot(aes(RNA, protein_synthesis)) + \n  \n  geom_point(fill = peppa[9], shape = 21, size = 6) + \n  \n  theme(axis.line = element_line(color = peppa[9]), \n        axis.ticks = element_line(color = peppa[9]),\n        axis.text = element_text(color = peppa[9], size = 15), \n        plot.background = element_rect(fill = peppa[4]), \n        panel.background = element_rect(fill = peppa[3]), \n        panel.grid = element_blank())",
+    "text": "In a talk at RStudio conference in 2020, Will Chase presented principles related to glamorous graphics. In contrast to Tufte’s principles (discussed above), glamorous graphics suggest adding ink to increase the attractiveness of graphics. The ideas presented by Chase might at first seem distant from dry scientific graphics, where no other message should be conveyed than what the data shows. However, good-looking graphics might communicate your message more effectively than bad-looking graphics, even though the style itself carries some additional message. Consider the plots below. What message other than the story related to the data do they convey?\n\n\n\n\n\n\n\n\nFigure 5.1: Different style choices also communicates messages.",
     "crumbs": [
       "Data visualization",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Glamorous graphics</span>"
