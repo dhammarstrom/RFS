@@ -1,0 +1,65 @@
+
+
+
+
+
+.reveal .slide-menu-button .fa-bars::before {
+background-image: url('home-click.svg') !important;
+@include background-full;
+}
+
+
+
+.theme-title1 {
+  &:is(.slide-background) {
+    background-image: url(inn-bg1.png);
+    @include background-full;
+  }
+  }
+  
+  
+  .theme-title2 {
+  &:is(.slide-background) {
+    background-image: url(inn-bg2.png);
+    @include background-full;
+  }
+  }
+  
+      .theme-title3 {
+  &:is(.slide-background) {
+     background-image: url(inn-bg3-half.png);
+    @include background-full;
+  }
+  
+    .theme-logo {
+  &:is(.slide-background) {
+    background-image: url(inn-bg-final.png);
+    @include background-full;
+  }
+  }
+  
+
+  }
+  
+  
+
+.reveal .slides section {
+  padding-top: 20px !important;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+  height: 75vh;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}

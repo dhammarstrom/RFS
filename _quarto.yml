@@ -1,36 +1,31 @@
 # fmt: skip file
 project:
   type: book
-  output-dir: docs
 book:
   title: "Scientific Communication, Collaboration and Design in Quantitative Research Using R"
   author: "Daniel Hammarström"
   date: "2025-03-13"
   chapters:
     - index.qmd
-    - data-viz.qmd
-     # chapters:
-     # - viz-01-basic-ggplot.qmd
-     # - viz-02-before-graph.qmd
-    #  - viz-03-advanced-ggplot.qmd
-     # - viz-04-graphic-design.qmd
-    - version-control.qmd
-    - writing-packages.qmd
-    - models-and-simulations.qmd
+    - part: 01-data-viz.qmd
+      chapters:
+      - viz-01-basic-ggplot.qmd
+      - viz-02-before-graph.qmd
+      - viz-03-advanced-ggplot.qmd
+      - viz-04-graphic-design.qmd
+      - viz-05-glamour.qmd
+  #  - 02-version-control.qmd
+  #  - 03-writing-packages.qmd
+  #  - 04-models-and-simulations.qmd
     - references.qmd
 
-bibliography: references.bib
-
+bibliography: resources/references.bib
 format:
   html:
     theme: cosmo
   pdf:
     documentclass: scrreprt
-
 brand: brand/_brand.yml
-
-
-
 
 
 

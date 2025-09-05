@@ -4,16 +4,56 @@
 #| message: false
 #| echo: false
 #| warning: false
+#| code-fold: true
 
 library(tidyverse)
+
+
+
+
+## Load participant data 
+participant_volume <- exscidata::dxadata |>  
+  select(participant, multiple, single) |> 
+  pivot_longer(values_to = "leg", 
+               names_to = "volume",  
+               cols = multiple:single) |> 
+  distinct(participant, volume, leg)
+
+
+leg_leanmass <- exscidata::dxadata |>   
+  select(participant, time, include, 
+         starts_with("lean.") & ends_with("_leg")
+         ) |> 
+  pivot_longer(names_to = "leg", 
+               values_to = "lean_mass", 
+               cols = contains("lean.")) |> 
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R"))
+
+
+leg_leanmass <- leg_leanmass |> 
+  inner_join(participant_volume)
+
+
+leanmass_sum <- leg_leanmass |>
+  filter(include != "excl") |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass), 
+            .by = c(time, volume)) 
+
+
+
 ```
 
 
 An important rule of scientific graphics is, not to lie. Or as stated by Tufte [-@tufte2001], "graphical excellence begins with telling the truth about the data". Clear and honest representation of the data together with detailed labeling are key factors for avoiding lies [@tufte2001]. 
 
-Another key aspect in the construction of scientific graphs is to decide what to plot. Graphs are very good at showing differences, however, what differences should be show? In a two-group design (treatment vs. control) we should aim at showing the difference between groups, not the difference within groups [@ho2019]. When data are grouped, or measurements repeated within experimental units (such as research participants), we should show aim at indicating this fact. When graphical summaries are shown, we should also aim at showing the underlying data[@tufte2001].   
+Another key aspect in the construction of scientific graphs is to decide what to plot. Graphs are very good at showing differences, however, what differences should be show? In a two-group design (treatment vs. control) we should aim at showing the difference between groups, not the difference within groups [@ho2019]. When data are grouped, or measurements repeated within experimental units (such as research participants), we should show aim at indicating this fact. When graphical summaries are shown, we should also aim at showing the underlying data [@tufte2001].   
 
 ### Revise and edit
+
 When trying to find a coherent guide for scientific graphics one quickly realize that guidelines are often in conflict with each other. We have to reach some pragmatic level of compromise in our work. How do we find this compromise? Tufte's advice to constantly revise and edit is a good start [@tufte2001]. Like with writing we try to explain or show, but fail to do so. Multiple edits later our text is ready to communicate an idea to others, and we might have learned something too.
 
 In practice a graph, or a collection of graphs are born from multiple revisions. Below we will revise our graph using a number of principles outlined by Tufte [@tufte2001].
@@ -26,7 +66,8 @@ Our original idea is shown below. We made a box-plot of raw lean mass values. A 
 ```{r}
 #| code-fold: true
 #| code-summary: "Code producing the figure"
-#| fig-cap: "A boxplot with raw data plotted on top" 
+#| fig-cap: "A boxplot with raw data plotted on top"
+#| label: fig-combined-geoms
 
 
 
@@ -34,13 +75,14 @@ leg_leanmass |>
   filter(include != "excl") |>
   mutate(time = factor(time, 
                        levels = c("pre", "post"))) |>
-
-ggplot(aes(time, lean_mass, fill = volume)) + 
-         geom_boxplot() +
-  geom_point(shape = 21, position = position_jitterdodge(dodge.width = 0.75, 
+  
+  ggplot(aes(time, lean_mass, fill = volume)) + 
+  geom_boxplot() +
+  geom_point(shape = 21, 
+             position = position_jitterdodge(dodge.width = 0.75, 
                                                          jitter.width = 0.1))
-  
-  
+
+
 
 ```
 
@@ -52,14 +94,15 @@ In the next graph we'll try another alternative, using a line-graph we might be 
 #| code-fold: true
 #| code-summary: "Code producing the figure"
 #| fig-cap: "A line graph grouping observations per participant and volume condition"
+#| label: fig-combine-line-point
 
 
 leg_leanmass |>
   filter(include != "excl") |>
   mutate(time = factor(time, 
                        levels = c("pre", "post"))) |>
-
-ggplot(aes(time, lean_mass, fill = volume, group = participant)) + 
+  
+  ggplot(aes(time, lean_mass, fill = volume, group = participant)) + 
   
   geom_line() +
   geom_point(shape = 21) + 
@@ -91,6 +134,7 @@ We have saved the data set in a new object called `delta_lean` we will use this 
 #| code-fold: true
 #| code-summary: "Code producing the figure"
 #| fig-cap: "A line graph grouped by participant comparing conditions"
+#| label: fig-line-delta
 
 
 delta_lean |>
@@ -107,6 +151,7 @@ It could be argued that the order of the factor variable `volume` is not accurat
 #| code-fold: true
 #| code-summary: "Code producing the figure"
 #| fig-cap: "A line graph grouped by participant comparing conditions"
+#| label: fig-line-delta-sorted
 
 
 delta_lean |>
@@ -132,6 +177,7 @@ A guiding principle in Tufte' guideline is to remove non-data ink. We should aim
 #| code-fold: true
 #| code-summary: "Code producing the figure"
 #| fig-cap: "A line graph grouped by participant comparing conditions, reducing non-data ink with `theme_minimal`."
+#| label: fig-delta-minimal-theme
 
 
 delta_lean |>
@@ -155,6 +201,7 @@ The legend is redundant, it can be removed since this information is already pre
 #| code-fold: true
 #| code-summary: "Code producing the figure"
 #| fig-cap: "A line graph grouped by participant comparing conditions, reducing non-data ink with `theme_minimal`."
+#| label: fig-minimal-nolegend
 
 
 delta_lean |>

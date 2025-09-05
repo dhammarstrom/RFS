@@ -1,0 +1,34 @@
+---
+reference-location: margin
+citation-location: margin
+---
+
+# Data visualization
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+library(exscidata)
+```
+
+
+The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables. Such information may be comparisons between categories, relationships among variables, or trends over time [@gelman2002; @tufte2001]. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing a final report. These steps will likely take up more time than polishing *Figure 1* of your upcoming paper.
+
+Data visualization is thus a skill, like writing, with several purposes. You may write notes for yourself and write to communicate with others. Notes come in many forms, just as messages you write to others. Similarly, data visualizations can have different purposes, such as
+
+-   Checking that your data is what could be expected
+
+-   Diagnosing statistical models
+
+-   Exploring relationships between many variables
+
+-   Exploring if your measurements are reliable and valid
+
+-   Conveying the key message from your study
+
+Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that does not invoke limitations. By using a *grammar of graphics* you can be more creative in designing your visualizations.
+
+

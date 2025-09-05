@@ -1,0 +1,219 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+$colors: (
+  "white":     #FFFFFF,
+  "green1":    #105422,
+  "green2":    #B7D0B8,
+  "green3":    #D2E1CD,
+  "green4":    #067A2C,
+  "green5":    #709E7F,
+  "green6":    #B5CFB6,
+  "blue1":     #00648C,
+  "blue2":     #489EC6,
+  "blue3":     #96D6EA,
+  "blue4":     #BFE9F5,
+  "contrast1": #434F40,
+  "contrast2": #97967F,
+  "contrast3": #C4C3AB,
+  "contrast4": #EAEBDE,
+  "black": #000000
+);
+
+/*-- scss:functions --*/
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+
+/*-- scss:defaults --*/
+
+$body-bg: theme-color("white");
+$link-color: theme-color("green4");
+$code-color: theme-color("blue1");
+$body-color: theme-color("black");
+
+/*-- scss:rules --*/
+
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$presentation-heading-font: 'Roboto', sans-serif;
+
+
+
+.reveal div.sourceCode {
+  border: unset !important;
+}
+
+div.sourceCode {
+  background-color: unset !important;
+}
+
+.center-v {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+@mixin center-text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background-full {
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+
+.highlight-last-green  {
+  color: theme-color("green3");
+  .current-fragment {
+    color: theme-color("green1");
+  }
+}
+
+.highlight-last-black  {
+  color: theme-color("green2");
+  .current-fragment {
+    color: theme-color("green1");
+  }
+}
+
+
+
+// Add a constraint for regular slide content
+  .slide-content {
+    max-width: 80%;            // Limit width of the text container
+    margin-left: 0;         // Center the container horizontally
+    margin-right: auto;
+    text-align: left;          // Left-align the text inside the container
+  }
+
+
+// Special functions
+
+
+
+
+
+// Customizing the title slide
+
+
+
+
+// Specific slide backgrounds
+
+.title-slide {
+  background-size: cover; /* Scale to cover the entire slide */
+  background-position: center; /* Center the background */
+  color: theme-color("blue1"); /* Adjust text color for contrast */
+}
+
+/* Position the title */
+.title-slide .title {
+  position: absolute;
+  top: 20%; /* Adjust vertical position */
+  left: 10%; /* Adjust horizontal position */
+  font-size: 2.5rem; /* Customize font size */
+}
+
+
+.theme-title1 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+ 
+
+}
+
+
+.theme-title2 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green1");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("black");
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  a {
+        color: theme-color("black");        // Link color
+        text-decoration: none; // Optional: remove underline
+    }
+  
+  a:hover {
+        color: theme-color("green2");        // Color when hovering over the link
+        text-decoration: underline; // Optional: add underline on hover
+    }
+}
+
+.theme-logo1 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.theme-title3 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+
+

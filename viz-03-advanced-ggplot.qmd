@@ -5,6 +5,7 @@
 #| warning: false
 
 library(tidyverse)
+library(cowplot)
 library(exscidata)
 ```
 
@@ -15,11 +16,40 @@ In our summary of the lean mass data we have calculated a number of summary stat
 [^tukey]: Tukey [-@tukey1977] is considered to be creator of the box-plot. However, Spear may have suggested a predecessor to the box-plot in Charting statistics [@spear1952]. 
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Code for loading data"
 
-leg_leanmass <- exscidata::dxadata |>   # <3>
-  select(participant, time, include, starts_with("lean.") & ends_with("_leg")) |> 
-  pivot_longer(names_to = "leg", values_to = "lean_mass", cols = contains("lean.")) |> # <1>
+## Load participant data 
+participant_volume <- exscidata::dxadata |>  
+  select(participant, multiple, single) |> 
+  pivot_longer(values_to = "leg", 
+               names_to = "volume",  
+               cols = multiple:single) |> 
+  distinct(participant, volume, leg)
+
+
+leg_leanmass <- exscidata::dxadata |>   
+  select(participant, time, include, 
+         starts_with("lean.") & ends_with("_leg")
+         ) |> 
+  pivot_longer(names_to = "leg", 
+               values_to = "lean_mass", 
+               cols = contains("lean.")) |> 
   mutate(leg = if_else(leg == "lean.left_leg", "L", "R"))
+
+
+leg_leanmass <- leg_leanmass |> 
+  inner_join(participant_volume)
+
+
+leanmass_sum <- leg_leanmass |>
+  filter(include != "excl") |>
+  summarise(Min = min(lean_mass), 
+            q25 = quantile(lean_mass, 0.25), 
+            Median = median(lean_mass), 
+            q75 = quantile(lean_mass, 0.75), 
+            Max = max(lean_mass), 
+            .by = c(time, volume)) 
 
 
 ggplot(data = leanmass_sum, aes(time, Median))

@@ -8,11 +8,11 @@ library(tidyverse)
 library(exscidata)
 ```
 
-Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005], Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax for creating data visualizations is to avoid special cases or duplicate methods and allow for creation of data visualizations based on a set of core components used in all graphics [@wickham2010; @wilkinson2005].
+Building on Wilkinsons *The Grammar of Graphics* [@wilkinson2005], Wickham [@wickham2010; @wickham2016] implemented a graphical grammar to R through the package `ggplot2`. The idea behind both Wickhams and Wilkinsons formalized syntax for creating data visualizations is to avoid special cases or duplicate methods and allow for the creation of data visualizations based on a set of core components used in all graphics [@wickham2010; @wilkinson2005].
 
-The grammar (in the version described by Wickham [@wickham2010]) has seven components that together creates a ggplot2 visualization (@fig-ggplotlayers).
+The grammar (in the version described by Wickham [@wickham2010]) has seven components that together create a ggplot2 visualization (@fig-ggplotlayers).
 
-The underlying **data** contains the variables that are **mapped to aesthetics** such as coordinates, colors or shapes. Each aesthetic can be controlled through **scales** by assigning values to coordinates, colors, shapes etc. **Geometric objects** creates the visual representations of the mapping. Sometimes small multiples of the same graph are created using **facets** which creates subdivision of the data to be plotted in different panels. **Statistical transformations** creates summaries of the data, however, in its simplest form, the transformation is the identity transformation. All graphical representations are plotted in a **coordinate** system. **Theme and annotations** adds non-data layers to the plot which can include geometric shapes or text (@fig-ggplotlayers).
+The underlying *data* contains the variables that are *mapped to aesthetics* such as coordinates, colors, or shapes. Each aesthetic can be controlled through *scales* by assigning values to coordinates, colors, shapes, etc. *Geometric objects* create the visual representations of the mapping. Sometimes small multiples of the same graph are created using *facets*, which creates a subdivision of the data to be plotted in different panels. *Statistical transformations* create summaries of the data, however, in its simplest form, the transformation is the identity transformation. All graphical representations are plotted in a *coordinate* system. *Theme and annotations* adds non-data layers to the plot, which can include geometric shapes or text (@fig-ggplotlayers).
 
 ```{r}
 #| echo: false

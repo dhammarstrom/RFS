@@ -15,10 +15,10 @@ typography:
   fonts:
     - family: Open Sans
       source: google
-    - family: Roboto Slab
+    - family: Lato
       source: google
     - family: Fira Code
       source: google
   base: Open Sans
-  headings: Roboto Slab
+  headings: Lato
   monospace: Fira Code

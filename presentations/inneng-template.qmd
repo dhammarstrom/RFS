@@ -1,0 +1,45 @@
+---
+title: "My INN presentation template"
+subtite: "A custom presentation template based on the INN design manual"
+format: 
+  inneng-revealjs
+editor: visual
+author:
+  - name: "Your Name"
+    id: DF
+    orcid: 0000-0000-0000-0001
+    email: your.name@inn.no
+    affiliation: 
+      - name: Inland Norway University of Applied Sciences
+        city: Everum, Norway
+        url: www.inn.no
+footer: "Anything you want on each slide"
+---
+
+## Title slide 1 {.theme-title1}
+
+:::: {.incremental .highlight-last-green}
+::: slide-content
+-   The `.incremental` and `.highlight-last-green` classes can be combined on the white background `.theme-title1`
+-   The `slide-content` class restricts the width of the text box.
+:::
+::::
+
+## Title slide 2 {.theme-title2}
+
+::: {.incremental .highlight-last-black}
+-   The `.highlight-last-black` is more suitable on the dark green background
+-   This will also highlight the most current bullet-point
+:::
+
+## Title slide 4 {.theme-title3 .smaller}
+
+-   Use the `.smaller` class to make text smaller, suitable if you have a lot of content
+
+## 
+
+::: r-fit-text
+Fit text to <br>the whole screen
+:::
+
+##  {.theme-logo1}

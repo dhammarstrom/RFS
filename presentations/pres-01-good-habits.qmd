@@ -1,0 +1,144 @@
+---
+title: '<span style="color: green;">Scientific Communication, Collaboration and Design in Quantitative Research Using R</span>'
+subtitle: "HEV9009"
+format: 
+  inneng-revealjs:
+    title-slide-attributes:
+      data-background-image: _extensions/trainome/inneng/inn-bg2.png
+editor: visual
+author:
+  - name: "Daniel Hammarström"
+    id: DF
+    email: daniel.hammarstrom@inn.no
+    affiliation: 
+      - name: University of Inland Norway
+        city: Everum, Norway
+        url: www.inn.no
+footer: ""
+---
+
+
+
+
+## Topics {.theme-title1}
+
+::: {.incremental}
+- Data communication using visualizations and report writing using the open-source quarto publishing system.
+- Introduction to version control as a tool for scientific collaboration.
+- R packages to create and distribute robust data analyses.
+- Introduction to capabilities in the R programming language to simulate and analyze scientific ideas before data collection.
+:::
+
+
+## Learning Outcomes {.theme-title1}
+
+::: {.incremental}
+
+- Knowledge: Students...
+  - have knowledge about effective data visualization and communication
+  - have knowledge about version control and collaborative scientific writing
+
+- Skills: Students...
+  - can present data analyses in multiple formats based on reproducible practices using the R programming language
+  - can manage collaboration in complex scientific projects
+  - can write and distribute R packages, including data packages
+  - can perform basic simulations and power calculations to plan for a scientific study
+
+- General competence: Students...
+  - can communicate results from complex and data-intensive analyses in suitable output formats.
+
+
+:::
+
+
+## Why is this a course? {.theme-title1}
+
+::: {.incremental}
+- PhD-level work requires collaboration, sharing, showing, tracability ...
+- Research is a profession ...
+- Most learning happens in your day-to-day activities &rarr; improve work culture
+:::
+
+## {.image-grid-slide}
+
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mary_Jackson_working_2_-_Restoration.jpg/960px-Mary_Jackson_working_2_-_Restoration.jpg){.center}
+
+## {.image-grid-slide}
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Potter_working%2C_Bangalore_India.jpg/960px-Potter_working%2C_Bangalore_India.jpg){.center}
+
+## {.image-grid-slide}
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Capri_-_7224.jpg/960px-Capri_-_7224.jpg){.center}
+
+
+## {.theme-title1}
+
+![](img/wire.png){.center}
+
+
+## [Good habits:]{.yellow} Are not part of your course portfolio!{.smaller .scrollable .theme-title1}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Organize projects in a consistent way <!--Karl Broman  -->
+- Make projects self-contained (e.g. RStudio projects/Github)
+- Create and maintain documentation, start with README
+- Identify one weakness in your workflow, improve and proceed with the next <!-- Karl Broman --> 
+- Share your data
+- Share your code
+- Name files in a consistent way <!--  --->
+- Stay as true as possible to a style guide
+- Be lazy! Try to minimize your code (refactor when possible)
+:::
+
+::: {.column width="50%"}
+- Refactor code <!-- https://datasemantics.co/15-habits-of-highly-effective-data-scientists/  -->
+- Reanalyze data sets <!-- Andrew Gelman https://statmodeling.stat.columbia.edu/2023/10/04/you-can-learn-a-lot-from-reanalyzing-data-signing-at-the-beginning-example-but-also-many-others/ -->
+- Every operation in your project should be scripted <!-- Karl Broman "everything with a script" -->
+- Simulate! <!-- Statistical rethinking among others -->
+- Convert scripts and repeated code into functions <!-- Broman et al -->
+- Document functions as part of packages <!-- Broman et al -->
+- Document data
+- Use version control
+- Comment your code!
+- Compartmentalize analyses, small scripts, incremental steps.
+
+:::
+
+::::
+
+
+## {.theme-title1}
+
+::: r-fit-text
+Why R?
+:::
+
+
+## {.theme-title1}
+
+::: r-fit-text
+Because it is great!
+:::
+
+## {.theme-title1}
+
+
+<video width="1280" height="720">
+  <source src="img/r-control-light.mov" type="video/quicktime">
+  No video support.
+</video>
+
+
+## 
+::: r-fit-text
+Large community, active development,<br>open source, <br>efficient package distribution, <br>graphics, flexible reporting,<br> reprodicible practices,<br> state-of-the-art statistics, ... 
+:::
+
+
+
+
+

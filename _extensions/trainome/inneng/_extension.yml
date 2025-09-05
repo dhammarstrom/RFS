@@ -1,0 +1,11 @@
+title: inn
+author: Trainome Research group (Daniel Hammarström)
+version: 1.0.0
+contributes:
+  format:
+    revealjs:
+      css: inn.css
+      theme: [default, inn.scss]
+      width: 1920
+      height: 1080
+      code-line-numbers: false

@@ -1,4 +1,10 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Before plotting
+
 ```{r}
 #| message: false
 #| echo: false
@@ -8,7 +14,7 @@ library(tidyverse)
 library(exscidata)
 ```
 
-As we saw above, a basic visualization can be created from a data set, or a data frame which is the most common representation of data in R. A *tidy* data set has one observation per row and one variable per column. A tidy data set makes data visualization easy. However, not all data sets are friendly. In fact, some might be unfriendly because they are unhappy[^unhappy].
+As we saw above, a basic visualization can be created from a dataset represented in R as a data frame, which is the most common representation of data in R. A *tidy* data set has one observation per row and one variable per column. A tidy data set makes data visualization easy. However, not all data sets are friendly. In fact, some might be unfriendly because they are unhappy[^unhappy].
 
 ::: {.column-margin}
 
@@ -109,9 +115,6 @@ data %>% # <2>
 
 1. With the base R forward pipe operator.
 2. With the `magritter` forward pipe operator. 
-
-
-
 
 
 ### Reading data into R
@@ -403,12 +406,11 @@ We have constructed two smaller data sets, one indicating which leg performed lo
 `dplyr` contains functions for joining data frames. There are, as illustrated in @fig-join-illustration important differences between the functions where outer joins (left, right and full) keeps all observations in `x`, `y` and both `x` and `y` respectively. `inner_join` however, drops unmatched observations from both input data frames. Unlike the others, `anti_join` function removes observations in `x` that is present in `y`.
 
 ```{r}
-#| code-fold: true
-#| code-summary: Code producing the figure
 #| message: false
 #| warning: false
 #| label: fig-join-illustration
 #| fig-cap: "Functions for joining data sets."
+#| echo: false
 
 
 library(ggVennDiagram) 
@@ -422,36 +424,133 @@ library(cowplot)
 # shapes to be filled.
 
 
-lst <- process_data(Venn(list(x = c("1"), y = c("1"))))
+lst <- list(x = c("1"), y = c("1"))
+
+vlst <- Venn(lst)
+edge <- process_data(vlst)
+
+dat <- edge$setEdge
+
+
+# Intersection calculation 
+# The intersection can be calculated using the center of two circles
+# and their radius. From the setEdge data we get coordinates for the 
+# circles.
+inter_dat <- function(dat) {
+  
+  center <- dat |> 
+    summarise(.by = id, 
+              center_x = mean(X), 
+              center_y = mean(Y), 
+              radius = mean(sqrt((X - mean(X))^2 + (Y - mean(Y))^2)),
+              ) 
+  
+  d <- sqrt((center$center_x[2] - center$center_x[1])^2 +
+  (center$center_y[2] - center$center_y[1])^2)
+  
+  a <- (center$radius[1]^2 - center$radius[2]^2 + d^2) / (2 * d)
+  h <-sqrt(center$radius[1]^2 - a^2) 
+  
+    # Point on line between centers
+  px <-center$center_x[1] + a * (center$center_x[2] - center$center_x[1]) / d
+  py <-center$center_y[1] + a * (center$center_y[2] - center$center_y[1]) / d
+  
+  # The two intersection points
+  x_int1 <- px + h * (center$center_y[2] - center$center_y[1]) / d
+  y_int1 <- py - h * (center$center_x[2] - center$center_x[1]) / d
+  
+  x_int2 <- px - h * (center$center_y[2] - center$center_y[1]) / d
+  y_int2 <- py + h * (center$center_x[2] - center$center_x[1]) / d
+  
+  points <- data.frame(
+      x = c(x_int1, x_int2),
+      y = c(y_int1, y_int2)
+    )
+  
+  
+  circle1_data <- dat[dat$id == 1, ]
+  circle2_data <- dat[dat$id == 2, ]
+  
+  x1 <- mean(circle1_data$X)
+  y1 <- mean(circle1_data$Y)
+  x2 <- mean(circle2_data$X)
+  y2 <- mean(circle2_data$Y)
+  
+  # Radius is roughly the distance from center to any point
+  r1 <- sqrt((circle1_data$X[1] - x1)^2 + (circle1_data$Y[1] - y1)^2)
+  r2 <- sqrt((circle2_data$X[1] - x2)^2 + (circle2_data$Y[1] - y2)^2)
+  
+
+  # Calculate intersection points
+   circle1_in_circle2 <- circle1_data[
+    sqrt((circle1_data$X - x2)^2 + (circle1_data$Y - y2)^2) <= r2 + 1e-6, 
+  ]
+  
+  # Points from circle 2 that are inside circle 1
+  circle2_in_circle1 <- circle2_data[
+    sqrt((circle2_data$X - x1)^2 + (circle2_data$Y - y1)^2) <= r1 + 1e-6, 
+  ]
+  
+  if (nrow(circle1_in_circle2) > 0 && nrow(circle2_in_circle1) > 0) {
+    # Order points by angle to create proper polygon
+    all_points <- rbind(circle1_in_circle2[, c("X", "Y")], 
+                       circle2_in_circle1[, c("X", "Y")])
+    
+    # Remove duplicates and order by angle from centroid
+    centroid_x <- mean(all_points$X)
+    centroid_y <- mean(all_points$Y)
+    
+    all_points$angle <- atan2(all_points$Y - centroid_y, all_points$X - centroid_x)
+    all_points <- all_points[order(all_points$angle), ]
+  
+}
+
+   all_points
+
+}
+
+
+interdat <- inter_dat(dat)
+
+
 
 # To avoid repeated code, create a function that plots
 # venn diagrams with options to indicate a title and 
 # specify fill colors
-join_illustration <- function(lst, 
+join_illustration <- function(dat, 
                               fills = c("steelblue", 
-                                        "steelblue", 
-                                        "white"), 
+                                        "white"),
+                              fill_intersection = "black",
+                              
                               title = "left_join(x,y)") {
   
-  ggplot() + 
-    
-  geom_sf(aes(fill = id), data = venn_region(lst), 
-          color = "black") +
-  
-  theme_void() +
-  # Hard coded labels
-  geom_text(aes(x = c(300, 700), 
-                y = c(500, 500), 
-                label = c("x", "y")), 
-            size = 8, 
-            color = "gray20") +
-  
+
+  dat |> 
+  ggplot(aes(Y, X, group = id, fill = id)) + 
+  geom_polygon() +
   
   scale_fill_manual(values = fills) +
   
-  labs(title = title) +
+  geom_polygon(data = interdat, aes(group = NULL), 
+               fill = fill_intersection) +
   
-  theme(legend.position = "none")
+  geom_path(color = "black") +  # Add black outline
+  coord_equal() + 
+  theme(legend.position = "none") +
+    
+  # Hard coded labels
+  annotate("text", 
+             x = c(-1.5, 5.5), 
+              y = c(0, 0), 
+                label = c("x", "y"), 
+            size = 7, 
+            color = "gray20") +
+  
+ 
+  labs(title = title) +
+    theme_void() +
+  
+  theme(legend.position = "none") 
   
   
 }
@@ -460,21 +559,26 @@ join_illustration <- function(lst,
 # Each join gets its own fig. All figures are 
 # ombined below with plot_grid from cowplot.
 
-left <- join_illustration(lst = lst, 
+left <- join_illustration(dat, 
                   title = "left_join(x,y)", 
-                  fills = c("steelblue", "steelblue", "white"))
-right <- join_illustration(lst = lst, 
+                  fills = c("steelblue", "white"), 
+                  fill_intersection = "steelblue")
+right <- join_illustration(dat,
                   title = "right_join(x,y)", 
-                  fills = c("white", "steelblue", "steelblue"))
-inner <- join_illustration(lst = lst, 
+                   fills = c("white", "steelblue"), 
+                  fill_intersection = "steelblue")
+inner <- join_illustration(dat,
                   title = "inner_join(x,y)", 
-                  fills = c("white", "steelblue", "white"))
-full <- join_illustration(lst = lst, 
+                   fills = c("white", "white"), 
+                  fill_intersection = "steelblue")
+full <- join_illustration(dat,
                   title = "full_join(x,y)", 
-                  fills = c("steelblue", "steelblue", "steelblue"))
-anti <- join_illustration(lst = lst, 
+                   fills = c("steelblue", "steelblue"), 
+                  fill_intersection = "steelblue")
+anti <- join_illustration(dat, 
                   title = "anti_join(x,y)", 
-                  fills = c("steelblue", "white", "white"))
+                  fills = c("steelblue", "white"), 
+                  fill_intersection = "white")
 
 
 plot_grid(left, right, inner, full, anti, ncol = 2)
@@ -695,4 +799,4 @@ leanmass_sum |>
   print()
 
 ```
-
+-->
