@@ -134,37 +134,7 @@
     "href": "02-version-control.html",
     "title": "Version control and collaborative scientific coding",
     "section": "",
-    "text": "A workflow for a scientific paper\nReproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality, in the sense that results will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists.\nVersion control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As scientists, shifting our focus from a single end product, such as a scientific paper, to researching and communicating with transparency and reproducibility may alter our perspective on the scientific process.\nCollaboration in complex projects is messy. Multiple files exist in various versions; changes are made in parallel with little to no control over what is lost or gained. Although most scientific collaborations would benefit from a more formal structure for collaboration on planning, data analysis, and writing, such structures are difficult to establish without a common point of departure. This part of our course will focus on tools and workflows that will make collaboration more effective. We will introduce version control as a tool in collaborative scientific writing and discuss how to establish a transparent framework for a collaborative writing project.\nA scientific paper (or a thesis) is reproducible if the data, code and documentation is available.",
-    "crumbs": [
-      "Version control and collaborative scientific coding"
-    ]
-  },
-  {
-    "objectID": "02-version-control.html#a-workflow-for-a-scientific-paper",
-    "href": "02-version-control.html#a-workflow-for-a-scientific-paper",
-    "title": "Version control and collaborative scientific coding",
-    "section": "",
-    "text": "The repository\nOrganizing the repository is important for collaboration and communication\n\nREADME\n\n\nFolder structure\n\ndata\n\n\n\nR\n\n\nderived-data\n\n\nfigures\n\n\ndocs\n\n\nresources\n\n\n\nStructuring code in different scripts",
-    "crumbs": [
-      "Version control and collaborative scientific coding"
-    ]
-  },
-  {
-    "objectID": "02-version-control.html#authoring-quarto-documents",
-    "href": "02-version-control.html#authoring-quarto-documents",
-    "title": "Version control and collaborative scientific coding",
-    "section": "Authoring quarto documents",
-    "text": "Authoring quarto documents\nQuarto\n\nCode chunks\n\nA style guide for scientific coding\nWe adhere to the tidyverse style guide. The following is a summary of the most important points with some modifications.",
-    "crumbs": [
-      "Version control and collaborative scientific coding"
-    ]
-  },
-  {
-    "objectID": "02-version-control.html#publishing",
-    "href": "02-version-control.html#publishing",
-    "title": "Version control and collaborative scientific coding",
-    "section": "Publishing",
-    "text": "Publishing",
+    "text": "Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality, in the sense that results will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists.\nVersion control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As scientists, shifting our focus from a single end product, such as a scientific paper, to researching and communicating with transparency and reproducibility may alter our perspective on the scientific process.\nCollaboration in complex projects is messy. Multiple files exist in various versions; changes are made in parallel with little to no control over what is lost or gained. Although most scientific collaborations would benefit from a more formal structure for collaboration on planning, data analysis, and writing, such structures are difficult to establish without a common point of departure. This part of our course will focus on tools and workflows that will make collaboration more effective. We will introduce version control as a tool in collaborative scientific writing and discuss how to establish a transparent framework for a collaborative writing project.",
     "crumbs": [
       "Version control and collaborative scientific coding"
     ]
