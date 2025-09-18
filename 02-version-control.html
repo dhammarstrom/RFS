@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data visualization – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>Version control and collaborative scientific coding – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./viz-01-basic-ggplot.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./vc-01-git-github.html" rel="next">
+<link href="./viz-05-glamour.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -92,7 +72,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -101,7 +81,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-version-control.html">Version control and collaborative scientific coding</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -137,7 +117,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link active">
+            <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -178,7 +158,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-version-control.html" class="sidebar-item-text sidebar-link">
+            <a href="./02-version-control.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Version control and collaborative scientific coding</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -216,15 +196,30 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-workflow-for-a-scientific-paper" id="toc-a-workflow-for-a-scientific-paper" class="nav-link active" data-scroll-target="#a-workflow-for-a-scientific-paper">A workflow for a scientific paper</a>
+  <ul class="collapse">
+  <li><a href="#the-repository" id="toc-the-repository" class="nav-link" data-scroll-target="#the-repository">The repository</a></li>
+  <li><a href="#structuring-code-in-different-scripts" id="toc-structuring-code-in-different-scripts" class="nav-link" data-scroll-target="#structuring-code-in-different-scripts">Structuring code in different scripts</a></li>
+  </ul></li>
+  <li><a href="#authoring-quarto-documents" id="toc-authoring-quarto-documents" class="nav-link" data-scroll-target="#authoring-quarto-documents">Authoring quarto documents</a>
+  <ul class="collapse">
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code chunks</a></li>
+  </ul></li>
+  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing">Publishing</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data visualization</h1>
+<h1 class="title">Version control and collaborative scientific coding</h1>
 </div>
 
 
@@ -241,23 +236,67 @@ div.csl-indent {
 </header>
 
 
-<p>The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables. Such information may be comparisons between categories, relationships among variables, or trends over time <span class="citation" data-cites="gelman2002 tufte2001">(<a href="references.html#ref-gelman2002" role="doc-biblioref">Gelman, Pasarica, and Dodhia 2002</a>; <a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing a final report. These steps will likely take up more time than polishing <em>Figure 1</em> of your upcoming paper.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-gelman2002" class="csl-entry" role="listitem">
-Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s Practice What We Preach.”</span> <em>The American Statistician</em> 56 (2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
-</div><div id="ref-tufte2001" class="csl-entry" role="listitem">
-Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
-</div></div><p>Data visualization is thus a skill, like writing, with several purposes. You may write notes for yourself and write to communicate with others. Notes come in many forms, just as messages you write to others. Similarly, data visualizations can have different purposes, such as</p>
-<ul>
-<li><p>Checking that your data is what could be expected</p></li>
-<li><p>Diagnosing statistical models</p></li>
-<li><p>Exploring relationships between many variables</p></li>
-<li><p>Exploring if your measurements are reliable and valid</p></li>
-<li><p>Conveying the key message from your study</p></li>
-</ul>
-<p>Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that does not invoke limitations. By using a <em>grammar of graphics</em> you can be more creative in designing your visualizations.</p>
+<p>Reproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality, in the sense that results will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists.</p>
+<p>Version control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As scientists, shifting our focus from a single end product, such as a scientific paper, to researching and communicating with transparency and reproducibility may alter our perspective on the scientific process.</p>
+<p>Collaboration in complex projects is messy. Multiple files exist in various versions; changes are made in parallel with little to no control over what is lost or gained. Although most scientific collaborations would benefit from a more formal structure for collaboration on planning, data analysis, and writing, such structures are difficult to establish without a common point of departure. This part of our course will focus on tools and workflows that will make collaboration more effective. We will introduce version control as a tool in collaborative scientific writing and discuss how to establish a transparent framework for a collaborative writing project.</p>
+<!-- 
+
+Potential sources:
+
+https://doi.org/10.1371/journal.pcbi.1004668
+10.1080/00031305.2017.1375986
+https://doi.org/10.1186/1751-0473-8-7 -->
+<section id="a-workflow-for-a-scientific-paper" class="level2">
+<h2 class="anchored" data-anchor-id="a-workflow-for-a-scientific-paper">A workflow for a scientific paper</h2>
+<p>A scientific paper (or a thesis) is reproducible if the data, code and documentation is available.</p>
+<section id="the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="the-repository">The repository</h3>
+<p>Organizing the repository is important for collaboration and communication</p>
+<section id="readme" class="level4">
+<h4 class="anchored" data-anchor-id="readme">README</h4>
+</section>
+<section id="folder-structure" class="level4">
+<h4 class="anchored" data-anchor-id="folder-structure">Folder structure</h4>
+<section id="data" class="level5">
+<h5 class="anchored" data-anchor-id="data"><code>data</code></h5>
+</section>
+</section>
+<section id="r" class="level4">
+<h4 class="anchored" data-anchor-id="r"><code>R</code></h4>
+</section>
+<section id="derived-data" class="level4">
+<h4 class="anchored" data-anchor-id="derived-data"><code>derived-data</code></h4>
+</section>
+<section id="figures" class="level4">
+<h4 class="anchored" data-anchor-id="figures"><code>figures</code></h4>
+</section>
+<section id="docs" class="level4">
+<h4 class="anchored" data-anchor-id="docs"><code>docs</code></h4>
+</section>
+<section id="resources" class="level4">
+<h4 class="anchored" data-anchor-id="resources"><code>resources</code></h4>
+</section>
+</section>
+<section id="structuring-code-in-different-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="structuring-code-in-different-scripts">Structuring code in different scripts</h3>
+</section>
+</section>
+<section id="authoring-quarto-documents" class="level2">
+<h2 class="anchored" data-anchor-id="authoring-quarto-documents">Authoring quarto documents</h2>
+<p>Quarto</p>
+<section id="code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunks">Code chunks</h3>
+<section id="a-style-guide-for-scientific-coding" class="level4">
+<h4 class="anchored" data-anchor-id="a-style-guide-for-scientific-coding">A style guide for scientific coding</h4>
+<p>We adhere to the <a href="https://style.tidyverse.org/">tidyverse style guide</a>. The following is a summary of the most important points with some modifications.</p>
+</section>
+</section>
+</section>
+<section id="publishing" class="level2">
+<h2 class="anchored" data-anchor-id="publishing">Publishing</h2>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -679,13 +718,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./viz-05-glamour.html" class="pagination-link" aria-label="Glamorous graphics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Glamorous graphics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./viz-01-basic-ggplot.html" class="pagination-link" aria-label="A grammar of graphics">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./vc-01-git-github.html" class="pagination-link" aria-label="Introduction to git and GitHub">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to git and GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

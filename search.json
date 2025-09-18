@@ -130,11 +130,150 @@
     ]
   },
   {
+    "objectID": "02-version-control.html",
+    "href": "02-version-control.html",
+    "title": "Version control and collaborative scientific coding",
+    "section": "",
+    "text": "A workflow for a scientific paper\nReproducibility and transparency are aspects of scientific research practices that have great potential to affect the quality of scientific results. Quality, in the sense that results will be available for scrutiny by researchers, funding agencies, and the public. As scientists, we have a moral obligation to be transparent and strive towards reproducibility, and to have these as goals in their own right will likely make us better scientists.\nVersion control software allows researchers to automate the process of keeping a record of changes in a project. In creating this record, we also create transparency and allow for reproducibility. As scientists, shifting our focus from a single end product, such as a scientific paper, to researching and communicating with transparency and reproducibility may alter our perspective on the scientific process.\nCollaboration in complex projects is messy. Multiple files exist in various versions; changes are made in parallel with little to no control over what is lost or gained. Although most scientific collaborations would benefit from a more formal structure for collaboration on planning, data analysis, and writing, such structures are difficult to establish without a common point of departure. This part of our course will focus on tools and workflows that will make collaboration more effective. We will introduce version control as a tool in collaborative scientific writing and discuss how to establish a transparent framework for a collaborative writing project.\nA scientific paper (or a thesis) is reproducible if the data, code and documentation is available.",
+    "crumbs": [
+      "Version control and collaborative scientific coding"
+    ]
+  },
+  {
+    "objectID": "02-version-control.html#a-workflow-for-a-scientific-paper",
+    "href": "02-version-control.html#a-workflow-for-a-scientific-paper",
+    "title": "Version control and collaborative scientific coding",
+    "section": "",
+    "text": "The repository\nOrganizing the repository is important for collaboration and communication\n\nREADME\n\n\nFolder structure\n\ndata\n\n\n\nR\n\n\nderived-data\n\n\nfigures\n\n\ndocs\n\n\nresources\n\n\n\nStructuring code in different scripts",
+    "crumbs": [
+      "Version control and collaborative scientific coding"
+    ]
+  },
+  {
+    "objectID": "02-version-control.html#authoring-quarto-documents",
+    "href": "02-version-control.html#authoring-quarto-documents",
+    "title": "Version control and collaborative scientific coding",
+    "section": "Authoring quarto documents",
+    "text": "Authoring quarto documents\nQuarto\n\nCode chunks\n\nA style guide for scientific coding\nWe adhere to the tidyverse style guide. The following is a summary of the most important points with some modifications.",
+    "crumbs": [
+      "Version control and collaborative scientific coding"
+    ]
+  },
+  {
+    "objectID": "02-version-control.html#publishing",
+    "href": "02-version-control.html#publishing",
+    "title": "Version control and collaborative scientific coding",
+    "section": "Publishing",
+    "text": "Publishing",
+    "crumbs": [
+      "Version control and collaborative scientific coding"
+    ]
+  },
+  {
+    "objectID": "vc-01-git-github.html",
+    "href": "vc-01-git-github.html",
+    "title": "6  Introduction to git and GitHub",
+    "section": "",
+    "text": "6.0.1 Accounts and git-to-GitHub integration\nGit is a version control system that you install on your local machine. It helps you create a record of changes that you make to files in a specific repository where git is initialized. The git software stores earlier versions of your repository content in a hidden directory called .git.\nGit works great for working with plain text files, such as .txt, .md, .qmd, .csv. With such files, git can provide you with an overview of changes or diffs that have occurred between two versions of the file. Other file types, such as .docx or .xlsx, are also tracked by git, but changes are not human-readable in the git system.\nGit can be set up to communicate with an online repository. There are several alternatives for online hosting of version-controlled repositories, but GitHub is a popular alternative in the science community (Chen, Toro-Moreno, and Subramaniam 2025; Blischak, Davenport, and Wilson 2016; Ram 2013). GitHub offers online hosting and tools for collaboration.\nTo enable version control and collaboration, you must therefore have git installed and an active GitHub account.\nGit can be installed from https://git-scm.com. Git requires no additional account information or software. To enable RStudio to act as a Git client, you must specify the location of your Git installation. This is done under Tools &gt; Global options &gt; Git/SVN.\nYour local version history maintained by git can be controlled from your terminal window. However, to connect to GitHub’s online services, you will need to set up git with your GitHub account. The easiest way to do this is to use the GitHub CLI which is a command-line interface to GitHub that makes it easy to authenticate and communicate with GitHub from your terminal. Install GitHub CLI here and run gh auth login in your terminal to set things up.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "vc-01-git-github.html#local-and-online-git-usage",
+    "href": "vc-01-git-github.html#local-and-online-git-usage",
+    "title": "6  Introduction to git and GitHub",
+    "section": "6.1 Local and online git usage",
+    "text": "6.1 Local and online git usage\nYour local git folder can be connected to an online repository. The online repository, or remote, is the repository in which you collaborate with others. The online repository can be set up as a starting point for your project or created from the command line in an already initialized git repository using GitHub CLI.\n\n6.1.1 Starting with GitHub\nAfter logging on to GitHub, select New, or go to github.com/new. This will bring you to a form that will help you create your repository. You need to give it a name, describe it, decide if you want to initialize with a README file (you want to do that), and choose a license. Once all this is done, you will be able to copy the HTTPS address that you find under Code in your repository in GitHub. The HTTPS address is then entered in the New Project Dialog in RStudio after selecting Version Control under the different project types.\nYou have now initialized a remote repository and then cloned it to your computer as a local copy. You may now make changes to the project and add/commit these to your local version history.\n\n\n6.1.2 Starting with a RStudio project\nWhen starting a new RStudio project without version control, you have the possibility to initialize git in the dialog box. If you decide not to do this, the next step should be to write git init in your terminal to initialize git in your current project folder.\nWe can now create a remote repository using GitHub CLI with the command gh repo create. If this command is used without any subcommand, you will be guided through the process on the command line. If you have your project running and want to use it to create a repository on GitHub you should select “Push an existing local directory to GitHub”. You will be asked:\n\nThe path to your local repository (defaults to ., the current directory)\nThe name of the repository (defaults to your local folder name)\nIf the repository should be private or public.\nA description of the repository (A short description of what the repository contains)\nIf a remote should be added (Yes)\nWhat the remote should be called (Default to origin)\n\nIf successful, you will get a message telling you that the remote has been added. Your GitHub profile will now have a repository acting as the remote for your local repository.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "vc-01-git-github.html#local-to-remote-workflows",
+    "href": "vc-01-git-github.html#local-to-remote-workflows",
+    "title": "6  Introduction to git and GitHub",
+    "section": "6.2 Local to remote workflows",
+    "text": "6.2 Local to remote workflows\nThe basic workflow (Figure 6.2) for updating and downloading from the remote repository can include git push to push all local commits to the remote. This will update the remote with any changes you have committed to the version history. When the remote has been changed, you can download these changes in two ways. First, git pull downloads all changes and directly overwrites your local files, updating them to their latest versions. This also includes the removal of files and the addition of new files. Alternatively, you want to have more control over what is going into your local repository. In that case, you can use git fetch, which updates the local repository, but not your working directory.\nTo review changes made to the remote repository without merging, you can do git log HEAD origin/main, where “git log” is the basic command to inspect the latest commit message on the most recent version (HEAD) of the remote repository (“origin/main”). You could also inspect the actual change. Using git diff HEAD origin/main, we get an overview of all changes made to all files in the remote repository compared to the local repository. To do this for a specific file, for example, README.md, we can use git diff HEAD origin/main -- README.md.\nUsing git merge, after git fetch, you will merge downloaded versions of files from the remote with your working directory. git fetch and git merge can thus be a way to continue working on files while updating your repository with the latest changes. The shortcut for doing git fetch followed by git merge is git pull, as this command does both without the middle step.\nAfter a git pull, we may still inspect what changed. Using git diff, we can compare the most current version to the parent commit, or the commit before the current version. To do this, we write git diff HEAD~1, which will give us a comparison between the “HEAD” (the current state of the repository) and “HEAD minus 1” (one commit behind the HEAD). Using HEAD~2 will do the comparison with the commit two levels up from the HEAD.\n\n\nCode\nggplot(data.frame(x = c(0,1), y = c(0,1)), aes(x, y)) + \n  \n  scale_y_continuous(limits = c(0.3, 1)) +\n  \n  # Local working directory / Repository\n  geom_rect(aes(xmin = 0.01, \n            xmax = 0.6, \n            ymin = 0.35, \n            ymax = 1), \n            fill = \"steelblue\", \n            alpha = 0.2) +\n  \n    geom_rect(aes(xmin = 0.02, \n            xmax = 0.3, \n            ymin = 0.35, \n            ymax = 0.92), \n            fill = \"steelblue\", \n            alpha = 0.2) +\n   \n  geom_rect(aes(xmin = 0.31, \n            xmax = 0.58, \n            ymin = 0.35, \n            ymax = 0.92), \n            fill = \"steelblue\", \n            alpha = 0.2) +\n  \n  # Remote repository\n  geom_rect(aes(xmin = 0.7, \n            xmax = 0.95, \n            ymin = 0.35, \n            ymax = 1), \n            fill = \"steelblue\", \n            alpha = 0.2) +\n \n \n    annotate(\"richtext\", \n           x = c(0.02, 0.32),  \n           hjust = 0,\n           y = 0.89, \n           label = c(\"*Working directory*\", \"*Local repository*\"),\n           fill = NA, label.color = NA) + \n   \n  \n  annotate(\"richtext\", \n           x = c(0.02, 0.7), \n           y = c(0.97, 0.97), \n           label = c(\"**Workspace**\",\"**Remote**\"),\n           hjust = 0,\n           size = 8, \n           fill = NA, label.color = NA) + # remove padding) \n\n  \n      # Git add, commit\n  # git push\n  # git pull\n  # git fetch / merge\n       annotate(\"segment\", \n            y = c(0.8, 0.7, 0.6, 0.5, 0.5), \n            yend = c(0.8, 0.7, 0.6, 0.5, 0.5), \n            x = c(0.1, 0.4, 0.8, 0.8, 0.4), \n            xend = c(0.5, 0.8, 0.12, 0.5, 0.12), \n            arrow = arrow(length = unit(c(2.5), \"mm\"), type = \"closed\")) +\n    \n      annotate(\"label\", \n             x = c(0.1, 0.4, 0.8, 0.8, 0.35), \n             y = c(0.8 ,0.7, 0.6, 0.5, 0.5), \n             label = c(\"git add &lt;file&gt;\\n git commit -m 'msg'\",\n                       \"git push\", \n                       \"git pull\", \n                       \"git fetch\", \n                       \"git merge\"),\n\n             hjust = 0) +\n  \n  theme_void()\n\n\n\n\n\n\n\n\nFigure 6.2: Local git commits can be pushed to a remote repository, this updates the remote with your local changes. If changes are made to the remote these can be pulled to the local reposotory and working directory. Git pull overwrites your local files in the working directory at the same time as updating the local version history. Git fetch downloads changes to your local repository without merging files. Git merge attempts to merge files in the working directory with the most recent changes from the remote repository.\n\n\n\n\n\n\n6.2.1 Branches and pull requests\nSometimes changes to a repository can be expected to get big. Multiple files need updating, affecting numerous aspects of the repository. A large change to a project may break scripts or output in unexpected ways, so we want to ensure everything works before replacing the old with the new. Instead of implementing these changes incrementally in the main repository, we could create a new branch. A branch starts at a specific state of the repository and adds new history without affecting the main branch. When changes have been made to the branch, they can be incorporated into the main branch using a merge or as a pull request.\nWe can create a new branch using git branch &lt;new branch name&gt;, to create a new branch. This will create the branch but now switch to it. Switching between branches is done using git checkout &lt;branch name&gt;. If a branch is up to date with the main branch, it may be deleted (git branch -d &lt;branch name&gt;). If changes have been made, you will be asked if you really want to delete it. If we want to merge changes in the new branch with the main branch, we “checkout” the main branch (git checkout main), and merge with the other branch git merge &lt;branch name&gt;. After a merge, the branch can be safely deleted.\nA branch can also be used in a pull request. To create a pull request, we first need to push the local new branch to the remote repository. If we have checked out the new branch, adding a new commit and are trying to push it to the remote, we will get a notification that current branch has no upstream branch. To push the local new branch to the remote we need to do git push --set-upstream origin &lt;branchname&gt;. This will create the new branch in the remote and push changes. A pull request is a feature of GitHub. To create pull requests on the command line, we will use GitHub CLI commands, starting with gh pr create (gh, activates GitHub CLI; pr, short for pull request; create, subcommand for initializing a pull request). This command will guide you through creating a pull request from the current branch, to the main branch. A pull request can be reviewed and merged online. GitHub provides a nice interface to inspect or discuss changes that are being made. After merging (or closing) the pull request we want to pull the latest updates to the local main and delete the new feature branch. We can delete the remote new feature using git push origin --delete &lt;branchname&gt;.\n\n\n6.2.2 Forks and pull requests\nForks are copies of an online repository from one user to another user. This is useful when you want to contribute to a public repository but you do not have access to it. The basic workflow starts with creating a fork in the online GitHub interface. This will clone the repository to your user profile and make it easy to download the repository to a local project. After making edits (commits), you can issue a pull request from your GitHub profile.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "vc-01-git-github.html#finding-help-on-the-command-line",
+    "href": "vc-01-git-github.html#finding-help-on-the-command-line",
+    "title": "6  Introduction to git and GitHub",
+    "section": "6.3 Finding help on the command line",
+    "text": "6.3 Finding help on the command line\nIn the above discussion, we are using the command line. This might feel scary. In a day to day workflow, however, you will use a small number of commands making it easy to remember them. If you need help, often, you can use &lt;command&gt; --help to get a list of commands.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "vc-01-git-github.html#more-features-in-github-issues-and-pages",
+    "href": "vc-01-git-github.html#more-features-in-github-issues-and-pages",
+    "title": "6  Introduction to git and GitHub",
+    "section": "6.4 More features in GitHub: Issues and Pages",
+    "text": "6.4 More features in GitHub: Issues and Pages\nIssues are a feature of GitHub that allows for creating notes on potential improvements, bugs, etc. They can be accessed and edited using GitHub CLI using gh issue or in the GitHub web interface. These can be a good way to track progress in a project and keep notes of choices made in the analysis/writing process.\nGitHub allows us to create websites from a repository. These websites will be accessible for anyone and provide us with an opportunity to publish, for example, supplementary material in a nice format. Quarto can be used to create webpages directly from the repository.\n\n\n\n\nBlischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A Quick Introduction to Version Control with Git and GitHub.” Edited by Francis Ouellette. PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChen, Katharine Y., Maria Toro-Moreno, and Arvind Rasi Subramaniam. 2025. “GitHub Enables Collaborative and Reproducible Laboratory Research.” PLOS Biology 23 (2): e3003029. https://doi.org/10.1371/journal.pbio.3003029.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility and Increased Transparency in Science.” Source Code for Biology and Medicine 8 (1): 7. https://doi.org/10.1186/1751-0473-8-7.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introduction to git and GitHub</span>"
+    ]
+  },
+  {
+    "objectID": "vc-02-workflow.html",
+    "href": "vc-02-workflow.html",
+    "title": "7  A tentative workflow for scientific writing",
+    "section": "",
+    "text": "7.1 A basic template for an effective repository\nThe online remote repository may have several purposes in the context of writing a scientific paper. It will serve as a collaborative repository for you and your collaborators to work on. It can be used to showcase code and computations, thereby supporting your paper. It can also act as a backup and reference for yourself. As mentioned earlier, GitHub provides multiple tools that can make the writing process more effective in creating numerous outputs (a manuscript, a website, issue tracking, and more).\nIn this chapter we will discuss a basic repository template for writing a scientific paper.",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>A tentative workflow for scientific writing</span>"
+    ]
+  },
+  {
+    "objectID": "vc-02-workflow.html#a-basic-template-for-an-effective-repository",
+    "href": "vc-02-workflow.html#a-basic-template-for-an-effective-repository",
+    "title": "7  A tentative workflow for scientific writing",
+    "section": "",
+    "text": "7.1.1 git ignore",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>A tentative workflow for scientific writing</span>"
+    ]
+  },
+  {
+    "objectID": "vc-02-workflow.html#writing-solo",
+    "href": "vc-02-workflow.html#writing-solo",
+    "title": "7  A tentative workflow for scientific writing",
+    "section": "7.2 Writing solo",
+    "text": "7.2 Writing solo",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>A tentative workflow for scientific writing</span>"
+    ]
+  },
+  {
+    "objectID": "vc-02-workflow.html#writing-in-a-team",
+    "href": "vc-02-workflow.html#writing-in-a-team",
+    "title": "7  A tentative workflow for scientific writing",
+    "section": "7.3 Writing in a team",
+    "text": "7.3 Writing in a team",
+    "crumbs": [
+      "Version control and collaborative scientific coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>A tentative workflow for scientific writing</span>"
+    ]
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. “Let’s\nPractice What We Preach.” The American Statistician 56\n(2): 121–30. https://doi.org/10.1198/000313002317572790.\n\n\nHammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,\nIvana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.\nRønnestad, and Stian Ellefsen. 2020. “Benefits of higher\nresistance-training volume are related to ribosome biogenesis.”\nThe Journal of physiology 598 (3): 543–65. https://doi.org/10.1113/JP278455.\n\n\nHo, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam\nClaridge-Chang. 2019. “Moving Beyond P Values: Data Analysis with\nEstimation Graphics.” Nature Methods 16 (7): 565–66. https://doi.org/10.1038/s41592-019-0470-3.\n\n\nSpear, M. E. 1952. Charting Statistics. McGraw-Hill. https://books.google.no/books?id=1vBOAAAAMAAJ.\n\n\nTufte, Edward R. 2001. The Visual Display of Quantitative\nInformation. 2. edition. Cheshire, Conn.: Graphics Press.\n\n\nTukey, John Wilder. 1977. Exploratory Data Analysis.\nAddison-Wesley Series in Behavioral Science. Reading, Mass:\nAddison-Wesley Pub. Co.\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.”\nJournal of Computational and Graphical Statistics 19 (1): 3–28.\nhttps://doi.org/10.1198/jcgs.2009.07098.\n\n\n———. 2014. “Tidy Data.” Journal of Statistical\nSoftware; Vol 1, Issue 10 (2014), September. https://www.jstatsoft.org/v059/i10\nhttp://dx.doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. Ggplot2 : Elegant Graphics for Data Analysis. 2nd\ned. Use r! Cham: Springer International Publishing : Imprint: Springer.\nhttps://doi.org/10.1007/978-3-319-24277-4.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer.",
+    "text": "Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A\nQuick Introduction to Version Control with\nGit and GitHub.” Edited by Francis\nOuellette. PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChen, Katharine Y., Maria Toro-Moreno, and Arvind Rasi Subramaniam.\n2025. “GitHub Enables Collaborative and Reproducible\nLaboratory Research.” PLOS Biology 23 (2): e3003029. https://doi.org/10.1371/journal.pbio.3003029.\n\n\nGelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. “Let’s\nPractice What We Preach.” The American Statistician 56\n(2): 121–30. https://doi.org/10.1198/000313002317572790.\n\n\nHammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,\nIvana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.\nRønnestad, and Stian Ellefsen. 2020. “Benefits of higher\nresistance-training volume are related to ribosome biogenesis.”\nThe Journal of physiology 598 (3): 543–65. https://doi.org/10.1113/JP278455.\n\n\nHo, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam\nClaridge-Chang. 2019. “Moving Beyond P Values: Data Analysis with\nEstimation Graphics.” Nature Methods 16 (7): 565–66. https://doi.org/10.1038/s41592-019-0470-3.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility\nand Increased Transparency in Science.” Source Code for\nBiology and Medicine 8 (1): 7. https://doi.org/10.1186/1751-0473-8-7.\n\n\nSpear, M. E. 1952. Charting Statistics. McGraw-Hill. https://books.google.no/books?id=1vBOAAAAMAAJ.\n\n\nTufte, Edward R. 2001. The Visual Display of Quantitative\nInformation. 2. edition. Cheshire, Conn.: Graphics Press.\n\n\nTukey, John Wilder. 1977. Exploratory Data Analysis.\nAddison-Wesley Series in Behavioral Science. Reading, Mass:\nAddison-Wesley Pub. Co.\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.”\nJournal of Computational and Graphical Statistics 19 (1): 3–28.\nhttps://doi.org/10.1198/jcgs.2009.07098.\n\n\n———. 2014. “Tidy Data.” Journal of Statistical\nSoftware; Vol 1, Issue 10 (2014), September. https://www.jstatsoft.org/v059/i10\nhttp://dx.doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. Ggplot2 : Elegant Graphics for Data Analysis. 2nd\ned. Use r! Cham: Springer International Publishing : Imprint: Springer.\nhttps://doi.org/10.1007/978-3-319-24277-4.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer.",
     "crumbs": [
       "References"
     ]

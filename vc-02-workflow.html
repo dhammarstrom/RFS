@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data visualization – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>7&nbsp; A tentative workflow for scientific writing – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./viz-01-basic-ggplot.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./vc-03-writing.html" rel="next">
+<link href="./vc-01-git-github.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -92,7 +72,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -101,7 +81,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-version-control.html">Version control and collaborative scientific coding</a></li><li class="breadcrumb-item"><a href="./vc-02-workflow.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">A tentative workflow for scientific writing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -137,7 +117,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link active">
+            <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -193,7 +173,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vc-02-workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="./vc-02-workflow.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">A tentative workflow for scientific writing</span></span></a>
   </div>
 </li>
@@ -216,15 +196,26 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-basic-template-for-an-effective-repository" id="toc-a-basic-template-for-an-effective-repository" class="nav-link active" data-scroll-target="#a-basic-template-for-an-effective-repository"><span class="header-section-number">7.1</span> A basic template for an effective repository</a>
+  <ul class="collapse">
+  <li><a href="#git-ignore" id="toc-git-ignore" class="nav-link" data-scroll-target="#git-ignore"><span class="header-section-number">7.1.1</span> git ignore</a></li>
+  </ul></li>
+  <li><a href="#writing-solo" id="toc-writing-solo" class="nav-link" data-scroll-target="#writing-solo"><span class="header-section-number">7.2</span> Writing solo</a></li>
+  <li><a href="#writing-in-a-team" id="toc-writing-in-a-team" class="nav-link" data-scroll-target="#writing-in-a-team"><span class="header-section-number">7.3</span> Writing in a team</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-version-control.html">Version control and collaborative scientific coding</a></li><li class="breadcrumb-item"><a href="./vc-02-workflow.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">A tentative workflow for scientific writing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data visualization</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">A tentative workflow for scientific writing</span></h1>
 </div>
 
 
@@ -241,23 +232,22 @@ div.csl-indent {
 </header>
 
 
-<p>The most apparent purpose of data visualizations in scientific contexts is to convey information not suited for text or tables. Such information may be comparisons between categories, relationships among variables, or trends over time <span class="citation" data-cites="gelman2002 tufte2001">(<a href="references.html#ref-gelman2002" role="doc-biblioref">Gelman, Pasarica, and Dodhia 2002</a>; <a href="references.html#ref-tufte2001" role="doc-biblioref">Tufte 2001</a>)</span>. We often think of the scientific graph as the end product of our labor. However, data visualization can be an effective tool for thinking about scientific problems and performing exploratory data analysis before preparing a final report. These steps will likely take up more time than polishing <em>Figure 1</em> of your upcoming paper.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-gelman2002" class="csl-entry" role="listitem">
-Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s Practice What We Preach.”</span> <em>The American Statistician</em> 56 (2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
-</div><div id="ref-tufte2001" class="csl-entry" role="listitem">
-Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
-</div></div><p>Data visualization is thus a skill, like writing, with several purposes. You may write notes for yourself and write to communicate with others. Notes come in many forms, just as messages you write to others. Similarly, data visualizations can have different purposes, such as</p>
-<ul>
-<li><p>Checking that your data is what could be expected</p></li>
-<li><p>Diagnosing statistical models</p></li>
-<li><p>Exploring relationships between many variables</p></li>
-<li><p>Exploring if your measurements are reliable and valid</p></li>
-<li><p>Conveying the key message from your study</p></li>
-</ul>
-<p>Traditionally, and in many software implementations, data visualization is a matter of choosing from a menu of charts such as box plots, scatter plots, or line graphs. These can be very effective. However, you would not restrict your writing to pre-made templates. As a professional scientist in a quantitative genre, you need a toolbox for data visualizations that does not invoke limitations. By using a <em>grammar of graphics</em> you can be more creative in designing your visualizations.</p>
+<p>The online remote repository may have several purposes in the context of writing a scientific paper. It will serve as a collaborative repository for you and your collaborators to work on. It can be used to showcase code and computations, thereby supporting your paper. It can also act as a backup and reference for yourself. As mentioned earlier, GitHub provides multiple tools that can make the writing process more effective in creating numerous outputs (a manuscript, a website, issue tracking, and more).</p>
+<p>In this chapter we will discuss a basic repository template for writing a scientific paper.</p>
+<section id="a-basic-template-for-an-effective-repository" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="a-basic-template-for-an-effective-repository"><span class="header-section-number">7.1</span> A basic template for an effective repository</h2>
+<section id="git-ignore" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="git-ignore"><span class="header-section-number">7.1.1</span> git ignore</h3>
+</section>
+</section>
+<section id="writing-solo" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="writing-solo"><span class="header-section-number">7.2</span> Writing solo</h2>
+</section>
+<section id="writing-in-a-team" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="writing-in-a-team"><span class="header-section-number">7.3</span> Writing in a team</h2>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -679,13 +669,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./vc-01-git-github.html" class="pagination-link" aria-label="Introduction to git and GitHub">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to git and GitHub</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./viz-01-basic-ggplot.html" class="pagination-link" aria-label="A grammar of graphics">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./vc-03-writing.html" class="pagination-link" aria-label="Writing a paper using Quarto">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Writing a paper using Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
