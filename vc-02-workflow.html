@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -201,12 +255,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#a-basic-template-for-an-effective-repository" id="toc-a-basic-template-for-an-effective-repository" class="nav-link active" data-scroll-target="#a-basic-template-for-an-effective-repository"><span class="header-section-number">7.1</span> A basic template for an effective repository</a>
+  <li><a href="#a-basic-template-for-an-effective-repository" id="toc-a-basic-template-for-an-effective-repository" class="nav-link active" data-scroll-target="#a-basic-template-for-an-effective-repository"><span class="header-section-number">7.1</span> A basic template for an effective repository</a></li>
+  <li><a href="#a-workflow-for-solo-writing" id="toc-a-workflow-for-solo-writing" class="nav-link" data-scroll-target="#a-workflow-for-solo-writing"><span class="header-section-number">7.2</span> A workflow for solo writing</a>
   <ul class="collapse">
-  <li><a href="#git-ignore" id="toc-git-ignore" class="nav-link" data-scroll-target="#git-ignore"><span class="header-section-number">7.1.1</span> git ignore</a></li>
+  <li><a href="#large-revisions---branches" id="toc-large-revisions---branches" class="nav-link" data-scroll-target="#large-revisions---branches"><span class="header-section-number">7.2.1</span> Large revisions - Branches</a></li>
   </ul></li>
-  <li><a href="#writing-solo" id="toc-writing-solo" class="nav-link" data-scroll-target="#writing-solo"><span class="header-section-number">7.2</span> Writing solo</a></li>
-  <li><a href="#writing-in-a-team" id="toc-writing-in-a-team" class="nav-link" data-scroll-target="#writing-in-a-team"><span class="header-section-number">7.3</span> Writing in a team</a></li>
+  <li><a href="#writing-in-a-team" id="toc-writing-in-a-team" class="nav-link" data-scroll-target="#writing-in-a-team"><span class="header-section-number">7.3</span> Writing in a team</a>
+  <ul class="collapse">
+  <li><a href="#branches-and-pull-requests" id="toc-branches-and-pull-requests" class="nav-link" data-scroll-target="#branches-and-pull-requests"><span class="header-section-number">7.3.1</span> Branches and pull requests</a></li>
+  </ul></li>
+  <li><a href="#doing-formal-testing" id="toc-doing-formal-testing" class="nav-link" data-scroll-target="#doing-formal-testing"><span class="header-section-number">7.4</span> Doing formal testing</a></li>
+  <li><a href="#going-further---make-files" id="toc-going-further---make-files" class="nav-link" data-scroll-target="#going-further---make-files"><span class="header-section-number">7.5</span> Going further - Make files</a></li>
   </ul>
 </nav>
     </div>
@@ -232,21 +291,152 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The online remote repository may have several purposes in the context of writing a scientific paper. It will serve as a collaborative repository for you and your collaborators to work on. It can be used to showcase code and computations, thereby supporting your paper. It can also act as a backup and reference for yourself. As mentioned earlier, GitHub provides multiple tools that can make the writing process more effective in creating numerous outputs (a manuscript, a website, issue tracking, and more).</p>
-<p>In this chapter we will discuss a basic repository template for writing a scientific paper.</p>
+<p>The online remote repository may have several purposes in the context of writing a scientific paper. It will serve as a collaborative repository for you and your collaborators to work on. It can be used to showcase code and computations, thereby supporting your paper. It can also act as a backup and reference for yourself. As mentioned earlier, GitHub provides multiple tools that can make the writing process more effective in creating numerous outputs (a manuscript, a website, issue tracking, and more). In this chapter we will discuss a suggestion for a basic repository template for writing a scientific paper. We will also adress writing workflows for two different scenarios, writing on your own, or in collaboration.</p>
 <section id="a-basic-template-for-an-effective-repository" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="a-basic-template-for-an-effective-repository"><span class="header-section-number">7.1</span> A basic template for an effective repository</h2>
-<section id="git-ignore" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="git-ignore"><span class="header-section-number">7.1.1</span> git ignore</h3>
+<p><a href="#tbl-repostructure" class="quarto-xref">Table&nbsp;<span>7.1</span></a> suggests a basic repository structure for a scientific writing project. The template aims to balance flexibility with generability. We want to be able to tweak the organization of the project if needed, but we also want to feel at home when switching between projects. The first two files in <a href="#tbl-repostructure" class="quarto-xref">Table&nbsp;<span>7.1</span></a> are important for maintaining a clean workflow; the README file can be used to outline the project and list dependencies. Dependencies, in this context, could be software, data, or any other components needed to reproduce the analysis. The <code>.gitignore</code> file should be actively maintained to ensure that we version control only the files we want. For example, outputs should often be excluded from version control, as they can trigger merge conflicts. At some point in the project, we might want to add output files to the online repository, as these are easier to read. At this point, we need to update <code>.gitignore</code> with new rules.</p>
+<div id="tbl-repostructure" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-repostructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.1: Basic repository template for a scientific writing project
+</figcaption>
+<div aria-describedby="tbl-repostructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">file-tree</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>.gitignore</code></td>
+<td style="text-align: left;">An up to date registry of what you think git should ignore. Importantly, this will avoid trouble created by adding e.g., large files to the version history. You will also avoid merge conflicts due to changes in e.g., HTML files (output)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>README.md</code></td>
+<td style="text-align: left;">A README file used to give a synopsis of the project, describe the structure of the repository and any dependencies (software, data etc.) needed to reproduce the results.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>/data</code></td>
+<td style="text-align: left;">When analytic data is stored together with the repository, it goes into the data folder. This folder should be further subdivided.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>/data/raw-data</code></td>
+<td style="text-align: left;">Raw data goes into a specific folder, it is raw and might need processing befor analysis.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>/data/derived-data</code></td>
+<td style="text-align: left;">Intermediate data processed from raw data, or data derived from analyses can be placed in a specific sub-folder. In principal, all data in the derived data folder is reproducible using scripts.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>/R</code></td>
+<td style="text-align: left;">The R folder contains all scripts used to pre-process and analyse data.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>/figures/</code></td>
+<td style="text-align: left;">It is generally tidy practice to keep figure files in a separate folder.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>/resources</code></td>
+<td style="text-align: left;">Resources are additional files needed for compiling the manuscript file.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>/resources/citations-style.csl</code></td>
+<td style="text-align: left;">A Citation Style Language (CSL) file contains the necessary information for Quarto to render a bibliography from citations entries.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>/resources/bibliography.bib</code></td>
+<td style="text-align: left;">A bibliography file contains all entries used for citation. Usually, this is a BibTex file, editable as a plain text file.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>manuscript.qmd</code></td>
+<td style="text-align: left;">The manuscript file is the source file for the manuscript output file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The data folder is subdivided into raw and derived data. The idea is to clearly separate collected data from data created as intermediate data in data cleaning or from, e.g., running statistical models. The derived data folder could, in principle, be deleted and recreated using scripts. The reason for not doing this when developing the analysis, though, is to avoid having to wait for analyses to complete.</p>
+<p>The R folder contains all scripts needed to perform the analysis (except figures, see below). R scripts are used to import and clean data, make analyses (run models, clean output), and organize results. R files can be sourced in subsequent scripts and in the manuscript file. My suggestion for a clean repository is to keep figure source files in a separate folder together with the output from these files. We submit a scientific paper, the figures are often submitted as standalone files. Having a dedicated subfolder for this work makes it easier to manage final editing. Figure source files can easily be sourced into the main manuscript file if we want to add them as part of the manuscript output.</p>
+<p>The resources folder is used to collect all files needed to build the manuscript output. This usually starts with adding a Citation Style Language (CSL) file and a file containing the bibliography in BibTex format. A CSL file relevant for the planned submission can often be found in the <a href="https://github.com/citation-style-language/styles">Citation Style Language GitHub repository</a>, which hosts &gt; 1000 different styles for specific scientific journals. A bibliography file can be built using, e.g., your own Zotero library or online tools such as <a href="https://www.doi2bib.org/">doi2bib</a>. RStudio also has integrated tools for working with citations, which can be used to update a maintained BibTeX file.</p>
+<p>The manuscript file is the source file for the manuscript output. This is where we combine the text outline of the paper with R (or other language) code to produce the manuscript. Some analyses can be incorporated into the manuscript file, but heavy computations and data pre-processing might benefit from having dedicated R scripts (placed in the R folder).</p>
 </section>
+<section id="a-workflow-for-solo-writing" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="a-workflow-for-solo-writing"><span class="header-section-number">7.2</span> A workflow for solo writing</h2>
+<p>After setting up a basic repository outline, the primary purpose of keeping a track of updates using the version control system should be to maintain a functional copy of the project. This means that changes committed to the repository history should work and, e.g., not break the rendering of output. This requires that the project be maintained by small incremental changes that are tested before being committed to the version history. An “informal” test could be to inspect the output of rendering the manuscript file. In more complex analyses, a set of tests can be incorporated into the project, ensuring that, for example, derived data are created with expected data types or dimensions, and that statistical models run correctly, etc. Such tests could be created programmatically (see below).</p>
+<p>When an update to the project is satisfactory, a commit to the version history is made. By the end of the day, a push to the remote repository makes it function as a backup. Additionally, the capabilities available at GitHub make it possible to keep notes on milestones and issues for the project.</p>
+<section id="large-revisions---branches" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="large-revisions---branches"><span class="header-section-number">7.2.1</span> Large revisions - Branches</h3>
+<p>When a writing project is due for a significant revision, maybe as a result of peer review, we might want to keep an unrevised copy of the project for reference. We can do this by using the branching functionality of git. A branch is a parallel version history branching from a specific time point in a project<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. In this context, we are using a branch to incorporate changes into the project without breaking the functionality in the main branch.</p>
+<p>To create a new branch, we would use the command line and write <code>git branch revision</code>, where <code>revision</code> is the name of the new branch. This will create a copy of the main branch and initiate a separate version history for the specific branch. We can now incrementally add changes to the new branch and still have the functioning main branch as a reference or fallback. To switch between branches in our project, we use <code>git checkout revision</code>. A clean workflow could make use of GitHub issues together with branching to systematically address reviewer comments (as suggested by e.g., <span class="citation" data-cites="vandenburg2019">Van den Burg (<a href="references.html#ref-vandenburg2019" role="doc-biblioref">2019</a>)</span>).</p>
+<p>Git is designed to make branching easy and lightweight <span class="citation" data-cites="chacon2014">(<a href="references.html#ref-chacon2014" role="doc-biblioref">Chacon 2014, 63</a>)</span>. A branch can develop into a new branch and merge again with the parent branch. This allows for experimental work on a separate branch from the revision branch, enabling safe experimentation with potentially breaking changes to the project.</p>
 </section>
-<section id="writing-solo" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="writing-solo"><span class="header-section-number">7.2</span> Writing solo</h2>
 </section>
 <section id="writing-in-a-team" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="writing-in-a-team"><span class="header-section-number">7.3</span> Writing in a team</h2>
+<p>Suppose you own a repository and want to invite collaborators to contribute to it. In that case, you need to add them to the project in GitHub. This is done under <em>Settings</em> and <em>Collaborators</em>. When working as a team, the remote repository becomes more important because it’s where you get the latest version of the project at the start of a writing day. <code>git pull</code> incorporates the latest changes into your local repository, and pushing to the remote makes sure that your changes are made available to all other team members. It may be important to check for updates regularly when working on the same branch.</p>
+<p>Using git pull regularly ensures that any merge conflicts can be resolved locally and that the fix is incorporated in your commit. A merge conflict occurs when changes are made to two versions of the same file that git cannot merge. When you encounter a merge conflict, you will need to manually fix it by choosing which version you want to keep. git flags merge conflict by a message similar to this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git merge</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">-</span>merging manuscript.qmd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">CONFLICT</span> (content)<span class="sc">:</span> Merge conflict <span class="cf">in</span> manuscript.qmd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use git status to see which file is affected by the conflict. When opening the flagged file, you will encounter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Text <span class="cf">in</span> your local version of the file</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Text <span class="cf">in</span> the remote version of the file</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> REMOTE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By removing the whole segment (starting with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>), and replacing it with a version you think should go into the file, you are resolving the conflict.</p>
+<section id="branches-and-pull-requests" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="branches-and-pull-requests"><span class="header-section-number">7.3.1</span> Branches and pull requests</h3>
+<p>Teamwork on writing could also benefit from creating pull requests from branches. A pull request is a formal request to incorporate changes made to a branch into the main (or any selected) branch. When a collaborator has been working on a large change to the project as part of a branch, its incorporation could be reviewed as part of a pull request. GitHub makes it easy to discuss pull requests.</p>
+</section>
+</section>
+<section id="doing-formal-testing" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="doing-formal-testing"><span class="header-section-number">7.4</span> Doing formal testing</h2>
+<p>When writing an R package, the use of formal tests is a way to ensure that components that are part of the package (e.g., functions and data) work the way they are intended. Formal tests can be written, for example, to check if a data set used for analysis contains all expected rows. The toy example below evaluates the data frame stored in d ’ and checks its dimensions. The “test” is silently passed if everything works, but returns an error if the test does not return all <code>TRUE</code>. This test could be incorporated as part of sanity checks in R scripts and the manuscript file, and is part of good practice when working on complex projects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">var1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">var2 =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)) </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if d is of correct dimensions</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This returns an error of not all expressions are evaluated as TRUE.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>({</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>(d)[<span class="dv">1</span>] <span class="sc">==</span> <span class="dv">3</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>(d)[<span class="dv">2</span>] <span class="sc">==</span> <span class="dv">2</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>More complicated tests can be added to the project. For this purpose, testing functions that are part of the <a href="https://testthat.r-lib.org/"><code>testthat</code> package</a> could be helpful. In the context of writing tests for a paper we could use these testing functions as part of scripts, giving us a <code>Test passed</code> when the test was executed with expected results.</p>
+</section>
+<section id="going-further---make-files" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="going-further---make-files"><span class="header-section-number">7.5</span> Going further - Make files</h2>
+<p>In the suggested workflow outlined at the beginning of this chapter, the manuscript file essentially works as a makefile. The makefile sources some R scripts to rerun analyses. However, when a data analysis grows complex, more formalism may be needed to ensure that things work out as intended. The <a href="https://books.ropensci.org/targets/"><code>targets</code> package</a> is an R package designed to create data analysis pipelines in R. The idea is that output is only generated when all components of a pipeline are up to date. <code>targets</code> supplies R-based tools to the user for the creation of data pipelines that could include data cleaning, modelling, etc.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-chacon2014" class="csl-entry" role="listitem">
+Chacon, Scott. 2014. <em>Pro <span>Git</span></em>. 2nd ed. Berkeley, CA: Apress L. P.
+</div>
+<div id="ref-vandenburg2019" class="csl-entry" role="listitem">
+Van den Burg, G. J. J. 2019. <span>“Organizing a Paper Revision with GitHub.”</span> <em>Gertjanvandenburg.com/Blog</em>. <a href="https://gertjanvandenburg.com/blog/github_paper_revision/">https://gertjanvandenburg.com/blog/github_paper_revision/</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>See <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">here</a> for a detailed overview.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

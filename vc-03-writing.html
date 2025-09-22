@@ -196,8 +196,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-quarto-publishing-system" id="toc-the-quarto-publishing-system" class="nav-link active" data-scroll-target="#the-quarto-publishing-system"><span class="header-section-number">8.1</span> The quarto publishing system</a></li>
+  <li><a href="#the-basics---what-quarto-does" id="toc-the-basics---what-quarto-does" class="nav-link" data-scroll-target="#the-basics---what-quarto-does"><span class="header-section-number">8.2</span> The basics - What Quarto does</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -221,59 +228,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!--
-
-## A workflow for a scientific paper
-A scientific paper (or a thesis) is reproducible if the data, code and documentation is available.
-
-
-### The repository 
-Organizing the repository is important for collaboration and communication
-
-#### README
-
-#### Folder structure
-
-##### `data`
-
-#### `R`
-
-#### `derived-data`
-
-#### `figures`
-
-#### `docs`
-
-#### `resources`
-
-### Structuring code in different scripts
+<section id="the-quarto-publishing-system" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="the-quarto-publishing-system"><span class="header-section-number">8.1</span> The quarto publishing system</h2>
+<p>The quarto publishing system allows you to create reports, books, presentations, websites and blogs by converting computer code (like R) and markdown syntax to different output formats. In this chapter we will touch upon some features of this system that makes it easier to work with.</p>
+</section>
+<section id="the-basics---what-quarto-does" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-basics---what-quarto-does"><span class="header-section-number">8.2</span> The basics - What Quarto does</h2>
+<p>Quarto is basically a software that converts source documents (<code>.qmd</code> files) to different output formats, like word, pdf or html <a href="#fig-quarto" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>. The conversion is made possible by <a href="https://pandoc.org/index.html">pandoc</a> which is a software that converts between different markup languages. A markup language is a system used to include structure and format in your plain text editor. We have already covered the basic for markdown (<span class="quarto-unresolved-ref">?sec-markdown</span>).</p>
+<div id="fig-quarto" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quarto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://quarto.org/docs/get-started/hello/images/rstudio-qmd-how-it-works.png" id="fig-quarto" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-quarto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1
+</figcaption>
+</figure>
+</div>
+<p>Quarto is the latest generation of software that has been created to make it easy to write technical reports combing data, code and text. Remember the discussion we had concerning reproducibility, (<span class="quarto-unresolved-ref">?sec-reproducibility</span>), quarto, and previous system, are designed for reproducible reporting.</p>
+<p>When we work in a quarto file we basically write a computer program that gives us an output file. The output file is a report we can show to others, but we can also show how the output was created by showing the <em>source files</em>.</p>
 
 
-
-
-
-
-## Authoring quarto documents
-Quarto 
-
-
-### Code chunks
-
-
-
-
-#### A style guide for scientific coding
-
-We adhere to the [tidyverse style guide](https://style.tidyverse.org/). The following is a summary of the most important points with some modifications.
-
-
-## Publishing
-
-
-
--->
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
