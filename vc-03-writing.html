@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,10 +123,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -202,12 +285,20 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#the-quarto-publishing-system" id="toc-the-quarto-publishing-system" class="nav-link active" data-scroll-target="#the-quarto-publishing-system"><span class="header-section-number">8.1</span> The quarto publishing system</a></li>
-  <li><a href="#the-basics---what-quarto-does" id="toc-the-basics---what-quarto-does" class="nav-link" data-scroll-target="#the-basics---what-quarto-does"><span class="header-section-number">8.2</span> The basics - What Quarto does</a></li>
+  <li><a href="#the-basics---what-quarto-does" id="toc-the-basics---what-quarto-does" class="nav-link" data-scroll-target="#the-basics---what-quarto-does"><span class="header-section-number">8.2</span> The basics - What Quarto does</a>
+  <ul class="collapse">
+  <li><a href="#the-yaml-field" id="toc-the-yaml-field" class="nav-link" data-scroll-target="#the-yaml-field"><span class="header-section-number">8.2.1</span> The YAML field</a></li>
+  <li><a href="#the-markdown-syntax" id="toc-the-markdown-syntax" class="nav-link" data-scroll-target="#the-markdown-syntax"><span class="header-section-number">8.2.2</span> The markdown syntax</a></li>
+  <li><a href="#additional-formatting" id="toc-additional-formatting" class="nav-link" data-scroll-target="#additional-formatting"><span class="header-section-number">8.2.3</span> Additional formatting</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">8.2.4</span> Code chunks</a></li>
+  <li><a href="#sec-cross-reference" id="toc-sec-cross-reference" class="nav-link" data-scroll-target="#sec-cross-reference"><span class="header-section-number">8.2.5</span> Cross-referencing, references and footnotes</a></li>
+  </ul></li>
+  <li><a href="#output-formats" id="toc-output-formats" class="nav-link" data-scroll-target="#output-formats"><span class="header-section-number">8.3</span> Output formats</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-version-control.html">Version control and collaborative scientific coding</a></li><li class="breadcrumb-item"><a href="./vc-03-writing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Writing a paper using Quarto</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -230,11 +321,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="the-quarto-publishing-system" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="the-quarto-publishing-system"><span class="header-section-number">8.1</span> The quarto publishing system</h2>
-<p>The quarto publishing system allows you to create reports, books, presentations, websites and blogs by converting computer code (like R) and markdown syntax to different output formats. In this chapter we will touch upon some features of this system that makes it easier to work with.</p>
+<p>The quarto publishing system allows you to create reports, books, presentations, websites, and blogs by converting computer code (like R and Python) and markdown syntax to different output formats. In this chapter, we will briefly explore some key features of this system that make it easier to work with.</p>
 </section>
-<section id="the-basics---what-quarto-does" class="level2" data-number="8.2">
+<section id="the-basics---what-quarto-does" class="level2 page-columns page-full" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="the-basics---what-quarto-does"><span class="header-section-number">8.2</span> The basics - What Quarto does</h2>
-<p>Quarto is basically a software that converts source documents (<code>.qmd</code> files) to different output formats, like word, pdf or html <a href="#fig-quarto" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>. The conversion is made possible by <a href="https://pandoc.org/index.html">pandoc</a> which is a software that converts between different markup languages. A markup language is a system used to include structure and format in your plain text editor. We have already covered the basic for markdown (<span class="quarto-unresolved-ref">?sec-markdown</span>).</p>
+<p>Quarto is a software that renders source documents (<code>.qmd</code> files) to different output formats, like DOCX, PDF, or HTML <a href="#fig-quarto" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>. The rendering is made possible by <a href="https://pandoc.org/index.html">pandoc</a>, which is a software that converts between different markup languages. A markup language is a syntax used to include structure and format in text written in a plain text editor. The additional advantage of Quarto, compared to the simple rendering of markup syntax, is that it also executes embedded code written in, for example, R, Python, or Julia. Code integration is achieved through code blocks, which makes it possible to write fully reproducible data-driven reports.</p>
 <div id="fig-quarto" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-quarto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -245,11 +336,219 @@ Figure&nbsp;8.1
 </figcaption>
 </figure>
 </div>
-<p>Quarto is the latest generation of software that has been created to make it easy to write technical reports combing data, code and text. Remember the discussion we had concerning reproducibility, (<span class="quarto-unresolved-ref">?sec-reproducibility</span>), quarto, and previous system, are designed for reproducible reporting.</p>
-<p>When we work in a quarto file we basically write a computer program that gives us an output file. The output file is a report we can show to others, but we can also show how the output was created by showing the <em>source files</em>.</p>
+<p>When working in a Quarto file, you are essentially writing a computer program that, when successfully rendered, will produce an output document based on prose, data, and code. Quarto is the latest generation of software designed to simplify writing technical reports. The idea of combining natural language and computer code (literate programming) is not new <span class="citation" data-cites="knuth84">(<a href="references.html#ref-knuth84" role="doc-biblioref">Knuth 1984</a>)</span>. Predecessors to Quarto include <a href="https://en.wikipedia.org/wiki/Sweave">Sweave</a> and R markdown (knitr) <span class="citation" data-cites="xie2019">(<a href="references.html#ref-xie2019" role="doc-biblioref">Xie, Allaire, and Grolemund 2019</a>)</span>. The strength of Quarto includes its increased reliability during rendering documents, flexibility in combining different coding languages and output formats, and simple mechanisms for creating templates and extensions.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div><div id="ref-xie2019" class="csl-entry" role="listitem">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2019. <em>R <span>Markdown</span>: The Definitive Guide</em>. Boca Raton: <span>CRC Press, Taylor and Francis Group</span>.
+</div></div><section id="the-yaml-field" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="the-yaml-field"><span class="header-section-number">8.2.1</span> The YAML field</h3>
+<p>The YAML field is the meta data field for a Quarto document. It can contain key-value information that is used in the rendering process, such as author, date, title, etc. A basic YAML field, defined using <code>---</code>, could look something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"A basic quarto report without code"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2025-09-15</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Name Nameson</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-markdown-syntax" class="level3 page-columns page-full" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="the-markdown-syntax"><span class="header-section-number">8.2.2</span> The markdown syntax</h3>
+<p>When writing prose in Quarto, we can take advantage of the simple markdown syntax for formatting. The benefits of using markdown are that simple formatting is available from the keyboard (no more hidden formats induced by WYSIWYG<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> editors), and the styling of the text is separated from the creation of the content.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;A What You See Is What You Get text editor is an editor where text is formatted as you write using a graphical user interface. Changing font styles, size, emphasis, etc, to text closely resembling the output. The danger of writing using a WYSIWYG is that formatting is implicit, and sometimes out of control!</p></div><div class="">
+
+</div></div>
+<p>The idea of using markdown is that everything is formatted in plain text. This requires a little bit of extra syntax. We can use <strong>bold</strong> or <em>italic</em>, <del>striketrough</del>, <sup>superscript</sup> and <sub>subscript</sub>. Lists are also an option as numbered:</p>
+<ol type="1">
+<li>Item one</li>
+<li>Item two</li>
+</ol>
+<p>And, as unordered</p>
+<ul>
+<li>Item x</li>
+<li>Item y
+<ul>
+<li>With sub item z</li>
+</ul></li>
+</ul>
+<p>Links can be added <a href="https://rmarkdown.rstudio.com/authoring_basics.html">like this</a>.</p>
+<p>A table can be added also, like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Item1</td>
+<td>Item 2</td>
+</tr>
+</tbody>
+</table>
+<p>The whole section above will look like this in your plain text editor:</p>
+<pre><code>
+The idea of using markdown is that everything is formatted in plain text. 
+This requires a little bit of extra syntax. We can use **bold** or *italic*, 
+~~striketrough~~, ^superscript^ and ~subscript~. Lists are also an option as numbered:
+
+1. Item one
+2. Item two
+
+And, as unordered
+
+* Item x
+* Item y
+  + With sub item z
+  
+Links can be added [like this](https://rmarkdown.rstudio.com/authoring_basics.html).
+
+A table can be added also, like this:
+
+|Column 1|Column2|
+|---| ---|
+|Item1 | Item 2|
+</code></pre>
+<p>There are many good references for markdown, the <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto guide provides a Quarto specifc version</a>.</p>
+</section>
+<section id="additional-formatting" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="additional-formatting"><span class="header-section-number">8.2.3</span> Additional formatting</h3>
+<p>In addition to plain markdown, we can also write HTML or LaTeX in quarto files.</p>
+<p>HTML is convenient when we want to add formatted text beyond the capabilities of markdown, such as <span style="color:red">color</span>. Some formatting might be considered more easily remembered such as <sub>subscript</sub> and <sup>superscript</sup>. Notice that HTML and markdown syntax can be combined:</p>
+<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text, <sup><span style="color:red">super</span><strong>script</strong></sup></span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>See here for syntax</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>HTML is convenient when we want to add formatted text </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>beyond the capabilities of markdown, such as </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>span style<span class="ot">=</span><span class="st">"color:red"</span><span class="sc">&gt;</span>color<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span>. Some formatting </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>might be considered more easily remembered such as </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>sub<span class="sc">&gt;</span>subscript<span class="sc">&lt;</span><span class="er">/</span>sub<span class="sc">&gt;</span> and <span class="sc">&lt;</span>sup<span class="sc">&gt;</span>superscript<span class="sc">&lt;</span><span class="er">/</span>sup<span class="sc">&gt;</span>. </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Notice that HTML and markdown syntax can be combined<span class="sc">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Some Markdown text with <span class="sc">&lt;</span>span style<span class="ot">=</span><span class="st">"color:blue"</span><span class="sc">&gt;</span>some <span class="sc">*</span>blue<span class="sc">*</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  text, <span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="er">&lt;</span>span style<span class="ot">=</span><span class="st">"color:red"</span><span class="sc">&gt;</span>super<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;</span><span class="er">**</span>script<span class="sc">**</span><span class="er">&lt;/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>span<span class="sc">&gt;</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>LaTeX is another plain text formatting system, or markup language, but it far more complex than markdown. Text formatting using LaTeX is probably not needed for simpler documents as markdown and HTML will be enough. The additional advantage of using LaTeX comes with equations.</p>
+<p>Equations can be written inline, such as the standard deviation <span class="math inline">\(s = \sqrt{\frac{\sum{(x_i - \bar{x})^2}}{n-1}}\)</span>. An equation can also be written on the center of the document</p>
+<p><span id="eq-force"><span class="math display">\[
+F=ma
+\tag{8.1}\]</span></span></p>
+<p>We are also able to cross-reference the equation <a href="#eq-force" class="quarto-xref">Equation&nbsp;<span>8.1</span></a> for force (<span class="math inline">\(F\)</span>).</p>
+<p>A larger collection of equations is sometimes needed to describe a statistical model, as in <a href="#eq-model" class="quarto-xref">Equation&nbsp;<span>8.2</span></a>.</p>
+<p><span id="eq-model"><span class="math display">\[
+\begin{aligned}
+\begin{split}
+\text{y}_i &amp;\sim \operatorname{Normal}(\mu_i, \sigma)
+\\
+\mu_i &amp;= \beta_0 + \beta_1 \text{x}_i,
+\end{split}
+\end{aligned}
+\tag{8.2}\]</span></span></p>
+<p>The equation above could look like this in your editor, including the tag (<code>{#eq-model}</code>) used for cross-referencing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>\text{y}_i <span class="sc">&amp;</span> \sim \operatorname{Normal}(\mu_i, \sigma) \\</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>\mu_i <span class="sc">&amp;</span> <span class="er">=</span> \beta_0 <span class="sc">+</span> \beta_1 \text{x}_i,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span> {<span class="co">#eq-model}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>See this <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">wikibook on LaTeX</a> for an overview on mathematics in LaTeX.</p>
+</section>
+<section id="code-chunks" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="code-chunks"><span class="header-section-number">8.2.4</span> Code chunks</h3>
+<p>We can add a code chunk using the following syntax:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-simple-plot</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: true</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- data.frame(a = rnorm(10, 10, 10), </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="in">                  b = runif(10, 1, 20))</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">plot(dat)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We recognize the R code inside the code chunk but we have only touched upon code chunk settings. These are settings that tells R (or quarto) how to handle output from the code chunk. <code>message: false</code> indicate that any messages from R code should not be displayed in the output document. <code>echo: true</code> indicates that the code in the code chunk should be displayed in the output document. The label is important as it enables cross-referencing the output. If your code chunk outputs a figure the prefix <code>fig-</code> must be in the label to enable cross-referencing. Likewise, if your code chunk creates an table, the prefix <code>tbl-</code> must be in the label. Possible code chunk settings also include figure and table captions.</p>
+<p>Settings can also be specified in the YAML field in quarto files. We might not want to display our code, messages or warnings in the final output. We would specify this in the YAML field as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"A basic quarto report without code"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>execute<span class="sc">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  echo<span class="sc">:</span> false</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  message<span class="sc">:</span> false</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  warning<span class="sc">:</span> false</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>See here for documentation on <a href="https://quarto.org/docs/computations/execution-options.html#output-options">execution options for code chunks in quarto</a>. See also <a href="https://r4ds.hadley.nz/quarto.html">Chapter 29 in R for data science</a>.</p>
+<section id="tables" class="level4" data-number="8.2.4.1">
+<h4 data-number="8.2.4.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">8.2.4.1</span> Tables</h4>
+<p>The number of table extensions for creating tables based on data in Quarto documents is <a href="https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html#table-other">overwhelming (see here for an overview</a>. This may be due to historical reasons, as some table packages were more or less effective at rendering to different formats (e.g., DOCX vs.&nbsp;PDF vs.&nbsp;HTML).</p>
+<p>A recently developed package is the <a href="https://gt.rstudio.com/">gt package</a>. It is capable of rendering output in all available formats without differing syntax.</p>
+</section>
+</section>
+<section id="sec-cross-reference" class="level3 page-columns page-full" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="sec-cross-reference"><span class="header-section-number">8.2.5</span> Cross-referencing, references and footnotes</h3>
+<p>We have mentioned cross-referencing above, this basically means referencing specific parts of your document in the text. A figure might be mentioned in the text, such as <a href="#fig-figure-example" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>. To insert the cross-reference in text, use the <code>@fig-label</code> syntax where <code>fig-</code> is the required prefix for figures and <code>label</code> is a user defined unique identifier. The label should be included in the code chunk under such as <code>#| label: fig-label</code>. The equivalent prefix for tables is <code>tbl-</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-figure-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-figure-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vc-03-writing_files/figure-html/fig-figure-example-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: This is an example of a Figure with a caption.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We might want to cross-reference a section in our document. This is easily done by inserting a tag at the section header such as <code>{#sec-cross-reference}</code>, this tag can be referenced in text using <code>@sec-cross-reference</code> resulting in <a href="#sec-cross-reference" class="quarto-xref"><span>Section 8.2.5</span></a>. The <code>sec-</code> part is the required prefix for a section.</p>
+<p>For additional details on cross-referencing, see the <a href="https://quarto.org/docs/authoring/cross-references.html">quarto documentation on cross-referencing</a>.</p>
+<p>Citations are mandatory in academic writing. Be sure to take advantage of the built in support for citations. When writing in quarto we can think of a reference as having three parts. The identifier, the reference and the style. We use the identifier when authoring. For example, let’s cite the R for Data Science book, we do this by using the following syntax <code>[@wickham2023]</code>. The syntax requires that we have linked a bibliography to the document. The bibliography should include the reference, with the same identifier. The bibliography is a collection of reference entries written in bibtext format (see below). It must be included in the document meta data field (YAML field).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>book{wickham2023,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  title<span class="ot">=</span>{R <span class="cf">for</span> data science},</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  author<span class="ot">=</span>{Wickham, Hadley and {\c{C}}etinkaya<span class="sc">-</span>Rundel, Mine and Grolemund, Garrett},</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  year<span class="ot">=</span>{<span class="dv">2023</span>},</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  publisher<span class="ot">=</span>{<span class="st">" O'Reilly Media, Inc."</span>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice the identifier. When adding the citation <code>[@wickham2023]</code> it will turn out to <span class="citation" data-cites="wickham2023">(<a href="references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> in the formatted text and added to the bottom of the document as a full reference. If we want another <em>citation style</em> we can specify a file responsible for citation styles. The default is the Chicago style. Specifying a citation style file in YAML will change the style, for example <code>csl: my-citation-style.csl</code> tells quarto to use the file <code>my-citation-style.csl</code> when formatting citations. This file can be edited or copied from a large collection of possible styles located in the <a href="https://github.com/citation-style-language/styles">citation style language repository</a>. The repository is hosted on GitHub and searchable, click “Go to file” and type “vancouver” to get examples of CSL files that uses a Vancouver-type citation style.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.
+</div><div id="fn2"><p><sup>2</sup>&nbsp;This is a footnote.</p></div></div><p>Footnotes can be handy when writing. In the default mode, these will be included as superscript numbers, like this<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, numbered by order of appearance.</p>
+<p>The syntax for including footnotes is straight forward. Notice that the text for the footnote is included below the paragraph using the identifier created in the text.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>See here for footnote syntax</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Footnotes can be handy when writing. In the default mode, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>these will be included as superscript numbers, like </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>this[<span class="sc">^</span>footnote], numbered by order of appearance. </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>[<span class="sc">^</span>footnote]<span class="sc">:</span> This is a footnote.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>See the quarto documentation on <a href="https://quarto.org/docs/authoring/footnotes-and-citations.html">citations and footnotes</a>.</p>
+<p>see also <a href="https://r4ds.hadley.nz/quarto.html">Chapter 29 in R for data science</a>.</p>
+</section>
+</section>
+<section id="output-formats" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="output-formats"><span class="header-section-number">8.3</span> Output formats</h2>
+<p>When starting a new writing project, a simple output format can help you avoid getting stuck in formatting issues. HTML is my preferred output format because it renders quickly, making problems apparent right away. A new, flexible output format for PDF files called <a href="https://typst.app/">Typst</a> (see <a href="https://quarto.org/docs/output-formats/typst.html">here</a> for Quarto documentation) also renders fast. This might be preferred when aiming for a standalone PDF with nice default formatting.</p>
+<p>There are several template alternatives for specific output formats designed for, e.g., different journal formats (see <a href="https://quarto.org/docs/extensions/listing-journals.html">here</a> for an overview). These can help you put together a paper for submission to your favourite journal.</p>
+<p>As mentioned above, Quarto can be used for multiple output formats. The HTML output allows for the creation of blogs and websites. Transforming, for example, a blog post into a PDF document is straightforward, as it involves only changing basic settings in the YAML field.</p>
+<p>In multi-chaper projects, meta data (YAML) is defined in a separate file named <code>_quarto.yml</code>. This file defines a quarto project and makes it easy to manage chapters and global settings for the project. See <a href="https://quarto.org/docs/books/">here</a> for an introduction to the book format, and <a href="https://quarto.org/docs/websites/">here</a> for the website format.</p>
+
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
