@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Hammarström">
-<meta name="dcterms.date" content="2025-09-05">
 
-<title>Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>9&nbsp; A basic package setup – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -32,7 +85,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-data-viz.html" rel="next">
+<link href="./wp-02-data.html" rel="next">
+<link href="./03-writing-packages.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -88,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-writing-packages.html">R packages for data management and sharing</a></li><li class="breadcrumb-item"><a href="./wp-01-setup.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A basic package setup</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -119,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -204,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wp-01-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./wp-01-setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A basic package setup</span></span></a>
   </div>
 </li>
@@ -244,35 +298,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#editing-description" id="toc-editing-description" class="nav-link active" data-scroll-target="#editing-description"><span class="header-section-number">9.1</span> Editing <code>DESCRIPTION</code></a></li>
+  <li><a href="#selecting-a-license" id="toc-selecting-a-license" class="nav-link" data-scroll-target="#selecting-a-license"><span class="header-section-number">9.2</span> Selecting a license</a></li>
+  <li><a href="#the-basics-of-an-r-package" id="toc-the-basics-of-an-r-package" class="nav-link" data-scroll-target="#the-basics-of-an-r-package"><span class="header-section-number">9.3</span> The basics of an R package</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-writing-packages.html">R packages for data management and sharing</a></li><li class="breadcrumb-item"><a href="./wp-01-setup.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A basic package setup</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Scientific Communication, Collaboration and Design in Quantitative Research Using R</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A basic package setup</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniel Hammarström </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 5, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -282,27 +326,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>We will start by initiating a package skeleton. There are several possible approaches to creating this skeleton, we will rely on a convenient package, <code>usethis</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, together with git and GitHub CLI.</p>
+<p>As we are going to create a data package, this tutorial will use <code>datatemplate</code> as the package name. To initialize this name as a package project we can use the following command in our R console:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R</strong></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These course notes are under development. They will serve as the basis of the course <a href="https://www.inn.no/english/study-options/our-studies/scientific-communication-collaboration-and-design-/"><em>Scientific Communication, Collaboration and Design in Quantitative Research Using R</em></a> given as an elective in the PhD program Health and Welfare at the <a href="https://www.inn.no">University of Inland Norway</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"C:</span><span class="sc">\01</span><span class="st">-projects\data-template"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<p>The purpose of this collection of workshops is to provide basic skills and understanding of scientific visualization, collaboration, and thinking. These concepts are often not taught explicitly in postgraduate courses. Instead, they are assumed to be known and understood or somehow magically infused in students through their respective scientific environments. Instead of relying on magic, professional skills should be taught and developed continuously, explicitly, and systematically.</p>
-<p>The first workshop deals with data visualization which is a fundamental skill for any scientist. Data visualization, like writing, serves multiple purposes in day-to-day scientific practice. Making graphs before data collection can help the researcher better formulate the scientific problem or explain core concepts for oneself, committees or funding agencies. Visualizations will also be important for exploratory data analysis, for discovering problematic data formatting or important patterns related to the scientific problem. Lastly, visualizations will aid in communicating scientific results to other researchers and the public.</p>
-<p>Two workshops are devoted to collaboration in data-intensive science. The first workshop deals with the basics of version control and the second workshop deals with structuring collected data into data packages for analysis and sharing. Version control is a way to keep track of changes in a set of files. It also provides opportunities for effective collaboration in complex projects. Using the R package system for data management and sharing is a way to ensure that data is well documented and downstream analyses are reproducible.</p>
-<p>The last workshop deals with how we can develop scientific thinking using scientific models and data simulations. We will use graphical models to draw out assumptions and explore simulations as a way to test the robustness of our models and plan experiments.</p>
+<p>The path (<code>C:\01-projects\data-template</code>), should be an empty directory on your computer. Experience suggests that it is a good idea to avoid cloud storage.</p>
+<p>As is evident from the action in the console, <code>create_package()</code> sets up a package skeleton, including a <code>DESCRIPTION</code> file containing the meta data describing the package.</p>
+<p>Next we want to initialize git, and create an online repository. We could use the terminal to first call git and initilize, followed by GitHub CLI to create a repository, using the following commands:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>bash</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p>The command <code>gh repo create</code> let’s you “Push an existing local repository to GitHub”. Since we are in the project folder we want to push we will leave the path to <code>(.)</code>, and select the appropriate owner of the project. That’s it!</p>
+<p>Alternatively, we could use <code>usethis::use_git()</code> and <code>usethis::use_github()</code> to accomplish the same result.</p>
+<section id="editing-description" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="editing-description"><span class="header-section-number">9.1</span> Editing <code>DESCRIPTION</code></h2>
+<p>The <code>DESRIPTION</code> file contains the metadata for an R package.</p>
+<p>The unedited file look likes this:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>DESCRIPTION</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Package<span class="sc">:</span> datatemplate</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Title<span class="sc">:</span> What the Package <span class="fu">Does</span> (One Line, Title Case)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Version<span class="sc">:</span> <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9000</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">person</span>(<span class="st">"First"</span>, <span class="st">"Last"</span>, , <span class="st">"first.last@example.com"</span>, <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Description<span class="sc">:</span> What the package <span class="fu">does</span> (one paragraph).</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>License<span class="sc">:</span> <span class="st">`</span><span class="at">use_mit_license()</span><span class="st">`</span>, <span class="st">`</span><span class="at">use_gpl3_license()</span><span class="st">`</span> or friends to pick a</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    license</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Encoding<span class="sc">:</span> UTF<span class="dv">-8</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Roxygen<span class="sc">:</span> <span class="fu">list</span>(<span class="at">markdown =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>RoxygenNote<span class="sc">:</span> <span class="dv">7</span>.<span class="fl">3.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p>The description file is structured with <code>name</code>-<code>value</code> pairs, separated with a colon. There are standards for writing, e.g., the title (Title Case, less than 65 characters), and Description (One paragraph, each line less than 80 characters, line intendention 4 spaces) <span class="citation" data-cites="wickham2023">(<a href="references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023, chap. 9</a>)</span>.</p>
+</section>
+<section id="selecting-a-license" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="selecting-a-license"><span class="header-section-number">9.2</span> Selecting a license</h2>
+<p>A license makes it clear to users of your package how they can use, modify or redistribute your work. For a package mainly containing data, <span class="citation" data-cites="wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-wickham2023" role="doc-biblioref">2023</a>)</span> suggest using a <a href="https://choosealicense.com/licenses/cc-by-4.0/">CCBY</a> license (Creative Commons Attribution 4.0) or <a href="https://choosealicense.com/licenses/cc0-1.0/">CC0</a> (Creative Commons Zero v1.0 Universal). The CCBY license require users to give attribution to credit the creator of the work. This license is common for open access scientific papers. The CC0 requires no credit to the author of the work. Other licenses could be more suitable for a package containing code.</p>
+<p>To select a license and update the package metadata we can use:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p>This will update the description file and add a <code>LICENSE.md</code> to the project root directory.</p>
+</section>
+<section id="the-basics-of-an-r-package" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="the-basics-of-an-r-package"><span class="header-section-number">9.3</span> The basics of an R package</h2>
+<p>In the package project repository we will now have the basic structure of a package in place (<a href="#fig-package-structure" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>). The <code>R/</code> folder is where we will keep any functions. Functions will be loaded when we install and activate the package and made available to the users of the package in their R session. The <code>NAMESPACE</code> file is automatically rendered by helper functions when we document our package, we do not need to edit it. The <code>LICENSE.md</code> file was covered above, it contains the description of the selected license. The <code>DESCRIPTION</code> file is what makes this folder to an R package, as noted above, this file contain the main metadata for describing the package. RStudio adds an <code>Rproj</code> file and folder with user- and project-specific settings. The <code>.Rbuildignore</code> file contains a list of files to be ignored when building the package, we can edit this file as we build the package to make the build process cleaner. Similarly, the <code>.gitignore</code> file determines what files are to be excluded from the version history.</p>
+<div id="fig-package-structure" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-package-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/package-template.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-package-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: The components of our package skeleton.
+</figcaption>
+</figure>
+</div>
+<p>Next, we will add data to our package.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>As suggested by <a href="https://kbroman.org/AdvData/18_rpack_demo.html">Karl Broman</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -708,10 +820,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-writing-packages.html" class="pagination-link" aria-label="R packages for data management and sharing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R packages for data management and sharing</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-data-viz.html" class="pagination-link" aria-label="Data visualization">
-        <span class="nav-page-text">Data visualization</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./wp-02-data.html" class="pagination-link" aria-label="Data">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

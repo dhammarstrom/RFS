@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Hammarström">
-<meta name="dcterms.date" content="2025-09-05">
 
-<title>Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
+<title>R packages for data management and sharing – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -32,7 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-data-viz.html" rel="next">
+<link href="./wp-01-setup.html" rel="next">
+<link href="./vc-03-writing.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -88,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-writing-packages.html">R packages for data management and sharing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -119,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -195,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-writing-packages.html" class="sidebar-item-text sidebar-link">
+            <a href="./03-writing-packages.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">R packages for data management and sharing</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -239,40 +258,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Communication, Collaboration and Design in Quantitative Research Using R</h1>
+<h1 class="title">R packages for data management and sharing</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniel Hammarström </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 5, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -282,27 +283,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>A basic principle in reproducible research is that the data and code used to generate results should be made available. Ideally, each component of a reproducible report (paper, thesis or similar) should be documented and organized to allow for independent execution of code that supports conclusions <span class="citation" data-cites="peng2011">(<a href="references.html#ref-peng2011" role="doc-biblioref">Peng 2011</a>)</span>. Publishers and journals have started to highlight reproducible scientific work, sometimes under the term open research<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Similarly, funding agencies are also taking steps to support or even demand open research practices, including reproducible research. Even though principles are well described and researchers have many incentives to publish reproducible open research, the fail to do so. Reproducible research is still not common practice. There are several reasons why this is the case, reasons such as lack of skills and knowledge on how to do it, insecurity or embarrassment in sharing behind-the-scenes work or fear of inappropriate use <span class="citation" data-cites="gomes2022">(<a href="references.html#ref-gomes2022" role="doc-biblioref">Gomes et al. 2022</a>)</span>. Such subjective concerns can be effectively addressed with a small to medium investment in time to learn skills and available solutions <span class="citation" data-cites="gomes2022">(<a href="references.html#ref-gomes2022" role="doc-biblioref">Gomes et al. 2022</a>)</span>, but also, more importantly by using reproducible practices throughout your workflow.</p>
+<div class="margin-column">
+
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These course notes are under development. They will serve as the basis of the course <a href="https://www.inn.no/english/study-options/our-studies/scientific-communication-collaboration-and-design-/"><em>Scientific Communication, Collaboration and Design in Quantitative Research Using R</em></a> given as an elective in the PhD program Health and Welfare at the <a href="https://www.inn.no">University of Inland Norway</a>.</p>
-</div>
-</div>
-<p>The purpose of this collection of workshops is to provide basic skills and understanding of scientific visualization, collaboration, and thinking. These concepts are often not taught explicitly in postgraduate courses. Instead, they are assumed to be known and understood or somehow magically infused in students through their respective scientific environments. Instead of relying on magic, professional skills should be taught and developed continuously, explicitly, and systematically.</p>
-<p>The first workshop deals with data visualization which is a fundamental skill for any scientist. Data visualization, like writing, serves multiple purposes in day-to-day scientific practice. Making graphs before data collection can help the researcher better formulate the scientific problem or explain core concepts for oneself, committees or funding agencies. Visualizations will also be important for exploratory data analysis, for discovering problematic data formatting or important patterns related to the scientific problem. Lastly, visualizations will aid in communicating scientific results to other researchers and the public.</p>
-<p>Two workshops are devoted to collaboration in data-intensive science. The first workshop deals with the basics of version control and the second workshop deals with structuring collected data into data packages for analysis and sharing. Version control is a way to keep track of changes in a set of files. It also provides opportunities for effective collaboration in complex projects. Using the R package system for data management and sharing is a way to ensure that data is well documented and downstream analyses are reproducible.</p>
-<p>The last workshop deals with how we can develop scientific thinking using scientific models and data simulations. We will use graphical models to draw out assumptions and explore simulations as a way to test the robustness of our models and plan experiments.</p>
+<p>Efficiently sharing code and data can be challenging if you do not rely on software and workflows specifically designed for this purpose. The R ecosystem has many advantages, and an obvious one in this context is the possibility to formally combine data, code, and documentation in a portable unit called a package. An R package can be shared through CRAN or code repository systems such as GitHub. Alternatively, a package may be compressed and shared as a single file in a data repository such as <a href="https://dataverse.no/">DataverseNO</a>. From a data-sharing perspective, an R package may include initial steps in data cleaning, transforming raw, unprocessed data into data suitable for statistical analyses. Such initial steps are part of the package source and may be documented as part of the package. Complex projects often involve multiple datasets that are not matched, as some variables are measured across multiple time points, while others are measured at a single time point but across several domains or items. In such cases, it is not possible to curate a single, combined tabular dataset without losing information or introducing complexity.</p>
+<p>In an R package, you can combine several types of data sets that are possible to combine using analytic code for specific purposes. Additionally, “helper functions” can be included in the package to aid users in reproducing analyses or preparing data for novel analyses.</p>
+<p>This part of the course presents package development in R as a tool for data curation and sharing, enabling reproducible data analysis.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gomes2022" class="csl-entry" role="listitem">
+Gomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, Emma J. Hudgins, Vivienne Foroughirad, Luna L. Sánchez-Reyes, Rachel Turba, et al. 2022. <span>“Why Don’t We Share Data and Code? Perceived Barriers and Benefits to Public Archiving Practices.”</span> <em>Proceedings of the Royal Society B: Biological Sciences</em> 289 (1987): 20221113. <a href="https://doi.org/10.1098/rspb.2022.1113">https://doi.org/10.1098/rspb.2022.1113</a>.
+</div>
+<div id="ref-peng2011" class="csl-entry" role="listitem">
+Peng, R. D. 2011. <span>“Reproducible Research in Computational Science.”</span> <em>Science</em> 334 (6060): 1226–27. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>.
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://authorservices.wiley.com/open-research/open-recognition-and-reward/open-research-badges.html">Wiley</a> marks publications with “open research badges” to indicate shared data, pre-registration and open material. The journal <a href="https://academic.oup.com/biostatistics/pages/About">Biostatistics</a> was an early adopter of marking papers with code, data and reproducible marks <span class="citation" data-cites="peng2011">(<a href="references.html#ref-peng2011" role="doc-biblioref">Peng 2011</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -708,10 +710,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./vc-03-writing.html" class="pagination-link" aria-label="Writing a paper using Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Writing a paper using Quarto</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-data-viz.html" class="pagination-link" aria-label="Data visualization">
-        <span class="nav-page-text">Data visualization</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./wp-01-setup.html" class="pagination-link" aria-label="A basic package setup">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A basic package setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

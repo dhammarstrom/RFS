@@ -305,11 +305,130 @@
     ]
   },
   {
+    "objectID": "03-writing-packages.html",
+    "href": "03-writing-packages.html",
+    "title": "R packages for data management and sharing",
+    "section": "",
+    "text": "A basic principle in reproducible research is that the data and code used to generate results should be made available. Ideally, each component of a reproducible report (paper, thesis or similar) should be documented and organized to allow for independent execution of code that supports conclusions (Peng 2011). Publishers and journals have started to highlight reproducible scientific work, sometimes under the term open research1. Similarly, funding agencies are also taking steps to support or even demand open research practices, including reproducible research. Even though principles are well described and researchers have many incentives to publish reproducible open research, the fail to do so. Reproducible research is still not common practice. There are several reasons why this is the case, reasons such as lack of skills and knowledge on how to do it, insecurity or embarrassment in sharing behind-the-scenes work or fear of inappropriate use (Gomes et al. 2022). Such subjective concerns can be effectively addressed with a small to medium investment in time to learn skills and available solutions (Gomes et al. 2022), but also, more importantly by using reproducible practices throughout your workflow.\nEfficiently sharing code and data can be challenging if you do not rely on software and workflows specifically designed for this purpose. The R ecosystem has many advantages, and an obvious one in this context is the possibility to formally combine data, code, and documentation in a portable unit called a package. An R package can be shared through CRAN or code repository systems such as GitHub. Alternatively, a package may be compressed and shared as a single file in a data repository such as DataverseNO. From a data-sharing perspective, an R package may include initial steps in data cleaning, transforming raw, unprocessed data into data suitable for statistical analyses. Such initial steps are part of the package source and may be documented as part of the package. Complex projects often involve multiple datasets that are not matched, as some variables are measured across multiple time points, while others are measured at a single time point but across several domains or items. In such cases, it is not possible to curate a single, combined tabular dataset without losing information or introducing complexity.\nIn an R package, you can combine several types of data sets that are possible to combine using analytic code for specific purposes. Additionally, “helper functions” can be included in the package to aid users in reproducing analyses or preparing data for novel analyses.\nThis part of the course presents package development in R as a tool for data curation and sharing, enabling reproducible data analysis.",
+    "crumbs": [
+      "R packages for data management and sharing"
+    ]
+  },
+  {
+    "objectID": "03-writing-packages.html#footnotes",
+    "href": "03-writing-packages.html#footnotes",
+    "title": "R packages for data management and sharing",
+    "section": "",
+    "text": "Wiley marks publications with “open research badges” to indicate shared data, pre-registration and open material. The journal Biostatistics was an early adopter of marking papers with code, data and reproducible marks (Peng 2011).↩︎",
+    "crumbs": [
+      "R packages for data management and sharing"
+    ]
+  },
+  {
+    "objectID": "wp-01-setup.html",
+    "href": "wp-01-setup.html",
+    "title": "9  A basic package setup",
+    "section": "",
+    "text": "9.1 Editing DESCRIPTION\nWe will start by initiating a package skeleton. There are several possible approaches to creating this skeleton, we will rely on a convenient package, usethis1, together with git and GitHub CLI.\nAs we are going to create a data package, this tutorial will use datatemplate as the package name. To initialize this name as a package project we can use the following command in our R console:\nThe path (C:\\01-projects\\data-template), should be an empty directory on your computer. Experience suggests that it is a good idea to avoid cloud storage.\nAs is evident from the action in the console, create_package() sets up a package skeleton, including a DESCRIPTION file containing the meta data describing the package.\nNext we want to initialize git, and create an online repository. We could use the terminal to first call git and initilize, followed by GitHub CLI to create a repository, using the following commands:\nThe command gh repo create let’s you “Push an existing local repository to GitHub”. Since we are in the project folder we want to push we will leave the path to (.), and select the appropriate owner of the project. That’s it!\nAlternatively, we could use usethis::use_git() and usethis::use_github() to accomplish the same result.\nThe DESRIPTION file contains the metadata for an R package.\nThe unedited file look likes this:\nDESCRIPTION\n\nPackage: datatemplate\nTitle: What the Package Does (One Line, Title Case)\nVersion: 0.0.0.9000\nAuthors@R: \n    person(\"First\", \"Last\", , \"first.last@example.com\", role = c(\"aut\", \"cre\"))\nDescription: What the package does (one paragraph).\nLicense: `use_mit_license()`, `use_gpl3_license()` or friends to pick a\n    license\nEncoding: UTF-8\nRoxygen: list(markdown = TRUE)\nRoxygenNote: 7.3.2\nThe description file is structured with name-value pairs, separated with a colon. There are standards for writing, e.g., the title (Title Case, less than 65 characters), and Description (One paragraph, each line less than 80 characters, line intendention 4 spaces) (Wickham, Çetinkaya-Rundel, and Grolemund 2023, chap. 9).",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A basic package setup</span>"
+    ]
+  },
+  {
+    "objectID": "wp-01-setup.html#selecting-a-license",
+    "href": "wp-01-setup.html#selecting-a-license",
+    "title": "9  A basic package setup",
+    "section": "9.2 Selecting a license",
+    "text": "9.2 Selecting a license\nA license makes it clear to users of your package how they can use, modify or redistribute your work. For a package mainly containing data, Wickham, Çetinkaya-Rundel, and Grolemund (2023) suggest using a CCBY license (Creative Commons Attribution 4.0) or CC0 (Creative Commons Zero v1.0 Universal). The CCBY license require users to give attribution to credit the creator of the work. This license is common for open access scientific papers. The CC0 requires no credit to the author of the work. Other licenses could be more suitable for a package containing code.\nTo select a license and update the package metadata we can use:\n\n\n\nR\n\nusethis::use_ccby_license()\n\n\nThis will update the description file and add a LICENSE.md to the project root directory.",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A basic package setup</span>"
+    ]
+  },
+  {
+    "objectID": "wp-01-setup.html#the-basics-of-an-r-package",
+    "href": "wp-01-setup.html#the-basics-of-an-r-package",
+    "title": "9  A basic package setup",
+    "section": "9.3 The basics of an R package",
+    "text": "9.3 The basics of an R package\nIn the package project repository we will now have the basic structure of a package in place (Figure 9.1). The R/ folder is where we will keep any functions. Functions will be loaded when we install and activate the package and made available to the users of the package in their R session. The NAMESPACE file is automatically rendered by helper functions when we document our package, we do not need to edit it. The LICENSE.md file was covered above, it contains the description of the selected license. The DESCRIPTION file is what makes this folder to an R package, as noted above, this file contain the main metadata for describing the package. RStudio adds an Rproj file and folder with user- and project-specific settings. The .Rbuildignore file contains a list of files to be ignored when building the package, we can edit this file as we build the package to make the build process cleaner. Similarly, the .gitignore file determines what files are to be excluded from the version history.\n\n\n\n\n\n\nFigure 9.1: The components of our package skeleton.\n\n\n\nNext, we will add data to our package.\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A basic package setup</span>"
+    ]
+  },
+  {
+    "objectID": "wp-01-setup.html#footnotes",
+    "href": "wp-01-setup.html#footnotes",
+    "title": "9  A basic package setup",
+    "section": "",
+    "text": "As suggested by Karl Broman↩︎",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A basic package setup</span>"
+    ]
+  },
+  {
+    "objectID": "wp-02-data.html",
+    "href": "wp-02-data.html",
+    "title": "10  Data",
+    "section": "",
+    "text": "10.1 Where is data stored?\nIn this tutorial, our primary purpose for creating the package is to efficiently distribute data. This is not the main purpose of most R packages. Instead, they mainly distribute R functions. Both R functions, and data can be conveniently documented in an R package making data and description of variables available for the user of the package. In this section we will add a data set to the package and document it.\nWhen we have prepared data, it will be stored as an .rda (R data) file in folder called data/. However, the data stored in data/ is the ready-for-use data, possibly created from raw data. We will keep the scripts used to generate the clean data from raw data together with the data in data-raw/. This should not be used in building the package, so we can update the Rbuildignore file:\n.Rbuildignore\n\n^datatemplate\\.Rproj$\n^\\.Rproj\\.user$\n^LICENSE\\.md$\n\ndata-raw/",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Data</span>"
+    ]
+  },
+  {
+    "objectID": "wp-02-data.html#cleaning-data-and-adding-it-to-the-package",
+    "href": "wp-02-data.html#cleaning-data-and-adding-it-to-the-package",
+    "title": "10  Data",
+    "section": "10.2 Cleaning data and adding it to the package",
+    "text": "10.2 Cleaning data and adding it to the package\nFor the purpose of this tutorial we will create a data set called mytemplatedata. An R script with the same name will be added to the data-raw/ folder containing all steps needed to clean up the data set.\nThe data in this example consists of three files of data. This is, in my experience, a common scenario. A machine has produced three similar files from three experiments. We want to combine the data from the three files into a common data set. This might be an ongoing series of experiment so we expect more data. Saving the script will make it east to update the clean data set.\n\n\n\ndata-raw/mytemplatedata.R\n\n# Purpose: import and clean data from a series of experiments.\n\n# Load packages\nlibrary(readxl)\n\n# A for loop for importing files ###########\n\n# All files from experiments\nfiles &lt;- list.files(\"data-raw/experiments/\")\n\n# A list to store data \ncombined_data &lt;- list()\n\n# For-loop\nfor(i in seq_along(files)) {\n      \n      combined_data[[i]] &lt;- read_excel(\n        paste0(\"data-raw/experiments/\", files[i]) # Read file in iteration i\n            ) |&gt;\n            dplyr::mutate(id = paste0(i, \":\", id)) # Add file info to id\n            \n}\n\n# Combine files\nmytemplatedata &lt;- dplyr::bind_rows(combined_data)\n\n\n# Save data \nusethis::use_data(mytemplatedata, overwrite = TRUE)\n\n\nThe function usethis::use_data() stores the data as an .rda file in the data/ folder. It also gives us a hint that we next need to document the data.",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Data</span>"
+    ]
+  },
+  {
+    "objectID": "wp-02-data.html#documenting-the-data",
+    "href": "wp-02-data.html#documenting-the-data",
+    "title": "10  Data",
+    "section": "10.3 Documenting the data",
+    "text": "10.3 Documenting the data\nConfusingly, data sets are documented in an R file called data.R, located in the data folder. For our data set mytemplatedata we can add the following:\n\n\n\ndata/data.R\n\n#' My Template Data for the Template Data Package\n#'\n#' Data from a series of experiements.\n#'\n#' @format ## `mytemplatedata`\n#' A data frame with 12 rows and 3 columns:\n#' \\describe{\n#'   \\item{id}{Identification of the experimental unit, experiment:unit}\n#'   \\item{group}{experimental group: a, b or c}\n#'   \\item{value}{The value from the experimental read out}\n#' }\n#'  \n\"mytemplatedata\"\n\n\nThat’s it! We have successfully included data in our package and documented it. Remember to update any documentation before",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Data</span>"
+    ]
+  },
+  {
+    "objectID": "wp-03-tests.html",
+    "href": "wp-03-tests.html",
+    "title": "11  Testing a package",
+    "section": "",
+    "text": "In package development, it is good practice to test any code to make sure it does what it suppose to. Tests are written to be automatically executed and fails when results are not what are expected. When we have data we could add tests that make sure data is in the expected format before pushing our package to users.\nThe teststhat package contains a framework for unit testing in R. The R Packages book (Wickham, Çetinkaya-Rundel, and Grolemund 2023) provides an overview over testing in package development.\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Testing a package</span>"
+    ]
+  },
+  {
+    "objectID": "wp-04-documentation.html",
+    "href": "wp-04-documentation.html",
+    "title": "12  Documentation",
+    "section": "",
+    "text": "Documenting data enables (re-)usability of the data. Making data reusable can help others understand what you have done, or use your data for other purposes. If you have complex data you might want to consider richer documentation, including package vignettes (see here(Wickham, Çetinkaya-Rundel, and Grolemund 2023)), and websites (see here and the pkgdown package).\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.",
+    "crumbs": [
+      "R packages for data management and sharing",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Documentation</span>"
+    ]
+  },
+  {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A\nQuick Introduction to Version Control with\nGit and GitHub.” Edited by Francis\nOuellette. PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChacon, Scott. 2014. Pro Git. 2nd ed. Berkeley,\nCA: Apress L. P.\n\n\nChen, Katharine Y., Maria Toro-Moreno, and Arvind Rasi Subramaniam.\n2025. “GitHub Enables Collaborative and Reproducible\nLaboratory Research.” PLOS Biology 23 (2): e3003029. https://doi.org/10.1371/journal.pbio.3003029.\n\n\nGelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. “Let’s\nPractice What We Preach.” The American Statistician 56\n(2): 121–30. https://doi.org/10.1198/000313002317572790.\n\n\nHammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,\nIvana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.\nRønnestad, and Stian Ellefsen. 2020. “Benefits of higher\nresistance-training volume are related to ribosome biogenesis.”\nThe Journal of physiology 598 (3): 543–65. https://doi.org/10.1113/JP278455.\n\n\nHo, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam\nClaridge-Chang. 2019. “Moving Beyond P Values: Data Analysis with\nEstimation Graphics.” Nature Methods 16 (7): 565–66. https://doi.org/10.1038/s41592-019-0470-3.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility\nand Increased Transparency in Science.” Source Code for\nBiology and Medicine 8 (1): 7. https://doi.org/10.1186/1751-0473-8-7.\n\n\nSpear, M. E. 1952. Charting Statistics. McGraw-Hill. https://books.google.no/books?id=1vBOAAAAMAAJ.\n\n\nTufte, Edward R. 2001. The Visual Display of Quantitative\nInformation. 2. edition. Cheshire, Conn.: Graphics Press.\n\n\nTukey, John Wilder. 1977. Exploratory Data Analysis.\nAddison-Wesley Series in Behavioral Science. Reading, Mass:\nAddison-Wesley Pub. Co.\n\n\nVan den Burg, G. J. J. 2019. “Organizing a Paper Revision with\nGitHub.” Gertjanvandenburg.com/Blog. https://gertjanvandenburg.com/blog/github_paper_revision/.\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.”\nJournal of Computational and Graphical Statistics 19 (1): 3–28.\nhttps://doi.org/10.1198/jcgs.2009.07098.\n\n\n———. 2014. “Tidy Data.” Journal of Statistical\nSoftware; Vol 1, Issue 10 (2014), September. https://www.jstatsoft.org/v059/i10\nhttp://dx.doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. Ggplot2 : Elegant Graphics for Data Analysis. 2nd\ned. Use r! Cham: Springer International Publishing : Imprint: Springer.\nhttps://doi.org/10.1007/978-3-319-24277-4.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science: Import, Tidy, Transform, Visualize, and Model\nData. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer.\n\n\nXie, Yihui, J. J. Allaire, and Garrett Grolemund. 2019. R\nMarkdown: The Definitive Guide. Boca Raton: CRC\nPress, Taylor and Francis Group.",
+    "text": "Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A\nQuick Introduction to Version Control with\nGit and GitHub.” Edited by Francis\nOuellette. PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChacon, Scott. 2014. Pro Git. 2nd ed. Berkeley,\nCA: Apress L. P.\n\n\nChen, Katharine Y., Maria Toro-Moreno, and Arvind Rasi Subramaniam.\n2025. “GitHub Enables Collaborative and Reproducible\nLaboratory Research.” PLOS Biology 23 (2): e3003029. https://doi.org/10.1371/journal.pbio.3003029.\n\n\nGelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. “Let’s\nPractice What We Preach.” The American Statistician 56\n(2): 121–30. https://doi.org/10.1198/000313002317572790.\n\n\nGomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, Emma J.\nHudgins, Vivienne Foroughirad, Luna L. Sánchez-Reyes, Rachel Turba, et\nal. 2022. “Why Don’t We Share Data and Code? Perceived Barriers\nand Benefits to Public Archiving Practices.” Proceedings of\nthe Royal Society B: Biological Sciences 289 (1987): 20221113. https://doi.org/10.1098/rspb.2022.1113.\n\n\nHammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,\nIvana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.\nRønnestad, and Stian Ellefsen. 2020. “Benefits of higher\nresistance-training volume are related to ribosome biogenesis.”\nThe Journal of physiology 598 (3): 543–65. https://doi.org/10.1113/JP278455.\n\n\nHo, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam\nClaridge-Chang. 2019. “Moving Beyond P Values: Data Analysis with\nEstimation Graphics.” Nature Methods 16 (7): 565–66. https://doi.org/10.1038/s41592-019-0470-3.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nPeng, R. D. 2011. “Reproducible Research in Computational\nScience.” Science 334 (6060): 1226–27. https://doi.org/10.1126/science.1213847.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility\nand Increased Transparency in Science.” Source Code for\nBiology and Medicine 8 (1): 7. https://doi.org/10.1186/1751-0473-8-7.\n\n\nSpear, M. E. 1952. Charting Statistics. McGraw-Hill. https://books.google.no/books?id=1vBOAAAAMAAJ.\n\n\nTufte, Edward R. 2001. The Visual Display of Quantitative\nInformation. 2. edition. Cheshire, Conn.: Graphics Press.\n\n\nTukey, John Wilder. 1977. Exploratory Data Analysis.\nAddison-Wesley Series in Behavioral Science. Reading, Mass:\nAddison-Wesley Pub. Co.\n\n\nVan den Burg, G. J. J. 2019. “Organizing a Paper Revision with\nGitHub.” Gertjanvandenburg.com/Blog. https://gertjanvandenburg.com/blog/github_paper_revision/.\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.”\nJournal of Computational and Graphical Statistics 19 (1): 3–28.\nhttps://doi.org/10.1198/jcgs.2009.07098.\n\n\n———. 2014. “Tidy Data.” Journal of Statistical\nSoftware; Vol 1, Issue 10 (2014), September. https://www.jstatsoft.org/v059/i10\nhttp://dx.doi.org/10.18637/jss.v059.i10.\n\n\n———. 2016. Ggplot2 : Elegant Graphics for Data Analysis. 2nd\ned. Use r! Cham: Springer International Publishing : Imprint: Springer.\nhttps://doi.org/10.1007/978-3-319-24277-4.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science: Import, Tidy, Transform, Visualize, and Model\nData. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nWilkinson, Leland, and Graham Wills. 2005. The Grammar of\nGraphics. 2nd ed. Statistics and Computing. New York: Springer.\n\n\nXie, Yihui, J. J. Allaire, and Garrett Grolemund. 2019. R\nMarkdown: The Definitive Guide. Boca Raton: CRC\nPress, Taylor and Francis Group.",
     "crumbs": [
       "References"
     ]
