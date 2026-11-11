@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>1&nbsp; A grammar of graphics – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -59,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,19 +94,19 @@ div.csl-indent {
 <link href="./01-data-viz.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-62bd0246437ae56647c7d14e216fe155.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-814039ad842dfff7883839873f78e99b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-62bd0246437ae56647c7d14e216fe155.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-47407c29e8f0cbb45854e90f85b31c93.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-29bebc711971320925fa0dba636024dd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-47407c29e8f0cbb45854e90f85b31c93.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -133,17 +138,17 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-01-basic-ggplot.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-01-basic-ggplot.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -154,11 +159,11 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./brand/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./brand/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./brand/brand/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./brand/brand/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Scientific Communication, Collaboration and Design in Quantitative Research Using R</a> 
@@ -180,12 +185,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Data visualization</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section: Data visualization">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./viz-01-basic-ggplot.html" class="sidebar-item-text sidebar-link active">
@@ -221,12 +226,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./02-version-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Version control and collaborative scientific coding</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Version control and collaborative scientific coding</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section: Version control and collaborative scientific coding">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vc-01-git-github.html" class="sidebar-item-text sidebar-link">
@@ -250,12 +255,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./03-writing-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R packages for data management and sharing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">R packages for data management and sharing</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section: R packages for data management and sharing">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wp-01-setup.html" class="sidebar-item-text sidebar-link">
@@ -282,6 +287,41 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-models-and-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Scientific models and data simulations</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section: Scientific models and data simulations">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-01-dag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Directed acyclic graphs and mathematical notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-02-latex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Describing mathematical models: notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-03-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simulations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-04-ai-in-sci.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">AI in a scientific workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -294,7 +334,7 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -303,9 +343,9 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-01-basic-ggplot.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-data-viz.html">Data visualization</a></li><li class="breadcrumb-item"><a href="./viz-01-basic-ggplot.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A grammar of graphics</span></h1>
 </div>
@@ -352,23 +392,23 @@ Table&nbsp;1.1: Example data for a ggplot
 </figcaption>
 <div aria-describedby="tbl-ggplotdataexample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="yfxsgrqptc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yfxsgrqptc table {
+<div id="isomhurhsj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#isomhurhsj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yfxsgrqptc thead, #yfxsgrqptc tbody, #yfxsgrqptc tfoot, #yfxsgrqptc tr, #yfxsgrqptc td, #yfxsgrqptc th {
+#isomhurhsj thead, #isomhurhsj tbody, #isomhurhsj tfoot, #isomhurhsj tr, #isomhurhsj td, #isomhurhsj th {
   border-style: none;
 }
 
-#yfxsgrqptc p {
+#isomhurhsj p {
   margin: 0;
   padding: 0;
 }
 
-#yfxsgrqptc .gt_table {
+#isomhurhsj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -394,12 +434,12 @@ Table&nbsp;1.1: Example data for a ggplot
   border-left-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_caption {
+#isomhurhsj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yfxsgrqptc .gt_title {
+#isomhurhsj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -411,7 +451,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-bottom-width: 0;
 }
 
-#yfxsgrqptc .gt_subtitle {
+#isomhurhsj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -423,7 +463,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-top-width: 0;
 }
 
-#yfxsgrqptc .gt_heading {
+#isomhurhsj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -435,13 +475,13 @@ Table&nbsp;1.1: Example data for a ggplot
   border-right-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_bottom_border {
+#isomhurhsj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_col_headings {
+#isomhurhsj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -456,7 +496,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-right-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_col_heading {
+#isomhurhsj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -476,7 +516,7 @@ Table&nbsp;1.1: Example data for a ggplot
   overflow-x: hidden;
 }
 
-#yfxsgrqptc .gt_column_spanner_outer {
+#isomhurhsj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -488,15 +528,15 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 4px;
 }
 
-#yfxsgrqptc .gt_column_spanner_outer:first-child {
+#isomhurhsj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yfxsgrqptc .gt_column_spanner_outer:last-child {
+#isomhurhsj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yfxsgrqptc .gt_column_spanner {
+#isomhurhsj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -508,11 +548,11 @@ Table&nbsp;1.1: Example data for a ggplot
   width: 100%;
 }
 
-#yfxsgrqptc .gt_spanner_row {
+#isomhurhsj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yfxsgrqptc .gt_group_heading {
+#isomhurhsj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -538,7 +578,7 @@ Table&nbsp;1.1: Example data for a ggplot
   text-align: left;
 }
 
-#yfxsgrqptc .gt_empty_group_heading {
+#isomhurhsj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -553,15 +593,15 @@ Table&nbsp;1.1: Example data for a ggplot
   vertical-align: middle;
 }
 
-#yfxsgrqptc .gt_from_md > :first-child {
+#isomhurhsj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yfxsgrqptc .gt_from_md > :last-child {
+#isomhurhsj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yfxsgrqptc .gt_row {
+#isomhurhsj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -580,7 +620,7 @@ Table&nbsp;1.1: Example data for a ggplot
   overflow-x: hidden;
 }
 
-#yfxsgrqptc .gt_stub {
+#isomhurhsj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -593,7 +633,7 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 5px;
 }
 
-#yfxsgrqptc .gt_stub_row_group {
+#isomhurhsj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -607,15 +647,15 @@ Table&nbsp;1.1: Example data for a ggplot
   vertical-align: top;
 }
 
-#yfxsgrqptc .gt_row_group_first td {
+#isomhurhsj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yfxsgrqptc .gt_row_group_first th {
+#isomhurhsj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yfxsgrqptc .gt_summary_row {
+#isomhurhsj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -625,16 +665,16 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 5px;
 }
 
-#yfxsgrqptc .gt_first_summary_row {
+#isomhurhsj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_first_summary_row.thick {
+#isomhurhsj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yfxsgrqptc .gt_last_summary_row {
+#isomhurhsj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -644,7 +684,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-bottom-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_grand_summary_row {
+#isomhurhsj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -654,7 +694,7 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 5px;
 }
 
-#yfxsgrqptc .gt_first_grand_summary_row {
+#isomhurhsj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -664,7 +704,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-top-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_last_grand_summary_row_top {
+#isomhurhsj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -674,11 +714,11 @@ Table&nbsp;1.1: Example data for a ggplot
   border-bottom-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_striped {
+#isomhurhsj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yfxsgrqptc .gt_table_body {
+#isomhurhsj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -687,7 +727,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-bottom-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_footnotes {
+#isomhurhsj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -701,7 +741,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-right-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_footnote {
+#isomhurhsj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -710,7 +750,7 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 5px;
 }
 
-#yfxsgrqptc .gt_sourcenotes {
+#isomhurhsj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -724,7 +764,7 @@ Table&nbsp;1.1: Example data for a ggplot
   border-right-color: #D3D3D3;
 }
 
-#yfxsgrqptc .gt_sourcenote {
+#isomhurhsj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -732,77 +772,77 @@ Table&nbsp;1.1: Example data for a ggplot
   padding-right: 5px;
 }
 
-#yfxsgrqptc .gt_left {
+#isomhurhsj .gt_left {
   text-align: left;
 }
 
-#yfxsgrqptc .gt_center {
+#isomhurhsj .gt_center {
   text-align: center;
 }
 
-#yfxsgrqptc .gt_right {
+#isomhurhsj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yfxsgrqptc .gt_font_normal {
+#isomhurhsj .gt_font_normal {
   font-weight: normal;
 }
 
-#yfxsgrqptc .gt_font_bold {
+#isomhurhsj .gt_font_bold {
   font-weight: bold;
 }
 
-#yfxsgrqptc .gt_font_italic {
+#isomhurhsj .gt_font_italic {
   font-style: italic;
 }
 
-#yfxsgrqptc .gt_super {
+#isomhurhsj .gt_super {
   font-size: 65%;
 }
 
-#yfxsgrqptc .gt_footnote_marks {
+#isomhurhsj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yfxsgrqptc .gt_asterisk {
+#isomhurhsj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yfxsgrqptc .gt_indent_1 {
+#isomhurhsj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yfxsgrqptc .gt_indent_2 {
+#isomhurhsj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yfxsgrqptc .gt_indent_3 {
+#isomhurhsj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yfxsgrqptc .gt_indent_4 {
+#isomhurhsj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yfxsgrqptc .gt_indent_5 {
+#isomhurhsj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yfxsgrqptc .katex-display {
+#isomhurhsj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yfxsgrqptc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#isomhurhsj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="x" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">x</th>
@@ -905,15 +945,15 @@ Figure&nbsp;1.2: Three components, geometric objects (a), coordinates and scales
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-wickham2010" class="csl-entry" role="listitem">
 Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span> <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28. <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
 </div>
 <div id="ref-wickham2016" class="csl-entry" role="listitem">
-———. 2016. <em>Ggplot2 : Elegant Graphics for Data Analysis</em>. 2nd ed. Use r! Cham: Springer International Publishing : Imprint: Springer. <a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
+Wickham, Hadley. 2016. <em>Ggplot2 : Elegant Graphics for Data Analysis</em>. 2nd ed. Use r! Springer International Publishing : Imprint: Springer. <a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
 </div>
 <div id="ref-wilkinson2005" class="csl-entry" role="listitem">
-Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer.
+Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd ed. Statistics and Computing. Springer.
 </div>
 </div>
 </section>
@@ -997,7 +1037,8 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1006,8 +1047,69 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1021,6 +1123,7 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1183,44 +1286,54 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1319,7 +1432,10 @@ Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of Graphics</em>. 2nd
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
       <a href="./01-data-viz.html" class="pagination-link" aria-label="Data visualization">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data visualization</span>

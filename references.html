@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>References – Scientific Communication, Collaboration and Design in Quantitative Research Using R</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -49,22 +55,22 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./wp-04-documentation.html" rel="prev">
+<link href="./ms-04-ai-in-sci.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-62bd0246437ae56647c7d14e216fe155.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-814039ad842dfff7883839873f78e99b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-62bd0246437ae56647c7d14e216fe155.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-47407c29e8f0cbb45854e90f85b31c93.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-29bebc711971320925fa0dba636024dd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-47407c29e8f0cbb45854e90f85b31c93.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-e53c2f1c45b0e0374819f648568a8129.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c0bc4e320b1c36870b427064a3eef66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -96,17 +102,17 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -117,11 +123,11 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./brand/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./brand/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./brand/brand/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./brand/brand/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Scientific Communication, Collaboration and Design in Quantitative Research Using R</a> 
@@ -143,12 +149,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./01-data-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Data visualization</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section: Data visualization">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./viz-01-basic-ggplot.html" class="sidebar-item-text sidebar-link">
@@ -184,12 +190,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./02-version-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Version control and collaborative scientific coding</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Version control and collaborative scientific coding</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section: Version control and collaborative scientific coding">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vc-01-git-github.html" class="sidebar-item-text sidebar-link">
@@ -213,12 +219,12 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./03-writing-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R packages for data management and sharing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">R packages for data management and sharing</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section: R packages for data management and sharing">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wp-01-setup.html" class="sidebar-item-text sidebar-link">
@@ -245,6 +251,41 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04-models-and-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Scientific models and data simulations</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section: Scientific models and data simulations">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-01-dag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Directed acyclic graphs and mathematical notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-02-latex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Describing mathematical models: notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-03-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simulations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ms-04-ai-in-sci.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">AI in a scientific workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link active">
@@ -260,7 +301,7 @@ div.csl-indent {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -281,49 +322,89 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bastani2025" class="csl-entry" role="listitem">
+Bastani, Hamsa, Osbert Bastani, Alp Sungu, Haosen Ge, Özge Kabakcı, and
+Rei Mariman. 2025. <span>“Generative <span>AI</span> Without Guardrails
+Can Harm Learning: <span>Evidence</span> from High School
+Mathematics.”</span> <em>Proceedings of the National Academy of
+Sciences</em> 122 (26): e2422633122. <a href="https://doi.org/10.1073/pnas.2422633122">https://doi.org/10.1073/pnas.2422633122</a>.
+</div>
 <div id="ref-blischak2016" class="csl-entry" role="listitem">
 Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. <span>“A
 <span>Quick Introduction</span> to <span>Version Control</span> with
-<span>Git</span> and <span>GitHub</span>.”</span> Edited by Francis
-Ouellette. <em>PLOS Computational Biology</em> 12 (1): e1004668. <a href="https://doi.org/10.1371/journal.pcbi.1004668">https://doi.org/10.1371/journal.pcbi.1004668</a>.
+<span>Git</span> and <span>GitHub</span>.”</span> <em>PLOS Computational
+Biology</em> 12 (1): e1004668. <a href="https://doi.org/10.1371/journal.pcbi.1004668">https://doi.org/10.1371/journal.pcbi.1004668</a>.
 </div>
 <div id="ref-chacon2014" class="csl-entry" role="listitem">
-Chacon, Scott. 2014. <em>Pro <span>Git</span></em>. 2nd ed. Berkeley,
-CA: Apress L. P.
+Chacon, Scott. 2014. <em>Pro <span>Git</span></em>. 2nd ed. Apress L. P.
 </div>
 <div id="ref-chen2025a" class="csl-entry" role="listitem">
 Chen, Katharine Y., Maria Toro-Moreno, and Arvind Rasi Subramaniam.
 2025. <span>“<span>GitHub</span> Enables Collaborative and Reproducible
 Laboratory Research.”</span> <em>PLOS Biology</em> 23 (2): e3003029. <a href="https://doi.org/10.1371/journal.pbio.3003029">https://doi.org/10.1371/journal.pbio.3003029</a>.
 </div>
+<div id="ref-ellner2006" class="csl-entry" role="listitem">
+Ellner, Stephen P., and John Guckenheimer. 2006. <em>Dynamic Models in
+Biology</em>. Princeton University Press.
+</div>
 <div id="ref-gelman2002" class="csl-entry" role="listitem">
 Gelman, Andrew, Cristian Pasarica, and Rahul Dodhia. 2002. <span>“Let’s
 Practice What We Preach.”</span> <em>The American Statistician</em> 56
 (2): 121–30. <a href="https://doi.org/10.1198/000313002317572790">https://doi.org/10.1198/000313002317572790</a>.
 </div>
+<div id="ref-ghareeb2026" class="csl-entry" role="listitem">
+Ghareeb, Ali E., Benjamin Chang, Ludovico Mitchener, et al. 2026.
+<span>“A Multi-Agent System for Automating Scientific Discovery.”</span>
+<em>Nature</em> 655 (8122): 497–505. <a href="https://doi.org/10.1038/s41586-026-10652-y">https://doi.org/10.1038/s41586-026-10652-y</a>.
+</div>
 <div id="ref-gomes2022" class="csl-entry" role="listitem">
-Gomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, Emma J.
-Hudgins, Vivienne Foroughirad, Luna L. Sánchez-Reyes, Rachel Turba, et
-al. 2022. <span>“Why Don’t We Share Data and Code? Perceived Barriers
-and Benefits to Public Archiving Practices.”</span> <em>Proceedings of
-the Royal Society B: Biological Sciences</em> 289 (1987): 20221113. <a href="https://doi.org/10.1098/rspb.2022.1113">https://doi.org/10.1098/rspb.2022.1113</a>.
+Gomes, Dylan G. E., Patrice Pottier, Robert Crystal-Ornelas, et al.
+2022. <span>“Why Don’t We Share Data and Code? Perceived Barriers and
+Benefits to Public Archiving Practices.”</span> <em>Proceedings of the
+Royal Society B: Biological Sciences</em> 289 (1987): 20221113. <a href="https://doi.org/10.1098/rspb.2022.1113">https://doi.org/10.1098/rspb.2022.1113</a>.
+</div>
+<div id="ref-gottweis2026" class="csl-entry" role="listitem">
+Gottweis, Juraj, Wei-Hung Weng, Alexander Daryin, et al. 2026.
+<span>“Accelerating Scientific Discovery with
+<span>Co-Scientist</span>.”</span> <em>Nature</em> 655 (8122): 487–96.
+<a href="https://doi.org/10.1038/s41586-026-10644-y">https://doi.org/10.1038/s41586-026-10644-y</a>.
 </div>
 <div id="ref-hammarstrom2020" class="csl-entry" role="listitem">
-Hammarström, Daniel, Sjur Øfsteng, Lise Koll, Marita Hanestadhaugen,
-Ivana Hollan, William Apró, Jon Elling Whist, Eva Blomstrand, Bent R.
-Rønnestad, and Stian Ellefsen. 2020. <span>“Benefits of higher
-resistance-training volume are related to ribosome biogenesis.”</span>
-<em>The Journal of physiology</em> 598 (3): 543–65. <a href="https://doi.org/10.1113/JP278455">https://doi.org/10.1113/JP278455</a>.
+Hammarström, Daniel, Sjur Øfsteng, Lise Koll, et al. 2020.
+<span>“Benefits of higher resistance-training volume are related to
+ribosome biogenesis.”</span> <em>The Journal of physiology</em> 598 (3):
+543–65. <a href="https://doi.org/10.1113/JP278455">https://doi.org/10.1113/JP278455</a>.
 </div>
 <div id="ref-ho2019" class="csl-entry" role="listitem">
 Ho, Joses, Tayfun Tumkaya, Sameer Aryal, Hyungwon Choi, and Adam
-Claridge-Chang. 2019. <span>“Moving Beyond P Values: Data Analysis with
+Claridge-Chang. 2019. <span>“Moving Beyond p Values: Data Analysis with
 Estimation Graphics.”</span> <em>Nature Methods</em> 16 (7): 565–66. <a href="https://doi.org/10.1038/s41592-019-0470-3">https://doi.org/10.1038/s41592-019-0470-3</a>.
 </div>
 <div id="ref-knuth84" class="csl-entry" role="listitem">
 Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput.
-J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+J.</em> (USA) 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-liu2026" class="csl-entry" role="listitem">
+Liu, Grace, Brian Christian, Tsvetomira Dumbalska, Michiel A. Bakker,
+and Rachit Dubey. 2026. <span>“<span>AI Assistance Reduces
+Persistence</span> and <span>Hurts Independent
+Performance</span>.”</span> Version 6. Pre-published October 15. <a href="https://doi.org/10.48550/ARXIV.2604.04721">https://doi.org/10.48550/ARXIV.2604.04721</a>.
+</div>
+<div id="ref-mcelreath2020" class="csl-entry" role="listitem">
+McElreath, Richard. 2020. <em>Statistical Rethinking: A
+<span>Bayesian</span> Course with Examples in <span>R</span> and
+<span>Stan</span></em>. Second edition. Chapman &amp;
+<span>Hall</span>/<span>CRC</span> Texts in Statistical Science Series.
+CRC Press.
+</div>
+<div id="ref-newport2016" class="csl-entry" role="listitem">
+Newport, Cal. 2016. <em>Deep Work</em>. Piatkus.
+</div>
+<div id="ref-pearl2010" class="csl-entry" role="listitem">
+Pearl, Judea. 2010. <span>“An <span>Introduction</span> to <span>Causal
+Inference</span>.”</span> <em>The International Journal of
+Biostatistics</em> 6 (2). <a href="https://doi.org/10.2202/1557-4679.1203">https://doi.org/10.2202/1557-4679.1203</a>.
 </div>
 <div id="ref-peng2011" class="csl-entry" role="listitem">
 Peng, R. D. 2011. <span>“Reproducible Research in Computational
@@ -337,14 +418,25 @@ Biology and Medicine</em> 8 (1): 7. <a href="https://doi.org/10.1186/1751-0473-8
 <div id="ref-spear1952" class="csl-entry" role="listitem">
 Spear, M. E. 1952. <em>Charting Statistics</em>. McGraw-Hill. <a href="https://books.google.no/books?id=1vBOAAAAMAAJ">https://books.google.no/books?id=1vBOAAAAMAAJ</a>.
 </div>
+<div id="ref-stromberg2026" class="csl-entry" role="listitem">
+Strömberg, David, Victor Lei, and Yanhui Wu. 2026. <em>The
+<span>Generative AI Learning Penalty</span>: <span>Evidence</span> from
+<span>Chinese Secondary Education</span></em>. CEPR Press. <a href="https://cepr.org/publications/dp21577">https://cepr.org/publications/dp21577</a>.
+</div>
+<div id="ref-tennant2021" class="csl-entry" role="listitem">
+Tennant, Peter W G, Eleanor J Murray, Kellyn F Arnold, et al. 2021.
+<span>“Use of Directed Acyclic Graphs (<span>DAGs</span>) to Identify
+Confounders in Applied Health Research: Review and
+Recommendations.”</span> <em>International Journal of Epidemiology</em>
+50 (2): 620–32. <a href="https://doi.org/10.1093/ije/dyaa213">https://doi.org/10.1093/ije/dyaa213</a>.
+</div>
 <div id="ref-tufte2001" class="csl-entry" role="listitem">
 Tufte, Edward R. 2001. <em>The Visual Display of Quantitative
-Information</em>. 2. edition. Cheshire, Conn.: Graphics Press.
+Information</em>. 2. edition. Graphics Press.
 </div>
 <div id="ref-tukey1977" class="csl-entry" role="listitem">
 Tukey, John Wilder. 1977. <em>Exploratory Data Analysis</em>.
-Addison-Wesley Series in Behavioral Science. Reading, Mass:
-Addison-Wesley Pub. Co.
+Addison-Wesley Series in Behavioral Science. Addison-Wesley Pub. Co.
 </div>
 <div id="ref-vandenburg2019" class="csl-entry" role="listitem">
 Van den Burg, G. J. J. 2019. <span>“Organizing a Paper Revision with
@@ -356,28 +448,28 @@ Wickham, Hadley. 2010. <span>“A Layered Grammar of Graphics.”</span>
 <a href="https://doi.org/10.1198/jcgs.2009.07098">https://doi.org/10.1198/jcgs.2009.07098</a>.
 </div>
 <div id="ref-wickham2014" class="csl-entry" role="listitem">
-———. 2014. <span>“Tidy Data.”</span> <em>Journal of Statistical
-Software; Vol 1, Issue 10 (2014)</em>, September. <a href="https://www.jstatsoft.org/v059/i10 http://dx.doi.org/10.18637/jss.v059.i10">https://www.jstatsoft.org/v059/i10
+Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Journal of
+Statistical Software; Vol 1, Issue 10 (2014)</em>, September. <a href="https://www.jstatsoft.org/v059/i10 http://dx.doi.org/10.18637/jss.v059.i10">https://www.jstatsoft.org/v059/i10
 http://dx.doi.org/10.18637/jss.v059.i10</a>.
 </div>
 <div id="ref-wickham2016" class="csl-entry" role="listitem">
-———. 2016. <em>Ggplot2 : Elegant Graphics for Data Analysis</em>. 2nd
-ed. Use r! Cham: Springer International Publishing : Imprint: Springer.
-<a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
+Wickham, Hadley. 2016. <em>Ggplot2 : Elegant Graphics for Data
+Analysis</em>. 2nd ed. Use r! Springer International Publishing :
+Imprint: Springer. <a href="https://doi.org/10.1007/978-3-319-24277-4">https://doi.org/10.1007/978-3-319-24277-4</a>.
 </div>
 <div id="ref-wickham2023" class="csl-entry" role="listitem">
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.
 <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model
-Data</em>. 2nd edition. Sebastopol, CA: O’Reilly Media, Inc.
+Data</em>. 2nd edition. O’Reilly Media, Inc.
 </div>
 <div id="ref-wilkinson2005" class="csl-entry" role="listitem">
 Wilkinson, Leland, and Graham Wills. 2005. <em>The Grammar of
-Graphics</em>. 2nd ed. Statistics and Computing. New York: Springer.
+Graphics</em>. 2nd ed. Statistics and Computing. Springer.
 </div>
 <div id="ref-xie2019" class="csl-entry" role="listitem">
 Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2019. <em>R
-<span>Markdown</span>: The Definitive Guide</em>. Boca Raton: <span>CRC
-Press, Taylor and Francis Group</span>.
+<span>Markdown</span>: The Definitive Guide</em>. <span>CRC Press,
+Taylor and Francis Group</span>.
 </div>
 </div>
 
@@ -462,7 +554,8 @@ Press, Taylor and Francis Group</span>.
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -471,8 +564,69 @@ Press, Taylor and Francis Group</span>.
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -486,6 +640,7 @@ Press, Taylor and Francis Group</span>.
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -648,44 +803,54 @@ Press, Taylor and Francis Group</span>.
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -784,10 +949,13 @@ Press, Taylor and Francis Group</span>.
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
-      <a href="./wp-04-documentation.html" class="pagination-link" aria-label="Documentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Documentation</span></span>
+      <a href="./ms-04-ai-in-sci.html" class="pagination-link" aria-label="AI in a scientific workflow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">AI in a scientific workflow</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
